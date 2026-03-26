@@ -1,0 +1,625 @@
+Intro: Claude Changes Content Creation
+Claude just changed content creation
+forever. You can now create and edit
+videos completely for free using Claude
+Code. You can insert your product
+photos, insert your B-roll, fetch web
+screenshots to insert in your videos.
+You can even edit existing videos, apply
+captions, apply titles, and apply
+background music entirely within a
+single Claude Code session. And then
+post everything to social media. Claude
+has changed content creation forever.
+And in this video, I'm going to walk you
+through it step by step. By the way, my
+name is Sabrina Romanov. I previously
+built and sold an AI company for
+millions of dollars. And now I teach
+millions of people AI for free. So, hit
+like, hit subscribe, hit the bell so you
+don't miss my tutorials.
+Example Video & Opening Claude Code
+I'm going to show you exactly how to
+make videos like this. For example, this
+is a motion graphics video that uses
+Claude for free to make this. It grabbed
+web screenshots related to the topic. In
+this case, this is a video about
+Claude's skills, and it grabbed those
+skills automatically. and then it posted
+this video to my Instagram, my Tik Tok,
+and my other social media platforms, all
+without leaving the Claude Code
+terminal. So, the first thing you're
+going to do is open up Claude Code. It
+doesn't matter how you use it, whether
+it's a terminal, whether it's within
+anti-gravity, whether it's within Visual
+Studio Code. Just go ahead and open it
+up. Here you're seeing two PES. On the
+right side will be my cloud code
+session. On the left side, I'm just
+showing what skills I currently have
+available related to content creation.
+Installing the Remotion Skill
+And the first thing we're going to do is
+fetch this skill called remotion, which
+is what's going to enable us to create
+those kinds of videos. And we'll just
+type something simple like install the
+pre-built skill reotion and set it up.
+Go ahead and press enter. And you can
+see Claude's thought process. So it's
+using web search to find this reotion
+skill and it found it. So now it's
+fetching it. So reotion.dev found the
+GitHub repo, etc. By the way, if you're
+technical and you just want the oneline
+shortcut how to do it, you can just run
+this npx skills add reotion-dev/sklls.
+And this is really handy. This is just
+the documentation for remotion. So, this
+is handy to browse, especially if you're
+technical. For everyone else who's not
+technical, that's why I had just a
+really non-technical way to do this,
+which is just install the pre-built
+skill. And your directory on the left
+hand side should update and show the
+skill. So, now we see the remotion skill
+within my project. You can go ahead and
+click that to open it and see what's
+inside it. And now that we've set up a
+new skill, go ahead and refresh your
+cloud code so that you can see it when
+you type /reotion.
+Just like with any other cloud skills,
+you don't have to explicitly type it to
+trigger it. If you just mention reotion
+or you talk about creating a video,
+cloud code should be intelligent enough
+to realize it should use the reotion
+Prompting Your First Video
+skill. Okay. And now let's work on
+creating our first video. So type a
+prompt similar to this. Use Remotion to
+create a 916 vertical 15-second video on
+this topic and fill in the topic
+whatever you want. For example, let's
+create a video about free GitHub repos
+containing Cloud Code skills. The first
+5 seconds should have a viral hook. Use
+cool motion graphics. Use cool animated
+text. And use short form video safe
+zones. If you don't know what that is,
+it just means when you use Tik Tok or
+YouTube or Instagram, you don't want
+your text to be too high up because
+it'll interfere with the search bar. You
+also don't want your text too far down
+or too far to the side because it might
+overlap with buttons. So go ahead and
+tweak this prompt to your use case and
+start it. It should look something like
+this. So when you invoke the Remotion
+skill, first it's going to look for an
+existing Remotion project and if there
+isn't one, then it's going to create
+one. And by the way, the really neat
+part about all of this is it's just
+running locally on your computer. You're
+not paying for some other video
+generation or editing service. you don't
+have to upload it somewhere else then
+download it back which can be really
+inefficient especially if you're working
+with long form video and while it's
+running you can explore what is actually
+in your reotion skill. So if you go
+ahead and expand or enter this directory
+you can see the skill file here as well
+as rule. So let's open the skill file.
+So when to use this skill whenever
+you're dealing with reotion code to
+obtain domain specific knowledge, you
+could honestly expand this. If you are
+going to use reotion as your primary
+video creation or editing skill, then
+you might want to expand this
+description to use it anytime video
+editing or video creation is involved.
+That way cloud code will properly
+trigger even if your prompt is a bit
+vague like even if you don't specify
+reotion directly in your prompt. And you
+can see all these different rules here.
+For example, for animations, go to
+rule/an animations to see how Remotion
+will create those. So, it's pretty cool
+just to explore it, especially while
+Remotion is running to create our first
+video. And what's really cool here is
+Remotion automatically opened its own
+studio locally. So, here where it says
+Remotion Studio is running at localhost
+30003, it automatically opened for me or
+you can click that and open it. Um, and
+here it is, localhost 30003. It's called
+Claude Code Skills because the topic of
+my video is creating a curation of
+different GitHub repos with Cloud Code
+Skills. That's why it's called that. But
+this is really cool. You have your own
+little like local video editor and stuff
+running on your computer. So go ahead
+and press play. And this is our video so
+far. I mean pretty cool. And it's not
+even been 2 3 minutes. So it researched
+GitHub repos uh and then put them here.
+And then it created these super cool
+motion graphics and stuff. Now you can
+Fact-Checking & Editing with Perplexity MCP
+do all kinds of things from this point.
+This is just the tip of the iceberg in
+terms of what you can create here. You
+can add more clips. You can add more
+overlays. We can change the text. We can
+make this a 15minute long video instead
+of 15-second. And if you are familiar
+with a video editor, it's nice to be
+able to drop into an interface like this
+just to be able to see how everything is
+laid out and perhaps give more specific
+feedback. Like if you want edits to a
+specific composition, you can say that
+here. If you want to upload very
+specific assets, you can do that here.
+The next thing I'm going to do is expand
+this video a little bit and make sure it
+fact checks because I'm pretty sure this
+first one is not a public repository.
+This is my local repository uh with
+Cloud Skills.
+And this is the really neat part about
+it. Like if video editing is not your
+thing, I know it's certainly not mine.
+You can just talk to Claude about the
+changes you want in your video.
+So here let's say first fact check that
+every single GitHub repo is public and
+contains free cloud code skills. The
+other one looked good but the first one
+is my private repo so I know shouldn't
+share that one. Second um I want it to
+be more of like one scene per GitHub
+repo for each GitHub repo. take a web
+screenshot and incorporate it in the
+video. And let's also change the CTA.
+Sign up for blot.
+Okay. Um, but here I'm just demoing. I
+mean, you can type whatever you want.
+So, whatever feedback you had from that
+video, if you wanted to change the text,
+if you wanted to change the colors to
+match your brand colors, right? Like, we
+haven't even gotten to any of that, but
+you can start to imagine what the
+capabilities are. And what's really neat
+here is Claude is using some of my other
+skills. For example, I use Perplexity
+MCP for web research. So, it's using
+that to fact check, make sure the GitHub
+repos are open source, publicly
+available, and contain free cloud
+Automating Web Screenshots in Chrome
+skills. And let's see what it's doing.
+So, it's using perplexity. Now, it says
+it's found three verified public repos.
+And now it wants to navigate to each
+link and take a screenshot. You can see
+here it actually popped up my permission
+for Claude for Chrome. Claude wants to
+navigate to github.com in order to take
+those screenshots. I'm going to click
+allow this action so that it can do
+that. And now Claude in combination with
+Remotion is basically taking our curated
+list, opening each URL, taking a
+screenshot, and then Remotion will
+incorporate each screenshot into our
+video. So this is a really neat way of
+combining Remotion's video creation,
+video editing, and motion graphics
+capabilities with Claude in Chrome's
+browser capabilities to grab assets for
+our video. By the way, don't forget to
+hit like and hit the bell so that you
+don't miss my next cloud code tutorial.
+Okay. And so Remotion is just finishing
+up here. It's rewriting the entire video
+with five scenes, your hook, the repos
+with the screenshots, and the NCTA. Just
+to give you guys some additional ideas
+for how you could build a full content
+system on top of this. Even though we're
+not going to cover all of this in this
+tutorial video, you can imagine having
+one file storing your brand voice so
+that all of the copy within the visuals,
+within the video, is consistent with
+your products, your services, how you
+like to talk on social media. Secondly,
+you could have a design kit with your
+brand's colors. So, uh, mood boards,
+colors, etc. that will be incorporated.
+It could be the font colors, the
+background colors, etc. Third, you could
+have a folder that contains your brand
+assets. So, things like product photos,
+B-roll footage, photos, videos, anything
+that you're willing to use on social
+media. Not only can Claude Code help you
+organize and categorize and tag all of
+your existing visual assets, it can
+incorporate them into the videos being
+generated. And the last step is
+obviously publishing and scheduling
+everything to social media, which we
+will cover a little bit of that at the
+end of this video. Okay, so it's done
+and it fact checks all three repos.
+Great. Here's the video structure. Let's
+go ahead and open preview so we can see
+it. And here's the updated video. So,
+let's play it. Nice. Oh, I like this
+thing that drops from top to bottom.
+Okay, there's our web screenshot. I'd
+probably increase the font of everything
+since this is going to be like on
+Instagram reels and Tik Tok. Um, and
+then there's our Ooh, nice colors for
+Blow Potato. Okay, so so far we've
+covered creating the motion graphics
+Adding Custom Photos & Background Music
+video, right? So, we already did that in
+the first step. And then in this step
+that we just completed, you saw that
+Cloud Code and Remotion together, Cloud
+Code took the web screenshot and then
+Remotion inserted those web screenshots
+into the video. Now, it doesn't have to
+be a web screenshot. Again, if you have
+existing product photos, existing photos
+for your business, whatever it may be,
+even if it's just lying around in your
+photos folder on your computer, Cloud
+Code can take those, analyze the photos,
+categorize, and tag them, and then
+figure out which ones to insert in your
+videos. or if you have specific photos
+that you wanted to use for this video,
+you can absolutely do that. So, just as
+a really quick example, I'm just going
+to save my headsh shot here from
+Instagram. And then I'm going to tell
+Claude Code to add my head shot in the
+CTA screen. So, let's go back to Claude
+Code, incorporate my head shot in SL
+downloads in the last screen, CTA, and
+let's add some techno EDM psychedelic
+background music. Okay, so now it's
+copied the headsh shot and now it's
+using Cloud Chrome to choose background
+music from Pixabay to incorporate in our
+video and it's finished and you can see
+the recap of what it did. So it took my
+headsh shot from Instagram. It found
+that music and incorporated it and
+update the CTA screen just like I asked
+for. So let's go ahead and check it out.
+Oh, I don't know if you guys can hear
+that, but there's really cool music now
+in the background. Okay. Yeah, there's
+my head shot with a nice little gradient
+border to match the uh Blotato CTA as
+well. So just to recap, this was the
+very first prompt. We used the reotion
+skill create a 916 vertical 15-second
+video for Instagram reels, Tik Tok,
+YouTube shorts, etc. And the particular
+topic for this video is GitHub repos
+containing free cloud code skills. So it
+Recap of Video Generation
+generated that viral hook. It
+incorporated motion graphics. It
+incorporated animated text. And then it
+used safe zones so that the text is not
+too high up and not too far down. That
+was the first prompt. We already got a
+pretty good result from that first
+prompt without even incorporating my
+brand voice, my brand colors, etc. And
+then the next prompt was to fact check
+the repos because it actually pulled one
+of my private GitHub repos. It's not
+public, but it does have cloud code
+skills. But for this video, I wanted a
+curation of public GitHub repos. And
+then for each GitHub repo, it used
+Claude and Chrome to navigate to it,
+fetch a screenshot, and then Remotion
+incorporated that screenshot into the
+video. And then it updated the CTA to be
+sign up for Blotato. So that was the
+second prompt we ran. And then the very
+last prompt was just really minor
+tweaks. I just wanted to show you that
+it can incorporate your own existing
+photos, images, assets, product photos,
+etc. So here I said incorporate my
+headshot, which I just grabbed real
+quick from Instagram, and then add some
+techno EDM psychedelic background music,
+which it researched and pulled from
+Pixabay. Now, we've fully covered these
+first two items, and I hope you're
+starting to see the power of Remotion.
+By the way, everything we've done so far
+is completely free. I have not had to
+sign up for anything at all. The third
+use case I'm going to show you is how to
+edit your existing videos. So, let's say
+you make talking head videos for Tik
+Tok, YouTube Shorts, Facebook, and
+Editing Existing Video Footage & Captions
+Instant Reels. So, what I'm going to do
+to demo this is actually just film a
+really short 15-second video right now,
+airdrop it to my computer, and then
+we're going to run it through Remotion
+and see how it does editing the video.
+Claude Code just changed content
+creation forever. You can now create
+videos, edit video. I totally
+accidentally messed up, but that's okay.
+So, we'll see if Claude Code can remove
+my mess up. And what we're going to type
+here is just something pretty simple,
+right? So, edit the latest video in my
+downloads folder. Remove mistakes. Add a
+scroll stopping Tik Tok style title. Add
+subcaptions, but don't cover my face. Be
+mindful of 916 safe zones for short form
+videos. So, you can read what it's doing
+right now. For example, here it's trying
+to transcribe and detect silence in the
+recording. Checking if I have a local
+tool called Whisper to do that
+transcription. And you can start to see
+the transcription segments down here.
+Right. timestamp and then cloud code
+just changed content creation forever.
+And when cloud code is finished, open up
+your remotion locally localhost 30003.
+And then here in the compositions,
+you'll see a new folder. So remember
+motion graphics was this one, right? So
+not me talking. And then this one, video
+edits, is the one where I'm talking. So
+let's go ahead and play it.
+Okay, so this still needs a little bit
+of work. So, for example, the subtitles
+here kind of crammed together. And then
+there was at least one place where I
+messed up and it didn't edit it out. So,
+what I'm going to do is going to take a
+screenshot of how this looks. Drop it
+into cloud code here. Say the captions
+look squished together, which makes it
+hard to read the words. We just add
+spacing between words. There is also a
+blooper where I messed up that you
+didn't remove. And just like I showed
+you in the previous examples, like the
+point of this is you can just talk to
+cloud code and tell it what you want or
+you can drop into the video editor
+itself and make the cuts there. Now, my
+personal tip here is if you are serious
+about setting up remotion for editing
+existing videos, I recommend setting
+aside several days to kind of figure out
+a template that makes sense for your
+style of video editing. So, just as an
+example, let's say you're posting these
+types of talking head videos to Tik Tok
+reels and YouTube shorts. You almost
+always want a title above your head. You
+want that title to disappear after a
+couple seconds. Throughout the rest of
+the video, you might have captions as
+well. And you just want to make sure
+they don't cover your face. But most
+importantly, you want to make sure that
+Claude Code really learns how to edit
+out the bloopers in your videos because
+that's the thing that you probably would
+have spent time editing manually. Okay.
+And it's done. And it's reduced the font
+size, added a bit of word spacing, and
+supposedly removed the blooper. flaw
+codes just change content creation
+forever. You can have
+definitely better. There are still
+little parts that I would personally
+tweak, but now the captions are actually
+readable. It add a little bit of spacing
+and it also increases the size of the
+word that's actually active. So, for
+example, here when crate is active, it's
+a little bit larger than when it's not
+active. And I can see that it did try to
+trim some of the bloopers. And even
+though it looked a little bit
+disconnected, this we haven't rendered
+the final video. So, like the transition
+between these two scenes will be a
+little bit smoother once we actually
+Automating Social Media Posts with Blotato MCP
+render the final video. And now I'm
+nitpicking. Again, if I was to create a
+productionready template for this, like
+if you want to sit down and do this, you
+could create like pre-built templates or
+best practices for things like the
+title. And the very last step is posting
+these videos to social media. So, to do
+that, I'm going to show you a tool that
+I built for myself. I built it because
+I'm a creator and I was struggling to
+figure out how to scale my own content
+creation without hiring a huge team or
+spending a lot of money or spending a
+lot more time. And so this app, Blot,
+has truly saved my sanity and I'm now
+approaching 2 million followers across
+all of social media without a team or
+anything like that. So once you log in
+here, go to the settings in the bottom
+left section. Click API. And if you're
+brand new, there will be a sign to
+generate an API key. This is the only
+part of this tutorial that is paid. This
+is not free. The reason for that is
+because basically the social media
+platforms give third-party tools a
+certain quota. And like we don't want
+spammers to just be like posting
+lowquality content on a free plan. So I
+do put this behind a payw wall, but if
+you are unsatisfied for any reason, just
+hit up the support chatbot for any
+reason and you can get a refund. The
+good news is it's super easy to set this
+up in cloud code. So after you generate
+your API key, all you have to do is
+click this button, copy setup command.
+So you'll probably open a terminal or if
+you're in like Visual Studio Code, you
+can open a terminal within there, but
+let me just show it in the terminal so
+it's easier and then paste the command
+in here and press enter. I'm not going
+to paste the command because it contains
+my API key. But basically, when you
+paste it, hit enter. Cloud code is going
+to download the Blot MCP and set it up
+with your API key so that it's ready to
+go. And potato allows you to do lots of
+cool things related to social media. You
+can schedule and manage your entire
+content calendar. You can also scrape
+things like Tik Tok videos, YouTube
+videos, podcasts, PDFs, and websites.
+For example, taking my YouTube video and
+remixing it into an Instagram carousel
+and then posting it on Instagram. Botto.
+So, in addition to scraping and
+publishing to social media, it can also
+create visual assets. I can create
+photos, infographics, videos, carousels,
+slideshows, etc. And then post and
+schedule all of them to social media.
+So, just to give you a preview of like
+what my published calendar looks like.
+This is upcoming posts. And then this is
+my calendar. So, yeah, there's a ton
+scheduled this week. Lots and lots of
+posts. And these are all scheduled
+through Claude Code plus MCP. So, once
+you have set up the Blot MCP server, all
+you have to do is go back to cloud code.
+Let's schedule the motion graphics video
+video for Instagram in 30 minutes using
+blot mcp. Okay, so what this is going to
+do is cloud code is going to say, oh, I
+have this tool called blot mcp. It has
+all of these things like scheduling and
+publishing to social media. So it's
+going to take the motion graphics video
+that we just created and then schedule
+it. Cloud code says it's done. Awaiting
+your approval on the caption. I'll say
+looks good. So cloud coders just wants
+our approval before scheduling this out
+to social media. And that's generally a
+good idea to incorporate like in my own
+personal content creation workflows. I
+always have an approval step where I can
+look over lots and lots of different
+captions and make sure that they fit my
+brand voice. Make sure that they're
+using the hashtags I want. Make sure
+they're conveying the right message.
+Okay. And you can see here it's done. So
+it's scheduled the reel 30 minutes from
+now. Now, it also logged it in my Air
+Table, so it knows to do this because I
+have a skill for this. But that's
+another neat thing you could do, right?
+You could hook all of this up to your
+system of record, whether it's Air Table
+or Google Sheets, and it can update it
+automatically for you. Now, just to
+double check that it's scheduled
+everything, let's go back to Blot. Go to
+upcoming posts here. Here, 7:55 p.m.
+Three free GitHub repos. This is the
+video that we made containing the GitHub
+Final Recap & Outro
+repos. And then this will be posted to
+Instagram at 7:55 p.m. So, let's recap
+everything we've covered so far. So, we
+downloaded the pre-built Remotion skill
+which was 100% free. We created our very
+first motion graphics video which had
+cool animations, cool text. We inserted
+web screenshots. Remember, we curated a
+list of publicly available resources and
+then Claude Code and Remotion worked
+together to take screenshots and then
+embed them into the video. I also
+briefly showed you inserting your own
+images. Like I grabbed my headsh shot
+from Instagram and said, "Hey,
+incorporate this in the last scene of
+the video." But of course, you can do
+much more than that. You can incorporate
+product photos, B-roll, images, and
+videos and photos you have lying around.
+And then I showed you briefly editing an
+existing video. Now, I think to make
+that work, if you really want a social
+media ready video as an output, you will
+need to sit down for at least a couple
+of days and iron out a lot of kinks in
+the templates, teaching Cloud Code and
+Remotion exactly how you want that video
+edited. And then the very last step was
+taking their video and posting it to
+social media which we did with Blotato.
+And you saw how easy that was with Blot,
+which also has an MCP server. So
+literally one line in the terminal, hit
+enter, it's installed, and then you can
+type things like, "Hey, let's schedule
+this video for Instagram in 30 minutes."
+And boom, it writes the caption for you,
+schedules it. You can manage everything
+in your own content calendar. If you
+have any questions setting this up, drop
+a comment below. Don't forget to hit
+like, subscribe, hit the notification
+bell so you don't miss the next Cloud
+Code tutorial.

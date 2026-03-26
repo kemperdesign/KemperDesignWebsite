@@ -1,0 +1,43 @@
+Build a premium, modern AI consulting website homepage.
+
+Business context:
+- AI consulting agency for small businesses
+- Focus on automation, AI tools, and efficiency
+
+Design requirements:
+- Clean, high-end SaaS style
+- NOT generic AI-looking
+- Balanced whitespace
+- Smooth section transitions
+- Subtle animations
+
+Hero section:
+- Large bold headline
+- Subheadline explaining value
+- Primary CTA: "Book a Free AI Consultation"
+- Secondary CTA: "See How It Works"
+- Placeholder for animated visual (we will add later)
+
+Sections to include:
+1. Problem section (pain points)
+2. Solution section (your approach)
+3. Services (cards layout)
+4. How it works (3-step process)
+5. Testimonials (3 examples)
+6. Final CTA section
+
+Technical requirements:
+- Responsive (mobile-first)
+- Clean HTML/CSS structure
+- Semantic layout
+- Easy to expand later
+- Modern font styling
+
+Tone:
+- Friendly but authoritative
+- Clear, not technical jargon
+
+Return:
+- Full working HTML file
+- Embedded CSS (no external dependencies)
+- Clean, readable code

@@ -1,0 +1,34 @@
+Using the start image as reference, create a second premium website hero image for an AI consulting agency.
+
+Goal:
+This should be the transformed end-state of the original scene, as if the automation platform has fully activated.
+
+Requirements:
+- maintain the same camera angle
+- maintain the same overall composition
+- preserve lighting consistency
+- preserve style consistency
+- keep the same premium commercial look
+
+Scene changes:
+- dashboard elements are more expanded
+- floating panels are more separated
+- glowing workflow lines are more active
+- subtle motion-ready transformation
+- the scene feels more alive, dynamic, and activated
+
+Composition rules:
+- 16:9
+- keep clean negative space for website text
+- no edge collisions
+- polished and elegant
+- no clutter
+- website-ready
+
+Colors:
+- deep blue
+- black
+- subtle purple or neon blue accents
+
+Output:
+A visually consistent end-frame image designed for smooth animation from the start image.

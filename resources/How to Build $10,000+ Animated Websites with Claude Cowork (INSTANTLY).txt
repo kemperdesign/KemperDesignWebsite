@@ -1,0 +1,492 @@
+Intro
+Claude Co-work can now build stunning
+websites like this in just a few
+prompts. And I'm not talking about basic
+landing pages. I'm talking about scroll
+animated cinematic websites that look
+like something Apple or Tesla would
+create. And the trick is called co-work
+skills. What a skill is is you basically
+teach Claude exactly how to build these
+websites and then it does it perfectly
+every single time. So in this video, I'm
+going to show you how to set this up
+from scratch and then build this website
+live so you could see exactly how it
+works. And if you've never used Claude
+Co-work before, don't worry because I'm
+What is Claude Cowork?
+going to show you exactly how to use it
+in the most simple way possible. All
+right, so what is Claude Co-work? I'm
+going to break it down super simply
+right now so you can have an
+understanding of what it is and begin
+using it yourself. Think of a normal
+chatbot like chat or even just a normal
+Claude app that you use. You basically
+[music] type in a specific prompt and it
+replies, but it can't do other things
+besides that. Plug Co-work can read and
+write your files, run different scripts
+and commands, connect to your different
+tools, and work like an actual employee
+that goes off and does your workflows
+for you. So, think of it like this. It
+doesn't just talk. It actually goes and
+does things on your computer. But what
+can it actually do? It could do things
+like build websites like I'm going to
+show in this video. It can organize your
+files, analyze data, process and create
+images, run different scripts, and
+connect to any of the different tools
+you use every single day. But the real
+power comes from skills. If you don't
+know what a skill is, this one line will
+summarize it for you. You can teach
+Claude how to do something once and it
+remembers how to do it forever. So, what
+do I mean by that? Whenever you're
+interacting with Claude or Chatevt, you
+have to explain in detail what you want
+it to do every single time you use it.
+And this leads to different results
+every time. But with a skill, Claude
+already knows how this process works.
+So, it can follow the exact instructions
+every single time you load this specific
+workflow. And the quality is basically
+identical every single time. And all you
+have to do is describe what you want. So
+in this case, I could just describe a
+specific animated website and it has all
+of these skills to do it for me. And
+let's talk about now on a little bit
+more technical level, what even is a
+skill. So a skill is just a file. Either
+you can go and craft this skill yourself
+in a markdown file, or you can tell
+Claude to do it for you after you kind
+of perfect a specific workflow. Inside
+of this file, it basically breaks down
+when to trigger this skill and what
+input it needs from you, the
+step-by-step process to actually go
+through and actually do this workflow.
+And for this specific use case, the
+exact design system to follow every
+Animated Website Workflow Overview
+time. So what I'm going to show you in
+this video is this animated website
+skill that I created that takes any
+video and turns it into a scroll
+animated website. All you have to do is
+give it a video file. It extracts all
+the different frames of the video. It
+then builds the entire website with the
+scroll animations built in. And then it
+will even open it up in your browser for
+you to begin using. And this Claude
+skill adds all of this automatically.
+film grain, the particles, the glass
+cards, color tints, scroll pacing, all
+of this stuff we don't need to configure
+because a skill knows how to do this
+automatically. All right, so now we
+understand what co-work is, what skills
+are, but we need to actually create a
+video for a specific website to then try
+this out. Let me break that down now.
+All right, so with this hack I'm going
+to show you in this video, we don't need
+to actually have tons of different
+images or tons of videos ourselves in
+order to do this. We're going to be
+using a tool called Higsfield. So, every
+single graphic you saw in this video was
+generated entirely by Higsfield in just
+a couple of minutes. All of the
+different images and angles of this
+specific property in Cape Town were
+generated with Higsfield. I even created
+the entire video from two different
+images I generated of this property. So,
+using Higsfield, I had one property
+photo of this Iron Man house. I then
+generated multiple angles. I created the
+specific infographics that you see in
+this video and then turned it into a
+cinematic video that is now an animated
+website. So from one image, we now get
+multiple angles of the property, an
+infographic of the property breaking
+down all the different things about it
+and a cinematic video for a scroll
+animation. And on top of this, we now
+get a completely animated website built
+by Claude Co-work. So you're probably
+saying like, Brock, that's cool, but how
+How to Use Claude Cowork
+do we do this? So let me show you
+exactly how to do it step by step right
+now. All right, so the first thing we
+need to do is download the Claude
+desktop app to begin using Claude
+Co-work. You're going to come to this
+page here. There's going to be a link in
+the description as well as the top
+pinned comment of this video. So, make
+sure to download this if you're a Mac
+user or a Windows user. And then from
+there, we're just going to open up our
+Claude desktop app. All right. So, what
+we're going to see on screen is the
+Claude chat interface. So, what we want
+to do is we want to transition over to
+co-work, which is basically where we're
+going to be working. And what we're
+going to do here is you could see if I
+click on this work in folder button, we
+now have multiple different folders here
+that I've personally set up, or we could
+go ahead and start from scratch and
+create our own folder. So, what we're
+what I'm talking about here is if you
+have a folder on your desktop, you could
+actually interact with that via Cloud
+Co-work. So, what I'm going to do is for
+the sake of this video, I'm going to
+show you how to create one, but then I'm
+going to go into my specific project
+that I have. I'm going to click on work
+in folder, choose a different folder,
+and then basically I'm just going to
+come here, click new folder, and then
+say co-work animated website. Now, any
+of the changes we make will now be added
+to this folder here. All right, so now
+Generating Video Assets with Higgsfield
+we need to generate all of the images
+and the videos that we created. So let's
+go ahead and create those assets now. So
+as I mentioned earlier on like these
+images are all generated with AI using
+Higsfield. So we have a full like 360
+view or I guess like 180 view of this
+specific property here and we were able
+to turn that into this stunning video
+you know that we actually have on our
+website now as well as this one right
+here. We took this image created this
+infographic kind of like originally it
+was an image but then turned it into an
+animated video using Higsfield. So I'm
+going to show you how to do that right
+now. We're going to come over to
+Higsfield. And if you've never used this
+before, this is basically an all-in-one
+AI creative tool. So whether that is AI
+images, AI videos, AI motion design, all
+these different things, this is
+definitely the best platform that has
+all these all in one. So what I'm going
+to do is I'm going to head over to the
+image section inside of Higsfield. And
+then what I'm going to do is just simply
+upload this one reference image that I
+have of this Iron Man house in Cape
+Town. So let me just upload that now.
+And then let me show you exactly what I
+mean because this is the only nonI
+generated image that we're going to be
+using. This is an actual photo of the
+Iron Man house in Cape Town. And I'm
+inspired because I was actually in Cape
+Town just a couple of weeks ago. And
+this house was absolutely mind-blowing.
+Driving by it on the street was just
+like the coolest thing ever. So I
+figured might as well make like a pretty
+awesome, you know, website for this
+specific property here. So basically
+what I'm going to do now is basically
+describe that I want different angles of
+this house generated. Can you go ahead
+and generate me different angles of this
+exact Iron Man house in Cape Town? And
+then there's a couple of things here
+that I want to know. We could either
+select each individual, you know, image
+model that we'd like to use. For
+example, Nano Banana Pro is probably the
+best one to use here since it's the best
+image generation model, or we could just
+select auto, which, you know, allows
+Hicksfield to choose the best image
+generation model or best video model for
+this specific task. And then I'm going
+to come here. I'm going to change the
+resolution to 2K. That should be good.
+change the aspect ratio to 16 by9 so
+it's more like landscape and then I'm
+also going to generate four images here
+so I could choose the ones that I like
+the most. All right. So now just like
+that we have this image of the other
+side of the house generated. This was
+done in just one simple prompt here. And
+then I could actually go ahead and
+change this a bit more as well. I could
+either come here and change the angles.
+I could relight this in a different
+lighting. All right. So we also have
+this image here. And one thing I'm going
+to do is I'm actually going to upscale
+this real quickly. So, it's going to
+take this and make the resolution of
+this better. So, I'm going to upscale
+this. And then what I'm going to do from
+here is generate another angle of this
+specific image. And then you could see
+right here, I actually have these
+different renderings that I, you know,
+did prior for this video. Um, and I'm
+going to show you exactly how you could
+do the exact same thing, too, cuz I
+think this adds a really cool spin to
+our animated website. All right. So, now
+the quality of this image is slightly
+better. What I'm going to do now is
+click this angles button, which is
+honestly one of my favorite features
+inside of Higsfield. All I have to do is
+drag this camera to where exactly I want
+this picture of my house taken. So,
+let's say I want it taken from like over
+here, like a side view of it. I'm going
+to now generate that and see what it
+looks like. All right. So, now I have a
+couple of perfect images here that I
+could use for this start and end frame
+to do this 180° pan video that we could
+then use for our website. So, we have
+this image here, which is kind of like
+our start frame, which is the image that
+we gave it. And then now we have the
+other side of our house here. This looks
+really, really good. If we want, we
+could even upscale this and make this an
+even higher quality image. So, let me go
+ahead and do that. Now, I'm going to
+upscale it 4x. All right. So, what I'm
+going to do now is I'm just going to
+download my image here. And I'm going to
+download my initial one here as well.
+And then what I'm going to do now is I'm
+going to come over to the create video
+section of Higsfield. One thing I do
+want to mention is there's tons of
+different templates here inside of
+Higfield. So we don't need to be a
+prompt engineer to generate some amazing
+graphics. So for example, we have like
+this giant grab one. So if we were like
+trying to create like a website with a
+graphic or animation like this, we could
+go ahead and do so. I'm going to click
+on Higsfield DP and I'm going to use
+general. But another cool one here is
+this Earth zoom out feature, which we
+could definitely use for a different
+website, but I'm going to click on
+general. And now basically what I'm
+going to do is I'm going to add a couple
+of different images. I'm going to add my
+start frame, which is that initial image
+that we had. And then I need to add the
+end frame, which is that other 180° shot
+of our house. All right, so I gave it
+this very basic prompt here. So I just
+said, turn this image into a cinematic
+video shot of this property in Cape
+Town, South Africa, having it pan to the
+right to show the other side of the
+house. So I'm just going to click on
+generate. And the good thing about
+Hicksfield is that's a very vague prompt
+that I gave it, but it's instantly going
+to enhance that prompt. And I'll show
+you exactly how detailed that prompt
+Designing our Animated Website
+will become to create the best video
+possible. All right, so a couple of
+minutes later and now Co-work actually
+spun up this HTML website for me. It
+should show in the preview here.
+However, for some reason, it's not
+working fully because of probably the
+video animation. However, in order to
+get this to work, I just click open in
+DIA, which is the browser I'm using. And
+this will open in any browser you use.
+Let me quickly just scroll through this
+site to see the animation. And then
+let's break down each, you know,
+individual section of it. So like there
+we go. Looks like it's scrolling with
+the, you know, with the video. This is
+good. And it also has this right here,
+which again, these are not images that
+I, you know, created. It actually took
+snippets of that video I created with
+Higsfield and actually added this, which
+I think is a really cool touch. So now
+we have this animated site. Of course,
+there's some things that we need to
+change about it. But if I go through
+each section, you could see that it says
+5 years in the making. Has different
+amenities here. Even breaks down where
+it is in Cape Town, which is Clifton
+Experience Extraordinary. And we could
+even book a viewing or download the
+brochure. Like I think that's a really
+really good starting point. All right.
+So, I did a bit of back and forth and
+this is what we have now. So, we have
+this site, the Iron House, Clifton home
+that doesn't sit on the landscape, it
+becomes it. I mean, this is a super
+solid site and if I scroll through, you
+could see that it like flows really
+well. And then we have the closer look
+section. But, let's say that I want to
+generate a infographic that I could add
+to the bottom of this website like I
+showed you before. So, let me show you
+exactly how we could do that. And then
+we have a really polished site here with
+pretty awesome animations that we
+created entirely with AI. So, what we're
+going to do is we're going to come back
+to Higsfield. I'm going to come to
+image. And then what I'm going to do is
+I'm just going to drop in that initial
+image that I had of our spot,
+specifically this one right here. And
+then I'm just going to use this as a
+reference image because I remember when
+Nano Banana Pro released, this was used
+as a use case. So, I'm just going to
+like save this image here and then use
+it as a reference image and upload it
+here inside of Higsfield. And then I'm
+just going to give it this specific
+prompt here. If you want to copy this
+prompt, just screenshot this and then
+you could actually add this yourself.
+Or, you know, you could be pretty vague
+with this and it should get it pretty
+well since we have a good reference
+image. And then I'm just going to select
+four. So, it's going to generate four
+different variations for me to choose
+from. And then we should be good to go.
+So, let me let Hicksfield do its thing
+and we'll come back to this. All right.
+And just like that, we got a couple of
+pretty great options here. So, let me go
+through each of these. So, first of all,
+we have this one. This one looks really
+good. Nothing wrong with that. This
+one's cool. However, it's not really the
+exact image we gave it. This is another
+good option. I really like this one
+honestly, but this one's really cool cuz
+it shows the other view of our spots.
+All right, so I think this is probably
+the cleanest one. So what I'm going to
+do is I'm just going to quickly download
+this. I'm going to save this image and
+then I'm going to come back to video and
+then what we are going to do, we're
+going to come back to Higsfield DP.
+Click on general and then I'm just going
+to upload a start and end frame. So the
+start frame is going to be the original
+image that we started with for our
+place. All right. So, I uploaded an
+image of the start frame of our
+property. And then I uploaded an end
+frame, which is an infographic breaking
+down this property and all the details.
+I want you to slowly reveal all the
+annotations inside of the infographic
+slowly and smoothly. All right. So, I'm
+just going to give it a basic prompt.
+Pixfield's going to optimize this and
+enhance that prompt. And then let's see
+what we get. All right. And just like
+that, we have this amazing animation
+here with these annotations for, you
+know, this infographic here. So, all I
+have to do is just download this. So,
+I'm going to bring it back to Claude
+Co-work and just basically say, "I want
+you to integrate this to the bottom of
+our site and add some cool animations."
+All right, here we go. We now have our
+annotated video here added to the bottom
+of our website. So, if I scroll up, you
+could see the finished product now. So,
+we have this. I mean, this is pretty
+solid, guys. We did this all with AI.
+Just a couple of prompts, created the
+images, created the videos. Every single
+thing you see here is created with AI.
+So, this is pretty pretty amazing. I
+want to show you one other cool site
+that I made using this exact same
+strategy. And I think this one might
+even look a bit smoother. You know, it's
+not as complex as the other one. So, let
+me show you exactly what I mean. So, we
+have this cologne bottle. I think that
+this looks really solid. It's just
+basically like panning out from the
+bottle. I mean, this is like a really
+really solid looking website. Yeah, this
+is this is pretty awesome. I'm stoked
+with this. So, imagine now, guys. We
+have an opportunity now using something
+like Claude Co-work and Higsfield to
+generate animated websites and even sell
+these to clients. Now that we have a
+skill inside of co-work that knows how
+to do this for us, we could then
+replicate this at scale and do this for
+different clients. All right, guys. If
+you want to try this out, you could
+access the skill that I created here and
+used in this video, which is just this
+markdown file that you could import into
+your Claude code system to do the exact
+same thing that I did in this video. So,
+if you guys want this markdown file or
+skill, it's going to be in the
+description below. With that being said,
+guys, thank you so much for saying that
+in this video. I have so much more
+Claude Co-work content coming out. You
+guys are really seeming to love it. I'm
+doing everything I can to provide as
+much value to you guys on this channel
+and things are moving really quickly
+right now. So, if you're a nontechnical
+person and you want to stay up to date
+with how to use AI to make your life
+better, this is the perfect channel for
+you. So, without further ado, guys,
+thank you for staying to end. I'll see
+you guys in the next video. Peace.
