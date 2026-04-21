@@ -1,0 +1,12 @@
+{
+  "name": "kemper-design-services",
+  "version": "1.0.0",
+  "description": "Kemper Design Services website with admin blog system",
+  "scripts": {
+    "dev": "vercel dev"
+  },
+  "dependencies": {
+    "@octokit/rest": "^20.0.2",
+    "jsonwebtoken": "^9.0.2"
+  }
+}
