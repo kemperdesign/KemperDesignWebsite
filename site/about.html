@@ -111,7 +111,7 @@
   </nav>
 
   <!-- ── Page Hero ── -->
-  <section class="page-hero">
+  <section class="page-hero" id="page-hero">
     <div style="display:grid;grid-template-columns:1fr 1.36fr;gap:60px;align-items:center;max-width:1400px;margin:0 auto;padding:60px 30px;">
       <div class="page-hero-content fade-up">
         <span class="eyebrow" style="color:rgba(255,255,255,.55);">Who We Are</span>
@@ -127,14 +127,14 @@
   <!-- ── About Content ── -->
   <section class="section features-strip" id="about-content-section" style="position:relative;z-index:10;">
     <!-- Fixed Video Background -->
-    <div style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;overflow:hidden;opacity:0.4;">
+    <div id="about-bg-video" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;overflow:hidden;opacity:0.4;display:none;">
       <video autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;display:block;">
         <source src="assets/video/Backups_A_False_Sense_of_Security.mp4" type="video/mp4">
       </video>
     </div>
 
     <!-- Overlay for readability -->
-    <div style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;background:rgba(11,23,59,0.75);pointer-events:none;"></div>
+    <div id="about-bg-overlay" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;background:rgba(11,23,59,0.75);pointer-events:none;display:none;"></div>
 
     <div class="container" style="position:relative;z-index:10;">
       <!-- Section Header -->
@@ -411,6 +411,35 @@
   </footer>
 
   <script src="scripts.js"></script>
+
+  <script>
+    function updateAboutVideoVisibility() {
+      const heroSection = document.getElementById('page-hero');
+      const bgVideo = document.getElementById('about-bg-video');
+      const bgOverlay = document.getElementById('about-bg-overlay');
+
+      if (!heroSection || !bgVideo || !bgOverlay) return;
+
+      const heroRect = heroSection.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+
+      // Hide video if hero section is visible in viewport
+      const heroIsVisible = heroRect.bottom > 0 && heroRect.top < windowHeight;
+
+      if (heroIsVisible) {
+        bgVideo.style.display = 'none';
+        bgOverlay.style.display = 'none';
+      } else {
+        bgVideo.style.display = 'block';
+        bgOverlay.style.display = 'block';
+      }
+    }
+
+    // Update on scroll and resize
+    window.addEventListener('scroll', updateAboutVideoVisibility, { passive: true });
+    window.addEventListener('resize', updateAboutVideoVisibility, { passive: true });
+    updateAboutVideoVisibility(); // Initial check
+  </script>
 
 </body>
 </html>
