@@ -126,8 +126,8 @@
 
   <!-- ── About Content ── -->
   <section id="about-content-section" style="background:var(--white);padding:100px 0;position:relative;z-index:10;">
-    <!-- Fixed Background Video -->
-    <div id="about-bg-video" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:1;pointer-events:none;overflow:hidden;opacity:0.15;">
+    <!-- Static Background Video -->
+    <div style="position:absolute;top:0;left:0;width:100%;height:100%;z-index:1;pointer-events:none;overflow:hidden;opacity:0.15;">
       <video autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;display:block;">
         <source src="assets/video/Backups_A_False_Sense_of_Security.mp4" type="video/mp4">
       </video>
@@ -409,41 +409,6 @@
   </footer>
 
   <script src="scripts.js"></script>
-
-  <script>
-    function updateAboutVideoVisiblity() {
-      const bgVideoDiv = document.getElementById('about-bg-video');
-      const contentSection = document.getElementById('about-content-section');
-      const footer = document.querySelector('.orbia-footer');
-
-      if (!bgVideoDiv || !contentSection || !footer) return;
-
-      const contentRect = contentSection.getBoundingClientRect();
-      const footerRect = footer.getBoundingClientRect();
-      const windowHeight = window.innerHeight;
-
-      // Check if section is in view
-      const sectionTop = contentRect.top;
-      const sectionBottom = contentRect.bottom;
-      const footerTop = footerRect.top;
-
-      // Hide video if section is above viewport or footer is near/visible
-      const shouldShow = sectionTop < windowHeight && footerTop > 0;
-
-      bgVideoDiv.style.display = shouldShow ? 'block' : 'none';
-
-      // Adjust video position to stay within section bounds
-      if (shouldShow) {
-        const offset = Math.max(0, -sectionTop);
-        bgVideoDiv.style.transform = `translateY(${offset}px)`;
-      }
-    }
-
-    // Update on scroll and resize
-    window.addEventListener('scroll', updateAboutVideoVisiblity, { passive: true });
-    window.addEventListener('resize', updateAboutVideoVisiblity, { passive: true });
-    updateAboutVideoVisiblity(); // Initial check
-  </script>
 
 </body>
 </html>
