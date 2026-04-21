@@ -127,14 +127,14 @@
   <!-- ── About Content ── -->
   <section class="section features-strip" id="about-content-section" style="position:relative;z-index:10;">
     <!-- Fixed Video Background -->
-    <div id="about-bg-video" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;overflow:hidden;opacity:0.4;display:none;">
+    <div id="about-bg-video" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;overflow:hidden;opacity:0.4;transition:opacity 0.3s ease;">
       <video autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;display:block;">
         <source src="assets/video/Backups_A_False_Sense_of_Security.mp4" type="video/mp4">
       </video>
     </div>
 
     <!-- Overlay for readability -->
-    <div id="about-bg-overlay" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;background:rgba(11,23,59,0.75);pointer-events:none;display:none;"></div>
+    <div id="about-bg-overlay" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;background:rgba(11,23,59,0.75);pointer-events:none;transition:opacity 0.3s ease;"></div>
 
     <div class="container" style="position:relative;z-index:10;">
       <!-- Section Header -->
@@ -423,15 +423,15 @@
       const heroRect = heroSection.getBoundingClientRect();
       const windowHeight = window.innerHeight;
 
-      // Hide video if hero section is visible in viewport
+      // Hide video opacity if hero section is visible in viewport
       const heroIsVisible = heroRect.bottom > 0 && heroRect.top < windowHeight;
 
       if (heroIsVisible) {
-        bgVideo.style.display = 'none';
-        bgOverlay.style.display = 'none';
+        bgVideo.style.opacity = '0';
+        bgOverlay.style.opacity = '0';
       } else {
-        bgVideo.style.display = 'block';
-        bgOverlay.style.display = 'block';
+        bgVideo.style.opacity = '0.4';
+        bgOverlay.style.opacity = '1';
       }
     }
 
