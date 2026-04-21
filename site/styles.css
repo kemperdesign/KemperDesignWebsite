@@ -607,7 +607,7 @@ nav.scrolled .nav-search-btn:hover { background:rgba(0,0,0,.05); }
 .orbia-footer { background:#000000; position:relative; z-index:51; isolation:isolate; }
 .orbia-footer-outer { padding:24px 0 0; }
 .orbia-footer-card { background:#000000; border-radius:0; padding:32px 48px 24px; position:relative; }
-.orbia-footer-cols { display:grid; grid-template-columns:1.6fr 1fr 1fr 1fr 1.2fr; gap:32px; margin-bottom:20px; }
+.orbia-footer-cols { display:grid; grid-template-columns:1.6fr 1fr 1fr 1fr 1.2fr; gap:48px; margin-bottom:20px; }
 /* Brand col */
 .orbia-footer-logo { display:flex; align-items:center; gap:12px; text-decoration:none; margin-bottom:18px; }
 .orbia-footer-desc { font-size:14px; color:rgba(255,255,255,.45); line-height:1.75; max-width:270px; margin-bottom:0; }
