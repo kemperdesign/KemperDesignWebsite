@@ -248,7 +248,7 @@
       </div>
 
       <!-- Philosophy Section -->
-      <div style="margin-top:100px;margin-bottom:80px;">
+      <div id="philosophy-section" style="margin-top:100px;margin-bottom:80px;">
         <div style="background:linear-gradient(135deg,rgba(1,15,52,.8),rgba(109,48,251,.3));border-radius:16px;padding:60px;color:white;">
           <div style="text-align:center;max-width:700px;margin-left:auto;margin-right:auto;">
             <h2 class="h2" style="color:white;margin-bottom:24px;">Our Philosophy</h2>
@@ -415,18 +415,21 @@
   <script>
     function updateAboutVideoVisibility() {
       const heroSection = document.getElementById('page-hero');
+      const philosophySection = document.getElementById('philosophy-section');
       const bgVideo = document.getElementById('about-bg-video');
       const bgOverlay = document.getElementById('about-bg-overlay');
 
       if (!heroSection || !bgVideo || !bgOverlay) return;
 
       const heroRect = heroSection.getBoundingClientRect();
+      const philosophyRect = philosophySection ? philosophySection.getBoundingClientRect() : null;
       const windowHeight = window.innerHeight;
 
-      // Hide video opacity if hero section is visible in viewport
+      // Hide video if hero OR philosophy section is visible in viewport
       const heroIsVisible = heroRect.bottom > 0 && heroRect.top < windowHeight;
+      const philosophyIsVisible = philosophyRect && philosophyRect.bottom > 0 && philosophyRect.top < windowHeight;
 
-      if (heroIsVisible) {
+      if (heroIsVisible || philosophyIsVisible) {
         bgVideo.style.opacity = '0';
         bgOverlay.style.opacity = '0';
       } else {
