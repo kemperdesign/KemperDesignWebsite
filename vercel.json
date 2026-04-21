@@ -1,4 +1,5 @@
 {
+  "buildCommand": "echo 'Static site, no build needed'",
   "outputDirectory": "site",
   "functions": {
     "api/**/*.js": {
@@ -11,5 +12,6 @@
       "source": "/api/:path*",
       "destination": "/api/:path*.js"
     }
-  ]
+  ],
+  "cleanUrls": true
 }
