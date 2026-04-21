@@ -127,14 +127,14 @@
   <!-- ── About Content ── -->
   <section class="section features-strip" id="about-content-section" style="position:relative;z-index:10;">
     <!-- Fixed Video Background -->
-    <div id="about-bg-video" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;overflow:hidden;opacity:0.4;transition:opacity 0.3s ease;">
+    <div style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;overflow:hidden;opacity:0.4;">
       <video autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;display:block;">
         <source src="assets/video/Backups_A_False_Sense_of_Security.mp4" type="video/mp4">
       </video>
     </div>
 
     <!-- Overlay for readability -->
-    <div id="about-bg-overlay" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;background:rgba(11,23,59,0.75);pointer-events:none;transition:opacity 0.3s ease;"></div>
+    <div style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;background:rgba(11,23,59,0.75);pointer-events:none;"></div>
 
     <div class="container" style="position:relative;z-index:10;">
       <!-- Section Header -->
@@ -248,7 +248,7 @@
       </div>
 
       <!-- Philosophy Section -->
-      <div id="philosophy-section" style="margin-top:100px;margin-bottom:80px;">
+      <div style="margin-top:100px;margin-bottom:80px;position:relative;z-index:30;">
         <div style="background:linear-gradient(135deg,rgba(1,15,52,.8),rgba(109,48,251,.3));border-radius:16px;padding:60px;color:white;">
           <div style="text-align:center;max-width:700px;margin-left:auto;margin-right:auto;">
             <h2 class="h2" style="color:white;margin-bottom:24px;">Our Philosophy</h2>
@@ -412,37 +412,6 @@
 
   <script src="scripts.js"></script>
 
-  <script>
-    function updateAboutVideoVisibility() {
-      const heroSection = document.getElementById('page-hero');
-      const philosophySection = document.getElementById('philosophy-section');
-      const bgVideo = document.getElementById('about-bg-video');
-      const bgOverlay = document.getElementById('about-bg-overlay');
-
-      if (!heroSection || !bgVideo || !bgOverlay) return;
-
-      const heroRect = heroSection.getBoundingClientRect();
-      const philosophyRect = philosophySection ? philosophySection.getBoundingClientRect() : null;
-      const windowHeight = window.innerHeight;
-
-      // Hide video if hero OR philosophy section is visible in viewport
-      const heroIsVisible = heroRect.bottom > 0 && heroRect.top < windowHeight;
-      const philosophyIsVisible = philosophyRect && philosophyRect.bottom > 0 && philosophyRect.top < windowHeight;
-
-      if (heroIsVisible || philosophyIsVisible) {
-        bgVideo.style.opacity = '0';
-        bgOverlay.style.opacity = '0';
-      } else {
-        bgVideo.style.opacity = '0.4';
-        bgOverlay.style.opacity = '1';
-      }
-    }
-
-    // Update on scroll and resize
-    window.addEventListener('scroll', updateAboutVideoVisibility, { passive: true });
-    window.addEventListener('resize', updateAboutVideoVisibility, { passive: true });
-    updateAboutVideoVisibility(); // Initial check
-  </script>
 
 </body>
 </html>
