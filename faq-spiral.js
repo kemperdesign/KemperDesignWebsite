@@ -61,6 +61,22 @@ class FAQSpiral {
         q: "Do you maintain existing products?",
         a: "Yes. We audit codebases, eliminate technical debt, set up monitoring, and take over under SLA.",
       },
+      {
+        q: "How does an engagement with Kemper Design Services start?",
+        a: "Every project starts with a free 30-minute discovery call. We ask about your business, your workflows, and what's eating the most time. From there we produce a written scope with a fixed price and timeline. No surprises, no scope creep — you approve the cost before any work begins.",
+      },
+      {
+        q: "How long does a typical AI automation project take?",
+        a: "An AI automation workflow takes 3–5 weeks from signed scope to delivery. A custom website is 2–3 weeks. A full custom application is 6–10 weeks. Format conversions and graphic design projects can often turn around in 48–72 hours.",
+      },
+      {
+        q: "Do I need to be technical to work with you?",
+        a: "Not at all. We explain everything in plain language and don't assume any technical background. Our goal is that you finish every engagement understanding exactly what was built and how to use it. We also provide documentation and a handoff walkthrough with every delivery.",
+      },
+      {
+        q: "How is pricing structured for AI services?",
+        a: "Fixed price per project, agreed before any work begins. You will never receive an invoice larger than what you signed off on. Custom websites start at $999. Custom training apps deliver consistent onboarding for under $500 per head. AI automations are scoped to your specific needs — book a free call for an accurate quote.",
+      },
     ];
 
     this.init();
