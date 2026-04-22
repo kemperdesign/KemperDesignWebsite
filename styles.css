@@ -1218,15 +1218,18 @@ h1 .text-gradient {
     color: var(--text-secondary);
     font-size: 0.9rem;
     line-height: 1.6;
-    padding: 0 0 12px 0;
+    padding: 0;
     overflow: hidden;
     max-height: 0;
-    transition: max-height 0.3s, padding 0.3s;
+    transition: max-height 0.3s ease, padding 0.3s ease, opacity 0.3s ease;
+    opacity: 0;
+    display: block;
 }
 
 .faq-item-modal.open .faq-a-modal {
     max-height: 500px;
-    padding: 0 0 12px 0;
+    padding: 12px 0;
+    opacity: 1;
 }
 .aai-sub {
     color: var(--text-secondary);
