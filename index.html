@@ -1,0 +1,1194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kemper Design Services — AI Tools for Small Businesses</title>
+    
+    <!-- Modern Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Fixed Background Video -->
+    <div class="video-bg-container">
+        <video autoplay muted loop playsinline class="video-bg">
+            <source src="assets/video/Index-BG.mp4" type="video/mp4">
+        </video>
+        <div class="video-overlay"></div>
+    </div>
+
+    <!-- Background Effects -->
+    <div class="bg-glow bg-glow-purple"></div>
+    <div class="bg-glow bg-glow-blue"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar glass">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <span class="logo-text">Kemper Design Services</span>
+            </a>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <div class="dropdown">
+                    <button class="dropbtn">Services <span class="arrow-down">▼</span></button>
+                    <div class="dropdown-content glass">
+                        <div class="drop-col">
+                            <span class="mega-heading">AI & Automation</span>
+                            <a href="javascript:void(0)" onclick="openServiceModal('AI Workflow Integration')">AI Workflow Integration</a>
+                            <a href="javascript:void(0)" onclick="openServiceModal('AI Chatbots & Assistants')">AI Chatbots & Assistants</a>
+                            <a href="javascript:void(0)" onclick="openServiceModal('Custom Internal AI Tools')">Custom Internal AI Tools</a>
+                            <a href="javascript:void(0)" onclick="openServiceModal('System Integrations')">System Integrations</a>
+                            <a href="javascript:void(0)" onclick="openServiceModal('Local AI Deployment')">Local AI Deployment</a>
+                            <a href="javascript:void(0)" onclick="openServiceModal('Document Processing')">Document Processing</a>
+                        </div>
+                        <div class="drop-col">
+                            <span class="mega-heading">Design & Development</span>
+                            <a href="javascript:void(0)" onclick="openServiceModal('Custom Websites')">Custom Websites</a>
+                            <a href="javascript:void(0)" onclick="openServiceModal('Custom Applications')">Custom Applications</a>
+                            <a href="javascript:void(0)" onclick="openServiceModal('Graphic Design')">Graphic Design</a>
+                            <a href="javascript:void(0)" onclick="openServiceModal('Brand Identity')">Brand Identity</a>
+                            <a href="javascript:void(0)" onclick="openServiceModal('UI/UX Design')">UI/UX Design</a>
+                            <a href="javascript:void(0)" onclick="openServiceModal('Frontend Development')">Frontend Development</a>
+                        </div>
+                        <div class="drop-col">
+                            <span class="mega-heading">Operations & Training</span>
+                            <a href="javascript:void(0)" onclick="openServiceModal('AI Auto-Scheduler')">AI Auto-Scheduler</a>
+                            <a href="javascript:void(0)" onclick="openServiceModal('Instructional Design')">Instructional Design</a>
+                            <a href="javascript:void(0)" onclick="openServiceModal('AI Training & Education')">AI Training & Education</a>
+                            <a href="javascript:void(0)" onclick="openServiceModal('Employee Onboarding')">Employee Onboarding</a>
+                            <a href="javascript:void(0)" onclick="openServiceModal('Custom Training Apps')">Custom Training Apps</a>
+                            <a href="javascript:void(0)" onclick="openServiceModal('Process Optimization')">Process Optimization</a>
+                        </div>
+                        <div class="drop-col">
+                            <span class="mega-heading">IT & Security</span>
+                            <a href="javascript:void(0)" onclick="openServiceModal('Cybersecurity Solutions')">Cybersecurity Solutions</a>
+                            <a href="javascript:void(0)" onclick="openServiceModal('IT Infrastructure')">IT Infrastructure</a>
+                            <a href="javascript:void(0)" onclick="openServiceModal('Data Protection')">Data Protection</a>
+                            <a href="javascript:void(0)" onclick="openServiceModal('System Integration')">System Integration</a>
+                            <a href="javascript:void(0)" onclick="openServiceModal('Cloud Solutions')">Cloud Solutions</a>
+                            <a href="javascript:void(0)" onclick="openServiceModal('Network Management')">Network Management</a>
+                        </div>
+                        <div class="drop-col">
+                            <span class="mega-heading">Creative & Specialty</span>
+                            <a href="javascript:void(0)" onclick="openServiceModal('Video Editing')">Video Editing</a>
+                            <a href="javascript:void(0)" onclick="openServiceModal('Custom Music Production')">Custom Music Production</a>
+                            <a href="javascript:void(0)" onclick="openServiceModal('3D Printing')">3D Printing</a>
+                            <a href="javascript:void(0)" onclick="openServiceModal('Digital Notary')">Digital Notary</a>
+                            <a href="javascript:void(0)" onclick="openServiceModal('Data/Format Conversion')">Data/Format Conversion</a>
+                            <a href="javascript:void(0)" onclick="openServiceModal('Content Creation')">Content Creation</a>
+                        </div>
+                    </div>
+                </div>
+                <a href="#consulting">Consulting</a>
+            </div>
+            <div class="nav-cta">
+                <a href="javascript:void(0)" onclick="openContactModal()" class="btn btn-primary">Learn AI Today <span class="arrow">→</span></a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Floating Logo outside the menu, below Kemper Design Services -->
+    <div class="hero-logo-container">
+        <img src="assets/logos/logo-white.png" alt="Kemper Design Services Logo" class="hero-logo-img">
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1 class="fade-up delay-1">AI That Works With Your Team<br/><span class="text-gradient">—Not Instead of It.</span></h1>
+            <p class="hero-subtitle fade-up delay-2">Enhance Human Potential with Intelligent Automation. Custom workflows, AI chatbots, and software integration to help you save hours every week.</p>
+            <div class="hero-buttons fade-up delay-3">
+                <a href="javascript:void(0)" onclick="openContactModal()" class="btn btn-primary glow-btn">Book Discovery Call</a>
+                <a href="#services" class="btn btn-secondary glass-btn">Explore Services</a>
+                <button onclick="openAssessment()" class="btn btn-primary glow-btn" style="background: rgba(139, 92, 246, 0.2); border-color: var(--accent-1); color: white; cursor: pointer;">AI Assessment</button>
+            </div>
+            
+            <!-- Hero Dashboard Mockup -->
+            <div class="hero-mockup fade-up delay-4 glass">
+                <div class="mockup-header">
+                    <div class="mockup-dots"><span></span><span></span><span></span></div>
+                    <div class="mockup-title">We Build Custom Applications</div>
+                </div>
+                <div class="mockup-body mockup-carousel">
+                    <img src="assets/images/food truck app.png" alt="AI AutoScheduler Workflow" class="mockup-image mockup-image-1">
+                    <img src="assets/images/KDS Lab Studio.png" alt="KDS Lab Studio" class="mockup-image mockup-image-2">
+                    <img src="assets/images/DriveMirror.png" alt="DriveMirror" class="mockup-image mockup-image-3">
+                </div>
+                <!-- Floating elements -->
+                <div class="float-card float-1 glass">
+                    <div class="fc-icon">📉</div>
+                    <div>
+                        <div class="fc-title">15h Saved</div>
+                        <div class="fc-desc">Every Week</div>
+                    </div>
+                </div>
+                <div class="float-card float-2 glass">
+                    <div class="fc-icon">⚡</div>
+                    <div>
+                        <div class="fc-title">24/7 Running</div>
+                        <div class="fc-desc">AI Agents active</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Chat Input Demo Interface -->
+    <section class="v0-demo-section glass">
+        <div class="chat-input-container" id="chat-container">
+            <div id="chat-history" class="chat-history"></div>
+            <div class="chat-input-inner">
+                <textarea id="chat-input-textarea" class="chat-input-textarea" placeholder="Ask about our websites, AI tools, or pricing..." rows="1"></textarea>
+                <button id="chat-input-submit" class="chat-input-submit" disabled aria-label="Send">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <script>
+      (function() {
+         var txt = document.getElementById('chat-input-textarea');
+         var btn = document.getElementById('chat-input-submit');
+         var hist = document.getElementById('chat-history');
+         if(!txt) return;
+         
+         function adjustHeight() {
+            txt.style.height = 'auto';
+            txt.style.height = Math.min(txt.scrollHeight, 150) + 'px';
+            btn.disabled = txt.value.trim().length === 0;
+         }
+         txt.addEventListener('input', adjustHeight);
+         
+         function addMsg(text, isUser) {
+            hist.style.display = 'flex';
+            var msg = document.createElement('div');
+            msg.className = 'chat-msg ' + (isUser ? 'chat-msg-user' : 'chat-msg-bot');
+            msg.innerHTML = text;
+            hist.appendChild(msg);
+            hist.scrollTop = hist.scrollHeight;
+         }
+         
+         function handleSend() {
+            var val = txt.value.trim();
+            if(!val) return;
+            addMsg(val, true);
+            txt.value = '';
+            adjustHeight();
+            
+            // Simulated Bot Logic (Local Info Only)
+            var lower = val.toLowerCase();
+            var reply = "Kemper Design Services modernizes business operations with practical AI. We build custom workflows, websites, and chatbots to help teams do more without burning out. How can we help specifically?";
+            
+            if(lower.includes('website') || lower.includes('web')) {
+                reply = "We build custom, conversion-optimized websites starting at $999. They are fully handed over with zero lock-in when finished.";
+            } else if(lower.includes('schedule') || lower.includes('booking')) {
+                reply = "Our AI AutoScheduler handles bookings 24/7. It typically saves businesses up to $38k annually compared to a human scheduler.";
+            } else if(lower.includes('save') || lower.includes('workflow') || lower.includes('automate')) {
+                reply = "We build custom workflow automations that eliminate manual admin and copy-paste work. On average, our clients recover 15 hours every week.";
+            } else if(lower.includes('train') || lower.includes('app')) {
+                reply = "We create custom training apps that deliver consistent employee onboarding for under $500 per head.";
+            } else if(lower.includes('cost') || lower.includes('price')) {
+                reply = "Our pricing is scoped around your actual needs. For example, websites start at $999. We recommend booking a free discovery call for an accurate quote.";
+            }
+            
+            setTimeout(function() {
+                addMsg(reply, false);
+            }, 600);
+         }
+         
+         btn.addEventListener('click', handleSend);
+         txt.addEventListener('keydown', function(e) {
+            if(e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                handleSend();
+            }
+         });
+      })();
+    </script>
+
+    <!-- Features / Bento Grid -->
+    <section class="features" id="about">
+        <div class="section-heading">
+            <h2 class="h2">Built to cover your needs</h2>
+            <p>Every engagement is scoped around what your business actually requires — not a generic package.</p>
+        </div>
+        
+        <div class="bento-grid">
+            <div class="bento-item glass">
+                <div class="eyebrow">AI AutoScheduler</div>
+                <div class="stat text-gradient">$38K</div>
+                <h3>Saved Annually vs. Hiring a Scheduler</h3>
+                <p>A dedicated scheduling employee runs $38k-$45k/yr. Our AI AutoScheduler handles bookings 24/7.</p>
+            </div>
+            
+            <div class="bento-item glass">
+                <div class="eyebrow">$999 Website</div>
+                <div class="stat text-gradient">$12K+</div>
+                <h3>Less Than an Agency Website</h3>
+                <p>Ours starts at $999 — fully custom, conversion-optimized, and handed over with zero lock-in.</p>
+            </div>
+            
+            <div class="bento-item glass">
+                <div class="eyebrow">Training App</div>
+                <div class="stat text-gradient">60%</div>
+                <h3>Reduction in Training Costs</h3>
+                <p>A custom training app delivers consistent onboarding at under $500 per head.</p>
+            </div>
+            
+            <div class="bento-item glass">
+                <div class="eyebrow">Workflow Automation</div>
+                <div class="stat text-gradient">15h</div>
+                <h3>Recovered Every Week</h3>
+                <p>We automate workflows end-to-end so your team works on what moves the business forward.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Text Rotate Banner -->
+    <section class="text-rotate-section">
+        <div class="text-rotate-inner">
+            <span class="text-rotate-prefix">Kemper Design Services: AI</span>
+            <div class="text-rotate-badge" id="textRotateBadge" aria-live="polite">
+                <span class="text-rotate-track" id="textRotateTrack"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Grid -->
+    <section class="services" id="services">
+        <div class="section-heading">
+            <h2 class="h2">The capabilities are endless</h2>
+        </div>
+        
+        <div class="services-grid">
+            <div class="service-card glass" onclick="openServiceModal('AI Workflow Integration')" style="cursor: pointer;">
+                <div class="s-icon glow-icon">⚡</div>
+                <h3>Workflow Automation</h3>
+                <p>Custom triggers and workflows that eliminate manual admin and sync your tools.</p>
+            </div>
+            <div class="service-card glass" onclick="openServiceModal('Custom Training Apps')" style="cursor: pointer;">
+                <div class="s-icon glow-icon purple">📚</div>
+                <h3>Instructional Design & Custom Training</h3>
+                <p>Interactive training applications and instructional design for consistent employee onboarding and development.</p>
+            </div>
+            <div class="service-card glass" onclick="openServiceModal('AI Voice Autoschedulers')" style="cursor: pointer;">
+                <div class="s-icon glow-icon blue">🎤</div>
+                <h3>AI Voice Autoschedulers</h3>
+                <p>Voice-activated scheduling that intelligently manages your calendar and coordinates meetings automatically.</p>
+            </div>
+            <div class="service-card glass" onclick="openServiceModal('Local AI Deployment')" style="cursor: pointer;">
+                <div class="s-icon glow-icon emerald">💻</div>
+                <h3>Local AI Deployment</h3>
+                <p>Run powerful AI models on your own servers for maximum privacy and security.</p>
+            </div>
+            <div class="service-card glass" onclick="openServiceModal('Custom Integrations')" style="cursor: pointer;">
+                <div class="s-icon glow-icon pink">🔗</div>
+                <h3>Custom Integrations</h3>
+                <p>We build bridges between your disconnected software tools for seamless flow.</p>
+            </div>
+            <div class="service-card glass" onclick="openServiceModal('Custom Websites')" style="cursor: pointer;">
+                <div class="s-icon glow-icon purple">🌐</div>
+                <h3>Websites & Apps</h3>
+                <p>High-conversion websites and custom portals designed for your workflows.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Consulting Section -->
+    <section class="features" id="consulting">
+        <div class="section-heading">
+            <h2 class="h2">Strategic Consulting & Guidance</h2>
+            <p>We don't just build solutions — we help you think through the right problems to solve first. Our consulting approach combines technical expertise with business strategy to maximize ROI.</p>
+        </div>
+
+        <div class="bento-grid">
+            <div class="bento-item glass">
+                <div class="eyebrow">AI Strategy</div>
+                <h3>AI Readiness Assessment</h3>
+                <p>We analyze your operations to identify where AI can drive the most impact. Custom roadmap with prioritized opportunities, timelines, and ROI projections.</p>
+            </div>
+
+            <div class="bento-item glass">
+                <div class="eyebrow">Process Analysis</div>
+                <h3>Workflow Optimization</h3>
+                <p>Deep dive into your current processes to identify bottlenecks, automation opportunities, and inefficiencies. We document findings and recommend solutions.</p>
+            </div>
+
+            <div class="bento-item glass">
+                <div class="eyebrow">Technology Stack</div>
+                <h3>Systems & Tools Review</h3>
+                <p>Audit of your current software and tools. We identify gaps, integration opportunities, and whether your tech stack supports your growth goals.</p>
+            </div>
+
+            <div class="bento-item glass">
+                <div class="eyebrow">Implementation Strategy</div>
+                <h3>Custom Roadmap</h3>
+                <p>Phased implementation plan tailored to your business. Prioritized by impact and feasibility with clear milestones, timelines, and expected outcomes at each phase.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-box glass">
+            <h2>Ready to find the hours <em>you've been losing?</em></h2>
+            <p>A free 30-minute call — no pitch, no deck. You describe your bottlenecks, we tell you honestly what we can do about them.</p>
+            <a href="javascript:void(0)" onclick="openContactModal()" class="btn btn-primary glow-btn large-btn">Book Free Discovery Call</a>
+        </div>
+    </section>
+
+    <!-- Brands -->
+    <section class="brands white-bg">
+        <p class="brands-title">Trusted by innovative companies</p>
+        <div class="logo-scroller">
+            <div class="logo-scroller-inner">
+                <span>Renegades on the River</span>
+                <span>Eurest Dining Services</span>
+                <span>Landry's Restaurants</span>
+                <span>Brinker Restaurant Group</span>
+                <span>Corner Bakery Cafe</span>
+                <span>First Coast Technical College</span>
+                <span>Pearson Education</span>
+                <span>Express Medical Group</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-col brand-col">
+                <div class="brand-header">
+                    <img src="assets/logos/logo-white.png" alt="KDS Logo" class="footer-logo">
+                    <div class="brand-title">
+                        <span>Kemper</span>
+                        <span>Design</span>
+                        <span>Services</span>
+                    </div>
+                </div>
+                <p class="brand-desc">We modernize business operations with practical AI — automating workflows, building custom tools, and helping teams do more without burning out.</p>
+            </div>
+            
+            <div class="footer-col">
+                <h4 class="footer-title">QUICK LINKS</h4>
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="javascript:void(0)" onclick="openAboutModal()">About Us</a>
+                    <a href="javascript:void(0)" onclick="openFaqModal()">FAQ</a>
+                    <span style="color: var(--text-secondary);">Blog</span>
+                    <span style="color: var(--text-secondary);">Admin</span>
+                    <a href="javascript:void(0)" onclick="openTermsModal()">Terms & Conditions</a>
+                    <a href="javascript:void(0)" onclick="openPrivacyModal()">Privacy Policy</a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4 class="footer-title">AI SERVICES</h4>
+                <div class="footer-links">
+                    <a href="javascript:void(0)" onclick="openServiceModal('AI Workflow Automation')">AI Automations</a>
+                    <a href="javascript:void(0)" onclick="openServiceModal('AI Consulting')">AI Consulting</a>
+                    <a href="javascript:void(0)" onclick="openServiceModal('Custom Integrations')">AI Integrations</a>
+                    <a href="javascript:void(0)" onclick="openServiceModal('AI Enablement')">AI Enablement</a>
+                    <a href="javascript:void(0)" onclick="openServiceModal('AI Training & Education')">AI Education</a>
+                    <a href="javascript:void(0)" onclick="openServiceModal('AI Implementation')">AI Implementations</a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4 class="footer-title">ADDITIONAL SERVICES</h4>
+                <div class="footer-links">
+                    <a href="javascript:void(0)" onclick="openServiceModal('Custom Applications')">Custom Applications</a>
+                    <a href="javascript:void(0)" onclick="openServiceModal('Custom Websites')">Web Engineering</a>
+                    <a href="javascript:void(0)" onclick="openServiceModal('Graphic Design')">Graphic Design</a>
+                    <a href="javascript:void(0)" onclick="openServiceModal('Instructional Design')">Instructional Design</a>
+                    <a href="javascript:void(0)" onclick="openServiceModal('Notary Services')">Notary Services</a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4 class="footer-title">CONTACT US</h4>
+                <div class="contact-list">
+                    <div class="contact-item">
+                        <span class="contact-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        </span>
+                        <span>St Augustine, FL</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                        </span>
+                        <a href="mailto:damian@kemperdesignservices.com">damian@kemperdesignservices.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.26h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.81a16 16 0 0 0 6 6l.86-.86a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16z"/></svg>
+                        </span>
+                        <a href="tel:9042363706">904.236.3706</a>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        </span>
+                        <span>Mon–Fri, 9am–5pm EST</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 Kemper Design Services. All rights reserved.</p>
+            <div class="social-links">
+                <a href="https://www.facebook.com/profile.php?id=61558862320236" target="_blank" aria-label="Facebook">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a6 6 0 0 0-6 6v3H7v4h2v8h4v-8h3l1-4h-4V8a1 1 0 0 1 1-1h3z"/></svg>
+                </a>
+                <a href="https://www.youtube.com/@KemperDesignServices" target="_blank" aria-label="YouTube">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/></svg>
+                </a>
+                <a href="https://www.linkedin.com/in/damiankemper/" target="_blank" aria-label="LinkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                </a>
+                <a href="https://github.com/kemperdesign" target="_blank" aria-label="GitHub">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v 3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AI Readiness Assessment Modal -->
+  <div id="aai-modal" class="aai-modal" role="dialog" aria-modal="true" aria-label="AI Readiness Assessment">
+    <div class="aai-inner">
+      <button class="aai-close" onclick="closeAssessment()" aria-label="Close assessment">✕</button>
+      <div class="aai-progress-track">
+        <div class="aai-progress-fill" id="aai-progress"></div>
+      </div>
+      <div class="aai-body" id="aai-body">
+        <!-- Step 1 -->
+        <div class="aai-step" data-key="industry">
+          <div class="aai-cat">YOUR BUSINESS</div>
+          <h2 class="aai-q">Tell us about your business to tailor results</h2>
+          <div class="aai-grid">
+            <button class="aai-chip" data-val="Healthcare">🏥 Healthcare</button>
+            <button class="aai-chip" data-val="Professional Services">💼 Prof. Services</button>
+            <button class="aai-chip" data-val="Retail">🛍️ Retail</button>
+            <button class="aai-chip" data-val="Food">🍽️ Food</button>
+            <button class="aai-chip" data-val="Construction">🏗️ Construction</button>
+            <button class="aai-chip" data-val="Real Estate">🏠 Real Estate</button>
+            <button class="aai-chip" data-val="Finance">💰 Finance</button>
+            <button class="aai-chip" data-val="Education">🎓 Education</button>
+            <button class="aai-chip" data-val="Tech">💻 Tech</button>
+            <button class="aai-chip" data-val="Other">⋯ Other</button>
+          </div>
+        </div>
+        <!-- Step 2 -->
+        <div class="aai-step" data-key="bottleneck">
+          <div class="aai-cat">OPERATIONS</div>
+          <h2 class="aai-q">Biggest operational headache right now?</h2>
+          <div class="aai-list">
+            <button class="aai-opt" data-val="Manual data entry">Manual data entry and copy-paste work</button>
+            <button class="aai-opt" data-val="Scheduling">Scheduling, booking and confirmations</button>
+            <button class="aai-opt" data-val="Customer follow-up">Customer follow-up and communication</button>
+            <button class="aai-opt" data-val="Creating documents">Creating documents, proposals and reports</button>
+            <button class="aai-opt" data-val="Managing email">Managing email and client inquiries</button>
+          </div>
+        </div>
+        <!-- Step 3 -->
+        <div class="aai-step" data-key="team_size">
+          <div class="aai-cat">YOUR TEAM</div>
+          <h2 class="aai-q">How many people are on your team?</h2>
+          <div class="aai-list">
+            <button class="aai-opt" data-val="Solo">Just me (solo operator)</button>
+            <button class="aai-opt" data-val="2-5">2–5 team members</button>
+            <button class="aai-opt" data-val="6-20">6–20 team members</button>
+            <button class="aai-opt" data-val="21+">21+ team members</button>
+          </div>
+        </div>
+        <!-- Step 4 -->
+        <div class="aai-step" data-key="ai_readiness">
+          <div class="aai-cat">AI READINESS</div>
+          <h2 class="aai-q">Current relationship with AI tools?</h2>
+          <div class="aai-list">
+            <button class="aai-opt" data-val="Daily use">Using AI tools daily</button>
+            <button class="aai-opt" data-val="Mixed results">Tried a few tools with mixed results</button>
+            <button class="aai-opt" data-val="Curious">Curious but haven't started yet</button>
+            <button class="aai-opt" data-val="Not sure">Not sure where AI would fit</button>
+          </div>
+        </div>
+        <!-- Step 5 -->
+        <div class="aai-step aai-step--contact" data-key="contact">
+          <div class="aai-cat">YOUR RESULTS</div>
+          <h2 class="aai-q">Where should we send your AI roadmap?</h2>
+          <p class="aai-sub">Sent directly to your inbox based on your precise answers.</p>
+          <form class="aai-form" id="aai-form" onsubmit="submitAssessment(event)">
+            <input type="hidden" name="industry" id="aai-h-industry">
+            <input type="hidden" name="bottleneck" id="aai-h-bottleneck">
+            <input type="hidden" name="team_size" id="aai-h-team_size">
+            <input type="hidden" name="ai_readiness" id="aai-h-ai_readiness">
+            <div class="aai-form-row">
+              <input class="aai-input" type="text" name="name" placeholder="Full Name" required>
+              <input class="aai-input" type="text" name="company" placeholder="Company Name">
+            </div>
+            <input class="aai-input" type="email" name="email" placeholder="Work Email" required>
+            <button type="submit" class="aai-submit-btn">Get My AI Roadmap →</button>
+          </form>
+        </div>
+      </div>
+      <div class="aai-nav" id="aai-nav">
+        <button class="aai-back" id="aai-back" onclick="aaiBack()">← Back</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="scripts.js"></script>
+
+  <script>
+  (function () {
+    var modal    = document.getElementById('aai-modal');
+    var steps    = Array.prototype.slice.call(document.querySelectorAll('.aai-step'));
+    var progress = document.getElementById('aai-progress');
+    var backBtn  = document.getElementById('aai-back');
+    var TOTAL    = steps.length;
+    var cur      = 0;
+    var answers  = {};
+
+    window._aaiAnswers = answers;
+
+    function showStep(idx) {
+      steps.forEach(function (s, i) {
+        s.classList.toggle('aai-step--active', i === idx);
+      });
+      var pct = Math.round((idx / (TOTAL - 1)) * 100);
+      progress.style.width = pct + '%';
+      backBtn.style.visibility = idx > 0 ? 'visible' : 'hidden';
+    }
+
+    function next() { if (cur < TOTAL - 1) { cur++; showStep(cur); } }
+    function back() { if (cur > 0)          { cur--; showStep(cur); } }
+
+    document.querySelectorAll('.aai-chip, .aai-opt').forEach(function (el) {
+      el.addEventListener('click', function () {
+        var key = el.closest('.aai-step').dataset.key;
+        answers[key] = el.dataset.val;
+        next();
+      });
+    });
+
+    modal.addEventListener('click', function (e) {
+      if (e.target === modal) closeAssessment();
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && modal.classList.contains('open')) closeAssessment();
+    });
+
+    window.openAssessment = function () {
+      cur = 0; answers = {}; window._aaiAnswers = answers;
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      showStep(0);
+    };
+
+    window.closeAssessment = function () {
+      modal.classList.remove('open');
+      document.body.style.overflow = '';
+    };
+
+    window.aaiBack = back; window.aaiSkip = next; showStep(0);
+  })();
+
+  function submitAssessment(e) {
+    e.preventDefault();
+    var answers = window._aaiAnswers || {};
+    ['industry','bottleneck','team_size','ai_readiness'].forEach(function (k) {
+      var el = document.getElementById('aai-h-' + k);
+      if (el) el.value = answers[k] || 'Not answered';
+    });
+
+    var emailInput = e.target.querySelector('input[type="email"]');
+    var userEmail = emailInput ? emailInput.value : '';
+    
+    // Replaces the entire step container but keeps the top headers visible
+    var stepContainer = e.target.closest('.aai-step');
+    stepContainer.innerHTML =
+      '<div class="aai-cat">YOUR RESULTS</div>' +
+      '<h2 class="aai-q">Where should we send your AI roadmap?</h2>' +
+      '<p class="aai-sub" style="margin-bottom: 40px;">Sent directly to your inbox based on your precise answers.</p>' +
+      '<div class="aai-thanks" style="text-align: center;">' +
+        '<div style="font-size: 50px; margin-bottom: 20px;">✅</div>' +
+        '<h3 style="font-size: 1.5rem; margin-bottom: 15px; color: white;">Your roadmap is on its way!</h3>' +
+        '<p style="color: var(--text-secondary); margin-bottom: 30px; font-size: 1.1rem; line-height: 1.6;">' +
+        'Thank you for requesting your personalized AI roadmap. It will be sent to the following email address:<br><br>' +
+        '<strong style="color: white; font-size: 1.2rem;">' + userEmail + '</strong><br><br>' +
+        'Allow 24-48 hours for us to email it to you.</p>' +
+        '<button class="aai-submit-btn" onclick="closeAssessment()">Close</button>' +
+      '</div>';
+      
+    // Add logic to POST formData here
+  }
+  </script>
+
+  <!-- Contact Modal -->
+  <div class="aai-modal" id="contact-modal">
+    <div class="aai-inner contact-inner glass" style="max-width: 1000px; padding: 0; display: flex; overflow: hidden; flex-direction: row; flex-wrap: wrap;">
+      <button class="aai-close" onclick="closeContactModal()" style="z-index: 10; right: 15px; top: 15px;">✕</button>
+      
+      <div style="flex: 1 1 400px; position: relative; min-height: 400px; padding: 40px; display: flex; flex-direction: column; justify-content: flex-end; overflow: hidden;">
+          <video autoplay muted loop playsinline style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1;">
+              <source src="assets/video/Video_Generation_Without_Text.mp4" type="video/mp4">
+          </video>
+          <h1 style="color: white; font-size: 3rem; font-weight: 800; line-height: 1.1; margin-bottom: 20px; text-shadow: 0 4px 20px rgba(0,0,0,0.5);">We can turn your dream project into reality</h1>
+      </div>
+
+      <div style="flex: 1 1 500px; padding: 40px; background: rgba(20,20,25,0.95); display: flex; flex-direction: column; overflow-y: auto; max-height: 90vh;">
+          <h2 style="color: white; font-size: 1.8rem; margin-bottom: 24px;">Let's talk! 👋</h2>
+          
+          <div style="margin-bottom: 24px;">
+              <p style="color: var(--text-secondary); margin-bottom: 8px; font-size: 0.9rem;">Mail us at</p>
+              <a href="mailto:damian@kemperdesignservices.com" style="color: var(--accent-1); text-decoration: none; font-size: 1.1rem; font-weight: 500;">damian@kemperdesignservices.com</a>
+          </div>
+
+          <hr style="border: none; border-top: 1px solid rgba(255,255,255,0.1); margin-bottom: 24px;">
+
+          <form id="contact-form" onsubmit="submitContactForm(event)" style="display: flex; flex-direction: column; gap: 16px;">
+              <p style="color: var(--text-secondary); margin-bottom: 4px; font-size: 0.95rem;">Leave us a brief message</p>
+              
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                  <div>
+                      <label style="color: white; font-size: 0.9rem; margin-bottom: 8px; display: block;">Your name</label>
+                      <input type="text" required style="width: 100%; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); background: rgba(0,0,0,0.2); padding: 12px 14px; color: white; outline: none; font-family: var(--font-body);">
+                  </div>
+                  <div>
+                      <label style="color: white; font-size: 0.9rem; margin-bottom: 8px; display: block;">Email</label>
+                      <input type="email" required style="width: 100%; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); background: rgba(0,0,0,0.2); padding: 12px 14px; color: white; outline: none; font-family: var(--font-body);">
+                  </div>
+              </div>
+
+              <div>
+                  <label style="color: white; font-size: 0.9rem; margin-bottom: 8px; display: block;">Briefly describe your project idea...</label>
+                  <textarea required rows="3" style="width: 100%; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); background: rgba(0,0,0,0.2); padding: 12px 14px; color: white; resize: vertical; outline: none; font-family: var(--font-body);"></textarea>
+              </div>
+
+              <div style="margin-top: 10px; margin-bottom: 10px;">
+                  <p style="color: var(--text-secondary); margin-bottom: 12px; font-size: 0.9rem;">I'm looking for...</p>
+                  <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;">
+                      <label style="color: white; font-size: 0.85rem; display: flex; align-items: center; gap: 8px; cursor: pointer;"><input type="checkbox"> Website</label>
+                      <label style="color: white; font-size: 0.85rem; display: flex; align-items: center; gap: 8px; cursor: pointer;"><input type="checkbox"> AI Workflow</label>
+                      <label style="color: white; font-size: 0.85rem; display: flex; align-items: center; gap: 8px; cursor: pointer;"><input type="checkbox"> AI Chatbot</label>
+                      <label style="color: white; font-size: 0.85rem; display: flex; align-items: center; gap: 8px; cursor: pointer;"><input type="checkbox"> Brand Strategy</label>
+                      <label style="color: white; font-size: 0.85rem; display: flex; align-items: center; gap: 8px; cursor: pointer;"><input type="checkbox"> App Dev</label>
+                      <label style="color: white; font-size: 0.85rem; display: flex; align-items: center; gap: 8px; cursor: pointer;"><input type="checkbox"> Other</label>
+                  </div>
+              </div>
+
+              <button type="submit" class="aai-submit-btn" style="margin-top: 10px; padding: 14px; border-radius: 8px;">Send a message</button>
+          </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openContactModal(serviceName) {
+        document.getElementById('contact-modal').classList.add('open');
+        document.body.style.overflow = 'hidden';
+
+        if(serviceName && serviceToCheckbox[serviceName]) {
+            var checkboxValue = serviceToCheckbox[serviceName];
+            var checkboxes = document.querySelectorAll('#contact-form input[type="checkbox"]');
+            checkboxes.forEach(function(cb) {
+                if(cb.nextElementSibling && cb.nextElementSibling.textContent.includes(checkboxValue)) {
+                    cb.checked = true;
+                } else {
+                    cb.checked = false;
+                }
+            });
+        }
+    }
+    function closeContactModal() {
+        document.getElementById('contact-modal').classList.remove('open');
+        document.body.style.overflow = '';
+    }
+    document.getElementById('contact-modal').addEventListener('click', function(e) {
+        if(e.target === this) closeContactModal();
+    });
+    function submitContactForm(e) {
+        e.preventDefault();
+        e.target.innerHTML = '<div style="text-align: center; padding: 60px 20px;"><div style="font-size: 50px; margin-bottom: 20px;">✅</div><h3 style="color: white; font-size: 1.8rem; margin-bottom: 12px;">Message Sent!</h3><p style="color: var(--text-secondary);">We\'ve received your project details and will be in touch shortly.</p><button onclick="closeContactModal()" class="aai-submit-btn" style="margin-top: 30px; border-radius: 8px;">Close</button></div>';
+    }
+  </script>
+
+  <!-- Service Modal -->
+  <div class="aai-modal" id="service-modal">
+    <div class="aai-inner" style="padding: 0; overflow: auto; max-width: 800px; max-height: 90vh; display: flex; flex-direction: row; flex-wrap: wrap;">
+      <button class="aai-close" onclick="closeServiceModal()" style="z-index: 10;">✕</button>
+      <div id="sm-image" style="flex: 1 1 300px; background: url('') center/cover no-repeat; min-height: 400px;"></div>
+      <div style="flex: 1 1 350px; padding: 50px 40px; display: flex; flex-direction: column; justify-content: center;">
+        <div class="aai-cat" style="color: var(--accent-purple);">KEMPER DESIGN SERVICES</div>
+        <h2 id="sm-title" class="aai-q" style="margin-bottom: 20px; font-size: 2rem;">Service Title</h2>
+        <p id="sm-desc" style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 30px; font-size: 1rem;">Service Description goes here.</p>
+        <a href="javascript:void(0)" onclick="closeServiceModal(); openContactModal(currentServiceName);" class="aai-submit-btn" style="text-align: center; text-decoration: none; display: inline-block; cursor: pointer;">Book a Free Discovery Call</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var currentServiceName = null;
+
+    const serviceData = {
+        "AI Workflow Integration": { desc: "We map out your manual processes and build automated workflows that tie your existing software stack together, saving teams an average of 15 hours a week.", img: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80" },
+        "AI Workflow Automation": { desc: "Custom triggers and workflows that eliminate manual admin and sync your tools. We automate the repetitive tasks that drain your team's time so they can focus on what matters.", img: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80" },
+        "AI Chatbots & Assistants": { desc: "Custom-trained AI agents that know your business operations inside and out. They can answer employee FAQs, guide customers, and operate 24/7.", img: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=600&q=80" },
+        "Custom Websites": { desc: "High-performance, beautifully designed websites that convert visitors into leads. Built for speed and flexibility, starting at just $999.", img: "https://images.unsplash.com/photo-1522542550221-31fd19575a2d?auto=format&fit=crop&w=600&q=80" },
+        "AI Auto-Scheduler": { desc: "An intelligent scheduling agent that coordinates meetings automatically, freeing up your time and saving up to $38k annually compared to a human scheduler.", img: "https://images.unsplash.com/photo-1506784951206-b91c0626a5a8?auto=format&fit=crop&w=600&q=80" },
+        "Document Processing": { desc: "Turn unstructured documents like messy invoices, handwritten notes, and contracts into clean, usable data automatically.", img: "https://images.unsplash.com/photo-1618044733300-9472054094ee?auto=format&fit=crop&w=600&q=80" },
+        "AI Voice Autoschedulers": { desc: "Voice-activated scheduling agents that understand natural language and intelligently manage your calendar. Just tell it your availability and let it handle meeting coordination 24/7.", img: "https://images.unsplash.com/photo-1506784951206-b91c0626a5a8?auto=format&fit=crop&w=600&q=80" },
+        "Local AI Deployment": { desc: "Run powerful AI models on your own servers for maximum privacy, security, and zero data leakage to public clouds. Perfect for sensitive business operations.", img: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=600&q=80" },
+        "Custom Integrations": { desc: "We build the bridges between your disconnected software tools so your data flows seamlessly across your entire stack. No manual data transfer, no syncing headaches.", img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" },
+        "AI Consulting": { desc: "Strategic guidance on how to leverage AI in your business. We assess your operations, identify opportunities, and create a roadmap for implementation that drives real ROI.", img: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=600&q=80" },
+        "AI Enablement": { desc: "Workshops and training to help your team leverage AI tools effectively and safely in their daily work. We empower your people to maximize the value of AI.", img: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=600&q=80" },
+        "AI Implementation": { desc: "End-to-end implementation of AI solutions tailored to your business needs. From strategy through deployment and beyond, we handle every step of bringing AI to your organization.", img: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=600&q=80" },
+        "Notary Services": { desc: "Professional digital notarization services for your important documents. We provide legally recognized notarization to ensure your documents are authentic and valid.", img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80" },
+        "Custom Applications": { desc: "Custom-built applications designed specifically for your business workflows. We create solutions that solve your unique challenges and integrate seamlessly with your existing systems.", img: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=600&q=80" },
+        "Graphic Design": { desc: "Professional graphic design services that communicate your brand's message and values. From logos to marketing materials, we create visuals that stand out.", img: "https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=600&q=80" },
+        "Instructional Design": { desc: "Development of clear SOPs, training modules, and knowledge bases to ensure operational consistency. We design training that sticks and drives results.", img: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=600&q=80" },
+        "Custom Internal AI Tools": { desc: "Purpose-built AI tools designed specifically for your internal operations. From data analysis to process automation, we create tools that give your team superpowers.", img: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=600&q=80" },
+        "System Integrations": { desc: "Seamlessly connect all your business systems so data flows automatically without manual intervention. We handle the technical complexity so you don't have to.", img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" },
+        "Brand Identity": { desc: "Comprehensive brand strategy and visual identity design that sets you apart from the competition. We create a cohesive brand that resonates with your audience.", img: "https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=600&q=80" },
+        "UI/UX Design": { desc: "User-centered design that creates intuitive, beautiful interfaces people love to use. We design for both aesthetics and functionality.", img: "https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=600&q=80" },
+        "Frontend Development": { desc: "Expert front-end development that brings designs to life with clean, efficient code. We build responsive interfaces that work flawlessly across all devices.", img: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=600&q=80" },
+        "Employee Onboarding": { desc: "Streamlined onboarding systems that get new team members up to speed faster. We create clear processes and training materials that reduce ramp-up time.", img: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=600&q=80" },
+        "Custom Training Apps": { desc: "Interactive training applications that make learning engaging and effective. We build apps that deliver consistent, measurable training outcomes.", img: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=600&q=80" },
+        "Process Optimization": { desc: "Analysis and improvement of your business processes to eliminate waste and increase efficiency. We identify bottlenecks and implement solutions that drive results.", img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80" },
+        "Cybersecurity Solutions": { desc: "Comprehensive security strategy and implementation to protect your business from threats. We secure your systems, data, and reputation.", img: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=600&q=80" },
+        "IT Infrastructure": { desc: "Robust IT infrastructure design and implementation that scales with your business. We build systems that are secure, reliable, and future-proof.", img: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=600&q=80" },
+        "Data Protection": { desc: "Strategic data protection and compliance solutions to keep your information secure. We implement best practices and ensure regulatory compliance.", img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80" },
+        "System Integration": { desc: "Expert integration of enterprise systems and software platforms. We ensure all your tools work together seamlessly.", img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" },
+        "Cloud Solutions": { desc: "Cloud infrastructure design and migration services that improve scalability and reduce costs. We move your operations to the cloud strategically.", img: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=600&q=80" },
+        "Network Management": { desc: "Professional network setup, management, and monitoring to keep your systems running smoothly. We ensure uptime and optimal performance.", img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" },
+        "Video Editing": { desc: "Professional video editing and production services that bring your vision to life. We create compelling video content that engages your audience.", img: "https://images.unsplash.com/photo-1495997859356-c3fda949f350?auto=format&fit=crop&w=600&q=80" },
+        "Custom Music Production": { desc: "Original music composition and production for your brand, projects, and media. We create custom audio that perfectly fits your needs.", img: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=600&q=80" },
+        "3D Printing": { desc: "3D design and printing services for prototypes, products, and creative projects. We bring your ideas into physical reality.", img: "https://images.unsplash.com/photo-1527919327734-500149f759d9?auto=format&fit=crop&w=600&q=80" },
+        "Digital Notary": { desc: "Professional digital notarization services for legally binding documents. We provide secure, recognized notarial services online.", img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80" },
+        "Data/Format Conversion": { desc: "Professional data conversion and format migration services. We handle complex data transformations accurately and securely.", img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80" },
+        "Content Creation": { desc: "Professional content creation including writing, design, and multimedia. We produce compelling content that drives engagement and results.", img: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=600&q=80" }
+    };
+
+    const serviceToCheckbox = {
+        "AI Workflow Integration": "AI Workflow",
+        "AI Chatbots & Assistants": "AI Chatbot",
+        "Custom Websites": "Website",
+        "AI Auto-Scheduler": "Other",
+        "Document Processing": "Other"
+    };
+
+    function openServiceModal(serviceName) {
+        var modal = document.getElementById('service-modal');
+        var title = document.getElementById('sm-title');
+        var desc = document.getElementById('sm-desc');
+        var img = document.getElementById('sm-image');
+
+        currentServiceName = serviceName;
+
+        var data = serviceData[serviceName] || {
+            desc: "Discover how Kemper Design Services can elevate your business with our tailored " + serviceName + " solutions. We scope every engagement exactly to your needs.",
+            img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=600&q=80"
+        };
+
+        title.innerHTML = serviceName;
+        desc.innerHTML = data.desc;
+        img.style.backgroundImage = "url('" + data.img + "')";
+
+        modal.classList.add('open');
+        document.body.style.overflow = 'hidden';
+    }
+    
+    function closeServiceModal() {
+        document.getElementById('service-modal').classList.remove('open');
+        document.body.style.overflow = '';
+    }
+    
+    document.getElementById('service-modal').addEventListener('click', function(e) {
+        if(e.target === this) closeServiceModal();
+    });
+  </script>
+
+  <!-- Terms & Conditions Modal -->
+  <div class="aai-modal" id="terms-modal">
+    <div class="aai-inner" style="padding: 50px 40px; max-width: 700px; max-height: 85vh; display: flex; flex-direction: column; overflow: hidden;">
+      <button class="aai-close" onclick="closeTermsModal()">✕</button>
+      <div class="aai-cat" style="color: var(--accent-purple);">LEGAL</div>
+      <h2 class="aai-q">Terms & Conditions</h2>
+
+      <div style="flex: 1; overflow-y: auto; padding-right: 15px; margin-right: -15px; font-size: 0.9rem; line-height: 1.7; color: var(--text-secondary);">
+        <p style="margin-bottom: 20px;"><strong>1. Agreement to Terms</strong><br>By engaging Kemper Design Services, you agree to these terms and conditions. If you do not agree to any part of these terms, you may not use our services.</p>
+
+        <p style="margin-bottom: 20px;"><strong>2. Services Scope</strong><br>All projects are scoped in writing before work begins. The scope document defines deliverables, timeline, and fixed price. Any work outside the agreed scope requires written approval and additional pricing.</p>
+
+        <p style="margin-bottom: 20px;"><strong>3. Payment Terms</strong><br>Payment is due as specified in your project agreement. For most projects: 50% upon signed scope, 50% upon delivery. Late payments may result in project suspension until payment is received.</p>
+
+        <p style="margin-bottom: 20px;"><strong>4. Ownership & Licensing</strong><br>Upon final payment, you own all code, designs, and assets created during the project. We retain no licensing rights. You may use, modify, or distribute the work as you see fit.</p>
+
+        <p style="margin-bottom: 20px;"><strong>5. Support & Maintenance</strong><br>30 days of post-launch support is included with every project. After 30 days, ongoing support is available on a project basis and is not included unless otherwise agreed in writing.</p>
+
+        <p style="margin-bottom: 20px;"><strong>6. Limitation of Liability</strong><br>Kemper Design Services is not liable for indirect, incidental, or consequential damages. Our total liability is limited to the amount paid for the project.</p>
+
+        <p style="margin-bottom: 20px;"><strong>7. Confidentiality</strong><br>We maintain strict confidentiality of your business information. Your data is never shared, sold, or used for any purpose other than delivering the agreed-upon services.</p>
+
+        <p style="margin-bottom: 20px;"><strong>8. Changes to Terms</strong><br>We reserve the right to update these terms. Material changes will be communicated in writing. Continued use of our services after changes constitutes acceptance.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Privacy Policy Modal -->
+  <div class="aai-modal" id="privacy-modal">
+    <div class="aai-inner" style="padding: 50px 40px; max-width: 700px; max-height: 85vh; display: flex; flex-direction: column; overflow: hidden;">
+      <button class="aai-close" onclick="closePrivacyModal()">✕</button>
+      <div class="aai-cat" style="color: var(--accent-purple);">LEGAL</div>
+      <h2 class="aai-q">Privacy Policy</h2>
+
+      <div style="flex: 1; overflow-y: auto; padding-right: 15px; margin-right: -15px; font-size: 0.9rem; line-height: 1.7; color: var(--text-secondary);">
+        <p style="margin-bottom: 20px;"><strong>1. Information We Collect</strong><br>We collect information you provide directly: name, email, phone number, and project details shared during discovery calls and communications. We do not collect data beyond what's necessary to deliver your services.</p>
+
+        <p style="margin-bottom: 20px;"><strong>2. How We Use Your Information</strong><br>Your information is used solely to scope, deliver, and support your project. We never use your business data for marketing, training AI models, or any purpose beyond serving your engagement.</p>
+
+        <p style="margin-bottom: 20px;"><strong>3. Data Security</strong><br>We employ industry-standard security measures to protect your information. Your data is encrypted in transit and stored securely. We do not transmit or store your business data on public clouds without explicit consent.</p>
+
+        <p style="margin-bottom: 20px;"><strong>4. Data Retention</strong><br>We retain project information for 7 years to support potential follow-up work and legal compliance. After 7 years, data is securely deleted unless legal obligations require longer retention.</p>
+
+        <p style="margin-bottom: 20px;"><strong>5. Third-Party Services</strong><br>Our projects may integrate with third-party tools (Stripe, QuickBooks, etc.). We only share the data necessary for integration. You own and control accounts with these services.</p>
+
+        <p style="margin-bottom: 20px;"><strong>6. AI & Machine Learning</strong><br>We never train AI models on your business data. Any AI tools we implement are configured to prevent your data from being used for model training or other purposes beyond your direct use.</p>
+
+        <p style="margin-bottom: 20px;"><strong>7. Cookies & Tracking</strong><br>Our website may use cookies for analytics purposes only. We do not track individual users across websites or build behavioral profiles. You can disable cookies in your browser.</p>
+
+        <p style="margin-bottom: 20px;"><strong>8. Your Rights</strong><br>You have the right to access, correct, or delete your personal information at any time. Contact us to exercise these rights. We will respond within 10 business days.</p>
+
+        <p style="margin-bottom: 20px;"><strong>9. Contact Us</strong><br>Questions about this policy? Email damian@kemperdesignservices.com or call 904.236.3706.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ Modal -->
+  <div class="aai-modal" id="faq-modal">
+    <div class="aai-inner" style="padding: 50px 40px; max-width: 700px; max-height: 85vh; display: flex; flex-direction: column; overflow: hidden;">
+      <button class="aai-close" onclick="closeFaqModal()">✕</button>
+      <div class="aai-cat" style="color: var(--accent-purple);">FREQUENTLY ASKED QUESTIONS</div>
+      <h2 class="aai-q">FAQ</h2>
+
+      <div style="flex: 1; overflow-y: auto; padding-right: 15px; margin-right: -15px;">
+        <!-- General -->
+        <div style="margin-bottom: 30px;">
+          <div style="font-size: 0.85rem; font-weight: 700; text-transform: uppercase; color: var(--accent-purple); margin-bottom: 15px;">General</div>
+
+          <div class="faq-item-modal">
+            <button class="faq-q-modal" onclick="faqToggleModal(this)">
+              <span>What does Kemper Design Services do?</span>
+              <span class="faq-chevron-modal">▼</span>
+            </button>
+            <div class="faq-a-modal">We build the systems that let owner-operated businesses grow without proportionally growing their headcount or workload. That includes AI automation, custom applications, websites, graphic design, training, video editing, 3D printing, music production, notary services, and format conversions.</div>
+          </div>
+
+          <div class="faq-item-modal">
+            <button class="faq-q-modal" onclick="faqToggleModal(this)">
+              <span>Who do you typically work with?</span>
+              <span class="faq-chevron-modal">▼</span>
+            </button>
+            <div class="faq-a-modal">Owner-operated businesses where the person running the company is still heavily involved in day-to-day operations. We work across health, trades, hospitality, professional services, retail, and education.</div>
+          </div>
+
+          <div class="faq-item-modal">
+            <button class="faq-q-modal" onclick="faqToggleModal(this)">
+              <span>Are you a software company or a consulting firm?</span>
+              <span class="faq-chevron-modal">▼</span>
+            </button>
+            <div class="faq-a-modal">Neither, exactly. We're hands-on builders with a consulting mindset. We don't sell software licenses or send reports — we build things and stay through implementation.</div>
+          </div>
+
+          <div class="faq-item-modal">
+            <button class="faq-q-modal" onclick="faqToggleModal(this)">
+              <span>Where are you based? Do you work remotely?</span>
+              <span class="faq-chevron-modal">▼</span>
+            </button>
+            <div class="faq-a-modal">We work remotely with clients across the US and internationally. Every engagement runs via video, email, and shared tools — we've never needed to be in the same room to deliver strong results.</div>
+          </div>
+        </div>
+
+        <!-- Process -->
+        <div style="margin-bottom: 30px;">
+          <div style="font-size: 0.85rem; font-weight: 700; text-transform: uppercase; color: var(--accent-purple); margin-bottom: 15px;">Our Process</div>
+
+          <div class="faq-item-modal">
+            <button class="faq-q-modal" onclick="faqToggleModal(this)">
+              <span>How does an engagement start?</span>
+              <span class="faq-chevron-modal">▼</span>
+            </button>
+            <div class="faq-a-modal">Every project starts with a free discovery call — typically 30 minutes. We ask about your business, your workflows, and what's eating the most time. From there we produce a written scope with a fixed price and timeline.</div>
+          </div>
+
+          <div class="faq-item-modal">
+            <button class="faq-q-modal" onclick="faqToggleModal(this)">
+              <span>How long does a typical project take?</span>
+              <span class="faq-chevron-modal">▼</span>
+            </button>
+            <div class="faq-a-modal">It depends on the scope. A custom website is typically 2–3 weeks from signed scope to launch. An AI automation workflow is 3–5 weeks. A full custom application is 6–10 weeks. Format conversions and design can often turn around in 48–72 hours.</div>
+          </div>
+
+          <div class="faq-item-modal">
+            <button class="faq-q-modal" onclick="faqToggleModal(this)">
+              <span>Do I need to be technical to work with you?</span>
+              <span class="faq-chevron-modal">▼</span>
+            </button>
+            <div class="faq-a-modal">Not at all. We explain everything in plain language and don't assume any technical background. Our goal is that you finish every engagement understanding what was built and how to use it.</div>
+          </div>
+
+          <div class="faq-item-modal">
+            <button class="faq-q-modal" onclick="faqToggleModal(this)">
+              <span>Will you work with the tools I already use?</span>
+              <span class="faq-chevron-modal">▼</span>
+            </button>
+            <div class="faq-a-modal">Yes. We don't rip and replace — we connect and extend. Whether you're using QuickBooks, Google Workspace, HubSpot, Calendly, or Shopify, our starting point is always your existing stack.</div>
+          </div>
+        </div>
+
+        <!-- Pricing -->
+        <div style="margin-bottom: 30px;">
+          <div style="font-size: 0.85rem; font-weight: 700; text-transform: uppercase; color: var(--accent-purple); margin-bottom: 15px;">Pricing</div>
+
+          <div class="faq-item-modal">
+            <button class="faq-q-modal" onclick="faqToggleModal(this)">
+              <span>How is pricing structured?</span>
+              <span class="faq-chevron-modal">▼</span>
+            </button>
+            <div class="faq-a-modal">Fixed price per project, agreed before any work begins. You will never receive an invoice larger than what you signed off on.</div>
+          </div>
+
+          <div class="faq-item-modal">
+            <button class="faq-q-modal" onclick="faqToggleModal(this)">
+              <span>What does a website cost?</span>
+              <span class="faq-chevron-modal">▼</span>
+            </button>
+            <div class="faq-a-modal">Our custom websites start at $999. That covers a fully designed, built, and launched site with up to 6 pages, contact forms, mobile optimization, and basic SEO setup.</div>
+          </div>
+
+          <div class="faq-item-modal">
+            <button class="faq-q-modal" onclick="faqToggleModal(this)">
+              <span>Is the discovery call really free?</span>
+              <span class="faq-chevron-modal">▼</span>
+            </button>
+            <div class="faq-a-modal">Yes — no strings. We use it to understand your business and give you honest feedback. If we're not a good fit, we'll tell you and point you in a better direction.</div>
+          </div>
+
+          <div class="faq-item-modal">
+            <button class="faq-q-modal" onclick="faqToggleModal(this)">
+              <span>Do you offer payment plans?</span>
+              <span class="faq-chevron-modal">▼</span>
+            </button>
+            <div class="faq-a-modal">For larger projects, we typically structure billing as 50% on signed scope and 50% on delivery. For projects over a certain threshold, we can discuss a milestone-based schedule.</div>
+          </div>
+        </div>
+
+        <!-- Security -->
+        <div style="margin-bottom: 30px;">
+          <div style="font-size: 0.85rem; font-weight: 700; text-transform: uppercase; color: var(--accent-purple); margin-bottom: 15px;">Security & Data</div>
+
+          <div class="faq-item-modal">
+            <button class="faq-q-modal" onclick="faqToggleModal(this)">
+              <span>Is my business data secure?</span>
+              <span class="faq-chevron-modal">▼</span>
+            </button>
+            <div class="faq-a-modal">Yes. We never store, share, or train on your business data. Every system we build is configured so your data stays on your infrastructure or in accounts you own and control.</div>
+          </div>
+
+          <div class="faq-item-modal">
+            <button class="faq-q-modal" onclick="faqToggleModal(this)">
+              <span>Do you train AI models on my data?</span>
+              <span class="faq-chevron-modal">▼</span>
+            </button>
+            <div class="faq-a-modal">Never. We only use enterprise-tier AI services with data processing agreements that explicitly prohibit training on customer data.</div>
+          </div>
+
+          <div class="faq-item-modal">
+            <button class="faq-q-modal" onclick="faqToggleModal(this)">
+              <span>Who owns what we build together?</span>
+              <span class="faq-chevron-modal">▼</span>
+            </button>
+            <div class="faq-a-modal">You do. Upon final payment, full ownership of the code, designs, and assets transfers to you. We don't retain licensing rights or lock you into proprietary systems.</div>
+          </div>
+        </div>
+
+        <!-- Services -->
+        <div style="margin-bottom: 30px;">
+          <div style="font-size: 0.85rem; font-weight: 700; text-transform: uppercase; color: var(--accent-purple); margin-bottom: 15px;">Services</div>
+
+          <div class="faq-item-modal">
+            <button class="faq-q-modal" onclick="faqToggleModal(this)">
+              <span>Can you handle multiple service types in one engagement?</span>
+              <span class="faq-chevron-modal">▼</span>
+            </button>
+            <div class="faq-a-modal">Yes, and it often makes more sense to bundle. A client who needs a website and automation will get better results if both are scoped together.</div>
+          </div>
+
+          <div class="faq-item-modal">
+            <button class="faq-q-modal" onclick="faqToggleModal(this)">
+              <span>How does the AI Auto-Scheduler work?</span>
+              <span class="faq-chevron-modal">▼</span>
+            </button>
+            <div class="faq-a-modal">It's a customized scheduling system built around your specific business logic. Clients book through a link or widget, the system handles confirmations and reminders, and it integrates with your calendar and payment processor.</div>
+          </div>
+
+          <div class="faq-item-modal">
+            <button class="faq-q-modal" onclick="faqToggleModal(this)">
+              <span>What types of format conversions do you handle?</span>
+              <span class="faq-chevron-modal">▼</span>
+            </button>
+            <div class="faq-a-modal">Documents (PDF ↔ Word, Excel, PowerPoint), audio (MP3, WAV, FLAC, transcription), video (MP4, MOV, WebM), image formats (PNG, JPEG, SVG, WebP), and data formats (CSV, JSON, XML).</div>
+          </div>
+
+          <div class="faq-item-modal">
+            <button class="faq-q-modal" onclick="faqToggleModal(this)">
+              <span>Do you offer notary services for international businesses?</span>
+              <span class="faq-chevron-modal">▼</span>
+            </button>
+            <div class="faq-a-modal">Our notary services are US-based. Remote online notarization (RON) is available for many document types. For international documents, we can advise on what's required.</div>
+          </div>
+        </div>
+
+        <!-- After Launch -->
+        <div style="margin-bottom: 30px;">
+          <div style="font-size: 0.85rem; font-weight: 700; text-transform: uppercase; color: var(--accent-purple); margin-bottom: 15px;">After Launch</div>
+
+          <div class="faq-item-modal">
+            <button class="faq-q-modal" onclick="faqToggleModal(this)">
+              <span>What happens after the project is delivered?</span>
+              <span class="faq-chevron-modal">▼</span>
+            </button>
+            <div class="faq-a-modal">Every project includes a 30-day support window after launch at no additional cost. During that window, we fix anything that underperforms or behaves unexpectedly.</div>
+          </div>
+
+          <div class="faq-item-modal">
+            <button class="faq-q-modal" onclick="faqToggleModal(this)">
+              <span>Will my team know how to use what you build?</span>
+              <span class="faq-chevron-modal">▼</span>
+            </button>
+            <div class="faq-a-modal">Yes. Every delivery includes documentation and a handoff walkthrough. The goal is that your people own the tool confidently.</div>
+          </div>
+
+          <div class="faq-item-modal">
+            <button class="faq-q-modal" onclick="faqToggleModal(this)">
+              <span>What if something breaks after the 30-day window?</span>
+              <span class="faq-chevron-modal">▼</span>
+            </button>
+            <div class="faq-a-modal">Reach out. We respond within one business day and assess whether it's within the original scope (no charge) or requires new work (quoted separately).</div>
+          </div>
+
+          <div class="faq-item-modal">
+            <button class="faq-q-modal" onclick="faqToggleModal(this)">
+              <span>Can I come back for a second project?</span>
+              <span class="faq-chevron-modal">▼</span>
+            </button>
+            <div class="faq-a-modal">90% of our clients do. Return clients skip the full discovery process and get priority scheduling.</div>
+          </div>
+        </div>
+      </div>
+
+      <a href="javascript:void(0)" onclick="closeFaqModal(); openContactModal();" class="aai-submit-btn" style="text-align: center; text-decoration: none; display: inline-block; cursor: pointer; margin-top: 20px;">Still have questions? Contact us</a>
+    </div>
+  </div>
+
+  <!-- About Modal -->
+  <div class="aai-modal" id="about-modal">
+    <div class="aai-inner" style="padding: 50px 40px; max-width: 700px;">
+      <button class="aai-close" onclick="closeAboutModal()">✕</button>
+      <div class="aai-cat" style="color: var(--accent-purple);">ABOUT KEMPER DESIGN SERVICES</div>
+      <h2 class="aai-q">Who We Are</h2>
+      <p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 20px; font-size: 1rem;">
+        Kemper Design Services is a team of AI experts, developers, and strategists dedicated to helping small businesses and teams modernize their operations without the enterprise price tag.
+      </p>
+      <p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 20px; font-size: 1rem;">
+        We believe AI should be practical, accessible, and designed to enhance human potential—not replace it. Whether it's automating workflows, building custom applications, or deploying intelligent systems, we create solutions that solve real business problems.
+      </p>
+      <p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 30px; font-size: 1rem;">
+        Our mission is to help you recover the hours you've been losing to manual work, inefficient processes, and disconnected tools. We're here to be your partner in growth.
+      </p>
+      <a href="javascript:void(0)" onclick="closeAboutModal(); openContactModal();" class="aai-submit-btn" style="text-align: center; text-decoration: none; display: inline-block; cursor: pointer;">Book a Free Discovery Call</a>
+    </div>
+  </div>
+
+  <script>
+    function openAboutModal() {
+        document.getElementById('about-modal').classList.add('open');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeAboutModal() {
+        document.getElementById('about-modal').classList.remove('open');
+        document.body.style.overflow = '';
+    }
+
+    document.getElementById('about-modal').addEventListener('click', function(e) {
+        if(e.target === this) closeAboutModal();
+    });
+
+    function openFaqModal() {
+        document.getElementById('faq-modal').classList.add('open');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeFaqModal() {
+        document.getElementById('faq-modal').classList.remove('open');
+        document.body.style.overflow = '';
+    }
+
+    function faqToggleModal(btn) {
+        var item = btn.closest('.faq-item-modal');
+        var isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item-modal.open').forEach(function(el) {
+            el.classList.remove('open');
+        });
+        if (!isOpen) {
+            item.classList.add('open');
+        }
+    }
+
+    document.getElementById('faq-modal').addEventListener('click', function(e) {
+        if(e.target === this) closeFaqModal();
+    });
+
+    function openTermsModal() {
+        document.getElementById('terms-modal').classList.add('open');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeTermsModal() {
+        document.getElementById('terms-modal').classList.remove('open');
+        document.body.style.overflow = '';
+    }
+
+    document.getElementById('terms-modal').addEventListener('click', function(e) {
+        if(e.target === this) closeTermsModal();
+    });
+
+    function openPrivacyModal() {
+        document.getElementById('privacy-modal').classList.add('open');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closePrivacyModal() {
+        document.getElementById('privacy-modal').classList.remove('open');
+        document.body.style.overflow = '';
+    }
+
+    document.getElementById('privacy-modal').addEventListener('click', function(e) {
+        if(e.target === this) closePrivacyModal();
+    });
+  </script>
+</body>
+</html>
