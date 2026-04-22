@@ -1347,13 +1347,20 @@ h1 .text-gradient {
     }
 
     /* Mobile FAQ Accordion - Answers Hidden by Default */
+    .aai-inner {
+        overflow: visible !important;
+        max-height: none !important;
+    }
     .faq-a-modal {
         max-height: 0 !important;
         overflow: hidden !important;
         padding: 0 !important;
+        opacity: 0;
+        transition: max-height 0.3s ease, opacity 0.3s ease;
     }
     .faq-item-modal.open .faq-a-modal {
-        max-height: 1000px !important;
-        padding: 0 0 12px 0 !important;
+        max-height: 500px !important;
+        padding: 12px 0 !important;
+        opacity: 1;
     }
 }
