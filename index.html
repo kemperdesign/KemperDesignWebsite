@@ -23,6 +23,9 @@
         <video muted playsinline class="video-bg" id="bg-video-2" style="opacity: 0;">
             <source src="assets/video/values-bg.mp4" type="video/mp4">
         </video>
+        <video muted playsinline class="video-bg" id="bg-video-3" style="opacity: 0;">
+            <source src="assets/video/Phishing_Risks_and_Video_Ready.mp4" type="video/mp4">
+        </video>
         <div class="video-overlay"></div>
     </div>
 
@@ -221,31 +224,36 @@
     <!-- Background Video Transition -->
     <script>
       (function() {
-        var video1 = document.getElementById('bg-video-1');
-        var video2 = document.getElementById('bg-video-2');
+        var videos = [
+          document.getElementById('bg-video-1'),
+          document.getElementById('bg-video-2'),
+          document.getElementById('bg-video-3')
+        ];
+        var currentIndex = 0;
         var isTransitioning = false;
 
-        function transitionToVideo(fromVideo, toVideo) {
+        function transitionToNext() {
           if (isTransitioning) return;
           isTransitioning = true;
 
-          fromVideo.style.opacity = '0';
+          var currentVideo = videos[currentIndex];
+          var nextIndex = (currentIndex + 1) % videos.length;
+          var nextVideo = videos[nextIndex];
+
+          currentVideo.style.opacity = '0';
           setTimeout(function() {
-            fromVideo.pause();
-            fromVideo.currentTime = 0;
-            toVideo.currentTime = 0;
-            toVideo.style.opacity = '0.35';
-            toVideo.play();
+            currentVideo.pause();
+            currentVideo.currentTime = 0;
+            nextVideo.currentTime = 0;
+            nextVideo.style.opacity = '0.35';
+            nextVideo.play();
+            currentIndex = nextIndex;
             isTransitioning = false;
           }, 500);
         }
 
-        video1.addEventListener('ended', function() {
-          transitionToVideo(video1, video2);
-        });
-
-        video2.addEventListener('ended', function() {
-          transitionToVideo(video2, video1);
+        videos.forEach(function(video) {
+          video.addEventListener('ended', transitionToNext);
         });
       })();
     </script>
