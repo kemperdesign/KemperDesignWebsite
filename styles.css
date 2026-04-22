@@ -139,6 +139,9 @@ h1 .text-gradient {
     font-size: 1.1rem;
 }
 .logo-icon { font-size: 1.2rem; }
+.logo-ai {
+    color: #ef4444;
+}
 .nav-links {
     display: flex;
     gap: 32px;
