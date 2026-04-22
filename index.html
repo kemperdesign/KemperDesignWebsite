@@ -17,8 +17,11 @@
 
     <!-- Fixed Background Video -->
     <div class="video-bg-container">
-        <video autoplay muted loop playsinline class="video-bg">
+        <video autoplay muted playsinline class="video-bg" id="bg-video-1">
             <source src="assets/video/Index-BG.mp4" type="video/mp4">
+        </video>
+        <video muted playsinline class="video-bg" id="bg-video-2" style="opacity: 0;">
+            <source src="assets/video/about-bg.mp4" type="video/mp4">
         </video>
         <div class="video-overlay"></div>
     </div>
@@ -212,6 +215,48 @@
                 handleSend();
             }
          });
+      })();
+    </script>
+
+    <!-- Background Video Transition -->
+    <script>
+      (function() {
+        var video1 = document.getElementById('bg-video-1');
+        var video2 = document.getElementById('bg-video-2');
+        var currentVideo = 1;
+        var videos = [
+          { id: 'bg-video-1', src: 'assets/video/Index-BG.mp4' },
+          { id: 'bg-video-2', src: 'assets/video/about-bg.mp4' }
+        ];
+
+        function transitionVideo() {
+          if (currentVideo === 1) {
+            video2.style.opacity = '0.35';
+            currentVideo = 2;
+            video2.currentTime = 0;
+            video2.play();
+            video1.addEventListener('ended', function onEnded() {
+              video1.removeEventListener('ended', onEnded);
+              video1.style.opacity = '0';
+            }, { once: true });
+          } else {
+            video1.style.opacity = '0.35';
+            currentVideo = 1;
+            video1.currentTime = 0;
+            video1.play();
+            video2.addEventListener('ended', function onEnded() {
+              video2.removeEventListener('ended', onEnded);
+              video2.style.opacity = '0';
+            }, { once: true });
+          }
+        }
+
+        if (video1) {
+          video1.addEventListener('ended', transitionVideo);
+        }
+        if (video2) {
+          video2.addEventListener('ended', transitionVideo);
+        }
       })();
     </script>
 
