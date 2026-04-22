@@ -258,6 +258,12 @@ h1 .text-gradient {
     filter: drop-shadow(0 0 10px rgba(255,255,255,0.1));
 }
 
+@media (max-width: 768px) {
+    .hero-logo-container {
+        display: none;
+    }
+}
+
 /* Hero Section */
 .hero {
     padding: 160px 20px 80px;
