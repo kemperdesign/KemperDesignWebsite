@@ -1176,6 +1176,24 @@ h1 .text-gradient {
 .aai-submit-btn:hover { background: var(--accent-2); }
 
 /* FAQ Modal Styles */
+.faq-toggle-btn {
+    display: none;
+    background: rgba(139, 92, 246, 0.2);
+    border: 1px solid rgba(139, 92, 246, 0.4);
+    color: var(--accent-purple);
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+.faq-toggle-btn:hover {
+    background: rgba(139, 92, 246, 0.3);
+    border-color: rgba(139, 92, 246, 0.6);
+}
+
 .faq-item-modal {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     margin-bottom: 12px;
@@ -1349,10 +1367,25 @@ h1 .text-gradient {
         font-size: 1.5rem;
     }
 
-    /* Mobile FAQ Accordion - Answers Hidden by Default */
+    /* Mobile FAQ - Hide items by default */
+    .faq-toggle-btn {
+        display: inline-block;
+    }
     .aai-inner {
         overflow: visible !important;
         max-height: none !important;
+    }
+    #faq-items-container {
+        display: none;
+    }
+    #faq-items-container.faq-visible {
+        display: block;
+    }
+    .faq-item-modal {
+        display: none;
+    }
+    #faq-items-container.faq-visible .faq-item-modal {
+        display: block;
     }
     .faq-a-modal {
         max-height: 0 !important;
