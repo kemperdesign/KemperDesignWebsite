@@ -42,9 +42,14 @@
             <a href="#" class="logo">
                 <span class="logo-text">Kemper Design Services</span>
             </a>
-            <div class="nav-links">
-                <a href="#home">Home</a>
-                <a href="#about">About</a>
+            <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-links" id="nav-links">
+                <a href="#home" onclick="closeMobileMenu()">Home</a>
+                <a href="#about" onclick="closeMobileMenu()">About</a>
                 <div class="dropdown">
                     <button class="dropbtn">Services <span class="arrow-down">▼</span></button>
                     <div class="dropdown-content glass">
@@ -95,7 +100,7 @@
                         </div>
                     </div>
                 </div>
-                <a href="#consulting">Consulting</a>
+                <a href="#consulting" onclick="closeMobileMenu()">Consulting</a>
             </div>
             <div class="nav-cta">
                 <a href="javascript:void(0)" onclick="openContactModal()" class="btn btn-primary">Learn AI Today <span class="arrow">→</span></a>
@@ -149,6 +154,22 @@
         </div>
     </section>
 
+
+    <!-- Mobile Menu Handler -->
+    <script>
+      function toggleMobileMenu() {
+        var navLinks = document.getElementById('nav-links');
+        var hamburger = document.getElementById('hamburger');
+        navLinks.classList.toggle('active');
+        hamburger.classList.toggle('active');
+      }
+      function closeMobileMenu() {
+        var navLinks = document.getElementById('nav-links');
+        var hamburger = document.getElementById('hamburger');
+        navLinks.classList.remove('active');
+        hamburger.classList.remove('active');
+      }
+    </script>
 
     <!-- Chat Input Demo Interface -->
     <section class="v0-demo-section glass">
