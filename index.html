@@ -223,40 +223,30 @@
       (function() {
         var video1 = document.getElementById('bg-video-1');
         var video2 = document.getElementById('bg-video-2');
-        var currentVideo = 1;
-        var videos = [
-          { id: 'bg-video-1', src: 'assets/video/Index-BG.mp4' },
-          { id: 'bg-video-2', src: 'assets/video/values-bg.mp4' }
-        ];
+        var isTransitioning = false;
 
-        function transitionVideo() {
-          if (currentVideo === 1) {
-            video2.style.opacity = '0.35';
-            currentVideo = 2;
-            video2.currentTime = 0;
-            video2.play();
-            video1.addEventListener('ended', function onEnded() {
-              video1.removeEventListener('ended', onEnded);
-              video1.style.opacity = '0';
-            }, { once: true });
-          } else {
-            video1.style.opacity = '0.35';
-            currentVideo = 1;
-            video1.currentTime = 0;
-            video1.play();
-            video2.addEventListener('ended', function onEnded() {
-              video2.removeEventListener('ended', onEnded);
-              video2.style.opacity = '0';
-            }, { once: true });
-          }
+        function transitionToVideo(fromVideo, toVideo) {
+          if (isTransitioning) return;
+          isTransitioning = true;
+
+          fromVideo.style.opacity = '0';
+          setTimeout(function() {
+            fromVideo.pause();
+            fromVideo.currentTime = 0;
+            toVideo.currentTime = 0;
+            toVideo.style.opacity = '0.35';
+            toVideo.play();
+            isTransitioning = false;
+          }, 500);
         }
 
-        if (video1) {
-          video1.addEventListener('ended', transitionVideo);
-        }
-        if (video2) {
-          video2.addEventListener('ended', transitionVideo);
-        }
+        video1.addEventListener('ended', function() {
+          transitionToVideo(video1, video2);
+        });
+
+        video2.addEventListener('ended', function() {
+          transitionToVideo(video2, video1);
+        });
       })();
     </script>
 
