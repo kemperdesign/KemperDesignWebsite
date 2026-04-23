@@ -392,32 +392,24 @@
                 <button onclick="openAssessment()" class="btn btn-primary glow-btn" style="background: rgba(139, 92, 246, 0.2); border-color: var(--accent-1); color: white; cursor: pointer;">AI Assessment</button>
             </div>
             
-            <!-- Hero Dashboard Mockup -->
-            <div class="hero-mockup fade-up delay-4 glass">
-                <div class="mockup-header">
-                    <div class="mockup-dots"><span></span><span></span><span></span></div>
-                    <div class="mockup-title">We Build Custom Applications</div>
-                </div>
-                <div class="mockup-body mockup-carousel">
-                    <img src="assets/images/food truck app.png" alt="AI AutoScheduler Workflow" class="mockup-image mockup-image-1">
-                    <img src="assets/images/KDS Lab Studio.png" alt="KDS Lab Studio" class="mockup-image mockup-image-2">
-                    <img src="assets/images/DriveMirror.png" alt="DriveMirror" class="mockup-image mockup-image-3">
-                </div>
-                <!-- Floating elements -->
-                <div class="float-card float-1 glass">
-                    <div class="fc-icon">📉</div>
-                    <div>
-                        <div class="fc-title">15h Saved</div>
-                        <div class="fc-desc">Every Week</div>
+            <!-- Feature Carousel -->
+            <div class="feature-carousel fade-up delay-4" id="feature-carousel">
+                <div class="fc-card glass">
+                    <div class="fc-inner">
+                        <!-- Text column (left 40%) -->
+                        <div class="fc-text-col">
+                            <div class="fc-step-label" id="fc-step-label">Step 1</div>
+                            <h2 class="fc-title" id="fc-title">AI-Powered Workflows</h2>
+                            <p class="fc-desc" id="fc-desc">We map your processes and build automated workflows that tie your tools together.</p>
+                        </div>
+                        <!-- Image area (right 60%, relative for absolute-positioned images) -->
+                        <div class="fc-image-area" id="fc-image-area"></div>
                     </div>
                 </div>
-                <div class="float-card float-2 glass">
-                    <div class="fc-icon">⚡</div>
-                    <div>
-                        <div class="fc-title">24/7 Running</div>
-                        <div class="fc-desc">AI Agents active</div>
-                    </div>
-                </div>
+                <!-- Step navigation -->
+                <nav class="fc-nav" aria-label="Carousel steps">
+                    <ol class="fc-steps" id="fc-steps"></ol>
+                </nav>
             </div>
         </div>
     </section>
