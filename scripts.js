@@ -139,3 +139,18 @@ function initTextRotate() {
 document.addEventListener('DOMContentLoaded', () => {
   initTextRotate();
 });
+
+// Spotlight glow effect for service cards
+document.addEventListener('pointermove', (e) => {
+  const x = e.clientX.toFixed(2);
+  const y = e.clientY.toFixed(2);
+  const xp = (e.clientX / window.innerWidth).toFixed(2);
+  const yp = (e.clientY / window.innerHeight).toFixed(2);
+
+  document.querySelectorAll('.service-card, .seo-service-item').forEach(card => {
+    card.style.setProperty('--x', x);
+    card.style.setProperty('--y', y);
+    card.style.setProperty('--xp', xp);
+    card.style.setProperty('--yp', yp);
+  });
+});

@@ -740,11 +740,59 @@ h1 .text-gradient {
 .service-card {
     padding: 32px 24px;
     text-align: center;
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    --x: 0;
+    --y: 0;
+    --xp: 0;
+    --yp: 0;
+    --base: 280;
+    --spread: 300;
+    --spotlight-size: 200px;
+    --hue: calc(var(--base) + (var(--xp) * var(--spread)));
+    position: relative;
+    background-image: radial-gradient(
+        var(--spotlight-size) var(--spotlight-size) at
+        calc(var(--x) * 1px) calc(var(--y) * 1px),
+        hsl(var(--hue) 100% 70% / 0.08),
+        transparent
+    );
+    background-color: rgba(255,255,255,0.03);
+    background-attachment: fixed;
 }
 .service-card:hover {
     background: rgba(255,255,255,0.05);
     transform: translateY(-5px);
+}
+.service-card::before,
+.service-card::after {
+    pointer-events: none;
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border: 1px solid transparent;
+    border-radius: 20px;
+    background-attachment: fixed;
+    mask: linear-gradient(transparent, transparent), linear-gradient(white, white);
+    mask-clip: padding-box, border-box;
+    mask-composite: intersect;
+    -webkit-mask: linear-gradient(transparent, transparent), linear-gradient(white, white);
+    -webkit-mask-clip: padding-box, border-box;
+    -webkit-mask-composite: xor;
+}
+.service-card::before {
+    background-image: radial-gradient(
+        150px 150px at calc(var(--x) * 1px) calc(var(--y) * 1px),
+        hsl(var(--hue) 100% 50% / 1),
+        transparent 100%
+    );
+    filter: brightness(2);
+}
+.service-card::after {
+    background-image: radial-gradient(
+        100px 100px at calc(var(--x) * 1px) calc(var(--y) * 1px),
+        hsl(0 100% 100% / 0.8),
+        transparent 100%
+    );
 }
 .s-icon {
     width: 60px;
@@ -1321,10 +1369,58 @@ h1 .text-gradient {
     border-radius: 12px;
     padding: 24px;
     transition: border-color 0.2s;
+    --x: 0;
+    --y: 0;
+    --xp: 0;
+    --yp: 0;
+    --base: 280;
+    --spread: 300;
+    --spotlight-size: 200px;
+    --hue: calc(var(--base) + (var(--xp) * var(--spread)));
+    position: relative;
+    background-image: radial-gradient(
+        var(--spotlight-size) var(--spotlight-size) at
+        calc(var(--x) * 1px) calc(var(--y) * 1px),
+        hsl(var(--hue) 100% 70% / 0.08),
+        transparent
+    );
+    background-color: rgba(255,255,255,0.03);
+    background-attachment: fixed;
 }
 
 .seo-service-item:hover {
     border-color: rgba(139,92,246,0.3);
+}
+.seo-service-item::before,
+.seo-service-item::after {
+    pointer-events: none;
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border: 1px solid transparent;
+    border-radius: 12px;
+    background-attachment: fixed;
+    mask: linear-gradient(transparent, transparent), linear-gradient(white, white);
+    mask-clip: padding-box, border-box;
+    mask-composite: intersect;
+    -webkit-mask: linear-gradient(transparent, transparent), linear-gradient(white, white);
+    -webkit-mask-clip: padding-box, border-box;
+    -webkit-mask-composite: xor;
+}
+.seo-service-item::before {
+    background-image: radial-gradient(
+        150px 150px at calc(var(--x) * 1px) calc(var(--y) * 1px),
+        hsl(var(--hue) 100% 50% / 1),
+        transparent 100%
+    );
+    filter: brightness(2);
+}
+.seo-service-item::after {
+    background-image: radial-gradient(
+        100px 100px at calc(var(--x) * 1px) calc(var(--y) * 1px),
+        hsl(0 100% 100% / 0.8),
+        transparent 100%
+    );
 }
 
 .seo-service-item h3 {
