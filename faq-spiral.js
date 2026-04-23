@@ -66,14 +66,6 @@ class FAQSpiral {
         a: "You do. Upon final payment, full ownership of the code, designs, and assets transfers to you. We don't retain licensing rights or lock you into proprietary systems.",
       },
       {
-        q: "Will you work with the tools I already use?",
-        a: "Yes. We don't rip and replace — we connect and extend. Whether you're using QuickBooks, Google Workspace, HubSpot, Calendly, or Shopify, our starting point is always your existing software stack.",
-      },
-      {
-        q: "What support do you provide after launch?",
-        a: "Every project includes a 30-day support window after launch at no additional cost. During that window, we fix anything that underperforms or behaves unexpectedly.",
-      },
-      {
         q: "Can I come back for a second project?",
         a: "90% of our clients do. Return clients skip the full discovery process and get priority scheduling.",
       },
