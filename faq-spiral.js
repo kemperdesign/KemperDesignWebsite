@@ -77,6 +77,46 @@ class FAQSpiral {
         q: "How is pricing structured for AI services?",
         a: "Fixed price per project, agreed before any work begins. You will never receive an invoice larger than what you signed off on. Custom websites start at $999. Custom training apps deliver consistent onboarding for under $500 per head. AI automations are scoped to your specific needs — book a free call for an accurate quote.",
       },
+      {
+        q: "Where are you based? Do you work remotely?",
+        a: "We are based in St. Augustine, FL and work remotely with clients across the US and internationally. Every engagement runs via video, email, and shared tools.",
+      },
+      {
+        q: "Will you work with the tools I already use?",
+        a: "Yes. We don't rip and replace — we connect and extend. Whether you're using QuickBooks, Google Workspace, HubSpot, Calendly, or Shopify, our starting point is always your existing stack.",
+      },
+      {
+        q: "What does a website cost?",
+        a: "Our custom websites start at $999. That covers a fully designed, built, and launched site with up to 6 pages, contact forms, mobile optimization, and basic SEO setup.",
+      },
+      {
+        q: "Is the discovery call really free?",
+        a: "Yes — no strings. We use it to understand your business and give you honest feedback. If we're not a good fit, we'll tell you and point you in a better direction.",
+      },
+      {
+        q: "Do you offer payment plans?",
+        a: "For larger projects, we typically structure billing as 50% on signed scope and 50% on delivery. For projects over a certain threshold, we can discuss a milestone-based schedule.",
+      },
+      {
+        q: "Is my business data secure?",
+        a: "Yes. We never store, share, or train on your business data. Every system we build is configured so your data stays on your infrastructure or in accounts you own and control.",
+      },
+      {
+        q: "Do you train AI models on my data?",
+        a: "Never. We only use enterprise-tier AI services with data processing agreements that explicitly prohibit training on customer data.",
+      },
+      {
+        q: "Who owns what we build together?",
+        a: "You do. Upon final payment, full ownership of the code, designs, and assets transfers to you. We don't retain licensing rights or lock you into proprietary systems.",
+      },
+      {
+        q: "What happens after the project is delivered?",
+        a: "Every project includes a 30-day support window after launch at no additional cost. During that window, we fix anything that underperforms or behaves unexpectedly.",
+      },
+      {
+        q: "Will my team know how to use what you build?",
+        a: "Yes. Every delivery includes documentation and a handoff walkthrough. The goal is that your people own the tool confidently.",
+      },
     ];
 
     this.init();

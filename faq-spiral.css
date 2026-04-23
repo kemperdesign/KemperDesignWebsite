@@ -110,7 +110,7 @@
 
 .faq-grid {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 16px;
 }
 
@@ -387,6 +387,10 @@
 
   .faq-search-wrapper {
     min-width: unset;
+  }
+
+  .faq-grid {
+    grid-template-columns: 1fr;
   }
 
   .faq-item-header {
