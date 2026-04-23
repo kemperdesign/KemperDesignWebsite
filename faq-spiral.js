@@ -117,6 +117,46 @@ class FAQSpiral {
         q: "Will my team know how to use what you build?",
         a: "Yes. Every delivery includes documentation and a handoff walkthrough. The goal is that your people own the tool confidently.",
       },
+      {
+        q: "Who do you typically work with?",
+        a: "Owner-operated businesses where the person running the company is still heavily involved in day-to-day operations. We work across health, trades, hospitality, professional services, retail, and education.",
+      },
+      {
+        q: "Are you a software company or a consulting firm?",
+        a: "Neither, exactly. We're hands-on builders with a consulting mindset. We don't sell software licenses or send reports — we build things and stay through implementation.",
+      },
+      {
+        q: "Can you handle multiple service types in one engagement?",
+        a: "Yes, and it often makes more sense to bundle. A client who needs a website and automation will get better results if both are scoped together.",
+      },
+      {
+        q: "How does the AI Auto-Scheduler work?",
+        a: "It's a customized scheduling system built around your specific business logic. Clients book through a link or widget, the system handles confirmations and reminders, and it integrates with your calendar and payment processor.",
+      },
+      {
+        q: "What types of format conversions do you handle?",
+        a: "Documents (PDF ↔ Word, Excel, PowerPoint), audio (MP3, WAV, FLAC, transcription), video (MP4, MOV, WebM), image formats (PNG, JPEG, SVG, WebP), and data formats (CSV, JSON, XML).",
+      },
+      {
+        q: "Do you offer notary services for international businesses?",
+        a: "Our notary services are US-based. Remote online notarization (RON) is available for many document types. For international documents, we can advise on what's required.",
+      },
+      {
+        q: "What if something breaks after the 30-day window?",
+        a: "Reach out. We respond within one business day and assess whether it's within the original scope (no charge) or requires new work (quoted separately).",
+      },
+      {
+        q: "Can I come back for a second project?",
+        a: "90% of our clients do. Return clients skip the full discovery process and get priority scheduling.",
+      },
+      {
+        q: "Do you train AI models on my data?",
+        a: "Never. We only use enterprise-tier AI services with data processing agreements that explicitly prohibit training on customer data.",
+      },
+      {
+        q: "What does Kemper Design Services do?",
+        a: "We build the systems that let owner-operated businesses grow without proportionally growing their headcount or workload. That includes AI automation, custom applications, websites, graphic design, training, video editing, 3D printing, music production, notary services, and format conversions.",
+      },
     ];
 
     this.init();

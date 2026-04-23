@@ -110,7 +110,7 @@
 
 .faq-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 16px;
 }
 
@@ -371,6 +371,12 @@
 }
 
 /* Responsive */
+@media (max-width: 1400px) {
+  .faq-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
 @media (max-width: 768px) {
   .faq-spiral-content {
     padding: 40px 16px;
