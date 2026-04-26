@@ -1171,8 +1171,8 @@
   <div class="aai-modal" id="service-modal">
     <div class="aai-inner" style="padding: 0; overflow: auto; max-width: 800px; max-height: 90vh; display: flex; flex-direction: row; flex-wrap: wrap;">
       <button class="aai-close" onclick="closeServiceModal()" style="z-index: 10;">✕</button>
-      <div id="sm-image" style="flex: 1 1 300px; background: url('') center/cover no-repeat; min-height: 400px; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden;">
-        <video id="sm-video" style="height: 100%; object-fit: cover; object-position: center; width: 120%; min-width: 100%;" playsinline></video>
+      <div id="sm-image" style="flex: 1 1 300px; min-height: 400px; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; background-size: cover; background-position: center; background-repeat: no-repeat;">
+        <video id="sm-video" style="height: 100%; width: 120%; min-width: 100%; object-fit: cover; object-position: center; display: block;" playsinline></video>
       </div>
       <div style="flex: 1 1 350px; padding: 50px 40px; display: flex; flex-direction: column; justify-content: center;">
         <div class="aai-cat" style="color: var(--accent-purple);">KEMPER DESIGN SERVICES</div>
@@ -1253,13 +1253,16 @@
         desc.innerHTML = data.desc;
 
         if (data.video) {
+            img.style.backgroundColor = "transparent";
             img.style.backgroundImage = "none";
+            img.style.backgroundSize = "cover";
             video.src = data.video;
             video.onended = null;
-            video.play().catch(function(err) { console.log("Video play failed:", err); });
+            setTimeout(function() { video.play().catch(function(err) { console.log("Video play failed:", err); }); }, 100);
         } else {
             video.src = "";
             img.style.backgroundImage = "url('" + data.img + "')";
+            img.style.backgroundSize = "cover";
         }
 
         modal.classList.add('open');
