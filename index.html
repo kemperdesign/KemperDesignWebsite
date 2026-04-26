@@ -1172,7 +1172,7 @@
     <div class="aai-inner" style="padding: 0; overflow: auto; max-width: 800px; max-height: 90vh; display: flex; flex-direction: row; flex-wrap: wrap;">
       <button class="aai-close" onclick="closeServiceModal()" style="z-index: 10;">✕</button>
       <div id="sm-image" style="flex: 1 1 300px; background: url('') center/cover no-repeat; min-height: 400px; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden;">
-        <video id="sm-video" style="display: none; height: 100%; object-fit: cover; object-position: center; width: 120%; min-width: 100%;" autoplay loop playsinline></video>
+        <video id="sm-video" style="display: none; height: 100%; object-fit: cover; object-position: center; width: 120%; min-width: 100%;" playsinline></video>
       </div>
       <div style="flex: 1 1 350px; padding: 50px 40px; display: flex; flex-direction: column; justify-content: center;">
         <div class="aai-cat" style="color: var(--accent-purple);">KEMPER DESIGN SERVICES</div>
@@ -1256,6 +1256,9 @@
             img.style.backgroundImage = "none";
             video.src = data.video;
             video.style.display = "block";
+            video.onended = function() {
+                video.style.display = "none";
+            };
             video.play().catch(function(err) { console.log("Video play failed:", err); });
         } else {
             video.style.display = "none";
