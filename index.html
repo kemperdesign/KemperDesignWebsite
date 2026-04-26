@@ -1172,7 +1172,7 @@
     <div class="aai-inner" style="padding: 0; overflow: auto; max-width: 800px; max-height: 90vh; display: flex; flex-direction: row; flex-wrap: wrap;">
       <button class="aai-close" onclick="closeServiceModal()" style="z-index: 10;">✕</button>
       <div id="sm-image" style="flex: 1 1 300px; position: relative; min-height: 400px; overflow: hidden; background-size: cover; background-position: center; background-repeat: no-repeat;">
-        <video id="sm-video" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: none;" playsinline>
+        <video id="sm-video" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;" playsinline>
           <source id="sm-video-source" src="" type="video/mp4">
         </video>
       </div>
@@ -1256,13 +1256,15 @@
 
         if (data.video) {
             img.style.backgroundImage = "none";
+            video.style.opacity = "1";
+            video.style.pointerEvents = "auto";
             var source = document.getElementById('sm-video-source');
             source.src = data.video;
-            video.style.display = "block";
             video.load();
             video.play().catch(function(err) { console.log("Video play failed:", err); });
         } else {
-            video.style.display = "none";
+            video.style.opacity = "0";
+            video.style.pointerEvents = "none";
             document.getElementById('sm-video-source').src = "";
             img.style.backgroundImage = "url('" + data.img + "')";
         }
