@@ -1171,7 +1171,9 @@
   <div class="aai-modal" id="service-modal">
     <div class="aai-inner" style="padding: 0; overflow: auto; max-width: 800px; max-height: 90vh; display: flex; flex-direction: row; flex-wrap: wrap;">
       <button class="aai-close" onclick="closeServiceModal()" style="z-index: 10;">✕</button>
-      <div id="sm-image" style="flex: 1 1 300px; background: url('') center/cover no-repeat; min-height: 400px;"></div>
+      <div id="sm-image" style="flex: 1 1 300px; background: url('') center/cover no-repeat; min-height: 400px; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+        <video id="sm-video" style="display: none; height: 100%; object-fit: cover; object-position: center; width: 120%; min-width: 100%;" autoplay muted loop></video>
+      </div>
       <div style="flex: 1 1 350px; padding: 50px 40px; display: flex; flex-direction: column; justify-content: center;">
         <div class="aai-cat" style="color: var(--accent-purple);">KEMPER DESIGN SERVICES</div>
         <h2 id="sm-title" class="aai-q" style="margin-bottom: 20px; font-size: 2rem;">Service Title</h2>
@@ -1185,7 +1187,7 @@
     var currentServiceName = null;
 
     const serviceData = {
-        "AI Workflow Integration": { desc: "We map out your manual processes and build automated workflows that tie your existing software stack together, saving teams an average of 15 hours a week.", img: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80" },
+        "AI Workflow Integration": { desc: "We map out your manual processes and build automated workflows that tie your existing software stack together, saving teams an average of 15 hours a week.", video: "assets/video/Services - AI Integrations.mp4" },
         "AI Workflow Automation": { desc: "Custom triggers and workflows that eliminate manual admin and sync your tools. We automate the repetitive tasks that drain your team's time so they can focus on what matters.", img: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80" },
         "AI Chatbots & Assistants": { desc: "Custom-trained AI agents that know your business operations inside and out. They can answer employee FAQs, guide customers, and operate 24/7.", img: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=600&q=80" },
         "Custom Websites": { desc: "High-performance, beautifully designed websites that convert visitors into leads. Built for speed and flexibility, starting at just $999.", img: "https://images.unsplash.com/photo-1522542550221-31fd19575a2d?auto=format&fit=crop&w=600&q=80" },
@@ -1238,6 +1240,7 @@
         var title = document.getElementById('sm-title');
         var desc = document.getElementById('sm-desc');
         var img = document.getElementById('sm-image');
+        var video = document.getElementById('sm-video');
 
         currentServiceName = serviceName;
 
@@ -1248,7 +1251,15 @@
 
         title.innerHTML = serviceName;
         desc.innerHTML = data.desc;
-        img.style.backgroundImage = "url('" + data.img + "')";
+
+        if (data.video) {
+            img.style.backgroundImage = "none";
+            video.src = data.video;
+            video.style.display = "block";
+        } else {
+            video.style.display = "none";
+            img.style.backgroundImage = "url('" + data.img + "')";
+        }
 
         modal.classList.add('open');
         document.body.style.overflow = 'hidden';
