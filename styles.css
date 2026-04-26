@@ -1,10 +1,10 @@
 :root {
     --bg-color: #030305;
     --text-primary: #ffffff;
-    --text-secondary: #9da3b4;
-    --accent-purple: #8b5cf6;
-    --accent-blue: #3b82f6;
-    --accent-emerald: #10b981;
+    --text-secondary: #a8adb8;
+    --accent-purple: #6b7280;
+    --accent-blue: #6b7280;
+    --accent-emerald: #6b7280;
     --surface: rgba(255, 255, 255, 0.03);
     --surface-border: rgba(255, 255, 255, 0.08);
     --font-heading: 'Outfit', sans-serif;
@@ -42,7 +42,7 @@ body {
     background-color: var(--bg-color);
     color: var(--text-primary);
     font-family: var(--font-body);
-    line-height: 1.6;
+    line-height: 1.7;
     overflow-x: hidden;
     width: 100%;
     margin: 0;
@@ -63,12 +63,12 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0.35;
+    opacity: 0.25;
     transition: opacity 0.5s ease-in-out;
     position: absolute;
     top: 0;
     left: 0;
-    filter: blur(2px);
+    filter: none;
 }
 .video-overlay {
     position: absolute;
@@ -85,7 +85,7 @@ body {
     border-radius: 50%;
     filter: blur(120px);
     z-index: -1;
-    opacity: 0.15;
+    opacity: 0.06;
 }
 .bg-glow-purple {
     background: var(--accent-purple);
@@ -110,7 +110,7 @@ h1, h2, h3, h4 {
     -webkit-text-fill-color: transparent;
 }
 h1 .text-gradient {
-    background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue));
+    background: linear-gradient(135deg, #ffffff, #a8adb8);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -196,7 +196,7 @@ h1 .text-gradient {
     backdrop-filter: blur(20px);
     border: 1px solid var(--surface-border);
     border-radius: 16px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.8);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
     z-index: 10000;
 }
 .dropdown:hover .dropdown-content {
@@ -258,12 +258,13 @@ h1 .text-gradient {
     transform: translateY(-2px);
 }
 .glow-btn {
-    background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue));
+    background: rgba(255, 255, 255, 0.1);
     color: white;
-    border: none;
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 .glow-btn:hover {
-    box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
 }
 
 /* Floating Logo under Menu */
@@ -388,7 +389,7 @@ h1 .text-gradient {
 
 /* Hero Section */
 .hero {
-    padding: 160px 20px 80px;
+    padding: 200px 20px 120px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -400,10 +401,10 @@ h1 .text-gradient {
     align-items: center;
     gap: 8px;
     padding: 8px 16px;
-    background: rgba(139, 92, 246, 0.1);
-    border: 1px solid rgba(139, 92, 246, 0.3);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 50px;
-    color: #c4b5fd;
+    color: #d1d5db;
     font-size: 0.85rem;
     font-weight: 500;
     margin-bottom: 32px;
@@ -411,9 +412,9 @@ h1 .text-gradient {
 .badge-dot {
     width: 6px;
     height: 6px;
-    background: #a78bfa;
+    background: #9ca3af;
     border-radius: 50%;
-    box-shadow: 0 0 8px #a78bfa;
+    box-shadow: none;
 }
 .hero h1 {
     font-size: clamp(2.5rem, 6vw, 4.5rem);
@@ -425,8 +426,9 @@ h1 .text-gradient {
     font-size: 1.1rem;
     color: var(--text-secondary);
     max-width: 600px;
-    margin: 0 auto 40px auto;
+    margin: 0 auto 60px auto;
     text-align: center;
+    line-height: 1.8;
 }
 .hero-buttons {
     display: flex;
@@ -441,7 +443,7 @@ h1 .text-gradient {
     max-width: 1000px;
     position: relative;
     padding: 16px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
     background: linear-gradient(180deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.01) 100%);
 }
 .mockup-header {
@@ -563,7 +565,7 @@ h1 .text-gradient {
 
 @keyframes float {
     0% { transform: translateY(0px); }
-    50% { transform: translateY(-15px); }
+    50% { transform: translateY(-5px); }
     100% { transform: translateY(0px); }
 }
 
@@ -677,43 +679,75 @@ h1 .text-gradient {
 
 /* Grid Sections */
 .features, .services {
-    padding: 80px 5%;
+    padding: 120px 5%;
     max-width: 1200px;
     margin: 0 auto;
 }
 .section-heading {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 80px;
 }
 .section-heading .h2 {
     font-size: 2.5rem;
-    margin-bottom: 16px;
+    margin-bottom: 24px;
 }
 .section-heading p {
     color: var(--text-secondary);
-    max-width: 600px;
-    margin: 0 auto;
+    max-width: 700px;
+    margin: 0 auto 24px;
+}
+
+.consulting-cta {
+    margin-top: 32px;
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+}
+
+.icon-calendar {
+    margin-right: 10px;
+    font-size: 1.2rem;
+    vertical-align: middle;
+}
+
+.section-heading p {
+    line-height: 1.8;
 }
 
 /* Bento Grid */
 .bento-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
+    gap: 32px;
 }
 .bento-item {
     padding: 32px;
-    transition: transform 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+    position: relative;
+}
+.bento-item::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.15) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+    border-radius: inherit;
 }
 .bento-item:hover {
-    transform: translateY(-5px);
+    transform: translateY(-4px);
     border-color: rgba(255,255,255,0.15);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+.bento-item:hover::before {
+    opacity: 1;
 }
 .bento-item .eyebrow {
     font-size: 0.8rem;
     text-transform: uppercase;
     letter-spacing: 1px;
-    color: var(--accent-purple);
+    color: #d1d5db;
     margin-bottom: 12px;
 }
 .stat {
@@ -735,7 +769,7 @@ h1 .text-gradient {
 .services-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
+    gap: 32px;
 }
 .service-card {
     padding: 32px 24px;
@@ -831,34 +865,36 @@ h1 .text-gradient {
 
 /* CTA Section */
 .cta-section {
-    padding: 80px 5%;
+    padding: 120px 5%;
 }
 .cta-box {
     max-width: 1000px;
     margin: 0 auto;
     text-align: center;
-    padding: 80px 40px;
-    background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%);
-    border: 1px solid rgba(139, 92, 246, 0.2);
+    padding: 100px 60px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
 }
 .cta-box h2 {
     font-size: 2.5rem;
-    margin-bottom: 16px;
+    margin-bottom: 24px;
+    line-height: 1.3;
 }
 .cta-box em {
     font-style: normal;
-    color: var(--accent-purple);
+    color: white;
 }
 .cta-box p {
     color: var(--text-secondary);
     max-width: 500px;
-    margin: 0 auto 40px;
+    margin: 0 auto 50px;
+    line-height: 1.8;
 }
 
 /* Footer */
 .footer {
     border-top: 1px solid var(--surface-border);
-    padding: 80px 5% 40px;
+    padding: 120px 5% 60px;
     background: #000;
 }
 .footer-grid {
@@ -1013,8 +1049,8 @@ h1 .text-gradient {
     overflow: hidden;
 }
 .chat-input-container:focus-within {
-    border-color: rgba(139, 92, 246, 0.5);
-    box-shadow: 0 0 0 1px rgba(139, 92, 246, 0.5);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.2);
 }
 .chat-history {
     display: none;
@@ -1108,13 +1144,13 @@ h1 .text-gradient {
 }
 .aai-inner {
     background: rgba(10, 10, 15, 0.95);
-    border: 1px solid rgba(139, 92, 246, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 24px;
     width: 90%;
     max-width: 700px;
     position: relative;
     padding: 50px 40px;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
     transform: translateY(20px);
     transition: transform 0.3s ease;
 }
@@ -1190,8 +1226,8 @@ h1 .text-gradient {
     margin-bottom: 10px;
 }
 .aai-chip:hover, .aai-opt:hover {
-    background: rgba(139, 92, 246, 0.15);
-    border-color: rgba(139, 92, 246, 0.4);
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
 }
 .aai-nav {
     display: flex;
@@ -1241,9 +1277,9 @@ h1 .text-gradient {
 /* FAQ Modal Styles */
 .faq-toggle-btn {
     display: none;
-    background: rgba(139, 92, 246, 0.2);
-    border: 1px solid rgba(139, 92, 246, 0.4);
-    color: var(--accent-purple);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #d1d5db;
     padding: 8px 16px;
     border-radius: 6px;
     cursor: pointer;
@@ -1253,8 +1289,8 @@ h1 .text-gradient {
     white-space: nowrap;
 }
 .faq-toggle-btn:hover {
-    background: rgba(139, 92, 246, 0.3);
-    border-color: rgba(139, 92, 246, 0.6);
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
 }
 
 .faq-item-modal {
@@ -1281,7 +1317,7 @@ h1 .text-gradient {
 }
 
 .faq-q-modal:hover {
-    color: var(--accent-purple);
+    color: white;
 }
 
 .faq-chevron-modal {
@@ -1344,7 +1380,7 @@ h1 .text-gradient {
     color: #ffffff;
     margin-bottom: 20px;
     padding-bottom: 16px;
-    border-bottom: 1px solid rgba(139, 92, 246, 0.3);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .seo-block > p {
@@ -1389,7 +1425,7 @@ h1 .text-gradient {
 }
 
 .seo-service-item:hover {
-    border-color: rgba(139,92,246,0.3);
+    border-color: rgba(255,255,255,0.15);
 }
 .seo-service-item::before,
 .seo-service-item::after {
@@ -1427,7 +1463,7 @@ h1 .text-gradient {
     font-family: var(--font-heading);
     font-size: 1.05rem;
     font-weight: 600;
-    color: #c4b5fd;
+    color: white;
     margin-bottom: 10px;
 }
 

@@ -335,7 +335,6 @@
                             <a href="javascript:void(0)" onclick="openServiceModal('Custom Websites')">Custom Websites</a>
                             <a href="javascript:void(0)" onclick="openServiceModal('Custom Applications')">Custom Applications</a>
                             <a href="javascript:void(0)" onclick="openServiceModal('Graphic Design')">Graphic Design</a>
-                            <a href="javascript:void(0)" onclick="openServiceModal('Brand Identity')">Brand Identity</a>
                             <a href="javascript:void(0)" onclick="openServiceModal('UI/UX Design')">UI/UX Design</a>
                             <a href="javascript:void(0)" onclick="openServiceModal('Frontend Development')">Frontend Development</a>
                         </div>
@@ -346,6 +345,7 @@
                             <a href="javascript:void(0)" onclick="openServiceModal('AI Training & Education')">AI Training & Education</a>
                             <a href="javascript:void(0)" onclick="openServiceModal('Employee Onboarding')">Employee Onboarding</a>
                             <a href="javascript:void(0)" onclick="openServiceModal('Custom Training Apps')">Custom Training Apps</a>
+                            <a href="javascript:void(0)" onclick="openServiceModal('Technical Writing')">Technical Writing</a>
                             <a href="javascript:void(0)" onclick="openServiceModal('Process Optimization')">Process Optimization</a>
                         </div>
                         <div class="drop-col">
@@ -360,6 +360,8 @@
                         <div class="drop-col">
                             <span class="mega-heading">Creative & Specialty</span>
                             <a href="javascript:void(0)" onclick="openServiceModal('Video Editing')">Video Editing</a>
+                            <a href="javascript:void(0)" onclick="openServiceModal('Video Digitization')">Video Digitization</a>
+                            <a href="javascript:void(0)" onclick="openServiceModal('In Home Media Servers')">In Home Media Servers</a>
                             <a href="javascript:void(0)" onclick="openServiceModal('Custom Music Production')">Custom Music Production</a>
                             <a href="javascript:void(0)" onclick="openServiceModal('3D Printing')">3D Printing</a>
                             <a href="javascript:void(0)" onclick="openServiceModal('Digital Notary')">Digital Notary</a>
@@ -661,6 +663,11 @@
         <div class="section-heading">
             <h2 class="h2">Strategic Consulting & Guidance</h2>
             <p>We don't just build solutions — we help you think through the right problems to solve first. Our consulting approach combines technical expertise with business strategy to maximize ROI.</p>
+            <div class="consulting-cta">
+                <a href="https://calendar.app.google/vpDBDtHGEggzjo9o8" class="btn btn-primary glow-btn large-btn" target="_blank">
+                    <span class="icon-calendar">📅</span> Book Consulting Session
+                </a>
+            </div>
         </div>
 
         <div class="bento-grid">
@@ -1196,11 +1203,11 @@
         "Instructional Design": { desc: "Development of clear SOPs, training modules, and knowledge bases to ensure operational consistency. We design training that sticks and drives results.", img: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=600&q=80" },
         "Custom Internal AI Tools": { desc: "Purpose-built AI tools designed specifically for your internal operations. From data analysis to process automation, we create tools that give your team superpowers.", img: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=600&q=80" },
         "System Integrations": { desc: "Seamlessly connect all your business systems so data flows automatically without manual intervention. We handle the technical complexity so you don't have to.", img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" },
-        "Brand Identity": { desc: "Comprehensive brand strategy and visual identity design that sets you apart from the competition. We create a cohesive brand that resonates with your audience.", img: "https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=600&q=80" },
         "UI/UX Design": { desc: "User-centered design that creates intuitive, beautiful interfaces people love to use. We design for both aesthetics and functionality.", img: "https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=600&q=80" },
         "Frontend Development": { desc: "Expert front-end development that brings designs to life with clean, efficient code. We build responsive interfaces that work flawlessly across all devices.", img: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=600&q=80" },
         "Employee Onboarding": { desc: "Streamlined onboarding systems that get new team members up to speed faster. We create clear processes and training materials that reduce ramp-up time.", img: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=600&q=80" },
         "Custom Training Apps": { desc: "Interactive training applications that make learning engaging and effective. We build apps that deliver consistent, measurable training outcomes.", img: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=600&q=80" },
+        "Technical Writing": { desc: "Clear, accurate technical documentation that communicates complex information effectively. From user manuals to API documentation to process guides, we create content that your audience can understand and act on.", img: "https://images.unsplash.com/photo-1455849318169-8701bd3de994?auto=format&fit=crop&w=600&q=80" },
         "Process Optimization": { desc: "Analysis and improvement of your business processes to eliminate waste and increase efficiency. We identify bottlenecks and implement solutions that drive results.", img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80" },
         "Cybersecurity Solutions": { desc: "Comprehensive security strategy and implementation to protect your business from threats. We secure your systems, data, and reputation.", img: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=600&q=80" },
         "IT Infrastructure": { desc: "Robust IT infrastructure design and implementation that scales with your business. We build systems that are secure, reliable, and future-proof.", img: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=600&q=80" },
@@ -1208,7 +1215,9 @@
         "System Integration": { desc: "Expert integration of enterprise systems and software platforms. We ensure all your tools work together seamlessly.", img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" },
         "Cloud Solutions": { desc: "Cloud infrastructure design and migration services that improve scalability and reduce costs. We move your operations to the cloud strategically.", img: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=600&q=80" },
         "Network Management": { desc: "Professional network setup, management, and monitoring to keep your systems running smoothly. We ensure uptime and optimal performance.", img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" },
+        "In Home Media Servers": { desc: "Design, setup, and installation of personal media servers that let you store and stream all your entertainment — movies, music, photos, and more — throughout your home on any device.", img: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=600&q=80" },
         "Video Editing": { desc: "Professional video editing and production services that bring your vision to life. We create compelling video content that engages your audience.", img: "https://images.unsplash.com/photo-1495997859356-c3fda949f350?auto=format&fit=crop&w=600&q=80" },
+        "Video Digitization": { desc: "Convert your analog video tapes, film reels, and old recordings into high-quality digital formats. We preserve your important video memories and make them accessible for modern use.", img: "https://images.unsplash.com/photo-1495997859356-c3fda949f350?auto=format&fit=crop&w=600&q=80" },
         "Custom Music Production": { desc: "Original music composition and production for your brand, projects, and media. We create custom audio that perfectly fits your needs.", img: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=600&q=80" },
         "3D Printing": { desc: "3D design and printing services for prototypes, products, and creative projects. We bring your ideas into physical reality.", img: "https://images.unsplash.com/photo-1527919327734-500149f759d9?auto=format&fit=crop&w=600&q=80" },
         "Digital Notary": { desc: "Professional digital notarization services for legally binding documents. We provide secure, recognized notarial services online.", img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80" },
