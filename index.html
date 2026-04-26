@@ -1256,6 +1256,7 @@
             img.style.backgroundImage = "none";
             video.src = data.video;
             video.style.display = "block";
+            video.play().catch(function(err) { console.log("Video play failed:", err); });
         } else {
             video.style.display = "none";
             img.style.backgroundImage = "url('" + data.img + "')";
