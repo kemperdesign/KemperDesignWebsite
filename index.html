@@ -1845,12 +1845,12 @@
                     <label style="display: block; margin-bottom: 10px; color: var(--text-secondary); font-size: 0.85rem; font-weight: 600;">BLOG MEDIA (IMAGE OR VIDEO)</label>
                     <div style="display: flex; flex-direction: column; gap: 10px;">
                         <div style="display: flex; gap: 10px;">
-                            <input type="text" id="edit-blog-image" placeholder="Media URL..." style="flex-grow: 1; padding: 14px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: white; outline: none;">
+                            <input type="text" id="edit-blog-image" placeholder="/assets/images/blog/filename.jpg" style="flex-grow: 1; padding: 14px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: white; outline: none;">
                             <button onclick="generateBlogImage()" title="Pick Random Image" style="background: rgba(255,255,255,0.05); border: none; color: white; padding: 0 15px; border-radius: 12px; cursor: pointer;">🖼️</button>
                         </div>
                         <div style="display: flex; align-items: center; gap: 15px;">
                             <label class="admin-btn" style="flex-grow: 1; text-align: center; padding: 12px; display: block;">
-                                📤 Upload Media (Img/Vid)
+                                📤 Preview File
                                 <input type="file" id="upload-blog-image" accept="image/*,video/*" style="display: none;" onchange="handleMediaUpload(event)">
                             </label>
                             <div id="image-preview-container" style="width: 50px; height: 50px; border-radius: 8px; overflow: hidden; background: rgba(255,255,255,0.05); display: none;">
@@ -1858,7 +1858,7 @@
                                 <video id="edit-blog-preview-video" style="width: 100%; height: 100%; object-fit: cover; display: none;"></video>
                             </div>
                         </div>
-                        <p style="margin: 0; color: var(--text-secondary); font-size: 0.7rem;">Videos will play in the lightbox. Images auto-resized to 1000px.</p>
+                        <p style="margin: 0; color: var(--text-secondary); font-size: 0.7rem;">Upload images to /assets/images/blog/ in your repo. Reference as /assets/images/blog/filename.jpg</p>
                     </div>
                 </div>
             </div>
@@ -2340,42 +2340,24 @@
         const file = event.target.files[0];
         if (!file) return;
 
+        const filename = file.name.toLowerCase().replace(/[^a-z0-9.-]/g, '-');
+        const filepath = `/assets/images/blog/${filename}`;
+        document.getElementById('edit-blog-image').value = filepath;
+
         const isVideo = file.type.startsWith('video/');
-        const reader = new FileReader();
-        reader.onload = function(e) {
-            if (isVideo) {
-                const dataUrl = e.target.result;
-                document.getElementById('edit-blog-image').value = dataUrl;
-                document.getElementById('edit-blog-preview').style.display = 'none';
-                document.getElementById('edit-blog-preview-video').style.display = 'block';
-                document.getElementById('edit-blog-preview-video').src = dataUrl;
-                document.getElementById('image-preview-container').style.display = 'block';
-            } else {
-                const img = new Image();
-                img.onload = function() {
-                    const canvas = document.createElement('canvas');
-                    const MAX_WIDTH = 1000;
-                    let width = img.width;
-                    let height = img.height;
-                    if (width > MAX_WIDTH) {
-                        height *= MAX_WIDTH / width;
-                        width = MAX_WIDTH;
-                    }
-                    canvas.width = width;
-                    canvas.height = height;
-                    const ctx = canvas.getContext('2d');
-                    ctx.drawImage(img, 0, 0, width, height);
-                    const dataUrl = canvas.toDataURL('image/jpeg', 0.85);
-                    document.getElementById('edit-blog-image').value = dataUrl;
-                    document.getElementById('edit-blog-preview').src = dataUrl;
-                    document.getElementById('edit-blog-preview').style.display = 'block';
-                    document.getElementById('edit-blog-preview-video').style.display = 'none';
-                    document.getElementById('image-preview-container').style.display = 'block';
-                };
-                img.src = e.target.result;
-            }
-        };
-        reader.readAsDataURL(file);
+        const blobUrl = URL.createObjectURL(file);
+
+        if (isVideo) {
+            document.getElementById('edit-blog-preview').style.display = 'none';
+            document.getElementById('edit-blog-preview-video').style.display = 'block';
+            document.getElementById('edit-blog-preview-video').src = blobUrl;
+            document.getElementById('image-preview-container').style.display = 'block';
+        } else {
+            document.getElementById('edit-blog-preview').src = blobUrl;
+            document.getElementById('edit-blog-preview').style.display = 'block';
+            document.getElementById('edit-blog-preview-video').style.display = 'none';
+            document.getElementById('image-preview-container').style.display = 'block';
+        }
     }
 
     // Initial Render
