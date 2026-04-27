@@ -77,9 +77,10 @@
             transform: translateY(0);
         }
 
-        .app-card.soup:hover  { border-color: rgba(245,158,11,0.4); box-shadow: 0 24px 64px rgba(245,158,11,0.1); transform: translateY(-6px); }
-        .app-card.kds:hover   { border-color: rgba(139,92,246,0.4);  box-shadow: 0 24px 64px rgba(139,92,246,0.1); transform: translateY(-6px); }
-        .app-card.drive:hover { border-color: rgba(59,130,246,0.4);  box-shadow: 0 24px 64px rgba(59,130,246,0.1);  transform: translateY(-6px); }
+        .app-card.soup:hover   { border-color: rgba(245,158,11,0.4); box-shadow: 0 24px 64px rgba(245,158,11,0.1); transform: translateY(-6px); }
+        .app-card.kds:hover    { border-color: rgba(139,92,246,0.4);  box-shadow: 0 24px 64px rgba(139,92,246,0.1); transform: translateY(-6px); }
+        .app-card.drive:hover  { border-color: rgba(59,130,246,0.4);  box-shadow: 0 24px 64px rgba(59,130,246,0.1);  transform: translateY(-6px); }
+        .app-card.kiosk:hover  { border-color: rgba(16,185,129,0.4);  box-shadow: 0 24px 64px rgba(16,185,129,0.1);  transform: translateY(-6px); }
 
         .app-screenshot {
             width: 100%;
@@ -109,6 +110,7 @@
         .badge-amber  { background: rgba(245,158,11,0.15); color: #f59e0b; border: 1px solid rgba(245,158,11,0.3); }
         .badge-purple { background: rgba(139,92,246,0.15); color: #8b5cf6; border: 1px solid rgba(139,92,246,0.3); }
         .badge-blue   { background: rgba(59,130,246,0.15);  color: #3b82f6; border: 1px solid rgba(59,130,246,0.3);  }
+        .badge-green  { background: rgba(16,185,129,0.15);  color: #10b981; border: 1px solid rgba(16,185,129,0.3);  }
 
         .app-card-title {
             font-family: 'Outfit', sans-serif;
@@ -302,7 +304,7 @@
                     </ul>
                     <div class="app-card-actions">
                         <a href="food-truck-app.html" class="btn-app-primary">View App →</a>
-                        <a href="https://demo-food-truck-app.kemperdesignservices.com" class="btn-app-ghost">Try Demo</a>
+                        <a href="https://demo-food-truck-app.kemperdesignservices.com" class="btn-app-ghost" target="_blank">Try Demo</a>
                     </div>
                 </div>
             </article>
@@ -334,7 +336,7 @@
                     </ul>
                     <div class="app-card-actions">
                         <a href="kds-lab.html" class="btn-app-primary">View App →</a>
-                        <a href="kds-lab-demo.html" class="btn-app-ghost">Try Demo</a>
+                        <a href="https://kds-lab-studio.vercel.app" class="btn-app-ghost" target="_blank">Try Demo</a>
                     </div>
                 </div>
             </article>
@@ -366,7 +368,39 @@
                     </ul>
                     <div class="app-card-actions">
                         <a href="drivemirror.html" class="btn-app-primary">View App →</a>
-                        <a href="drivemirror-demo.html" class="btn-app-ghost">Try Demo</a>
+                        <a href="drivemirror-demo.html" class="btn-app-ghost" target="_blank">Try Demo</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- KDS Kiosk App -->
+            <article class="app-card kiosk">
+                <img src="assets/images/kiosk-app.png" alt="KDS Kiosk App — Interactive Kiosk System" class="app-screenshot">
+                <div class="app-card-body">
+                    <span class="app-badge badge-green">Kiosk System</span>
+                    <h2 class="app-card-title">KDS Kiosk App</h2>
+                    <p class="app-card-tagline">An interactive kiosk application designed for self-service ordering, information displays, and customer engagement.</p>
+                    <ul class="app-features">
+                        <li>
+                            <svg class="feat-icon" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="2" y1="20" x2="22" y2="20"/></svg>
+                            Touch-friendly interface
+                        </li>
+                        <li>
+                            <svg class="feat-icon" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><circle cx="12" cy="12" r="1"/><path d="M12 1v6M12 17v6M4.22 4.22l4.24 4.24M15.54 15.54l4.24 4.24M1 12h6M17 12h6M4.22 19.78l4.24-4.24M15.54 8.46l4.24-4.24"/></svg>
+                            Customizable menu &amp; content
+                        </li>
+                        <li>
+                            <svg class="feat-icon" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                            Real-time analytics &amp; monitoring
+                        </li>
+                        <li>
+                            <svg class="feat-icon" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                            Secure &amp; reliable operation
+                        </li>
+                    </ul>
+                    <div class="app-card-actions">
+                        <a href="https://github.com/kemperdesign/KDS-Kiosk-App" class="btn-app-primary" target="_blank">View on GitHub →</a>
+                        <a href="#" class="btn-app-ghost" onclick="alert('Demo coming soon')">Try Demo</a>
                     </div>
                 </div>
             </article>
