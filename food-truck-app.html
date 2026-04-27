@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KDS Food Truck App — Restaurant Management | Kemper Design Services</title>
+    <meta name="description" content="KDS Food Truck App is a complete food truck and restaurant management system — built by Kemper Design Services.">
+
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/logos/favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/logos/apple-touch-icon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        :root {
+            --accent: #f59e0b;
+            --accent-dim: rgba(245,158,11,0.12);
+            --accent-border: rgba(245,158,11,0.28);
+            --accent-glow: rgba(245,158,11,0.07);
+        }
+
+        /* Ambient glow behind hero */
+        .hero-glow {
+            position: fixed;
+            top: -120px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 900px;
+            height: 600px;
+            background: radial-gradient(ellipse, var(--accent-glow) 0%, transparent 65%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* ── Hero ── */
+        .sp-hero {
+            position: relative;
+            padding: 150px 24px 56px;
+            text-align: center;
+            max-width: 860px;
+            margin: 0 auto;
+        }
+
+        .sp-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 16px;
+            border-radius: 30px;
+            background: var(--accent-dim);
+            border: 1px solid var(--accent-border);
+            color: var(--accent);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            margin-bottom: 28px;
+        }
+
+        .sp-hero h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(2.8rem, 6vw, 4.4rem);
+            font-weight: 700;
+            color: #fff;
+            line-height: 1.08;
+            margin-bottom: 22px;
+        }
+
+        .sp-hero h1 em {
+            font-style: normal;
+            color: var(--accent);
+        }
+
+        .sp-hero p {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.05rem;
+            color: #a8adb8;
+            max-width: 560px;
+            margin: 0 auto 44px;
+            line-height: 1.7;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 14px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 64px;
+        }
+
+        .btn-amber {
+            background: var(--accent);
+            color: #000;
+            padding: 14px 32px;
+            border-radius: 10px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 0.975rem;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            display: inline-block;
+        }
+        .btn-amber:hover { background: #fbbf24; transform: translateY(-2px); box-shadow: 0 12px 32px rgba(245,158,11,0.28); }
+
+        .btn-outline {
+            background: rgba(255,255,255,0.05);
+            color: #fff;
+            border: 1px solid rgba(255,255,255,0.14);
+            padding: 14px 32px;
+            border-radius: 10px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 0.975rem;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            display: inline-block;
+        }
+        .btn-outline:hover { background: rgba(255,255,255,0.09); }
+
+        /* ── Screenshot ── */
+        .screenshot-wrap {
+            max-width: 1020px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .sp-screenshot {
+            width: 100%;
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 48px 100px rgba(0,0,0,0.65), 0 0 100px var(--accent-glow);
+            display: block;
+        }
+
+        /* ── Stats ── */
+        .stats-strip {
+            display: flex;
+            justify-content: center;
+            gap: 0;
+            border-top: 1px solid rgba(255,255,255,0.07);
+            border-bottom: 1px solid rgba(255,255,255,0.07);
+            margin: 72px 0;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            flex: 1;
+            min-width: 160px;
+            padding: 36px 24px;
+            text-align: center;
+            border-right: 1px solid rgba(255,255,255,0.07);
+        }
+        .stat:last-child { border-right: none; }
+
+        .stat-num {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: var(--accent);
+            display: block;
+            line-height: 1;
+        }
+
+        .stat-lbl {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.82rem;
+            color: #a8adb8;
+            margin-top: 6px;
+            display: block;
+        }
+
+        /* ── Features ── */
+        .features-wrap {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px 80px;
+        }
+
+        .section-head {
+            text-align: center;
+            margin-bottom: 52px;
+        }
+
+        .section-tag {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--accent);
+            display: block;
+            margin-bottom: 12px;
+        }
+
+        .section-head h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 20px;
+        }
+
+        .feat-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            padding: 28px 24px;
+            transition: border-color 0.3s, transform 0.3s;
+        }
+        .feat-card:hover { border-color: var(--accent-border); transform: translateY(-4px); }
+
+        .feat-icon-box {
+            width: 46px;
+            height: 46px;
+            border-radius: 12px;
+            background: var(--accent-dim);
+            border: 1px solid var(--accent-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 18px;
+        }
+
+        .feat-card h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .feat-card p {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.855rem;
+            color: #a8adb8;
+            line-height: 1.6;
+        }
+
+        /* ── Detail rows ── */
+        .detail-section {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px 80px;
+        }
+
+        .detail-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+            margin-bottom: 80px;
+        }
+
+        .detail-row.reverse { direction: rtl; }
+        .detail-row.reverse > * { direction: ltr; }
+
+        .detail-text h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 14px;
+        }
+
+        .detail-text p {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            color: #a8adb8;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .detail-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .detail-list li {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.875rem;
+            color: #c8cdd8;
+            padding: 5px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .detail-list li::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent);
+            flex-shrink: 0;
+        }
+
+        .detail-img-box {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .detail-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+        }
+
+        /* ── CTA ── */
+        .cta-band {
+            text-align: center;
+            padding: 88px 24px;
+            background: linear-gradient(135deg, rgba(245,158,11,0.06) 0%, transparent 60%);
+            border-top: 1px solid rgba(255,255,255,0.07);
+        }
+
+        .cta-band h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(1.9rem, 4vw, 2.6rem);
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 16px;
+        }
+
+        .cta-band p {
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            color: #a8adb8;
+            max-width: 480px;
+            margin: 0 auto 36px;
+            line-height: 1.65;
+        }
+
+        .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+        @media (max-width: 768px) {
+            .detail-row { grid-template-columns: 1fr; }
+            .detail-row.reverse { direction: ltr; }
+            .stats-strip { flex-direction: column; }
+            .stat { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.07); }
+            .stat:last-child { border-bottom: none; }
+            .hero-btns { flex-direction: column; align-items: center; }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero-glow"></div>
+    <div class="bg-glow bg-glow-purple"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar glass">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-text">Kemper Design Services</span>
+            </a>
+            <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()">
+                <span></span><span></span><span></span>
+            </button>
+            <div class="nav-links" id="nav-links">
+                <a href="index.html" onclick="closeMobileMenu()">Home</a>
+                <a href="apps.html" style="color:#f59e0b; font-weight:600;" onclick="closeMobileMenu()">Our Apps</a>
+                <a href="index.html#consulting" onclick="closeMobileMenu()">Consulting</a>
+            </div>
+            <div class="nav-cta">
+                <a href="https://demo-food-truck-app.kemperdesignservices.com" class="btn btn-primary" style="background:var(--accent); color:#000; font-weight:700;">Try Demo →</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero -->
+        <section class="sp-hero">
+            <span class="sp-eyebrow">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+                Food Truck Tech
+            </span>
+            <h1>The App That Runs<br><em>Your Whole Food Truck</em></h1>
+            <p>KDS Food Truck App combines point-of-sale, scheduling, recipe management, and reporting in one clean, fast interface — built for the way food trucks and restaurants actually operate.</p>
+            <div class="hero-btns">
+                <a href="https://demo-food-truck-app.kemperdesignservices.com" class="btn-amber">Try the Demo →</a>
+                <a href="index.html" class="btn-outline">Get This Built for You</a>
+            </div>
+        </section>
+
+        <!-- Screenshot -->
+        <div class="screenshot-wrap">
+            <img src="assets/images/KDS Lab Studio.png" alt="KDS Food Truck App screenshot" class="sp-screenshot">
+        </div>
+
+        <!-- Stats -->
+        <div class="stats-strip">
+            <div class="stat">
+                <span class="stat-num">15h</span>
+                <span class="stat-lbl">Saved per week</span>
+            </div>
+            <div class="stat">
+                <span class="stat-num">24/7</span>
+                <span class="stat-lbl">Always running</span>
+            </div>
+            <div class="stat">
+                <span class="stat-num">4</span>
+                <span class="stat-lbl">Core modules</span>
+            </div>
+            <div class="stat">
+                <span class="stat-num">$0</span>
+                <span class="stat-lbl">Monthly license fees</span>
+            </div>
+        </div>
+
+        <!-- Feature Cards -->
+        <section class="features-wrap">
+            <div class="section-head">
+                <span class="section-tag">What's included</span>
+                <h2>Everything a Restaurant Needs</h2>
+            </div>
+            <div class="features-grid">
+                <div class="feat-card">
+                    <div class="feat-icon-box">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+                    </div>
+                    <h3>Effluent Point-of-Sale</h3>
+                    <p>Fast order entry with table management, seat assignments, split checks, modifiers, and real-time kitchen display support.</p>
+                </div>
+                <div class="feat-card">
+                    <div class="feat-icon-box">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                    </div>
+                    <h3>Location &amp; Sales Calendar</h3>
+                    <p>Plan your service windows, track daily sales, and forecast demand across multiple locations or food truck stops.</p>
+                </div>
+                <div class="feat-card">
+                    <div class="feat-icon-box">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                    </div>
+                    <h3>Ingredient &amp; Recipe Management</h3>
+                    <p>Build your full menu with ingredient lists, allergen flags, portion costs, and prep instructions all in one place.</p>
+                </div>
+                <div class="feat-card">
+                    <div class="feat-icon-box">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                    </div>
+                    <h3>Powerful Reporting</h3>
+                    <p>Sales by day, item, category, and location. Export to CSV or connect directly to your accounting software.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Detail rows -->
+        <section class="detail-section">
+            <div class="detail-row">
+                <div class="detail-text">
+                    <span class="section-tag">Point-of-Sale</span>
+                    <h3>Ringing Up Orders Shouldn't Be Work</h3>
+                    <p>KDS Food Truck App is built for speed. Your staff can take an order, apply a modifier, split a check, and fire to the kitchen in under 30 seconds — even during a rush.</p>
+                    <ul class="detail-list">
+                        <li>Table layout with real-time seat status</li>
+                        <li>Item modifiers and special instructions</li>
+                        <li>Split bills by item, seat, or percentage</li>
+                        <li>Kitchen display system (KDS) integration</li>
+                        <li>Cash, card, and digital payment support</li>
+                    </ul>
+                </div>
+                <div class="detail-img-box">
+                    <img src="assets/images/KDS Lab Studio.png" alt="POS order screen">
+                </div>
+            </div>
+
+            <div class="detail-row reverse">
+                <div class="detail-text">
+                    <span class="section-tag">Recipe Management</span>
+                    <h3>Your Menu, Fully Under Control</h3>
+                    <p>Every dish in KDS Food Truck App is backed by a full recipe — ingredients, yield, allergens, and cost. When ingredient prices change, your margin calculations update automatically.</p>
+                    <ul class="detail-list">
+                        <li>Ingredient inventory with unit costs</li>
+                        <li>Auto-calculated dish cost &amp; margin</li>
+                        <li>Allergen and dietary flags per item</li>
+                        <li>Portion control with scaled recipe views</li>
+                        <li>Photo upload for menu display</li>
+                    </ul>
+                </div>
+                <div class="detail-img-box">
+                    <img src="assets/images/KDS Lab Studio.png" alt="Recipe management screen">
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="cta-band">
+            <span class="section-tag">Get started</span>
+            <h2>Ready to See It in Action?</h2>
+            <p>Try the interactive demo with pre-loaded menu items — no account required, nothing is saved.</p>
+            <div class="cta-btns">
+                <a href="https://demo-food-truck-app.kemperdesignservices.com" class="btn-amber">Launch Demo →</a>
+                <a href="index.html" class="btn-outline">Have Us Build It →</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-col brand-col">
+                <div class="brand-header">
+                    <img src="assets/logos/logo-white.png" alt="KDS Logo" class="footer-logo">
+                    <div class="brand-title">
+                        <span>Kemper</span><span>Design</span><span>Services</span>
+                    </div>
+                </div>
+                <p class="brand-desc">We modernize business operations with practical AI — automating workflows, building custom tools, and helping teams do more without burning out.</p>
+            </div>
+            <div class="footer-col">
+                <h4 class="footer-title">APPLICATIONS</h4>
+                <div class="footer-links">
+                    <a href="apps.html">All Applications</a>
+                    <a href="food-truck-app.html">KDS Food Truck App</a>
+                    <a href="kds-lab.html">KDS Lab Studio</a>
+                    <a href="drivemirror.html">DriveMirror</a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4 class="footer-title">CONTACT US</h4>
+                <div class="contact-list">
+                    <div class="contact-item">
+                        <span class="contact-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></span>
+                        <a href="mailto:damian@kemperdesignservices.com">damian@kemperdesignservices.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.26h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.81a16 16 0 0 0 6 6l.86-.86a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16z"/></svg></span>
+                        <a href="tel:+16313536377">(631) 3-KEMPER</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Kemper Design Services. All rights reserved.</p>
+            <div class="social-links">
+                <a href="https://www.facebook.com/profile.php?id=61558862320236" target="_blank" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a6 6 0 0 0-6 6v3H7v4h2v8h4v-8h3l1-4h-4V8a1 1 0 0 1 1-1h3z"/></svg></a>
+                <a href="https://www.youtube.com/@KemperDesignServices" target="_blank" aria-label="YouTube"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/></svg></a>
+                <a href="https://www.linkedin.com/in/damiankemper/" target="_blank" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            document.getElementById('nav-links').classList.toggle('mobile-open');
+            document.getElementById('hamburger').classList.toggle('active');
+        }
+        function closeMobileMenu() {
+            document.getElementById('nav-links').classList.remove('mobile-open');
+            document.getElementById('hamburger').classList.remove('active');
+        }
+    </script>
+</body>
+</html>

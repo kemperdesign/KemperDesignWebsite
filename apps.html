@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Applications | Kemper Design Services</title>
+    <meta name="description" content="Explore custom applications built by Kemper Design Services — KDS Food Truck App for restaurants, KDS Lab Studio for training, and DriveMirror for data protection.">
+
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/logos/favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/logos/apple-touch-icon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        .apps-hero {
+            padding: 160px 24px 72px;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-eyebrow {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #a8adb8;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .apps-hero h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(2.4rem, 5vw, 3.8rem);
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 16px;
+            line-height: 1.1;
+        }
+
+        .apps-hero p {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.05rem;
+            color: #a8adb8;
+            max-width: 540px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .apps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 28px;
+            max-width: 1200px;
+            margin: 64px auto 100px;
+            padding: 0 24px;
+        }
+
+        .app-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(16px);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: transform 0.35s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+            opacity: 0;
+            transform: translateY(24px);
+        }
+
+        .app-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .app-card.soup:hover  { border-color: rgba(245,158,11,0.4); box-shadow: 0 24px 64px rgba(245,158,11,0.1); transform: translateY(-6px); }
+        .app-card.kds:hover   { border-color: rgba(139,92,246,0.4);  box-shadow: 0 24px 64px rgba(139,92,246,0.1); transform: translateY(-6px); }
+        .app-card.drive:hover { border-color: rgba(59,130,246,0.4);  box-shadow: 0 24px 64px rgba(59,130,246,0.1);  transform: translateY(-6px); }
+
+        .app-screenshot {
+            width: 100%;
+            height: 210px;
+            object-fit: cover;
+            object-position: top center;
+            display: block;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .app-card-body {
+            padding: 28px;
+        }
+
+        .app-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .badge-amber  { background: rgba(245,158,11,0.15); color: #f59e0b; border: 1px solid rgba(245,158,11,0.3); }
+        .badge-purple { background: rgba(139,92,246,0.15); color: #8b5cf6; border: 1px solid rgba(139,92,246,0.3); }
+        .badge-blue   { background: rgba(59,130,246,0.15);  color: #3b82f6; border: 1px solid rgba(59,130,246,0.3);  }
+
+        .app-card-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.45rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+
+        .app-card-tagline {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.875rem;
+            color: #a8adb8;
+            margin-bottom: 20px;
+            line-height: 1.55;
+        }
+
+        .app-features {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 8px;
+        }
+
+        .app-features li {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.845rem;
+            color: #c8cdd8;
+            padding: 7px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .app-features li:last-child { border-bottom: none; }
+
+        .feat-icon {
+            width: 16px;
+            height: 16px;
+            flex-shrink: 0;
+        }
+
+        .app-card-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 24px;
+        }
+
+        .app-card-actions a {
+            flex: 1;
+            text-align: center;
+            padding: 10px 14px;
+            border-radius: 10px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .btn-app-primary { background: #fff; color: #000; }
+        .btn-app-primary:hover { background: #f0f0f0; }
+
+        .btn-app-ghost { background: rgba(255,255,255,0.06); color: #fff; border: 1px solid rgba(255,255,255,0.12); }
+        .btn-app-ghost:hover { background: rgba(255,255,255,0.1); }
+
+        .glow-amber { position: fixed; top: -80px; right: -150px; width: 600px; height: 500px; background: radial-gradient(circle, rgba(245,158,11,0.05) 0%, transparent 70%); pointer-events: none; z-index: 0; }
+        .glow-violet { position: fixed; bottom: 0; left: -150px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(139,92,246,0.05) 0%, transparent 70%); pointer-events: none; z-index: 0; }
+
+        @media (max-width: 768px) {
+            .apps-grid { grid-template-columns: 1fr; }
+            .app-card-actions { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-glow bg-glow-purple"></div>
+    <div class="bg-glow bg-glow-blue"></div>
+    <div class="glow-amber"></div>
+    <div class="glow-violet"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar glass">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-text">Kemper Design Services</span>
+            </a>
+            <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()">
+                <span></span><span></span><span></span>
+            </button>
+            <div class="nav-links" id="nav-links">
+                <a href="index.html" onclick="closeMobileMenu()">Home</a>
+                <a href="index.html#about-us" onclick="closeMobileMenu()">About</a>
+                <div class="dropdown">
+                    <button class="dropbtn">Services <span class="arrow-down">▼</span></button>
+                    <div class="dropdown-content glass">
+                        <div class="drop-col">
+                            <span class="mega-heading">AI & Automation</span>
+                            <a href="index.html">AI Workflow Integration</a>
+                            <a href="index.html">AI Chatbots & Assistants</a>
+                            <a href="index.html">Custom Internal AI Tools</a>
+                            <a href="index.html">System Integrations</a>
+                            <a href="index.html">Local AI Deployment</a>
+                            <a href="index.html">Document Processing</a>
+                            <a href="index.html">AI Audits</a>
+                        </div>
+                        <div class="drop-col">
+                            <span class="mega-heading">Design & Development</span>
+                            <a href="index.html">Custom Websites</a>
+                            <a href="index.html">Custom Applications</a>
+                            <a href="index.html">Graphic Design</a>
+                            <a href="index.html">UI/UX Design</a>
+                            <a href="index.html">Frontend Development</a>
+                            <a href="apps.html" style="color:#f59e0b; font-weight:600;">Our Applications ↗</a>
+                        </div>
+                        <div class="drop-col">
+                            <span class="mega-heading">Operations & Training</span>
+                            <a href="index.html">AI Auto-Scheduler</a>
+                            <a href="index.html">Instructional Design</a>
+                            <a href="index.html">AI Training & Education</a>
+                            <a href="index.html">Employee Onboarding</a>
+                            <a href="index.html">Custom Training Apps</a>
+                            <a href="index.html">Technical Writing</a>
+                            <a href="index.html">Process Optimization</a>
+                        </div>
+                        <div class="drop-col">
+                            <span class="mega-heading">IT & Security</span>
+                            <a href="index.html">Cybersecurity Solutions</a>
+                            <a href="index.html">IT Infrastructure</a>
+                            <a href="index.html">Data Protection</a>
+                            <a href="index.html">System Integration</a>
+                            <a href="index.html">Cloud Solutions</a>
+                        </div>
+                        <div class="drop-col">
+                            <span class="mega-heading">Creative & Specialty</span>
+                            <a href="index.html">Video Editing</a>
+                            <a href="index.html">Video Digitization</a>
+                            <a href="index.html">In Home Media Servers</a>
+                            <a href="index.html">Custom Music Production</a>
+                            <a href="index.html">3D Printing</a>
+                            <a href="index.html">Digital Notary</a>
+                            <a href="index.html">Data/Format Conversion</a>
+                            <a href="index.html">Content Creation</a>
+                        </div>
+                    </div>
+                </div>
+                <a href="apps.html" style="font-weight:600; color:#f59e0b;" onclick="closeMobileMenu()">Our Apps</a>
+                <a href="index.html#consulting" onclick="closeMobileMenu()">Consulting</a>
+            </div>
+            <div class="nav-cta">
+                <a href="index.html" class="btn btn-primary">Learn AI Today <span class="arrow">→</span></a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero -->
+        <section class="apps-hero">
+            <span class="section-eyebrow">Portfolio · Custom Applications</span>
+            <h1>Applications We've Built</h1>
+            <p>Real software for real businesses. Browse the apps, see what they do, and try a limited interactive demo — no account needed.</p>
+        </section>
+
+        <!-- App Cards -->
+        <div class="apps-grid">
+
+            <!-- KDS Food Truck App -->
+            <article class="app-card soup">
+                <img src="assets/images/KDS Lab Studio.png" alt="KDS Food Truck App — Food Truck Management" class="app-screenshot">
+                <div class="app-card-body">
+                    <span class="app-badge badge-amber">Food Truck Tech</span>
+                    <h2 class="app-card-title">KDS Food Truck App</h2>
+                    <p class="app-card-tagline">A complete management system built for food trucks and restaurants — from the front counter to the back office.</p>
+                    <ul class="app-features">
+                        <li>
+                            <svg class="feat-icon" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+                            Effluent point-of-sale with table management
+                        </li>
+                        <li>
+                            <svg class="feat-icon" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                            Location &amp; sales calendar with forecasting
+                        </li>
+                        <li>
+                            <svg class="feat-icon" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                            Ingredient &amp; recipe management
+                        </li>
+                        <li>
+                            <svg class="feat-icon" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                            Powerful reporting &amp; analytics
+                        </li>
+                    </ul>
+                    <div class="app-card-actions">
+                        <a href="food-truck-app.html" class="btn-app-primary">View App →</a>
+                        <a href="https://demo-food-truck-app.kemperdesignservices.com" class="btn-app-ghost">Try Demo</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- KDS Lab Studio -->
+            <article class="app-card kds">
+                <img src="assets/images/food truck app.png" alt="KDS Lab Studio — Assessment Platform" class="app-screenshot">
+                <div class="app-card-body">
+                    <span class="app-badge badge-purple">Education Platform</span>
+                    <h2 class="app-card-title">KDS Lab Studio</h2>
+                    <p class="app-card-tagline">An AI-powered assessment and training platform — build labs, track learners, and manage content from one place.</p>
+                    <ul class="app-features">
+                        <li>
+                            <svg class="feat-icon" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+                            AI-powered assessment creation
+                        </li>
+                        <li>
+                            <svg class="feat-icon" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                            Robust lab &amp; content library
+                        </li>
+                        <li>
+                            <svg class="feat-icon" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                            Learner management &amp; progress tracking
+                        </li>
+                        <li>
+                            <svg class="feat-icon" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                            Detailed analytics &amp; reporting
+                        </li>
+                    </ul>
+                    <div class="app-card-actions">
+                        <a href="kds-lab.html" class="btn-app-primary">View App →</a>
+                        <a href="kds-lab-demo.html" class="btn-app-ghost">Try Demo</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- DriveMirror -->
+            <article class="app-card drive">
+                <img src="assets/images/DriveMirror.png" alt="DriveMirror — Backup &amp; Sync" class="app-screenshot">
+                <div class="app-card-body">
+                    <span class="app-badge badge-blue">Data Tools</span>
+                    <h2 class="app-card-title">DriveMirror</h2>
+                    <p class="app-card-tagline">A desktop backup and sync utility — protect your files with scheduled backups, flexible sync modes, and comprehensive restore.</p>
+                    <ul class="app-features">
+                        <li>
+                            <svg class="feat-icon" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+                            Effortless source folder management
+                        </li>
+                        <li>
+                            <svg class="feat-icon" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
+                            Flexible backup and sync modes
+                        </li>
+                        <li>
+                            <svg class="feat-icon" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                            Robust operation logging &amp; file filtering
+                        </li>
+                        <li>
+                            <svg class="feat-icon" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                            Comprehensive restore capability
+                        </li>
+                    </ul>
+                    <div class="app-card-actions">
+                        <a href="drivemirror.html" class="btn-app-primary">View App →</a>
+                        <a href="drivemirror-demo.html" class="btn-app-ghost">Try Demo</a>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-col brand-col">
+                <div class="brand-header">
+                    <img src="assets/logos/logo-white.png" alt="KDS Logo" class="footer-logo">
+                    <div class="brand-title">
+                        <span>Kemper</span>
+                        <span>Design</span>
+                        <span>Services</span>
+                    </div>
+                </div>
+                <p class="brand-desc">We modernize business operations with practical AI — automating workflows, building custom tools, and helping teams do more without burning out.</p>
+            </div>
+            <div class="footer-col">
+                <h4 class="footer-title">QUICK LINKS</h4>
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="index.html#about-us">About Us</a>
+                    <a href="apps.html">Our Applications</a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4 class="footer-title">APPLICATIONS</h4>
+                <div class="footer-links">
+                    <a href="food-truck-app.html">KDS Food Truck App</a>
+                    <a href="kds-lab.html">KDS Lab Studio</a>
+                    <a href="drivemirror.html">DriveMirror</a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4 class="footer-title">CONTACT US</h4>
+                <div class="contact-list">
+                    <div class="contact-item">
+                        <span class="contact-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></span>
+                        <a href="mailto:damian@kemperdesignservices.com">damian@kemperdesignservices.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.26h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.81a16 16 0 0 0 6 6l.86-.86a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16z"/></svg></span>
+                        <a href="tel:+16313536377">(631) 3-KEMPER</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Kemper Design Services. All rights reserved.</p>
+            <div class="social-links">
+                <a href="https://www.facebook.com/profile.php?id=61558862320236" target="_blank" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a6 6 0 0 0-6 6v3H7v4h2v8h4v-8h3l1-4h-4V8a1 1 0 0 1 1-1h3z"/></svg></a>
+                <a href="https://www.youtube.com/@KemperDesignServices" target="_blank" aria-label="YouTube"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/></svg></a>
+                <a href="https://www.linkedin.com/in/damiankemper/" target="_blank" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            document.getElementById('nav-links').classList.toggle('mobile-open');
+            document.getElementById('hamburger').classList.toggle('active');
+        }
+        function closeMobileMenu() {
+            document.getElementById('nav-links').classList.remove('mobile-open');
+            document.getElementById('hamburger').classList.remove('active');
+        }
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((e, i) => {
+                if (e.isIntersecting) {
+                    setTimeout(() => e.target.classList.add('visible'), i * 120);
+                    observer.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.08 });
+
+        document.querySelectorAll('.app-card').forEach(c => observer.observe(c));
+    </script>
+</body>
+</html>
