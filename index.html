@@ -1670,14 +1670,14 @@
 
   <!-- Blog Lightbox -->
   <div class="aai-modal" id="blog-modal">
-    <div class="aai-inner" style="max-width: 90vw; max-width: min(900px, 90vw); max-height: 90vh; padding: 0; overflow: hidden; display: flex; flex-direction: column;">
+    <div class="aai-inner" style="max-width: 90vw; max-width: min(900px, 90vw); max-height: 90vh; padding: 0; overflow-y: auto; display: flex; flex-direction: column; position: relative;">
         <button class="blog-close-btn" onclick="closeBlogModal()" aria-label="Close blog post">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <line x1="18" y1="6" x2="6" y2="18"></line>
                 <line x1="6" y1="6" x2="18" y2="18"></line>
             </svg>
         </button>
-        <div id="bm-image-container" style="width: 100%; height: 35%; min-height: 200px; max-height: 400px; position: relative; flex-shrink: 0; background: #000;">
+        <div id="bm-image-container" style="width: 100%; height: 300px; position: relative; flex-shrink: 0; background: #000;">
             <img id="bm-image" src="" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block;">
             <video id="bm-video" controls style="width: 100%; height: 100%; object-fit: cover; display: none;"></video>
             <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 40px; background: linear-gradient(to top, rgba(10,10,15,1), transparent); pointer-events: none;">
@@ -1685,7 +1685,7 @@
                 <h2 id="bm-title" style="font-size: 2.5rem; color: white; margin: 0; line-height: 1.1; font-weight: 800;"></h2>
             </div>
         </div>
-        <div id="bm-content" class="blog-modal-content" style="padding: 40px; color: var(--text-secondary); line-height: 1.8; overflow-y: auto; flex-grow: 1; font-size: 1.1rem; background: #0a0a0f;">
+        <div id="bm-content" class="blog-modal-content" style="padding: 40px; color: var(--text-secondary); line-height: 1.8; flex-grow: 1; font-size: 1.1rem; background: #0a0a0f;">
             <!-- Article content goes here -->
         </div>
         <div id="bm-scroll-indicator" class="blog-scroll-indicator"></div>
@@ -1694,10 +1694,10 @@
 
   <style>
     .blog-close-btn {
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        z-index: 11;
+        position: fixed;
+        top: calc(5vh + 20px);
+        right: calc(5vw + 20px);
+        z-index: 100001;
         width: 44px;
         height: 44px;
         border-radius: 50%;
@@ -1721,13 +1721,31 @@
         width: 24px;
         height: 24px;
     }
+    #blog-modal .aai-inner {
+        scrollbar-width: auto;
+        scrollbar-color: rgba(139,92,246,0.6) rgba(139,92,246,0.1);
+    }
+    #blog-modal .aai-inner::-webkit-scrollbar {
+        width: 8px;
+    }
+    #blog-modal .aai-inner::-webkit-scrollbar-track {
+        background: rgba(139,92,246,0.1);
+        border-radius: 4px;
+    }
+    #blog-modal .aai-inner::-webkit-scrollbar-thumb {
+        background: rgba(139,92,246,0.6);
+        border-radius: 4px;
+    }
+    #blog-modal .aai-inner::-webkit-scrollbar-thumb:hover {
+        background: rgba(139,92,246,0.8);
+    }
     .blog-scroll-indicator {
-        position: absolute;
+        position: sticky;
         bottom: 0;
         left: 0;
         right: 0;
         height: 40px;
-        background: linear-gradient(to bottom, transparent, rgba(10, 10, 15, 0.9));
+        background: linear-gradient(to bottom, transparent, rgba(10, 10, 15, 0.95));
         pointer-events: none;
         opacity: 1;
         transition: opacity 0.3s ease;
@@ -1735,24 +1753,6 @@
     .blog-scroll-indicator.hidden {
         opacity: 0;
         pointer-events: none;
-    }
-    .blog-modal-content {
-        scrollbar-width: auto;
-        scrollbar-color: rgba(139,92,246,0.6) rgba(139,92,246,0.1);
-    }
-    .blog-modal-content::-webkit-scrollbar {
-        width: 8px;
-    }
-    .blog-modal-content::-webkit-scrollbar-track {
-        background: rgba(139,92,246,0.1);
-        border-radius: 4px;
-    }
-    .blog-modal-content::-webkit-scrollbar-thumb {
-        background: rgba(139,92,246,0.6);
-        border-radius: 4px;
-    }
-    .blog-modal-content::-webkit-scrollbar-thumb:hover {
-        background: rgba(139,92,246,0.8);
     }
     .blog-modal-content p { margin-bottom: 20px; }
     .blog-modal-content h3 { color: white; margin: 30px 0 15px; font-size: 1.5rem; }
@@ -1763,8 +1763,8 @@
         .blog-close-btn {
             width: 40px;
             height: 40px;
-            top: 15px;
-            right: 15px;
+            top: calc(5vh + 15px);
+            right: calc(5vw + 15px);
         }
     }
   </style>
@@ -2087,20 +2087,20 @@
         document.getElementById('blog-modal').classList.add('open');
         document.body.style.overflow = 'hidden';
 
-        const contentEl = document.getElementById('bm-content');
-        contentEl.scrollTop = 0;
+        const modalEl = document.querySelector('#blog-modal .aai-inner');
+        modalEl.scrollTop = 0;
         updateScrollIndicator();
 
-        contentEl.removeEventListener('scroll', updateScrollIndicator);
-        contentEl.addEventListener('scroll', updateScrollIndicator);
+        modalEl.removeEventListener('scroll', updateScrollIndicator);
+        modalEl.addEventListener('scroll', updateScrollIndicator);
     }
 
     function updateScrollIndicator() {
-        const contentEl = document.getElementById('bm-content');
+        const modalEl = document.querySelector('#blog-modal .aai-inner');
         const indicator = document.getElementById('bm-scroll-indicator');
-        if (!contentEl || !indicator) return;
+        if (!modalEl || !indicator) return;
 
-        const isAtBottom = contentEl.scrollHeight - contentEl.scrollTop - contentEl.clientHeight < 10;
+        const isAtBottom = modalEl.scrollHeight - modalEl.scrollTop - modalEl.clientHeight < 10;
         if (isAtBottom) {
             indicator.classList.add('hidden');
         } else {
