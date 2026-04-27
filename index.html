@@ -1670,14 +1670,14 @@
 
   <!-- Blog Lightbox -->
   <div class="aai-modal" id="blog-modal">
-    <div class="aai-inner" style="max-width: 900px; padding: 0; overflow: hidden; display: flex; flex-direction: column;">
+    <div class="aai-inner" style="max-width: 90vw; max-width: min(900px, 90vw); max-height: 90vh; padding: 0; overflow: hidden; display: flex; flex-direction: column;">
         <button class="blog-close-btn" onclick="closeBlogModal()" aria-label="Close blog post">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <line x1="18" y1="6" x2="6" y2="18"></line>
                 <line x1="6" y1="6" x2="18" y2="18"></line>
             </svg>
         </button>
-        <div id="bm-image-container" style="width: 100%; height: 400px; position: relative; flex-shrink: 0; background: #000;">
+        <div id="bm-image-container" style="width: 100%; height: 35%; min-height: 200px; max-height: 400px; position: relative; flex-shrink: 0; background: #000;">
             <img id="bm-image" src="" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block;">
             <video id="bm-video" controls style="width: 100%; height: 100%; object-fit: cover; display: none;"></video>
             <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 40px; background: linear-gradient(to top, rgba(10,10,15,1), transparent); pointer-events: none;">
