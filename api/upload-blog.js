@@ -1,7 +1,8 @@
-import { Buffer } from 'buffer';
-import sharp from 'sharp';
+const sharp = require('sharp');
 
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
+  res.setHeader('Content-Type', 'application/json');
+
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
@@ -14,6 +15,10 @@ export default async function handler(req, res) {
     }
 
     const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
+    if (!GITHUB_TOKEN) {
+      return res.status(500).json({ error: 'GITHUB_TOKEN not configured' });
+    }
+
     const GITHUB_OWNER = 'kemperdesign';
     const GITHUB_REPO = 'KemperDesignWebsite';
     const GITHUB_BRANCH = 'main';
@@ -34,7 +39,6 @@ export default async function handler(req, res) {
           .toBuffer();
       } catch (err) {
         console.error('Image resize error:', err);
-        // Fall back to original if resize fails
         finalBuffer = buffer;
       }
     }
@@ -88,12 +92,15 @@ export default async function handler(req, res) {
     );
 
     if (!commitResponse.ok) {
-      const error = await commitResponse.json();
+      const errorData = await commitResponse.json();
+      console.error('GitHub error:', errorData);
       return res.status(400).json({
         error: 'GitHub commit failed',
-        details: error.message
+        details: errorData.message || 'Unknown error'
       });
     }
+
+    const responseData = await commitResponse.json();
 
     return res.status(200).json({
       success: true,
@@ -105,7 +112,7 @@ export default async function handler(req, res) {
     console.error('Upload error:', error);
     return res.status(500).json({
       error: 'Upload failed',
-      message: error.message
+      message: error.message || 'Unknown error'
     });
   }
-}
+};
