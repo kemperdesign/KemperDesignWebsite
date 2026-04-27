@@ -114,10 +114,7 @@ class FAQSpiral {
             </div>
           </section>
 
-          <!-- Footer -->
-          <footer class="faq-footer">
-            © ${new Date().getFullYear()} Kemper Design Services — AI that works with your team.
-          </footer>
+
         </div>
 
         <!-- Control Panel (Optional) -->

@@ -317,7 +317,7 @@
             </button>
             <div class="nav-links" id="nav-links">
                 <a href="#home" onclick="closeMobileMenu()">Home</a>
-                <a href="#about" onclick="closeMobileMenu()">About</a>
+                <a href="#about-us" onclick="closeMobileMenu()">About</a>
                 <div class="dropdown">
                     <button class="dropbtn">Services <span class="arrow-down">▼</span></button>
                     <div class="dropdown-content glass">
@@ -355,7 +355,6 @@
                             <a href="javascript:void(0)" onclick="openServiceModal('Data Protection')">Data Protection</a>
                             <a href="javascript:void(0)" onclick="openServiceModal('System Integration')">System Integration</a>
                             <a href="javascript:void(0)" onclick="openServiceModal('Cloud Solutions')">Cloud Solutions</a>
-                            <a href="javascript:void(0)" onclick="openServiceModal('Network Management')">Network Management</a>
                         </div>
                         <div class="drop-col">
                             <span class="mega-heading">Creative & Specialty</span>
@@ -711,11 +710,20 @@
 
         <!-- About -->
         <div class="seo-content-inner">
-            <div class="seo-block" id="about-us">
-                <h2 class="seo-section-title">About Kemper Design Services</h2>
-                <p>Kemper Design Services is a team of AI experts, developers, and strategists based in St. Augustine, FL, dedicated to helping small businesses and teams modernize their operations without the enterprise price tag. We work remotely with clients across the United States and internationally.</p>
-                <p>We believe AI should be practical, accessible, and designed to enhance human potential — not replace it. Whether it's automating workflows, building custom applications, or deploying intelligent systems, we create solutions that solve real business problems. Our mission is to help you recover the hours you've been losing to manual work, inefficient processes, and disconnected tools.</p>
-                <p>We are hands-on builders with a consulting mindset. We don't sell software licenses or send reports — we build things and stay through implementation. 90% of our clients return for a second project, and return clients get priority scheduling.</p>
+            <div class="seo-block" id="about-us" style="display: flex; gap: 60px; align-items: center; flex-wrap: wrap; margin-bottom: 80px;">
+                <div style="flex: 1 1 500px;">
+                    <h2 class="seo-section-title">About Kemper Design Services</h2>
+                    <p>Kemper Design Services is a team of AI experts, developers, and strategists based in St. Augustine, FL, dedicated to helping small businesses and teams modernize their operations without the enterprise price tag. We work remotely with clients across the United States and internationally.</p>
+                    <p>We believe AI should be practical, accessible, and designed to enhance human potential — not replace it. Whether it's automating workflows, building custom applications, or deploying intelligent systems, we create solutions that solve real business problems. Our mission is to help you recover the hours you've been losing to manual work, inefficient processes, and disconnected tools.</p>
+                    <p>We are hands-on builders with a consulting mindset. We don't sell software licenses or send reports — we build things and stay through implementation. 90% of our clients return for a second project, and return clients get priority scheduling.</p>
+                </div>
+                <div style="flex: 1 1 400px;">
+                    <div style="position: relative; border-radius: 24px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1); mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent), linear-gradient(to bottom, transparent, black 10%, black 90%, transparent); -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent), linear-gradient(to bottom, transparent, black 10%, black 90%, transparent); mask-composite: intersect; -webkit-mask-composite: source-in;">
+                        <video id="about-video" playsinline muted style="width: 100%; display: block; border-radius: 24px;">
+                            <source src="assets/video/About Video.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
             </div>
 
             <!-- Services Overview -->
@@ -762,7 +770,7 @@
                     </div>
                     <div class="seo-service-item" onclick="openServiceModal('Cybersecurity Solutions')" style="cursor: pointer;">
                         <h3>Cybersecurity &amp; IT Services</h3>
-                        <p>Comprehensive security strategy, IT infrastructure design, data protection, cloud solutions, and network management to protect your business and keep your systems running smoothly and securely.</p>
+                        <p>Comprehensive security strategy, IT infrastructure design, data protection, and cloud solutions to protect your business and keep your systems running smoothly and securely.</p>
                     </div>
                     <div class="seo-service-item" onclick="openServiceModal('Document Processing')" style="cursor: pointer;">
                         <h3>Document Processing</h3>
@@ -798,6 +806,222 @@
     <!-- FAQ Spiral Component -->
     <div id="faq-spiral-container"></div>
 
+    <!-- Blog Section -->
+    <section class="blog-section" id="blog">
+        <div class="blog-container">
+            <div class="section-heading">
+                <div class="badge">
+                    <span class="badge-dot"></span>
+                    <span>LATEST INSIGHTS</span>
+                </div>
+                <h2 class="h2 text-gradient">Blog Section</h2>
+                <p>Discover the latest trends and insights in the world of design and technology.</p>
+            </div>
+
+            <div class="blog-search-container">
+                <span class="blog-search-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                </span>
+                <input type="text" id="blog-search" class="blog-search-input" placeholder="Search articles...">
+            </div>
+
+            <div class="blog-grid" id="blog-grid">
+                <div onclick="openBlogModal('Design Systems That Scale')" class="blog-card" style="cursor: pointer;">
+                    <div class="blog-image-wrapper">
+                        <img src="https://picsum.photos/seed/1/640/360" alt="Design Systems That Scale" class="blog-image" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span>by Ava Mitchell</span>
+                            <span class="blog-meta-dot"></span>
+                            <span>2025-08-25</span>
+                            <span class="blog-meta-dot"></span>
+                            <span>7 min read</span>
+                        </div>
+                        <h3>Design Systems That Scale</h3>
+                        <p>Learn how to build and maintain scalable design systems that empower teams to move faster while staying consistent.</p>
+                    </div>
+                </div>
+                <div onclick="openBlogModal('The Psychology of Color in UI')" class="blog-card" style="cursor: pointer;">
+                    <div class="blog-image-wrapper">
+                        <img src="https://picsum.photos/seed/2/640/360" alt="The Psychology of Color in UI" class="blog-image" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span>by Liam Carter</span>
+                            <span class="blog-meta-dot"></span>
+                            <span>2025-07-14</span>
+                            <span class="blog-meta-dot"></span>
+                            <span>5 min read</span>
+                        </div>
+                        <h3>The Psychology of Color in UI</h3>
+                        <p>Explore how different colors influence user perception, emotion, and conversion in digital product design.</p>
+                    </div>
+                </div>
+                <div onclick="openBlogModal('Microinteractions That Delight')" class="blog-card" style="cursor: pointer;">
+                    <div class="blog-image-wrapper">
+                        <img src="https://picsum.photos/seed/3/640/360" alt="Microinteractions That Delight" class="blog-image" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span>by Sophia Kim</span>
+                            <span class="blog-meta-dot"></span>
+                            <span>2025-06-30</span>
+                            <span class="blog-meta-dot"></span>
+                            <span>6 min read</span>
+                        </div>
+                        <h3>Microinteractions That Delight</h3>
+                        <p>Discover how subtle animations and interactions can enhance usability and bring joy to your users.</p>
+                    </div>
+                </div>
+                <div onclick="openBlogModal('Accessibility Beyond Compliance')" class="blog-card" style="cursor: pointer;">
+                    <div class="blog-image-wrapper">
+                        <img src="https://picsum.photos/seed/4/640/360" alt="Accessibility Beyond Compliance" class="blog-image" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span>by Ethan Rodriguez</span>
+                            <span class="blog-meta-dot"></span>
+                            <span>2025-06-18</span>
+                            <span class="blog-meta-dot"></span>
+                            <span>8 min read</span>
+                        </div>
+                        <h3>Accessibility Beyond Compliance</h3>
+                        <p>Practical steps to make your UI accessible, not just legally compliant, but genuinely inclusive for everyone.</p>
+                    </div>
+                </div>
+                <div onclick="openBlogModal('Dark Mode Done Right')" class="blog-card" style="cursor: pointer;">
+                    <div class="blog-image-wrapper">
+                        <img src="https://picsum.photos/seed/5/640/360" alt="Dark Mode Done Right" class="blog-image" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span>by Maya Chen</span>
+                            <span class="blog-meta-dot"></span>
+                            <span>2025-05-20</span>
+                            <span class="blog-meta-dot"></span>
+                            <span>4 min read</span>
+                        </div>
+                        <h3>Dark Mode Done Right</h3>
+                        <p>Tips and tricks to design beautiful and functional dark mode experiences that users will love.</p>
+                    </div>
+                </div>
+                <div onclick="openBlogModal('Typography That Speaks')" class="blog-card" style="cursor: pointer;">
+                    <div class="blog-image-wrapper">
+                        <img src="https://picsum.photos/seed/6/640/360" alt="Typography That Speaks" class="blog-image" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span>by Noah Patel</span>
+                            <span class="blog-meta-dot"></span>
+                            <span>2025-05-02</span>
+                            <span class="blog-meta-dot"></span>
+                            <span>9 min read</span>
+                        </div>
+                        <h3>Typography That Speaks</h3>
+                        <p>How to select and pair typefaces that enhance readability, hierarchy, and brand personality.</p>
+                    </div>
+                </div>
+                <div onclick="openBlogModal('The Future of UI Animation')" class="blog-card" style="cursor: pointer;">
+                    <div class="blog-image-wrapper">
+                        <img src="https://picsum.photos/seed/7/640/360" alt="The Future of UI Animation" class="blog-image" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span>by Chloe Ramirez</span>
+                            <span class="blog-meta-dot"></span>
+                            <span>2025-04-15</span>
+                            <span class="blog-meta-dot"></span>
+                            <span>10 min read</span>
+                        </div>
+                        <h3>The Future of UI Animation</h3>
+                        <p>From motion guidelines to advanced prototyping—discover where UI animation is headed in 2025.</p>
+                    </div>
+                </div>
+                <div onclick="openBlogModal('Minimalism vs Maximalism in Design')" class="blog-card" style="cursor: pointer;">
+                    <div class="blog-image-wrapper">
+                        <img src="https://picsum.photos/seed/8/640/360" alt="Minimalism vs Maximalism in Design" class="blog-image" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span>by Benjamin Scott</span>
+                            <span class="blog-meta-dot"></span>
+                            <span>2025-04-01</span>
+                            <span class="blog-meta-dot"></span>
+                            <span>6 min read</span>
+                        </div>
+                        <h3>Minimalism vs Maximalism in Design</h3>
+                        <p>A deep dive into two opposing design philosophies and how to decide which fits your product.</p>
+                    </div>
+                </div>
+                <div onclick="openBlogModal('Designing for Mobile-First')" class="blog-card" style="cursor: pointer;">
+                    <div class="blog-image-wrapper">
+                        <img src="https://picsum.photos/seed/9/640/360" alt="Designing for Mobile-First" class="blog-image" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span>by Isabella White</span>
+                            <span class="blog-meta-dot"></span>
+                            <span>2025-03-22</span>
+                            <span class="blog-meta-dot"></span>
+                            <span>7 min read</span>
+                        </div>
+                        <h3>Designing for Mobile-First</h3>
+                        <p>Best practices for mobile-first design, from layout decisions to performance optimization.</p>
+                    </div>
+                </div>
+                <div onclick="openBlogModal('Figma Hacks for Power Users')" class="blog-card" style="cursor: pointer;">
+                    <div class="blog-image-wrapper">
+                        <img src="https://picsum.photos/seed/10/640/360" alt="Figma Hacks for Power Users" class="blog-image" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span>by James Walker</span>
+                            <span class="blog-meta-dot"></span>
+                            <span>2025-03-09</span>
+                            <span class="blog-meta-dot"></span>
+                            <span>5 min read</span>
+                        </div>
+                        <h3>Figma Hacks for Power Users</h3>
+                        <p>Hidden features, shortcuts, and workflows in Figma that can dramatically speed up your design process.</p>
+                    </div>
+                </div>
+                <div onclick="openBlogModal('Designing With AI Tools')" class="blog-card" style="cursor: pointer;">
+                    <div class="blog-image-wrapper">
+                        <img src="https://picsum.photos/seed/11/640/360" alt="Designing With AI Tools" class="blog-image" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span>by Olivia Brooks</span>
+                            <span class="blog-meta-dot"></span>
+                            <span>2025-02-28</span>
+                            <span class="blog-meta-dot"></span>
+                            <span>8 min read</span>
+                        </div>
+                        <h3>Designing With AI Tools</h3>
+                        <p>A practical look at how AI tools are shaping UI/UX workflows—from ideation to final delivery.</p>
+                    </div>
+                </div>
+                <div onclick="openBlogModal('The Art of Prototyping')" class="blog-card" style="cursor: pointer;">
+                    <div class="blog-image-wrapper">
+                        <img src="https://picsum.photos/seed/12/640/360" alt="The Art of Prototyping" class="blog-image" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span>by Daniel Green</span>
+                            <span class="blog-meta-dot"></span>
+                            <span>2025-02-14</span>
+                            <span class="blog-meta-dot"></span>
+                            <span>6 min read</span>
+                        </div>
+                        <h3>The Art of Prototyping</h3>
+                        <p>How to create prototypes that effectively communicate your ideas and speed up stakeholder feedback.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-grid">
@@ -817,10 +1041,11 @@
                 <h4 class="footer-title">QUICK LINKS</h4>
                 <div class="footer-links">
                     <a href="/">Home</a>
-                    <a href="javascript:void(0)" onclick="openAboutModal()">About Us</a>
+                    <a href="#about-us">About Us</a>
                     <a href="javascript:void(0)" onclick="openFaqModal()">FAQ</a>
                     <a href="javascript:void(0)" onclick="openTermsModal()">Terms &amp; Conditions</a>
                     <a href="javascript:void(0)" onclick="openPrivacyModal()">Privacy Policy</a>
+                    <a href="javascript:void(0)" onclick="openAdminLoginModal()" style="opacity: 0.5; font-size: 0.8rem; margin-top: 10px;">Admin</a>
                 </div>
             </div>
 
@@ -1080,8 +1305,8 @@
 
   <!-- Contact Modal -->
   <div class="aai-modal" id="contact-modal">
-    <div class="aai-inner contact-inner glass" style="max-width: 1000px; padding: 0; display: flex; overflow: hidden; flex-direction: row; flex-wrap: wrap;">
-      <button class="aai-close" onclick="closeContactModal()" style="z-index: 10; right: 15px; top: 15px;">✕</button>
+    <div class="aai-inner contact-inner glass" style="max-width: 1000px; padding: 0; display: flex; overflow: hidden; flex-direction: row; flex-wrap: wrap; position: relative;">
+      <button class="aai-close" onclick="closeContactModal()" style="z-index: 100; right: 20px; top: 20px; background: rgba(0,0,0,0.6); width: 40px; height: 40px; border-radius: 50%; color: white; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(5px); border: 1px solid rgba(255,255,255,0.1);">✕</button>
       
       <div style="flex: 1 1 400px; position: relative; min-height: 400px; padding: 40px; display: flex; flex-direction: column; justify-content: flex-end; overflow: hidden;">
           <video autoplay muted loop playsinline style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1;">
@@ -1155,8 +1380,16 @@
         }
     }
     function closeContactModal() {
-        document.getElementById('contact-modal').classList.remove('open');
+        var modal = document.getElementById('contact-modal');
+        modal.classList.remove('open');
         document.body.style.overflow = '';
+        
+        // Stop video if present
+        var video = modal.querySelector('video');
+        if (video) {
+            video.pause();
+            video.currentTime = 0;
+        }
     }
     document.getElementById('contact-modal').addEventListener('click', function(e) {
         if(e.target === this) closeContactModal();
@@ -1169,18 +1402,20 @@
 
   <!-- Service Modal -->
   <div class="aai-modal" id="service-modal">
-    <div class="aai-inner" style="padding: 0; overflow: auto; max-width: 800px; max-height: 90vh; display: flex; flex-direction: row; flex-wrap: wrap;">
-      <button class="aai-close" onclick="closeServiceModal()" style="z-index: 10;">✕</button>
-      <div id="sm-image" style="flex: 1 1 300px; position: relative; min-height: 400px; overflow: hidden; background-size: cover; background-position: center; background-repeat: no-repeat;">
-        <video id="sm-video" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;" playsinline>
+    <div class="aai-inner" style="padding: 0; overflow: hidden; max-width: 900px; max-height: 85vh; display: flex; flex-direction: row; flex-wrap: wrap; border-radius: 28px; background: #0a0a0f;">
+      <button class="aai-close" onclick="closeServiceModal()" style="z-index: 10; background: rgba(0,0,0,0.5); width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; top: 20px; right: 20px; color: white;">✕</button>
+      
+      <div id="sm-image" style="flex: 1 1 400px; position: relative; min-height: 450px; overflow: hidden; background-size: cover; background-position: center;">
+        <video id="sm-video" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;" playsinline preload="auto">
           <source id="sm-video-source" src="" type="video/mp4">
         </video>
       </div>
-      <div style="flex: 1 1 350px; padding: 50px 40px; display: flex; flex-direction: column; justify-content: center;">
-        <div class="aai-cat" style="color: var(--accent-purple);">KEMPER DESIGN SERVICES</div>
-        <h2 id="sm-title" class="aai-q" style="margin-bottom: 20px; font-size: 2rem;">Service Title</h2>
-        <p id="sm-desc" style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 30px; font-size: 1rem;">Service Description goes here.</p>
-        <a href="javascript:void(0)" onclick="closeServiceModal(); openContactModal(currentServiceName);" class="aai-submit-btn" style="text-align: center; text-decoration: none; display: inline-block; cursor: pointer;">Book a Free Discovery Call</a>
+      
+      <div style="flex: 1 1 400px; padding: 60px 50px; display: flex; flex-direction: column; justify-content: center; background: #0a0a0f;">
+        <div class="aai-cat" style="color: var(--text-secondary); opacity: 0.6; font-size: 0.75rem; letter-spacing: 2px;">KEMPER DESIGN SERVICES</div>
+        <h2 id="sm-title" class="aai-q" style="margin-bottom: 24px; font-size: 2.2rem; font-weight: 700; letter-spacing: -0.02em;">Service Title</h2>
+        <p id="sm-desc" style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 40px; font-size: 1.05rem;">Service Description goes here.</p>
+        <a href="javascript:void(0)" onclick="closeServiceModal(); openContactModal(currentServiceName);" class="aai-submit-btn" style="text-align: center; text-decoration: none; display: inline-block; cursor: pointer; padding: 18px 32px; border-radius: 12px; font-weight: 600;">Book a Free Discovery Call</a>
       </div>
     </div>
   </div>
@@ -1189,25 +1424,25 @@
     var currentServiceName = null;
 
     const serviceData = {
-        "AI Workflow Integration": { desc: "We map out your manual processes and build automated workflows that tie your existing software stack together, saving teams an average of 15 hours a week.", video: "assets/video/Services%20-%20AI%20Integrations.mp4" },
+        "AI Workflow Integration": { desc: "We map out your manual processes and build automated workflows that tie your existing software stack together, saving teams an average of 15 hours a week.", video: "assets/video/Services - AI Integrations.mp4" },
         "AI Workflow Automation": { desc: "Custom triggers and workflows that eliminate manual admin and sync your tools. We automate the repetitive tasks that drain your team's time so they can focus on what matters.", img: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80" },
         "AI Chatbots & Assistants": { desc: "Custom-trained AI agents that know your business operations inside and out. They can answer employee FAQs, guide customers, and operate 24/7.", img: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=600&q=80" },
         "Custom Websites": { desc: "High-performance, beautifully designed websites that convert visitors into leads. Built for speed and flexibility, starting at just $999.", img: "https://images.unsplash.com/photo-1522542550221-31fd19575a2d?auto=format&fit=crop&w=600&q=80" },
         "AI Auto-Scheduler": { desc: "An intelligent scheduling agent that coordinates meetings automatically, freeing up your time and saving up to $38k annually compared to a human scheduler.", img: "https://images.unsplash.com/photo-1506784951206-b91c0626a5a8?auto=format&fit=crop&w=600&q=80" },
-        "Document Processing": { desc: "Turn unstructured documents like messy invoices, handwritten notes, and contracts into clean, usable data automatically.", img: "https://images.unsplash.com/photo-1618044733300-9472054094ee?auto=format&fit=crop&w=600&q=80" },
+        "Document Processing": { desc: "Turn unstructured documents like messy invoices, handwritten notes, and contracts into clean, usable data automatically.", video: "assets/video/Services - Document Processing.mp4" },
         "AI Voice Autoschedulers": { desc: "Voice-activated scheduling agents that understand natural language and intelligently manage your calendar. Just tell it your availability and let it handle meeting coordination 24/7.", img: "https://images.unsplash.com/photo-1506784951206-b91c0626a5a8?auto=format&fit=crop&w=600&q=80" },
-        "Local AI Deployment": { desc: "Run powerful AI models on your own servers for maximum privacy, security, and zero data leakage to public clouds. Perfect for sensitive business operations.", img: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=600&q=80" },
+        "Local AI Deployment": { desc: "Run powerful AI models on your own servers for maximum privacy, security, and zero data leakage to public clouds. Perfect for sensitive business operations.", video: "assets/video/Services - Local AI Deployment.mp4" },
         "Custom Integrations": { desc: "We build the bridges between your disconnected software tools so your data flows seamlessly across your entire stack. No manual data transfer, no syncing headaches.", img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" },
         "AI Consulting": { desc: "Strategic guidance on how to leverage AI in your business. We assess your operations, identify opportunities, and create a roadmap for implementation that drives real ROI.", img: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=600&q=80" },
         "AI Enablement": { desc: "Workshops and training to help your team leverage AI tools effectively and safely in their daily work. We empower your people to maximize the value of AI.", img: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=600&q=80" },
         "AI Implementation": { desc: "End-to-end implementation of AI solutions tailored to your business needs. From strategy through deployment and beyond, we handle every step of bringing AI to your organization.", img: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=600&q=80" },
         "Notary Services": { desc: "Professional digital notarization services for your important documents. We provide legally recognized notarization to ensure your documents are authentic and valid.", img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80" },
-        "Custom Applications": { desc: "Custom-built applications designed specifically for your business workflows. We create solutions that solve your unique challenges and integrate seamlessly with your existing systems.", img: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=600&q=80" },
-        "Graphic Design": { desc: "Professional graphic design services that communicate your brand's message and values. From logos to marketing materials, we create visuals that stand out.", img: "https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=600&q=80" },
+        "Custom Applications": { desc: "Custom-built applications designed specifically for your business workflows. We create solutions that solve your unique challenges and integrate seamlessly with your existing systems.", video: "assets/video/Services - Custom Applications.mp4" },
+        "Graphic Design": { desc: "Professional graphic design services that communicate your brand's message and values. From logos to marketing materials, we create visuals that stand out.", video: "assets/video/Services - Graphic Design.mp4" },
         "Instructional Design": { desc: "Development of clear SOPs, training modules, and knowledge bases to ensure operational consistency. We design training that sticks and drives results.", img: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=600&q=80" },
         "Custom Internal AI Tools": { desc: "Purpose-built AI tools designed specifically for your internal operations. From data analysis to process automation, we create tools that give your team superpowers.", img: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=600&q=80" },
         "System Integrations": { desc: "Seamlessly connect all your business systems so data flows automatically without manual intervention. We handle the technical complexity so you don't have to.", img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" },
-        "UI/UX Design": { desc: "User-centered design that creates intuitive, beautiful interfaces people love to use. We design for both aesthetics and functionality.", img: "https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=600&q=80" },
+        "UI/UX Design": { desc: "User-centered design that creates intuitive, beautiful interfaces people love to use. We design for both aesthetics and functionality.", video: "assets/video/Services - UI UX.mp4" },
         "Frontend Development": { desc: "Expert front-end development that brings designs to life with clean, efficient code. We build responsive interfaces that work flawlessly across all devices.", img: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=600&q=80" },
         "Employee Onboarding": { desc: "Streamlined onboarding systems that get new team members up to speed faster. We create clear processes and training materials that reduce ramp-up time.", img: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=600&q=80" },
         "Custom Training Apps": { desc: "Interactive training applications that make learning engaging and effective. We build apps that deliver consistent, measurable training outcomes.", img: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=600&q=80" },
@@ -1218,7 +1453,6 @@
         "Data Protection": { desc: "Strategic data protection and compliance solutions to keep your information secure. We implement best practices and ensure regulatory compliance.", img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80" },
         "System Integration": { desc: "Expert integration of enterprise systems and software platforms. We ensure all your tools work together seamlessly.", img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" },
         "Cloud Solutions": { desc: "Cloud infrastructure design and migration services that improve scalability and reduce costs. We move your operations to the cloud strategically.", img: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=600&q=80" },
-        "Network Management": { desc: "Professional network setup, management, and monitoring to keep your systems running smoothly. We ensure uptime and optimal performance.", img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" },
         "In Home Media Servers": { desc: "Design, setup, and installation of personal media servers that let you store and stream all your entertainment — movies, music, photos, and more — throughout your home on any device.", img: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=600&q=80" },
         "Video Editing": { desc: "Professional video editing and production services that bring your vision to life. We create compelling video content that engages your audience.", img: "https://images.unsplash.com/photo-1495997859356-c3fda949f350?auto=format&fit=crop&w=600&q=80" },
         "Video Digitization": { desc: "Convert your analog video tapes, film reels, and old recordings into high-quality digital formats. We preserve your important video memories and make them accessible for modern use.", img: "https://images.unsplash.com/photo-1495997859356-c3fda949f350?auto=format&fit=crop&w=600&q=80" },
@@ -1258,13 +1492,33 @@
             img.style.backgroundImage = "none";
             video.style.opacity = "1";
             video.style.pointerEvents = "auto";
+            video.muted = false;
+            video.volume = 1;
+            
             var source = document.getElementById('sm-video-source');
             source.src = data.video;
             video.load();
-            video.play().catch(function(err) { console.log("Video play failed:", err); });
+
+            // Remove any existing ended event listeners to prevent duplicates
+            video.onended = null;
+
+            // Play the video once and stop
+            video.play().catch(function(err) { 
+                console.log("Video play failed (likely gesture required):", err);
+                // Fallback to muted if sound play fails, though click should allow it
+                video.muted = true;
+                video.play();
+            });
+
+            // When video ends, pause it and keep showing the last frame
+            video.onended = function() {
+                video.pause();
+                video.currentTime = video.duration;
+            };
         } else {
             video.style.opacity = "0";
             video.style.pointerEvents = "none";
+            video.pause();
             document.getElementById('sm-video-source').src = "";
             img.style.backgroundImage = "url('" + data.img + "')";
         }
@@ -1274,8 +1528,17 @@
     }
     
     function closeServiceModal() {
-        document.getElementById('service-modal').classList.remove('open');
+        var modal = document.getElementById('service-modal');
+        modal.classList.remove('open');
         document.body.style.overflow = '';
+        
+        // Stop video immediately
+        var video = document.getElementById('sm-video');
+        if (video) {
+            video.pause();
+            video.currentTime = 0;
+            video.muted = true; // Ensure sound stops
+        }
     }
     
     document.getElementById('service-modal').addEventListener('click', function(e) {
@@ -1569,6 +1832,157 @@
     </div>
   </div>
 
+  <!-- Blog Lightbox -->
+  <div class="aai-modal" id="blog-modal">
+    <div class="aai-inner" style="max-width: 900px; padding: 0; overflow: hidden; display: flex; flex-direction: column;">
+        <button class="aai-close" onclick="closeBlogModal()" style="z-index: 10; background: rgba(0,0,0,0.5); backdrop-filter: blur(5px);">✕</button>
+        <div id="bm-image-container" style="width: 100%; height: 400px; position: relative; flex-shrink: 0; background: #000;">
+            <img id="bm-image" src="" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+            <video id="bm-video" controls style="width: 100%; height: 100%; object-fit: cover; display: none;"></video>
+            <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 40px; background: linear-gradient(to top, rgba(10,10,15,1), transparent); pointer-events: none;">
+                <div id="bm-meta" style="font-size: 0.8rem; color: var(--accent-purple); font-weight: 600; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px;"></div>
+                <h2 id="bm-title" style="font-size: 2.5rem; color: white; margin: 0; line-height: 1.1; font-weight: 800;"></h2>
+            </div>
+        </div>
+        <div id="bm-content" class="blog-modal-content" style="padding: 40px; color: var(--text-secondary); line-height: 1.8; overflow-y: auto; flex-grow: 1; font-size: 1.1rem; background: #0a0a0f;">
+            <!-- Article content goes here -->
+        </div>
+    </div>
+  </div>
+
+  <style>
+    .blog-modal-content p { margin-bottom: 20px; }
+    .blog-modal-content h3 { color: white; margin: 30px 0 15px; font-size: 1.5rem; }
+    @media (max-width: 768px) {
+        #bm-title { font-size: 1.8rem !important; }
+        #bm-image-container { height: 250px !important; }
+        .blog-modal-content { padding: 25px !important; }
+    }
+  </style>
+
+  <!-- Admin Login Modal -->
+  <div class="aai-modal" id="admin-login-modal">
+    <div class="aai-inner" style="max-width: 400px; padding: 40px;">
+        <button class="aai-close" onclick="closeAdminLoginModal()">✕</button>
+        <div class="aai-cat" style="color: var(--accent-purple);">ADMIN ACCESS</div>
+        <h2 class="aai-q">Login</h2>
+        <div style="display: flex; flex-direction: column; gap: 15px; margin-top: 20px;">
+            <input type="text" id="admin-user" placeholder="Username" style="padding: 14px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: white; outline: none;">
+            <input type="password" id="admin-pass" placeholder="Password" style="padding: 14px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: white; outline: none;">
+            <button onclick="handleAdminLogin()" class="aai-submit-btn" style="margin-top: 10px;">Login</button>
+            <div id="admin-login-error" style="color: #ff4d4d; font-size: 0.85rem; display: none; text-align: center;">Invalid username or password.</div>
+        </div>
+    </div>
+  </div>
+
+  <!-- Admin Panel Modal -->
+  <div class="aai-modal" id="admin-panel-modal">
+    <div class="aai-inner" style="max-width: 1000px; height: 85vh; display: flex; flex-direction: column; padding: 0; background: #07070a;">
+        <div style="display: flex; background: rgba(255,255,255,0.03); border-bottom: 1px solid rgba(255,255,255,0.08); padding: 0 20px; align-items: center;">
+            <div style="font-weight: 800; color: white; margin-right: 40px; font-size: 0.9rem; letter-spacing: 1px;">KDS ADMIN</div>
+            <button onclick="switchAdminTab('blog-writer')" class="admin-tab active" id="tab-blog-writer">Blog Writer</button>
+            <button onclick="switchAdminTab('tab2')" class="admin-tab" id="tab-tab2">Tab 2</button>
+            <button onclick="switchAdminTab('tab3')" class="admin-tab" id="tab-tab3">Tab 3</button>
+            <button onclick="closeAdminPanel()" style="margin-left: auto; background: none; border: none; color: white; padding: 15px; cursor: pointer; opacity: 0.6;">✕ Close</button>
+        </div>
+        
+        <div id="admin-tab-content" style="flex-grow: 1; overflow-y: auto; padding: 40px;">
+            <!-- Blog Writer Content -->
+            <div id="blog-writer-section">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+                    <div>
+                        <h2 style="margin: 0; color: white;">Blog Manager</h2>
+                        <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 5px;">Manage, edit, and reorder your articles.</p>
+                    </div>
+                    <button onclick="showNewBlogForm()" class="aai-submit-btn" style="width: auto; padding: 10px 25px;">+ New Article</button>
+                </div>
+                
+                <div id="admin-blog-list" style="display: flex; flex-direction: column; gap: 12px;">
+                    <!-- JS populated -->
+                </div>
+            </div>
+
+            <!-- Tab 2 Placeholder -->
+            <div id="tab2-section" style="display: none;">
+                <h2 style="color: white;">Tab 2 Content</h2>
+                <p style="color: var(--text-secondary);">This section is ready for future administrative tools.</p>
+            </div>
+
+            <!-- Tab 3 Placeholder -->
+            <div id="tab3-section" style="display: none;">
+                <h2 style="color: white;">Tab 3 Content</h2>
+                <p style="color: var(--text-secondary);">This section is ready for future administrative tools.</p>
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <!-- New/Edit Blog Modal (Over-panel) -->
+  <div class="aai-modal" id="blog-edit-modal" style="z-index: 100000; background: rgba(0,0,0,0.95);">
+    <div style="background: #0a0a0f; border: 1px solid rgba(255,255,255,0.1); border-radius: 28px; width: 90%; max-width: 800px; max-height: 90vh; overflow-y: auto; padding: 50px; position: relative; box-shadow: 0 30px 60px rgba(0,0,0,0.8);">
+        <button onclick="hideBlogForm()" style="position: absolute; top: 25px; right: 25px; background: rgba(255,255,255,0.05); border: none; color: white; cursor: pointer; width: 40px; height: 40px; border-radius: 50%; font-size: 1.2rem;">✕</button>
+        <div class="aai-cat" style="color: var(--accent-purple); margin-bottom: 10px;">PUBLISHING STUDIO</div>
+        <h2 id="blog-form-title" style="margin: 0; color: white; font-size: 2rem;">Create New Blog</h2>
+        <div style="display: flex; flex-direction: column; gap: 25px; margin-top: 40px;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                <div>
+                    <label style="display: block; margin-bottom: 10px; color: var(--text-secondary); font-size: 0.85rem; font-weight: 600;">BLOG TITLE</label>
+                    <div style="display: flex; gap: 10px;">
+                        <input type="text" id="edit-blog-title" style="flex-grow: 1; padding: 14px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: white; outline: none;">
+                        <button onclick="generateBlogTitle()" title="Generate Title" style="background: rgba(255,255,255,0.05); border: none; color: white; padding: 0 15px; border-radius: 12px; cursor: pointer;">🪄</button>
+                    </div>
+                </div>
+                <div>
+                    <label style="display: block; margin-bottom: 10px; color: var(--text-secondary); font-size: 0.85rem; font-weight: 600;">BLOG MEDIA (IMAGE OR VIDEO)</label>
+                    <div style="display: flex; flex-direction: column; gap: 10px;">
+                        <div style="display: flex; gap: 10px;">
+                            <input type="text" id="edit-blog-image" placeholder="Media URL..." style="flex-grow: 1; padding: 14px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: white; outline: none;">
+                            <button onclick="generateBlogImage()" title="Pick Random Image" style="background: rgba(255,255,255,0.05); border: none; color: white; padding: 0 15px; border-radius: 12px; cursor: pointer;">🖼️</button>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <label class="admin-btn" style="flex-grow: 1; text-align: center; padding: 12px; display: block;">
+                                📤 Upload Media (Img/Vid)
+                                <input type="file" id="upload-blog-image" accept="image/*,video/*" style="display: none;" onchange="handleMediaUpload(event)">
+                            </label>
+                            <div id="image-preview-container" style="width: 50px; height: 50px; border-radius: 8px; overflow: hidden; background: rgba(255,255,255,0.05); display: none;">
+                                <img id="edit-blog-preview" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                                <video id="edit-blog-preview-video" style="width: 100%; height: 100%; object-fit: cover; display: none;"></video>
+                            </div>
+                        </div>
+                        <p style="margin: 0; color: var(--text-secondary); font-size: 0.7rem;">Videos will play in the lightbox. Images auto-resized to 1000px.</p>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <label style="display: block; margin-bottom: 10px; color: var(--text-secondary); font-size: 0.85rem; font-weight: 600;">ARTICLE BODY (HTML SUPPORTED)</label>
+                <textarea id="edit-blog-body" style="width: 100%; height: 280px; padding: 20px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: white; resize: vertical; outline: none; line-height: 1.6; font-size: 1rem;"></textarea>
+                <button onclick="generateBlogBody()" class="aai-submit-btn" style="width: auto; padding: 10px 20px; margin-top: 15px; font-size: 0.85rem; background: rgba(168, 85, 247, 0.15); color: var(--accent-purple); border: 1px solid rgba(168, 85, 247, 0.2);">✨ Generate Full Article Content</button>
+            </div>
+            <button onclick="saveBlog()" class="aai-submit-btn" style="margin-top: 10px; font-size: 1.1rem; padding: 18px;">Save & Publish to Site</button>
+        </div>
+    </div>
+  </div>
+
+  <style>
+    .admin-tab { background: none; border: none; color: var(--text-secondary); padding: 25px 20px; cursor: pointer; font-weight: 700; transition: all 0.3s ease; border-bottom: 3px solid transparent; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; }
+    .admin-tab.active { color: var(--accent-purple); border-bottom-color: var(--accent-purple); }
+    .admin-blog-item { display: flex; align-items: center; gap: 20px; padding: 15px 25px; background: rgba(255,255,255,0.03); border-radius: 16px; border: 1px solid rgba(255,255,255,0.05); transition: all 0.2s ease; }
+    .admin-blog-item:hover { background: rgba(255,255,255,0.05); transform: translateX(5px); }
+    .admin-blog-thumb { width: 60px; height: 40px; border-radius: 6px; object-fit: cover; }
+    .admin-blog-actions { margin-left: auto; display: flex; gap: 10px; }
+    .admin-btn { padding: 8px 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: white; cursor: pointer; font-size: 0.75rem; font-weight: 600; }
+    .admin-btn:hover { background: rgba(255,255,255,0.1); }
+    .admin-btn-delete { color: #ff4d4d; border-color: rgba(255, 77, 77, 0.2); }
+    .admin-btn-delete:hover { background: rgba(255, 77, 77, 0.1); }
+    .blog-modal-content p { margin-bottom: 20px; }
+    .blog-modal-content h3 { color: white; margin: 30px 0 15px; font-size: 1.5rem; }
+    @media (max-width: 768px) {
+        #bm-title { font-size: 1.8rem !important; }
+        #bm-image-container { height: 250px !important; }
+        .blog-modal-content { padding: 25px !important; }
+    }
+  </style>
+
   <!-- About Modal -->
   <div class="aai-modal" id="about-modal">
     <div class="aai-inner" style="padding: 50px 40px; max-width: 700px;">
@@ -1589,6 +2003,455 @@
   </div>
 
   <script>
+    // Blog Data
+    const blogData = {
+        'Design Systems That Scale': {
+            author: 'Ava Mitchell',
+            date: '2025-08-25',
+            readTime: '7 min read',
+            image: 'https://picsum.photos/seed/1/640/360',
+            content: `
+                <p>Design systems are more than just a library of UI components. They are the language that teams use to communicate, build, and scale products. In this article, we explore the core principles of building a scalable design system.</p>
+                <p>From tokenization of colors and typography to the documentation of accessibility standards, a well-oiled design system empowers developers and designers to move at the speed of thought without sacrificing consistency.</p>
+                <h3>Why Scale Matters</h3>
+                <p>As organizations grow, the number of screens and edge cases multiplies. A manual approach to design quickly becomes unmanageable. We'll look at how industry leaders use automated pipelines to sync design tokens from Figma directly into codebases.</p>
+            `
+        },
+        'The Psychology of Color in UI': {
+            author: 'Liam Carter',
+            date: '2025-07-14',
+            readTime: '5 min read',
+            image: 'https://picsum.photos/seed/2/640/360',
+            content: `
+                <p>Color is one of the most powerful tools in a designer's arsenal. It can evoke emotion, establish hierarchy, and guide users toward conversion. But how do you choose the right palette for your product?</p>
+                <p>We dive into the science of color theory and how it applies specifically to user interfaces. Learn about contrast ratios, accessibility, and the cultural implications of different hues.</p>
+                <h3>The 60-30-10 Rule</h3>
+                <p>One of the most effective ways to balance color in UI is the 60-30-10 rule: 60% dominant color, 30% secondary, and 10% accent. This ensures your interface remains clean and accessible while still feeling vibrant.</p>
+            `
+        },
+        'Microinteractions That Delight': {
+            author: 'Sophia Kim',
+            date: '2025-06-30',
+            readTime: '6 min read',
+            image: 'https://picsum.photos/seed/3/640/360',
+            content: `
+                <p>Microinteractions are the small functional animations that provide feedback and enhance the user experience. Think of the "pull to refresh" animation or the subtle wiggle of a button when clicked.</p>
+                <p>These small moments can turn a mundane task into a delightful experience. We'll explore how to design microinteractions that feel natural and improve usability without being distracting.</p>
+                <h3>The Four Pillars</h3>
+                <p>Every microinteraction consists of four parts: the trigger, the rules, the feedback, and the loops/modes. Mastering these will help you build more intuitive products.</p>
+            `
+        },
+        'Accessibility Beyond Compliance': {
+            author: 'Ethan Rodriguez',
+            date: '2025-06-18',
+            readTime: '8 min read',
+            image: 'https://picsum.photos/seed/4/640/360',
+            content: `
+                <p>Accessibility is often treated as a legal requirement or a checkbox at the end of a project. However, true accessibility means designing for everyone from the very beginning.</p>
+                <p>In this guide, we go beyond WCAG compliance and look at how to build genuinely inclusive digital experiences. From screen reader optimization to cognitive load reduction, we cover it all.</p>
+                <h3>Designing for Diversity</h3>
+                <p>Inclusive design isn't just for people with permanent disabilities—it's for anyone in a limiting situation (like using a phone in bright sunlight). By designing for the margins, we make better products for the center.</p>
+            `
+        },
+        'Dark Mode Done Right': {
+            author: 'Maya Chen',
+            date: '2025-05-20',
+            readTime: '4 min read',
+            image: 'https://picsum.photos/seed/5/640/360',
+            content: `
+                <p>Dark mode is more than just swapping white for black. It requires a careful reassessment of contrast, depth, and color vibrancy to ensure the interface remains readable and aesthetically pleasing.</p>
+                <p>We discuss the "Pure Black" vs. "Deep Gray" debate and why elevation is critical for creating visual hierarchy in dark themes.</p>
+                <h3>Contrast and Legibility</h3>
+                <p>Text that looks great on light backgrounds often lacks contrast on dark ones. We'll show you how to adjust your typography and iconography for maximum legibility in low-light environments.</p>
+            `
+        },
+        'Typography That Speaks': {
+            author: 'Noah Patel',
+            date: '2025-05-02',
+            readTime: '9 min read',
+            image: 'https://picsum.photos/seed/6/640/360',
+            content: `
+                <p>Typography is the foundation of digital communication. The typefaces you choose speak volumes about your brand's personality and the importance of your content.</p>
+                <p>Learn the art of pairing fonts, managing line height, and establishing a vertical rhythm that keeps users engaged with your text.</p>
+                <h3>Readability vs. Aesthetics</h3>
+                <p>A beautiful font is useless if users can't read it. We explore the balance between artistic expression and functional clarity in web typography.</p>
+            `
+        },
+        'The Future of UI Animation': {
+            author: 'Chloe Ramirez',
+            date: '2025-04-15',
+            readTime: '10 min read',
+            image: 'https://picsum.photos/seed/7/640/360',
+            content: `
+                <p>As browsers and hardware become more capable, UI animation is moving from "nice to have" to a core part of the user journey. From motion guidelines to advanced prototyping tools like Lottie and Rive, the landscape is shifting.</p>
+                <p>We look at where animation is heading in 2025 and how to use it to tell stories within your app.</p>
+                <h3>Performance Matters</h3>
+                <p>Great animation shouldn't come at the cost of performance. We'll discuss techniques for 60FPS animations and how to use CSS transforms and GPU acceleration effectively.</p>
+            `
+        },
+        'Minimalism vs Maximalism in Design': {
+            author: 'Benjamin Scott',
+            date: '2025-04-01',
+            readTime: '6 min read',
+            image: 'https://picsum.photos/seed/8/640/360',
+            content: `
+                <p>For years, minimalism has dominated the tech world. But recently, a new trend of "Maximalism" or "Bento-style" density has emerged. Which one is right for your product?</p>
+                <p>We compare both philosophies and discuss how to decide based on user intent and brand positioning.</p>
+                <h3>Density as a Feature</h3>
+                <p>Sometimes, more is more. We'll look at how data-heavy applications benefit from higher information density while maintaining a sense of order and calm.</p>
+            `
+        },
+        'Designing for Mobile-First': {
+            author: 'Isabella White',
+            date: '2025-03-22',
+            readTime: '7 min read',
+            image: 'https://picsum.photos/seed/9/640/360',
+            content: `
+                <p>Mobile-first design is more than just responsive CSS. It's a mindset that prioritizes the most critical content and actions for the smallest screens first.</p>
+                <p>We cover touch targets, gesture-based navigation, and the unique constraints of mobile hardware like limited connectivity and battery life.</p>
+                <h3>The Thumb Zone</h3>
+                <p>Learn how to design layouts that are ergonomic for one-handed use, placing primary actions within easy reach of the user's thumb.</p>
+            `
+        },
+        'Figma Hacks for Power Users': {
+            author: 'James Walker',
+            date: '2025-03-09',
+            readTime: '5 min read',
+            image: 'https://picsum.photos/seed/10/640/360',
+            content: `
+                <p>Figma is the industry standard for UI design, but many designers only scratch the surface of its capabilities. Auto-layout, variants, and component properties can dramatically speed up your workflow.</p>
+                <p>We share our favorite plugins, shortcuts, and organizational tips that will turn you into a Figma power user.</p>
+                <h3>Advanced Auto-Layout</h3>
+                <p>Mastering nested auto-layout containers is the key to building truly responsive components that behave like real code.</p>
+            `
+        },
+        'Designing With AI Tools': {
+            author: 'Olivia Brooks',
+            date: '2025-02-28',
+            readTime: '8 min read',
+            image: 'https://picsum.photos/seed/11/640/360',
+            content: `
+                <p>AI is fundamentally changing how we design. From generating placeholders with Midjourney to automating repetitive tasks with AI-powered plugins, the workflow is evolving.</p>
+                <p>We explore the best AI tools currently available for UI/UX designers and how to integrate them into your existing process.</p>
+                <h3>Ideation at Scale</h3>
+                <p>How AI can help you explore hundreds of layout possibilities in minutes, allowing you to focus on high-level strategy and refinement.</p>
+            `
+        },
+        'The Art of Prototyping': {
+            author: 'Daniel Green',
+            date: '2025-02-14',
+            readTime: '6 min read',
+            image: 'https://picsum.photos/seed/12/640/360',
+            content: `
+                <p>A prototype is worth a thousand meetings. It's the best way to validate ideas with users and communicate complex interactions to stakeholders.</p>
+                <p>We discuss the spectrum of prototyping, from low-fidelity wireframes to high-fidelity interactive models that feel indistinguishable from the final product.</p>
+                <h3>Testing for Truth</h3>
+                <p>How to use prototypes for user testing and why seeing a user struggle with an interaction is the most valuable feedback you can get.</p>
+            `
+        }
+    };
+
+    function openBlogModalByIndex(index) {
+        const blog = currentBlogs[index];
+        if (!blog) return;
+
+        document.getElementById('bm-title').textContent = blog.title;
+        document.getElementById('bm-meta').textContent = `by ${blog.author} • ${blog.date} • ${blog.readTime}`;
+        document.getElementById('bm-content').innerHTML = blog.content;
+        
+        const img = document.getElementById('bm-image');
+        const vid = document.getElementById('bm-video');
+        
+        const isVid = blog.image.includes('data:video/') || blog.image.match(/\.(mp4|webm|ogg)$/i);
+        
+        if (isVid) {
+            img.style.display = 'none';
+            vid.style.display = 'block';
+            vid.src = blog.image;
+            vid.play();
+        } else {
+            img.style.display = 'block';
+            vid.style.display = 'none';
+            img.src = blog.image;
+        }
+
+        document.getElementById('blog-modal').classList.add('open');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeBlogModal() {
+        document.getElementById('blog-modal').classList.remove('open');
+        document.body.style.overflow = '';
+    }
+
+    document.getElementById('blog-modal').addEventListener('click', function(e) {
+        if(e.target === this) closeBlogModal();
+    });
+
+    // ADMIN SYSTEM
+    let currentBlogs = JSON.parse(localStorage.getItem('kds_blogs')) || Object.keys(blogData).map(title => ({
+        title: title,
+        ...blogData[title]
+    }));
+
+    let editingBlogIndex = -1;
+
+    function renderSiteBlogs() {
+        const grid = document.getElementById('blog-grid');
+        if (!grid) return;
+        
+        grid.innerHTML = currentBlogs.map((blog, index) => {
+            const isVid = blog.image.includes('data:video/') || blog.image.match(/\.(mp4|webm|ogg)$/i);
+            return `
+            <div onclick="openBlogModalByIndex(${index})" class="blog-card" style="cursor: pointer;">
+                <div class="blog-image-wrapper">
+                    ${isVid ? 
+                        `<video src="${blog.image}" class="blog-image" style="object-fit: cover;"></video><div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.2); font-size: 2rem;">▶️</div>` : 
+                        `<img src="${blog.image}" alt="${blog.title}" class="blog-image" loading="lazy">`
+                    }
+                </div>
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span>by ${blog.author}</span>
+                        <span class="blog-meta-dot"></span>
+                        <span>${blog.date}</span>
+                        <span class="blog-meta-dot"></span>
+                        <span>${blog.readTime}</span>
+                    </div>
+                    <h3>${blog.title}</h3>
+                    <p>${blog.description || blog.content.replace(/<[^>]*>/g, '').substring(0, 120)}...</p>
+                </div>
+            </div>
+            `;
+        }).join('');
+    }
+
+    function openAdminLoginModal() {
+        document.getElementById('admin-login-modal').classList.add('open');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeAdminLoginModal() {
+        document.getElementById('admin-login-modal').classList.remove('open');
+        document.body.style.overflow = '';
+    }
+
+    function handleAdminLogin() {
+        const user = document.getElementById('admin-user').value;
+        const pass = document.getElementById('admin-pass').value;
+        const error = document.getElementById('admin-login-error');
+
+        if (user === 'damiankemper' && pass === '4173') {
+            closeAdminLoginModal();
+            openAdminPanel();
+            error.style.display = 'none';
+        } else {
+            error.style.display = 'block';
+        }
+    }
+
+    function openAdminPanel() {
+        document.getElementById('admin-panel-modal').classList.add('open');
+        document.body.style.overflow = 'hidden';
+        renderAdminBlogList();
+    }
+
+    function closeAdminPanel() {
+        document.getElementById('admin-panel-modal').classList.remove('open');
+        document.body.style.overflow = '';
+    }
+
+    function switchAdminTab(tabId) {
+        document.querySelectorAll('.admin-tab').forEach(t => t.classList.remove('active'));
+        document.getElementById(`tab-${tabId}`).classList.add('active');
+        
+        document.getElementById('blog-writer-section').style.display = tabId === 'blog-writer' ? 'block' : 'none';
+        document.getElementById('tab2-section').style.display = tabId === 'tab2' ? 'block' : 'none';
+        document.getElementById('tab3-section').style.display = tabId === 'tab3' ? 'block' : 'none';
+    }
+
+    function renderAdminBlogList() {
+        const list = document.getElementById('admin-blog-list');
+        list.innerHTML = currentBlogs.map((blog, index) => `
+            <div class="admin-blog-item">
+                <img src="${blog.image}" class="admin-blog-thumb">
+                <div style="flex-grow: 1;">
+                    <div style="color: white; font-weight: 600; font-size: 0.95rem;">${blog.title}</div>
+                    <div style="color: var(--text-secondary); font-size: 0.75rem;">${blog.date} • ${blog.author}</div>
+                </div>
+                <div class="admin-blog-actions">
+                    <button onclick="moveBlog(${index}, -1)" class="admin-btn" ${index === 0 ? 'disabled style="opacity: 0.3;"' : ''}>↑</button>
+                    <button onclick="moveBlog(${index}, 1)" class="admin-btn" ${index === currentBlogs.length - 1 ? 'disabled style="opacity: 0.3;"' : ''}>↓</button>
+                    <button onclick="editBlog(${index})" class="admin-btn">Edit</button>
+                    <button onclick="deleteBlog(${index})" class="admin-btn admin-btn-delete">Delete</button>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    function showNewBlogForm() {
+        editingBlogIndex = -1;
+        document.getElementById('blog-form-title').textContent = "Create New Blog";
+        document.getElementById('edit-blog-title').value = "";
+        document.getElementById('edit-blog-image').value = "";
+        document.getElementById('edit-blog-body').value = "";
+        document.getElementById('image-preview-container').style.display = 'none';
+        document.getElementById('upload-blog-image').value = "";
+        document.getElementById('blog-edit-modal').classList.add('open');
+    }
+
+    function hideBlogForm() {
+        document.getElementById('blog-edit-modal').classList.remove('open');
+    }
+
+    function editBlog(index) {
+        editingBlogIndex = index;
+        const blog = currentBlogs[index];
+        document.getElementById('blog-form-title').textContent = "Edit Blog";
+        document.getElementById('edit-blog-title').value = blog.title;
+        document.getElementById('edit-blog-image').value = blog.image;
+        document.getElementById('edit-blog-body').value = blog.content;
+        
+        if (blog.image) {
+            document.getElementById('edit-blog-preview').src = blog.image;
+            document.getElementById('image-preview-container').style.display = 'block';
+        } else {
+            document.getElementById('image-preview-container').style.display = 'none';
+        }
+        
+        document.getElementById('upload-blog-image').value = "";
+        document.getElementById('blog-edit-modal').classList.add('open');
+    }
+
+    function deleteBlog(index) {
+        if (confirm("Are you sure you want to delete this blog?")) {
+            currentBlogs.splice(index, 1);
+            saveToStorage();
+        }
+    }
+
+    function moveBlog(index, direction) {
+        const newIndex = index + direction;
+        if (newIndex >= 0 && newIndex < currentBlogs.length) {
+            const temp = currentBlogs[index];
+            currentBlogs[index] = currentBlogs[newIndex];
+            currentBlogs[newIndex] = temp;
+            saveToStorage();
+        }
+    }
+
+    function saveBlog() {
+        const title = document.getElementById('edit-blog-title').value;
+        const image = document.getElementById('edit-blog-image').value;
+        let body = document.getElementById('edit-blog-body').value.trim();
+
+        if (!title || !image || !body) {
+            alert("Please fill in all fields.");
+            return;
+        }
+
+        // Auto-convert plain text to HTML if no tags are detected
+        if (!/<[a-z][\s\S]*>/i.test(body)) {
+            body = body.split(/\n\s*\n/).map(p => `<p>${p.trim().replace(/\n/g, '<br>')}</p>`).join('\n');
+        }
+
+        const blogObj = {
+            title: title,
+            image: image,
+            content: body,
+            author: editingBlogIndex === -1 ? "Damian Kemper" : currentBlogs[editingBlogIndex].author,
+            date: editingBlogIndex === -1 ? new Date().toISOString().split('T')[0] : currentBlogs[editingBlogIndex].date,
+            readTime: Math.ceil(body.split(' ').length / 200) + " min read",
+            description: body.replace(/<[^>]*>/g, '').substring(0, 120)
+        };
+
+        if (editingBlogIndex === -1) {
+            currentBlogs.unshift(blogObj);
+        } else {
+            currentBlogs[editingBlogIndex] = blogObj;
+        }
+
+        saveToStorage();
+        hideBlogForm();
+    }
+
+    function saveToStorage() {
+        localStorage.setItem('kds_blogs', JSON.stringify(currentBlogs));
+        renderAdminBlogList();
+        renderSiteBlogs();
+        // Update the blogData global so the site modal works for new blogs
+        currentBlogs.forEach(b => {
+            blogData[b.title] = b;
+        });
+    }
+
+    // GENERATION HELPERS
+    function generateBlogTitle() {
+        const topics = ["AI Workflows", "Future of Tech", "UI Design Trends", "Automation", "Machine Learning"];
+        const formats = ["The Future of ", "10 Ways to Master ", "Understanding ", "The Hidden Secret of ", "Why You Need "];
+        document.getElementById('edit-blog-title').value = formats[Math.floor(Math.random() * formats.length)] + topics[Math.floor(Math.random() * topics.length)];
+    }
+
+    function generateBlogImage() {
+        const id = Math.floor(Math.random() * 100);
+        document.getElementById('edit-blog-image').value = `https://picsum.photos/seed/${id}/640/360`;
+    }
+
+    function generateBlogBody() {
+        const title = document.getElementById('edit-blog-title').value || "This Topic";
+        document.getElementById('edit-blog-body').value = `
+            <p>In the rapidly evolving landscape of ${title}, businesses are finding new ways to integrate technology into their core operations. The primary driver of this change is the need for efficiency and scalability in a global market.</p>
+            <h3>Key Takeaways</h3>
+            <p>First, understanding the fundamental principles of the technology is crucial before implementation. Second, user experience must remain at the forefront of every design decision. Finally, continuous testing and iteration lead to the most robust solutions.</p>
+            <p>We are currently witnessing a shift toward more automated systems that allow human teams to focus on high-level strategy and creative problem-solving.</p>
+        `;
+    }
+
+    function handleMediaUpload(event) {
+        const file = event.target.files[0];
+        if (!file) return;
+
+        const isVideo = file.type.startsWith('video/');
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            if (isVideo) {
+                const dataUrl = e.target.result;
+                document.getElementById('edit-blog-image').value = dataUrl;
+                document.getElementById('edit-blog-preview').style.display = 'none';
+                document.getElementById('edit-blog-preview-video').style.display = 'block';
+                document.getElementById('edit-blog-preview-video').src = dataUrl;
+                document.getElementById('image-preview-container').style.display = 'block';
+            } else {
+                const img = new Image();
+                img.onload = function() {
+                    const canvas = document.createElement('canvas');
+                    const MAX_WIDTH = 1000;
+                    let width = img.width;
+                    let height = img.height;
+                    if (width > MAX_WIDTH) {
+                        height *= MAX_WIDTH / width;
+                        width = MAX_WIDTH;
+                    }
+                    canvas.width = width;
+                    canvas.height = height;
+                    const ctx = canvas.getContext('2d');
+                    ctx.drawImage(img, 0, 0, width, height);
+                    const dataUrl = canvas.toDataURL('image/jpeg', 0.85);
+                    document.getElementById('edit-blog-image').value = dataUrl;
+                    document.getElementById('edit-blog-preview').src = dataUrl;
+                    document.getElementById('edit-blog-preview').style.display = 'block';
+                    document.getElementById('edit-blog-preview-video').style.display = 'none';
+                    document.getElementById('image-preview-container').style.display = 'block';
+                };
+                img.src = e.target.result;
+            }
+        };
+        reader.readAsDataURL(file);
+    }
+
+    // Initial Render
+    renderSiteBlogs();
+
     function openAboutModal() {
         document.getElementById('about-modal').classList.add('open');
         document.body.style.overflow = 'hidden';
@@ -1664,6 +2527,65 @@
     document.getElementById('privacy-modal').addEventListener('click', function(e) {
         if(e.target === this) closePrivacyModal();
     });
+    // Play about video once with sound when fully in frame
+    document.addEventListener('DOMContentLoaded', function() {
+      var aboutVideo = document.getElementById('about-video');
+      var hasPlayedWithSound = false;
+      
+      if (aboutVideo) {
+        var observer = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting && !hasPlayedWithSound) {
+              aboutVideo.muted = false;
+              aboutVideo.play().then(function() {
+                hasPlayedWithSound = true;
+                // After playing once with sound, we can either stop or loop muted
+                // The user said "play once", so we'll stop looping sound
+              }).catch(function(e) { 
+                console.log('Autoplay with sound blocked, trying muted', e);
+                aboutVideo.muted = true;
+                aboutVideo.play();
+              });
+            } else if (!entry.isIntersecting && hasPlayedWithSound) {
+              // Optional: pause if scrolled away, but user said "play once"
+              // aboutVideo.pause(); 
+            }
+          });
+        }, { threshold: 0.9 }); // 0.9 is safer than 1.0 for different screen sizes
+        observer.observe(aboutVideo);
+      }
+    });
+
+    // Blog search filtering
+    const blogSearch = document.getElementById('blog-search');
+    const blogGrid = document.getElementById('blog-grid');
+    if (blogSearch) {
+        blogSearch.addEventListener('input', function(e) {
+            const term = e.target.value.toLowerCase();
+            const cards = document.querySelectorAll('.blog-card');
+            let hasResults = false;
+            
+            cards.forEach(card => {
+                const title = card.querySelector('h3').textContent.toLowerCase();
+                const desc = card.querySelector('p').textContent.toLowerCase();
+                if (title.includes(term) || desc.includes(term)) {
+                    card.style.display = 'flex';
+                    hasResults = true;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            // If searching, disable horizontal scroll layout to show results clearly
+            if (term.length > 0) {
+                blogGrid.style.flexWrap = 'wrap';
+                blogGrid.style.overflowX = 'visible';
+            } else {
+                blogGrid.style.flexWrap = 'nowrap';
+                blogGrid.style.overflowX = 'auto';
+            }
+        });
+    }
   </script>
 
   <!-- FAQ Spiral Component -->
