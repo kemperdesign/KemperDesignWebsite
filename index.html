@@ -1858,7 +1858,7 @@
                                 <video id="edit-blog-preview-video" style="width: 100%; height: 100%; object-fit: cover; display: none;"></video>
                             </div>
                         </div>
-                        <p style="margin: 0; color: var(--text-secondary); font-size: 0.7rem;">Max 3MB per file. Images auto-resized to 1000px. Uploads commit directly to GitHub.</p>
+                        <p style="margin: 0; color: var(--text-secondary); font-size: 0.7rem;">Images auto-compress and resize to 1200px. Videos max 3MB. Uploads commit directly to GitHub.</p>
                     </div>
                 </div>
             </div>
@@ -2372,46 +2372,97 @@
         `;
     }
 
+    function compressImage(file, callback) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            const img = new Image();
+            img.onload = function() {
+                const canvas = document.createElement('canvas');
+                const MAX_WIDTH = 1200;
+                let width = img.width;
+                let height = img.height;
+
+                if (width > MAX_WIDTH) {
+                    height = (height * MAX_WIDTH) / width;
+                    width = MAX_WIDTH;
+                }
+
+                canvas.width = width;
+                canvas.height = height;
+                const ctx = canvas.getContext('2d');
+                ctx.drawImage(img, 0, 0, width, height);
+
+                canvas.toBlob(function(blob) {
+                    callback(blob);
+                }, 'image/jpeg', 0.8);
+            };
+            img.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+    }
+
     function handleMediaUpload(event) {
         const file = event.target.files[0];
         if (!file) return;
 
-        // Check file size (max 3MB - base64 encoding adds ~33% overhead)
-        const MAX_SIZE = 3 * 1024 * 1024; // 3MB
-        if (file.size > MAX_SIZE) {
-            alert(`File too large (${(file.size / 1024 / 1024).toFixed(1)}MB). Max 3MB allowed.`);
-            event.target.value = '';
-            return;
-        }
-
         const filename = file.name.toLowerCase().replace(/[^a-z0-9.-]/g, '-').replace(/--+/g, '-');
-        const reader = new FileReader();
+        const isVideo = file.type.startsWith('video/');
 
-        reader.onload = function(e) {
-            const base64Data = e.target.result.split(',')[1];
-            pendingFileUpload = {
-                file: base64Data,
-                filename: filename,
-                fileType: file.type,
-                size: file.size
-            };
+        if (isVideo) {
+            // For videos, check file size directly
+            const MAX_VIDEO_SIZE = 3 * 1024 * 1024;
+            if (file.size > MAX_VIDEO_SIZE) {
+                alert(`Video too large (${(file.size / 1024 / 1024).toFixed(1)}MB). Max 3MB allowed.`);
+                event.target.value = '';
+                return;
+            }
 
-            document.getElementById('edit-blog-image').value = `${filename} (ready to upload)`;
-            document.getElementById('image-preview-container').style.display = 'block';
-
-            const isVideo = file.type.startsWith('video/');
-            if (isVideo) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const base64Data = e.target.result.split(',')[1];
+                pendingFileUpload = {
+                    file: base64Data,
+                    filename: filename,
+                    fileType: file.type
+                };
+                document.getElementById('edit-blog-image').value = `${filename} (ready to upload)`;
                 document.getElementById('edit-blog-preview').style.display = 'none';
                 document.getElementById('edit-blog-preview-video').style.display = 'block';
                 document.getElementById('edit-blog-preview-video').src = URL.createObjectURL(file);
-            } else {
-                document.getElementById('edit-blog-preview').src = URL.createObjectURL(file);
-                document.getElementById('edit-blog-preview').style.display = 'block';
-                document.getElementById('edit-blog-preview-video').style.display = 'none';
-            }
-        };
+                document.getElementById('image-preview-container').style.display = 'block';
+            };
+            reader.readAsDataURL(file);
+        } else {
+            // For images, compress first
+            compressImage(file, function(compressedBlob) {
+                const MAX_SIZE = 3 * 1024 * 1024;
+                if (compressedBlob.size > MAX_SIZE) {
+                    alert(`Compressed file still too large (${(compressedBlob.size / 1024 / 1024).toFixed(1)}MB). Try a smaller image.`);
+                    event.target.value = '';
+                    return;
+                }
 
-        reader.readAsDataURL(file);
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const base64Data = e.target.result.split(',')[1];
+                    const originalSize = (file.size / 1024 / 1024).toFixed(1);
+                    const compressedSize = (compressedBlob.size / 1024 / 1024).toFixed(2);
+
+                    pendingFileUpload = {
+                        file: base64Data,
+                        filename: filename,
+                        fileType: 'image/jpeg'
+                    };
+
+                    document.getElementById('edit-blog-image').value = `${filename} (${compressedSize}MB, ready to upload)`;
+                    document.getElementById('edit-blog-preview').src = e.target.result;
+                    document.getElementById('edit-blog-preview').style.display = 'block';
+                    document.getElementById('edit-blog-preview-video').style.display = 'none';
+                    document.getElementById('image-preview-container').style.display = 'block';
+                };
+                reader.readAsDataURL(compressedBlob);
+            });
+        }
     }
 
     // Initial Render
