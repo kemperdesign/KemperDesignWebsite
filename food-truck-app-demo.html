@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KDS Food Truck App — Interactive Demo | Kemper Design Services</title>
+    <meta name="robots" content="noindex">
+
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --bg: #030305;
+            --surface: rgba(255,255,255,0.03);
+            --border: rgba(255,255,255,0.08);
+            --accent: #f59e0b;
+            --accent-dim: rgba(245,158,11,0.12);
+            --accent-border: rgba(245,158,11,0.28);
+            --text: #ffffff;
+            --muted: #a8adb8;
+            --sidebar-w: 340px;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* ── Demo Banner ── */
+        .demo-banner {
+            position: sticky;
+            top: 0;
+            z-index: 200;
+            background: rgba(245,158,11,0.12);
+            border-bottom: 1px solid rgba(245,158,11,0.3);
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .demo-banner-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.82rem;
+            color: #f59e0b;
+            font-weight: 500;
+        }
+
+        .demo-pill {
+            background: rgba(245,158,11,0.2);
+            border: 1px solid rgba(245,158,11,0.4);
+            border-radius: 20px;
+            padding: 2px 10px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: #f59e0b;
+        }
+
+        .demo-banner-right {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .demo-banner-right a {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8rem;
+            color: var(--muted);
+            text-decoration: none;
+        }
+        .demo-banner-right a:hover { color: #fff; }
+
+        .btn-get-full {
+            background: var(--accent);
+            color: #000;
+            padding: 6px 16px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.8rem;
+            text-decoration: none;
+            transition: background 0.2s;
+            white-space: nowrap;
+        }
+        .btn-get-full:hover { background: #fbbf24; }
+
+        /* ── Top Bar ── */
+        .top-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 20px;
+            border-bottom: 1px solid var(--border);
+            background: rgba(255,255,255,0.02);
+        }
+
+        .top-bar-brand {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .brand-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent);
+        }
+
+        .top-bar-meta {
+            font-size: 0.78rem;
+            color: var(--muted);
+        }
+
+        .top-bar-meta span {
+            background: rgba(16,185,129,0.15);
+            border: 1px solid rgba(16,185,129,0.3);
+            color: #10b981;
+            border-radius: 20px;
+            padding: 2px 10px;
+            font-size: 0.72rem;
+            font-weight: 600;
+        }
+
+        /* ── Layout ── */
+        .pos-layout {
+            display: flex;
+            height: calc(100vh - 108px); /* banner + topbar */
+        }
+
+        /* ── Menu Panel ── */
+        .menu-panel {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .category-tabs {
+            display: flex;
+            gap: 6px;
+            padding: 14px 20px 10px;
+            border-bottom: 1px solid var(--border);
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+        .category-tabs::-webkit-scrollbar { display: none; }
+
+        .tab {
+            padding: 7px 18px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            background: transparent;
+            color: var(--muted);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.82rem;
+            font-weight: 500;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.2s;
+        }
+        .tab:hover { border-color: rgba(255,255,255,0.18); color: #fff; }
+        .tab.active {
+            background: var(--accent-dim);
+            border-color: var(--accent-border);
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .menu-scroll {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(255,255,255,0.1) transparent;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 14px;
+        }
+
+        .menu-item {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+            user-select: none;
+        }
+        .menu-item:hover {
+            border-color: rgba(245,158,11,0.35);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.4);
+        }
+        .menu-item:active { transform: translateY(-1px); }
+
+        .item-emoji {
+            font-size: 2.6rem;
+            text-align: center;
+            padding: 22px 0 16px;
+            background: rgba(255,255,255,0.02);
+            border-bottom: 1px solid var(--border);
+            line-height: 1;
+            display: block;
+        }
+
+        .item-info {
+            padding: 14px;
+        }
+
+        .item-name {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+
+        .item-cat {
+            font-size: 0.72rem;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 10px;
+        }
+
+        .item-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .item-price {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .add-btn {
+            width: 28px;
+            height: 28px;
+            border-radius: 8px;
+            background: var(--accent-dim);
+            border: 1px solid var(--accent-border);
+            color: var(--accent);
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background 0.2s;
+            line-height: 1;
+        }
+        .add-btn:hover { background: rgba(245,158,11,0.25); }
+
+        /* ── Cart Sidebar ── */
+        .cart-sidebar {
+            width: var(--sidebar-w);
+            flex-shrink: 0;
+            border-left: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            background: rgba(255,255,255,0.015);
+        }
+
+        .cart-header {
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .cart-header h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .cart-count {
+            background: var(--accent);
+            color: #000;
+            border-radius: 20px;
+            padding: 1px 8px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .cart-items {
+            flex: 1;
+            overflow-y: auto;
+            padding: 14px;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(255,255,255,0.1) transparent;
+        }
+
+        .cart-empty {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            gap: 12px;
+            color: var(--muted);
+            font-size: 0.875rem;
+        }
+
+        .cart-empty-icon { font-size: 2.4rem; opacity: 0.4; }
+
+        .cart-line {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .cart-line:last-child { border-bottom: none; }
+
+        .cart-line-emoji { font-size: 1.4rem; flex-shrink: 0; }
+
+        .cart-line-info { flex: 1; min-width: 0; }
+
+        .cart-line-name {
+            font-size: 0.855rem;
+            font-weight: 500;
+            color: #fff;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .cart-line-price {
+            font-size: 0.8rem;
+            color: var(--muted);
+            margin-top: 2px;
+        }
+
+        .cart-qty {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            flex-shrink: 0;
+        }
+
+        .qty-btn {
+            width: 22px;
+            height: 22px;
+            border-radius: 6px;
+            background: rgba(255,255,255,0.07);
+            border: 1px solid var(--border);
+            color: #fff;
+            font-size: 0.9rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.15s;
+            line-height: 1;
+        }
+        .qty-btn:hover { background: rgba(255,255,255,0.12); }
+
+        .qty-num {
+            font-size: 0.875rem;
+            font-weight: 600;
+            min-width: 16px;
+            text-align: center;
+            color: #fff;
+        }
+
+        /* ── Cart Footer ── */
+        .cart-footer {
+            padding: 16px;
+            border-top: 1px solid var(--border);
+        }
+
+        .cart-totals {
+            margin-bottom: 14px;
+        }
+
+        .cart-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.825rem;
+            color: var(--muted);
+            padding: 4px 0;
+        }
+
+        .cart-row.total {
+            color: #fff;
+            font-weight: 700;
+            font-size: 1rem;
+            padding-top: 10px;
+            margin-top: 6px;
+            border-top: 1px solid var(--border);
+        }
+
+        .cart-row.total span:last-child { color: var(--accent); }
+
+        .place-order-btn {
+            width: 100%;
+            padding: 14px;
+            border-radius: 10px;
+            background: var(--accent);
+            color: #000;
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 0.95rem;
+            border: none;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.15s;
+        }
+        .place-order-btn:hover { background: #fbbf24; }
+        .place-order-btn:active { transform: scale(0.98); }
+        .place-order-btn:disabled { background: rgba(255,255,255,0.1); color: var(--muted); cursor: not-allowed; }
+
+        .full-access-cta {
+            margin-top: 10px;
+            text-align: center;
+        }
+        .full-access-cta a {
+            font-size: 0.78rem;
+            color: var(--muted);
+            text-decoration: none;
+        }
+        .full-access-cta a:hover { color: var(--accent); }
+
+        /* ── Recipe Modal ── */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.75);
+            backdrop-filter: blur(4px);
+            z-index: 500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s;
+        }
+        .modal-overlay.open { opacity: 1; pointer-events: all; }
+
+        .modal {
+            background: #0e0e12;
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 20px;
+            padding: 32px;
+            max-width: 480px;
+            width: 100%;
+            position: relative;
+            transform: translateY(16px);
+            transition: transform 0.25s;
+        }
+        .modal-overlay.open .modal { transform: translateY(0); }
+
+        .modal-close {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--muted);
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.2s;
+        }
+        .modal-close:hover { color: #fff; background: rgba(255,255,255,0.1); }
+
+        .modal-emoji { font-size: 3rem; margin-bottom: 14px; }
+
+        .modal h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 6px;
+        }
+
+        .modal-meta {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            margin-bottom: 18px;
+            flex-wrap: wrap;
+        }
+
+        .modal-badge {
+            font-size: 0.72rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 3px 10px;
+            border-radius: 20px;
+            background: var(--accent-dim);
+            border: 1px solid var(--accent-border);
+            color: var(--accent);
+        }
+
+        .modal-price {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .modal-desc {
+            font-size: 0.875rem;
+            color: var(--muted);
+            line-height: 1.65;
+            margin-bottom: 20px;
+        }
+
+        .ingredients-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.82rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--muted);
+            margin-bottom: 10px;
+        }
+
+        .ingredient-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+            margin-bottom: 24px;
+        }
+
+        .ingredient-chip {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 4px 12px;
+            font-size: 0.8rem;
+            color: #c8cdd8;
+        }
+
+        .modal-add-btn {
+            width: 100%;
+            padding: 13px;
+            border-radius: 10px;
+            background: var(--accent);
+            color: #000;
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 0.925rem;
+            border: none;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .modal-add-btn:hover { background: #fbbf24; }
+
+        /* ── Toast ── */
+        .toast {
+            position: fixed;
+            bottom: 32px;
+            left: 50%;
+            transform: translateX(-50%) translateY(80px);
+            background: rgba(16,185,129,0.15);
+            border: 1px solid rgba(16,185,129,0.35);
+            color: #10b981;
+            padding: 12px 24px;
+            border-radius: 40px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.875rem;
+            font-weight: 600;
+            z-index: 600;
+            transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+            white-space: nowrap;
+            pointer-events: none;
+        }
+        .toast.show { transform: translateX(-50%) translateY(0); }
+
+        /* ── Header ── */
+        .demo-header {
+            background: rgba(255,255,255,0.02);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            padding: 14px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .demo-header-brand { font-family: 'Outfit', sans-serif; font-weight: 600; color: #fff; font-size: 0.95rem; }
+        .demo-header-nav { display: flex; align-items: center; gap: 20px; }
+        .demo-header-nav a { color: #a8adb8; text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
+        .demo-header-nav a:hover { color: #fff; }
+
+        /* ── Footer ── */
+        .demo-footer {
+            background: rgba(255,255,255,0.02);
+            border-top: 1px solid rgba(255,255,255,0.08);
+            padding: 32px 24px;
+            text-align: center;
+            margin-top: 60px;
+            font-size: 0.8rem;
+            color: #a8adb8;
+        }
+        .demo-footer a { color: #f59e0b; text-decoration: none; margin: 0 4px; }
+        .demo-footer a:hover { text-decoration: underline; }
+
+        /* ── Mobile fallback ── */
+        @media (max-width: 700px) {
+            :root { --sidebar-w: 100%; }
+            .pos-layout { flex-direction: column; height: auto; min-height: calc(100vh - 108px); }
+            .menu-panel { height: 60vh; }
+            .cart-sidebar { width: 100%; height: 40vh; border-left: none; border-top: 1px solid var(--border); }
+            .demo-header { flex-direction: column; gap: 12px; align-items: flex-start; }
+            .demo-header-nav { flex-direction: column; gap: 8px; align-items: flex-start; width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="demo-header">
+        <div class="demo-header-brand">Kemper Design Services</div>
+        <nav class="demo-header-nav">
+            <a href="https://kemperdesignservices.com/apps.html">← Back to Apps</a>
+            <a href="https://kemperdesignservices.com/">Home</a>
+        </nav>
+    </header>
+
+    <!-- Demo Banner -->
+    <div class="demo-banner" role="alert">
+        <div class="demo-banner-left">
+            <span class="demo-pill">Demo</span>
+            <span>8 demo items · in-memory only · data is not saved · <strong style="color:#fff;">read-only recipe view</strong></span>
+        </div>
+        <div class="demo-banner-right">
+            <a href="food-truck-app.html">← Back to KDS Food Truck App</a>
+            <a href="index.html" class="btn-get-full">Get Full Access →</a>
+        </div>
+    </div>
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="top-bar-brand">
+            <div class="brand-dot"></div>
+            KDS Food Truck App
+        </div>
+        <div class="top-bar-meta">
+            Table: <strong style="color:#fff;">Demo Floor</strong> &nbsp;·&nbsp;
+            <span>Open</span>
+        </div>
+    </div>
+
+    <!-- POS Layout -->
+    <div class="pos-layout">
+
+        <!-- Menu Panel -->
+        <div class="menu-panel">
+            <div class="category-tabs" role="tablist">
+                <button class="tab active" onclick="filterMenu('all',this)" role="tab">All Items</button>
+                <button class="tab" onclick="filterMenu('Soups',this)" role="tab">Soups</button>
+                <button class="tab" onclick="filterMenu('Salads',this)" role="tab">Salads</button>
+                <button class="tab" onclick="filterMenu('Sandwiches',this)" role="tab">Sandwiches</button>
+                <button class="tab" onclick="filterMenu('Sides',this)" role="tab">Sides</button>
+                <button class="tab" onclick="filterMenu('Drinks',this)" role="tab">Drinks</button>
+            </div>
+            <div class="menu-scroll">
+                <div class="menu-grid" id="menu-grid"></div>
+            </div>
+        </div>
+
+        <!-- Cart Sidebar -->
+        <aside class="cart-sidebar">
+            <div class="cart-header">
+                <h2>Current Order</h2>
+                <span class="cart-count" id="cart-count">0</span>
+            </div>
+            <div class="cart-items" id="cart-items">
+                <div class="cart-empty" id="cart-empty">
+                    <span class="cart-empty-icon">🍜</span>
+                    <span>Add items to get started</span>
+                </div>
+            </div>
+            <div class="cart-footer">
+                <div class="cart-totals" id="cart-totals" style="display:none;">
+                    <div class="cart-row"><span>Subtotal</span><span id="subtotal">$0.00</span></div>
+                    <div class="cart-row"><span>Tax (8%)</span><span id="tax">$0.00</span></div>
+                    <div class="cart-row total"><span>Total</span><span id="total">$0.00</span></div>
+                </div>
+                <button class="place-order-btn" id="place-order-btn" onclick="placeOrder()" disabled>
+                    Place Order
+                </button>
+                <div class="full-access-cta">
+                    <a href="index.html">Want the full system? Let's build it →</a>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Recipe Detail Modal -->
+    <div class="modal-overlay" id="recipe-modal" onclick="closeModal(event)">
+        <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+            <button class="modal-close" onclick="closeModal()" aria-label="Close">✕</button>
+            <div class="modal-emoji" id="modal-emoji"></div>
+            <h2 id="modal-title"></h2>
+            <div class="modal-meta">
+                <span class="modal-badge" id="modal-cat"></span>
+                <span class="modal-price" id="modal-price"></span>
+            </div>
+            <p class="modal-desc" id="modal-desc"></p>
+            <p class="ingredients-title">Ingredients</p>
+            <div class="ingredient-list" id="modal-ingredients"></div>
+            <button class="modal-add-btn" id="modal-add-btn" onclick="addFromModal()">Add to Order</button>
+        </div>
+    </div>
+
+    <!-- Toast -->
+    <div class="toast" id="toast"></div>
+
+    <script>
+        const TAX_RATE = 0.08;
+
+        const MENU = [
+            {
+                id: 1, name: 'Classic Tomato Bisque', cat: 'Soups', price: 8.99, emoji: '🍅',
+                desc: 'A rich, velvety bisque made with sun-ripened tomatoes, fresh cream, and a hint of basil. Served with a side of house-made croutons.',
+                ingredients: ['Vine tomatoes', 'Heavy cream', 'Shallots', 'Garlic', 'Fresh basil', 'Olive oil', 'Vegetable stock', 'Sea salt']
+            },
+            {
+                id: 2, name: 'French Onion Soup', cat: 'Soups', price: 10.99, emoji: '🧅',
+                desc: 'Slow-caramelized onions in a deep beef broth, topped with a toasted baguette crouton and melted Gruyère cheese.',
+                ingredients: ['Yellow onions', 'Beef broth', 'Dry sherry', 'Gruyère cheese', 'Baguette', 'Butter', 'Fresh thyme', 'Bay leaves']
+            },
+            {
+                id: 3, name: 'Chicken Noodle', cat: 'Soups', price: 7.99, emoji: '🍗',
+                desc: 'A comforting classic — slow-simmered chicken, egg noodles, carrots, celery, and herbs in a golden broth.',
+                ingredients: ['Free-range chicken', 'Egg noodles', 'Carrots', 'Celery', 'Onion', 'Parsley', 'Chicken stock', 'Black pepper']
+            },
+            {
+                id: 4, name: 'Lobster Bisque', cat: 'Soups', price: 14.99, emoji: '🦞',
+                desc: 'A luxurious bisque built on a rich lobster shell stock, finished with cream and a splash of brandy. A house signature.',
+                ingredients: ['Maine lobster', 'Heavy cream', 'Brandy', 'Tomato paste', 'Shallots', 'Tarragon', 'Lobster stock', 'Paprika']
+            },
+            {
+                id: 5, name: 'Garden Salad', cat: 'Salads', price: 6.99, emoji: '🥗',
+                desc: 'Mixed field greens, cherry tomatoes, cucumber, radish, and red onion with your choice of house-made dressing.',
+                ingredients: ['Mixed greens', 'Cherry tomatoes', 'Cucumber', 'Radish', 'Red onion', 'House vinaigrette']
+            },
+            {
+                id: 6, name: 'Caesar Salad', cat: 'Salads', price: 9.49, emoji: '🥬',
+                desc: 'Crisp romaine tossed in our classic Caesar dressing, topped with house croutons, shaved Parmesan, and lemon zest.',
+                ingredients: ['Romaine lettuce', 'Parmesan', 'Anchovies', 'Garlic', 'Lemon juice', 'Egg yolk', 'House croutons', 'Black pepper']
+            },
+            {
+                id: 7, name: 'Artisan Bread Bowl', cat: 'Sides', price: 4.99, emoji: '🍞',
+                desc: 'A hand-shaped sourdough bread bowl — perfect for housing any of our soups. Also available plain with herb butter.',
+                ingredients: ['Sourdough starter', 'Bread flour', 'Sea salt', 'Water', 'Herb butter']
+            },
+            {
+                id: 8, name: 'Sourdough Grilled Cheese', cat: 'Sandwiches', price: 8.49, emoji: '🧀',
+                desc: 'Three-cheese blend on thick-cut sourdough, grilled in cultured butter until golden. Add tomato bisque for dipping.',
+                ingredients: ['Sourdough bread', 'Gruyère', 'Sharp cheddar', 'Fontina', 'Cultured butter', 'Dijon mustard']
+            }
+        ];
+
+        let cart = {};
+        let activeItem = null;
+
+        /* ── Render Menu ── */
+        function renderMenu(filter = 'all') {
+            const grid = document.getElementById('menu-grid');
+            grid.innerHTML = '';
+            const items = filter === 'all' ? MENU : MENU.filter(i => i.cat === filter);
+            items.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'menu-item';
+                card.innerHTML = `
+                    <span class="item-emoji">${item.emoji}</span>
+                    <div class="item-info">
+                        <div class="item-name">${item.name}</div>
+                        <div class="item-cat">${item.cat}</div>
+                        <div class="item-footer">
+                            <span class="item-price">$${item.price.toFixed(2)}</span>
+                            <button class="add-btn" onclick="addToCart(${item.id}, event)" title="Add to order">+</button>
+                        </div>
+                    </div>`;
+                card.addEventListener('click', () => openModal(item.id));
+                grid.appendChild(card);
+            });
+        }
+
+        /* ── Filter Tabs ── */
+        function filterMenu(cat, btn) {
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            btn.classList.add('active');
+            renderMenu(cat);
+        }
+
+        /* ── Cart ── */
+        function addToCart(id, event) {
+            if (event) event.stopPropagation();
+            const item = MENU.find(m => m.id === id);
+            if (!item) return;
+            if (cart[id]) {
+                cart[id].qty++;
+            } else {
+                cart[id] = { ...item, qty: 1 };
+            }
+            renderCart();
+            showToast(`${item.emoji} ${item.name} added`);
+        }
+
+        function changeQty(id, delta) {
+            if (!cart[id]) return;
+            cart[id].qty += delta;
+            if (cart[id].qty <= 0) delete cart[id];
+            renderCart();
+        }
+
+        function renderCart() {
+            const container = document.getElementById('cart-items');
+            const empty = document.getElementById('cart-empty');
+            const totalsEl = document.getElementById('cart-totals');
+            const countEl = document.getElementById('cart-count');
+            const orderBtn = document.getElementById('place-order-btn');
+
+            const entries = Object.values(cart);
+            const totalQty = entries.reduce((s, i) => s + i.qty, 0);
+            countEl.textContent = totalQty;
+
+            if (entries.length === 0) {
+                empty.style.display = '';
+                container.innerHTML = '';
+                container.appendChild(empty);
+                totalsEl.style.display = 'none';
+                orderBtn.disabled = true;
+                return;
+            }
+
+            empty.style.display = 'none';
+            orderBtn.disabled = false;
+            totalsEl.style.display = '';
+
+            container.innerHTML = '';
+            entries.forEach(item => {
+                const line = document.createElement('div');
+                line.className = 'cart-line';
+                line.innerHTML = `
+                    <span class="cart-line-emoji">${item.emoji}</span>
+                    <div class="cart-line-info">
+                        <div class="cart-line-name">${item.name}</div>
+                        <div class="cart-line-price">$${(item.price * item.qty).toFixed(2)}</div>
+                    </div>
+                    <div class="cart-qty">
+                        <button class="qty-btn" onclick="changeQty(${item.id},-1)">−</button>
+                        <span class="qty-num">${item.qty}</span>
+                        <button class="qty-btn" onclick="changeQty(${item.id},1)">+</button>
+                    </div>`;
+                container.appendChild(line);
+            });
+
+            const sub = entries.reduce((s, i) => s + i.price * i.qty, 0);
+            const tax = sub * TAX_RATE;
+            document.getElementById('subtotal').textContent = `$${sub.toFixed(2)}`;
+            document.getElementById('tax').textContent = `$${tax.toFixed(2)}`;
+            document.getElementById('total').textContent = `$${(sub + tax).toFixed(2)}`;
+        }
+
+        /* ── Place Order ── */
+        function placeOrder() {
+            const entries = Object.values(cart);
+            if (!entries.length) return;
+            const total = entries.reduce((s, i) => s + i.price * i.qty, 0) * (1 + TAX_RATE);
+            cart = {};
+            renderCart();
+            showToast(`✓ Order placed — $${total.toFixed(2)} total (demo only, not charged)`);
+        }
+
+        /* ── Recipe Modal ── */
+        function openModal(id) {
+            const item = MENU.find(m => m.id === id);
+            if (!item) return;
+            activeItem = item;
+            document.getElementById('modal-emoji').textContent = item.emoji;
+            document.getElementById('modal-title').textContent = item.name;
+            document.getElementById('modal-cat').textContent = item.cat;
+            document.getElementById('modal-price').textContent = `$${item.price.toFixed(2)}`;
+            document.getElementById('modal-desc').textContent = item.desc;
+            const ingList = document.getElementById('modal-ingredients');
+            ingList.innerHTML = item.ingredients.map(i => `<span class="ingredient-chip">${i}</span>`).join('');
+            document.getElementById('recipe-modal').classList.add('open');
+        }
+
+        function closeModal(event) {
+            if (event && event.target !== document.getElementById('recipe-modal')) return;
+            document.getElementById('recipe-modal').classList.remove('open');
+            activeItem = null;
+        }
+
+        function addFromModal() {
+            if (!activeItem) return;
+            addToCart(activeItem.id);
+            document.getElementById('recipe-modal').classList.remove('open');
+            activeItem = null;
+        }
+
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape') {
+                document.getElementById('recipe-modal').classList.remove('open');
+                activeItem = null;
+            }
+        });
+
+        /* ── Toast ── */
+        let toastTimer;
+        function showToast(msg) {
+            const el = document.getElementById('toast');
+            el.textContent = msg;
+            el.classList.add('show');
+            clearTimeout(toastTimer);
+            toastTimer = setTimeout(() => el.classList.remove('show'), 2600);
+        }
+
+        /* ── Init ── */
+        renderMenu();
+        renderCart();
+    </script>
+
+    <!-- Footer -->
+    <footer class="demo-footer">
+        <p>KDS Food Truck App Demo • <a href="https://kemperdesignservices.com/">Kemper Design Services</a> © 2026</p>
+        <p style="margin-top: 12px; font-size: 0.75rem;">Questions? <a href="mailto:damian@kemperdesignservices.com">Contact us</a></p>
+    </footer>
+
+</body>
+</html>

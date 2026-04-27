@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KDS Lab Studio | Kemper Design Services</title>
+    <meta name="description" content="KDS Lab Studio — An AI-powered assessment and training platform for building labs, tracking learners, and managing content.">
+
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/logos/favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/logos/apple-touch-icon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        .app-hero {
+            padding: 120px 24px 80px;
+            text-align: center;
+            position: relative;
+        }
+
+        .app-hero h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(2.2rem, 5vw, 3.6rem);
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+
+        .app-hero p {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.1rem;
+            color: #a8adb8;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            line-height: 1.7;
+        }
+
+        .app-cta {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 80px;
+        }
+
+        .btn-primary, .btn-secondary {
+            padding: 14px 32px;
+            border-radius: 10px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: all 0.2s;
+            display: inline-block;
+            white-space: nowrap;
+        }
+
+        .btn-primary {
+            background: #fff;
+            color: #000;
+        }
+
+        .btn-primary:hover {
+            background: #f0f0f0;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: rgba(255,255,255,0.08);
+            color: #fff;
+            border: 1px solid rgba(255,255,255,0.15);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.12);
+            border-color: rgba(255,255,255,0.25);
+        }
+
+        .features-section {
+            max-width: 1000px;
+            margin: 0 auto 100px;
+            padding: 0 24px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+            margin-top: 40px;
+        }
+
+        .feature-card {
+            text-align: left;
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(139,92,246,0.15);
+            border: 1px solid rgba(139,92,246,0.3);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+            font-size: 1.5rem;
+        }
+
+        .feature-card h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            color: #a8adb8;
+            line-height: 1.6;
+        }
+
+        .app-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.08);
+            margin: 60px 24px;
+        }
+
+        @media (max-width: 768px) {
+            .app-hero {
+                padding: 80px 20px 60px;
+            }
+
+            .app-cta {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .btn-primary, .btn-secondary {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-glow bg-glow-purple"></div>
+    <div class="bg-glow bg-glow-blue"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar glass">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-text">Kemper Design Services</span>
+            </a>
+            <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()">
+                <span></span><span></span><span></span>
+            </button>
+            <div class="nav-links" id="nav-links">
+                <a href="index.html" onclick="closeMobileMenu()">Home</a>
+                <a href="index.html#about-us" onclick="closeMobileMenu()">About</a>
+                <a href="index.html#services" onclick="closeMobileMenu()">Services</a>
+                <a href="apps.html" onclick="closeMobileMenu()">Apps</a>
+            </div>
+            <div class="nav-cta">
+                <a href="index.html" class="btn btn-primary">Learn AI Today <span class="arrow">→</span></a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="app-hero">
+            <h1>KDS Lab Studio</h1>
+            <p>An AI-powered assessment and training platform — build labs, track learners, and manage content from one place.</p>
+            <div class="app-cta">
+                <a href="https://kds-lab-studio.vercel.app" class="btn-primary" target="_blank">Launch App →</a>
+                <a href="apps.html" class="btn-secondary">← Back to Apps</a>
+            </div>
+        </section>
+
+        <!-- Features -->
+        <section class="features-section">
+            <h2 style="font-family: 'Outfit', sans-serif; font-size: 1.8rem; color: #fff; text-align: center; margin-bottom: 10px;">Core Features</h2>
+            <p style="text-align: center; color: #a8adb8; font-size: 1rem; margin-bottom: 40px;">Everything you need to create engaging learning experiences</p>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">✨</div>
+                    <h3>AI-Powered Assessment Creation</h3>
+                    <p>Generate assessments and labs automatically using AI, saving time while maintaining quality standards.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📚</div>
+                    <h3>Robust Lab & Content Library</h3>
+                    <p>Build and organize comprehensive content libraries with support for multiple assessment types and formats.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">👥</div>
+                    <h3>Learner Management</h3>
+                    <p>Track learner progress, manage enrollments, and monitor individual performance across all assessments.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Detailed Analytics</h3>
+                    <p>Comprehensive reporting and analytics to understand learner performance and optimize content effectiveness.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚙️</div>
+                    <h3>Flexible Configuration</h3>
+                    <p>Customize the platform to match your organization's workflow and assessment requirements.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔌</div>
+                    <h3>System Integrations</h3>
+                    <p>Connect with existing learning management systems and third-party tools for seamless workflows.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section style="text-align: center; padding: 80px 24px; background: rgba(139,92,246,0.05); border-top: 1px solid rgba(139,92,246,0.1); border-bottom: 1px solid rgba(139,92,246,0.1); margin-top: 80px;">
+            <h2 style="font-family: 'Outfit', sans-serif; font-size: 2rem; color: #fff; margin-bottom: 16px;">Ready to Build Your Learning Program?</h2>
+            <p style="color: #a8adb8; font-size: 1rem; margin-bottom: 32px; max-width: 500px; margin-left: auto; margin-right: auto;">Explore the live demo to see KDS Lab Studio in action, or contact us to discuss your training needs.</p>
+            <div class="app-cta">
+                <a href="https://kds-lab-studio.vercel.app" class="btn-primary" target="_blank">Try the Demo →</a>
+                <a href="index.html" class="btn-secondary">Contact Us</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-col brand-col">
+                <div class="brand-header">
+                    <img src="assets/logos/logo-white.png" alt="KDS Logo" class="footer-logo">
+                    <div class="brand-title">
+                        <span>Kemper</span>
+                        <span>Design</span>
+                        <span>Services</span>
+                    </div>
+                </div>
+                <p class="brand-desc">We modernize business operations with practical AI — automating workflows, building custom tools, and helping teams do more without burning out.</p>
+            </div>
+            <div class="footer-col">
+                <h4 class="footer-title">QUICK LINKS</h4>
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="index.html#about-us">About Us</a>
+                    <a href="apps.html">Our Applications</a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4 class="footer-title">APPLICATIONS</h4>
+                <div class="footer-links">
+                    <a href="food-truck-app.html">KDS Food Truck App</a>
+                    <a href="kds-lab.html">KDS Lab Studio</a>
+                    <a href="drivemirror.html">DriveMirror</a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4 class="footer-title">CONTACT US</h4>
+                <div class="contact-list">
+                    <div class="contact-item">
+                        <span class="contact-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></span>
+                        <a href="mailto:damian@kemperdesignservices.com">damian@kemperdesignservices.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.26h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.81a16 16 0 0 0 6 6l.86-.86a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16z"/></svg></span>
+                        <a href="tel:+16313536377">(631) 3-KEMPER</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Kemper Design Services. All rights reserved.</p>
+            <div class="social-links">
+                <a href="https://www.facebook.com/profile.php?id=61558862320236" target="_blank" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a6 6 0 0 0-6 6v3H7v4h2v8h4v-8h3l1-4h-4V8a1 1 0 0 1 1-1h3z"/></svg></a>
+                <a href="https://www.youtube.com/@KemperDesignServices" target="_blank" aria-label="YouTube"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/></svg></a>
+                <a href="https://www.linkedin.com/in/damiankemper/" target="_blank" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            document.getElementById('nav-links').classList.toggle('mobile-open');
+            document.getElementById('hamburger').classList.toggle('active');
+        }
+        function closeMobileMenu() {
+            document.getElementById('nav-links').classList.remove('mobile-open');
+            document.getElementById('hamburger').classList.remove('active');
+        }
+    </script>
+</body>
+</html>
