@@ -1,0 +1,21 @@
+# Video files (large media assets)
+*.mp4
+*.zip
+*.mov
+*.avi
+
+# Environment files
+CRM ENV Data.txt
+.env
+.env.local
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Node modules (if used)
+node_modules/
+
+# IDE
+.vscode/
+.idea/

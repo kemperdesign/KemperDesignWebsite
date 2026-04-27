@@ -329,6 +329,7 @@
                             <a href="javascript:void(0)" onclick="openServiceModal('System Integrations')">System Integrations</a>
                             <a href="javascript:void(0)" onclick="openServiceModal('Local AI Deployment')">Local AI Deployment</a>
                             <a href="javascript:void(0)" onclick="openServiceModal('Document Processing')">Document Processing</a>
+                            <a href="javascript:void(0)" onclick="openServiceModal('AI Audits')">AI Audits</a>
                         </div>
                         <div class="drop-col">
                             <span class="mega-heading">Design & Development</span>
@@ -337,6 +338,7 @@
                             <a href="javascript:void(0)" onclick="openServiceModal('Graphic Design')">Graphic Design</a>
                             <a href="javascript:void(0)" onclick="openServiceModal('UI/UX Design')">UI/UX Design</a>
                             <a href="javascript:void(0)" onclick="openServiceModal('Frontend Development')">Frontend Development</a>
+                            <a href="apps.html" style="color:#f59e0b; font-weight:600;">Our Applications ↗</a>
                         </div>
                         <div class="drop-col">
                             <span class="mega-heading">Operations & Training</span>
@@ -369,6 +371,7 @@
                         </div>
                     </div>
                 </div>
+                <a href="apps.html" onclick="closeMobileMenu()" style="font-weight:600; color:#f59e0b;">Our Apps</a>
                 <a href="#consulting" onclick="closeMobileMenu()">Consulting</a>
             </div>
             <div class="nav-cta">
@@ -1058,6 +1061,7 @@
                     <a href="javascript:void(0)" onclick="openServiceModal('AI Enablement')">AI Enablement</a>
                     <a href="javascript:void(0)" onclick="openServiceModal('AI Training & Education')">AI Education</a>
                     <a href="javascript:void(0)" onclick="openServiceModal('AI Implementation')">AI Implementations</a>
+                    <a href="javascript:void(0)" onclick="openServiceModal('AI Audits')">AI Audits</a>
                 </div>
             </div>
 
@@ -1428,7 +1432,7 @@
         "AI Workflow Automation": { desc: "Custom triggers and workflows that eliminate manual admin and sync your tools. We automate the repetitive tasks that drain your team's time so they can focus on what matters.", img: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80" },
         "AI Chatbots & Assistants": { desc: "Custom-trained AI agents that know your business operations inside and out. They can answer employee FAQs, guide customers, and operate 24/7.", img: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=600&q=80" },
         "Custom Websites": { desc: "High-performance, beautifully designed websites that convert visitors into leads. Built for speed and flexibility, starting at just $999.", img: "https://images.unsplash.com/photo-1522542550221-31fd19575a2d?auto=format&fit=crop&w=600&q=80" },
-        "AI Auto-Scheduler": { desc: "An intelligent scheduling agent that coordinates meetings automatically, freeing up your time and saving up to $38k annually compared to a human scheduler.", img: "https://images.unsplash.com/photo-1506784951206-b91c0626a5a8?auto=format&fit=crop&w=600&q=80" },
+        "AI Auto-Scheduler": { desc: "An intelligent scheduling agent that coordinates meetings automatically, freeing up your time and saving up to $38k annually compared to a human scheduler.", video: "assets/video/AI Autosceduler.mp4" },
         "Document Processing": { desc: "Turn unstructured documents like messy invoices, handwritten notes, and contracts into clean, usable data automatically.", video: "assets/video/Services - Document Processing.mp4" },
         "AI Voice Autoschedulers": { desc: "Voice-activated scheduling agents that understand natural language and intelligently manage your calendar. Just tell it your availability and let it handle meeting coordination 24/7.", img: "https://images.unsplash.com/photo-1506784951206-b91c0626a5a8?auto=format&fit=crop&w=600&q=80" },
         "Local AI Deployment": { desc: "Run powerful AI models on your own servers for maximum privacy, security, and zero data leakage to public clouds. Perfect for sensitive business operations.", video: "assets/video/Services - Local AI Deployment.mp4" },
@@ -1439,28 +1443,30 @@
         "Notary Services": { desc: "Professional digital notarization services for your important documents. We provide legally recognized notarization to ensure your documents are authentic and valid.", img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80" },
         "Custom Applications": { desc: "Custom-built applications designed specifically for your business workflows. We create solutions that solve your unique challenges and integrate seamlessly with your existing systems.", video: "assets/video/Services - Custom Applications.mp4" },
         "Graphic Design": { desc: "Professional graphic design services that communicate your brand's message and values. From logos to marketing materials, we create visuals that stand out.", video: "assets/video/Services - Graphic Design.mp4" },
-        "Instructional Design": { desc: "Development of clear SOPs, training modules, and knowledge bases to ensure operational consistency. We design training that sticks and drives results.", img: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=600&q=80" },
-        "Custom Internal AI Tools": { desc: "Purpose-built AI tools designed specifically for your internal operations. From data analysis to process automation, we create tools that give your team superpowers.", img: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=600&q=80" },
-        "System Integrations": { desc: "Seamlessly connect all your business systems so data flows automatically without manual intervention. We handle the technical complexity so you don't have to.", img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" },
+        "Instructional Design": { desc: "Development of clear SOPs, training modules, and knowledge bases to ensure operational consistency. We design training that sticks and drives results.", video: "assets/video/isd.mp4" },
+        "Custom Internal AI Tools": { desc: "Purpose-built AI tools designed specifically for your internal operations. From data analysis to process automation, we create tools that give your team superpowers.", video: "assets/video/Custom Internal AI Tools_00002_.mp4" },
+        "System Integrations": { desc: "Seamlessly connect all your business systems so data flows automatically without manual intervention. We handle the technical complexity so you don't have to.", video: "assets/video/system integration.mp4" },
         "UI/UX Design": { desc: "User-centered design that creates intuitive, beautiful interfaces people love to use. We design for both aesthetics and functionality.", video: "assets/video/Services - UI UX.mp4" },
         "Frontend Development": { desc: "Expert front-end development that brings designs to life with clean, efficient code. We build responsive interfaces that work flawlessly across all devices.", img: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=600&q=80" },
-        "Employee Onboarding": { desc: "Streamlined onboarding systems that get new team members up to speed faster. We create clear processes and training materials that reduce ramp-up time.", img: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=600&q=80" },
+        "Employee Onboarding": { desc: "Streamlined onboarding systems that get new team members up to speed faster. We create clear processes and training materials that reduce ramp-up time.", video: "assets/video/employee onboarding.mp4" },
         "Custom Training Apps": { desc: "Interactive training applications that make learning engaging and effective. We build apps that deliver consistent, measurable training outcomes.", img: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=600&q=80" },
         "Technical Writing": { desc: "Clear, accurate technical documentation that communicates complex information effectively. From user manuals to API documentation to process guides, we create content that your audience can understand and act on.", img: "https://images.unsplash.com/photo-1455849318169-8701bd3de994?auto=format&fit=crop&w=600&q=80" },
         "Process Optimization": { desc: "Analysis and improvement of your business processes to eliminate waste and increase efficiency. We identify bottlenecks and implement solutions that drive results.", img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80" },
-        "Cybersecurity Solutions": { desc: "Comprehensive security strategy and implementation to protect your business from threats. We secure your systems, data, and reputation.", img: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=600&q=80" },
-        "IT Infrastructure": { desc: "Robust IT infrastructure design and implementation that scales with your business. We build systems that are secure, reliable, and future-proof.", img: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=600&q=80" },
-        "Data Protection": { desc: "Strategic data protection and compliance solutions to keep your information secure. We implement best practices and ensure regulatory compliance.", img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80" },
-        "System Integration": { desc: "Expert integration of enterprise systems and software platforms. We ensure all your tools work together seamlessly.", img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" },
-        "Cloud Solutions": { desc: "Cloud infrastructure design and migration services that improve scalability and reduce costs. We move your operations to the cloud strategically.", img: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=600&q=80" },
+        "Cybersecurity Solutions": { desc: "Comprehensive security strategy and implementation to protect your business from threats. We secure your systems, data, and reputation.", video: "assets/video/CyberSecurity.mp4" },
+        "IT Infrastructure": { desc: "Robust IT infrastructure design and implementation that scales with your business. We build systems that are secure, reliable, and future-proof.", video: "assets/video/it infrastructure.mp4" },
+        "Data Protection": { desc: "Strategic data protection and compliance solutions to keep your information secure. We implement best practices and ensure regulatory compliance.", video: "assets/video/data protection.mp4" },
+        "System Integration": { desc: "Expert integration of enterprise systems and software platforms. We ensure all your tools work together seamlessly.", video: "assets/video/system integration.mp4" },
+        "Cloud Solutions": { desc: "Cloud infrastructure design and migration services that improve scalability and reduce costs. We move your operations to the cloud strategically.", video: "assets/video/cloud solutions.mp4" },
         "In Home Media Servers": { desc: "Design, setup, and installation of personal media servers that let you store and stream all your entertainment — movies, music, photos, and more — throughout your home on any device.", img: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=600&q=80" },
-        "Video Editing": { desc: "Professional video editing and production services that bring your vision to life. We create compelling video content that engages your audience.", img: "https://images.unsplash.com/photo-1495997859356-c3fda949f350?auto=format&fit=crop&w=600&q=80" },
+        "Video Editing": { desc: "Professional video editing and production services that bring your vision to life. We create compelling video content that engages your audience.", video: "assets/video/video editing_00001_.mp4" },
         "Video Digitization": { desc: "Convert your analog video tapes, film reels, and old recordings into high-quality digital formats. We preserve your important video memories and make them accessible for modern use.", img: "https://images.unsplash.com/photo-1495997859356-c3fda949f350?auto=format&fit=crop&w=600&q=80" },
-        "Custom Music Production": { desc: "Original music composition and production for your brand, projects, and media. We create custom audio that perfectly fits your needs.", img: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=600&q=80" },
-        "3D Printing": { desc: "3D design and printing services for prototypes, products, and creative projects. We bring your ideas into physical reality.", img: "https://images.unsplash.com/photo-1527919327734-500149f759d9?auto=format&fit=crop&w=600&q=80" },
-        "Digital Notary": { desc: "Professional digital notarization services for legally binding documents. We provide secure, recognized notarial services online.", img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80" },
-        "Data/Format Conversion": { desc: "Professional data conversion and format migration services. We handle complex data transformations accurately and securely.", img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80" },
-        "Content Creation": { desc: "Professional content creation including writing, design, and multimedia. We produce compelling content that drives engagement and results.", img: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=600&q=80" }
+        "Custom Music Production": { desc: "Original music composition and production for your brand, projects, and media. We create custom audio that perfectly fits your needs.", video: "assets/video/music production_00001_.mp4" },
+        "3D Printing": { desc: "3D design and printing services for prototypes, products, and creative projects. We bring your ideas into physical reality.", video: "assets/video/3D Print Services_00001_.mp4" },
+        "Digital Notary": { desc: "Professional digital notarization services for legally binding documents. We provide secure, recognized notarial services online.", video: "assets/video/notary_00001_.mp4" },
+        "Data/Format Conversion": { desc: "Professional data conversion and format migration services. We handle complex data transformations accurately and securely.", video: "assets/video/format conversions_00001_.mp4" },
+        "Content Creation": { desc: "Professional content creation including writing, design, and multimedia. We produce compelling content that drives engagement and results.", img: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=600&q=80" },
+        "AI Audits": { desc: "Comprehensive analysis of your current business workflows to identify high-impact AI opportunities. We evaluate your data, tools, and processes to create a prioritized AI implementation roadmap.", img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" },
+        "AI Training & Education": { desc: "Comprehensive training programs and educational workshops designed to empower your team with practical AI skills. We help you stay ahead of the curve by mastering the latest AI tools and techniques.", video: "assets/video/ai education.mp4" }
     };
 
     const serviceToCheckbox = {
@@ -1468,7 +1474,8 @@
         "AI Chatbots & Assistants": "AI Chatbot",
         "Custom Websites": "Website",
         "AI Auto-Scheduler": "Other",
-        "Document Processing": "Other"
+        "Document Processing": "Other",
+        "AI Audits": "AI Workflow"
     };
 
     function openServiceModal(serviceName) {
@@ -1494,7 +1501,7 @@
             video.style.pointerEvents = "auto";
             video.muted = false;
             video.volume = 1;
-            
+
             var source = document.getElementById('sm-video-source');
             source.src = data.video;
             video.load();
