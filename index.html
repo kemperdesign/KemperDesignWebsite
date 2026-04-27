@@ -1858,7 +1858,7 @@
                                 <video id="edit-blog-preview-video" style="width: 100%; height: 100%; object-fit: cover; display: none;"></video>
                             </div>
                         </div>
-                        <p style="margin: 0; color: var(--text-secondary); font-size: 0.7rem;">Max 5MB per file. Images auto-resized to 1000px. Uploads commit directly to GitHub.</p>
+                        <p style="margin: 0; color: var(--text-secondary); font-size: 0.7rem;">Max 3MB per file. Images auto-resized to 1000px. Uploads commit directly to GitHub.</p>
                     </div>
                 </div>
             </div>
@@ -2376,10 +2376,10 @@
         const file = event.target.files[0];
         if (!file) return;
 
-        // Check file size (max 5MB for serverless function limit)
-        const MAX_SIZE = 5 * 1024 * 1024; // 5MB
+        // Check file size (max 3MB - base64 encoding adds ~33% overhead)
+        const MAX_SIZE = 3 * 1024 * 1024; // 3MB
         if (file.size > MAX_SIZE) {
-            alert(`File too large (${(file.size / 1024 / 1024).toFixed(1)}MB). Max 5MB allowed.`);
+            alert(`File too large (${(file.size / 1024 / 1024).toFixed(1)}MB). Max 3MB allowed.`);
             event.target.value = '';
             return;
         }
