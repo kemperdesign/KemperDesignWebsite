@@ -1,0 +1,85 @@
+{
+  "companyName": "",
+  "taxRate": 0.0825,
+  "ingredients": [
+    {
+      "name": "Chicken Thighs",
+      "unit": "lb",
+      "costPerUnit": 3.94,
+      "parLevel": 0,
+      "category": "Meat",
+      "vendor": "Walmart",
+      "id": "2025-12-31T01:09:19.439Z"
+    },
+    {
+      "name": "Carrots",
+      "unit": "lb",
+      "costPerUnit": 0.954,
+      "parLevel": 0,
+      "category": "Produce",
+      "vendor": "Walmart",
+      "id": "2025-12-31T01:15:04.213Z"
+    },
+    {
+      "name": "Biscuits Canned",
+      "unit": "oz",
+      "costPerUnit": 0.11466666666666667,
+      "parLevel": 0,
+      "category": "Cold",
+      "vendor": "Walmart",
+      "hideFromMenuBoard": true,
+      "id": "2025-12-31T01:18:40.673Z"
+    }
+  ],
+  "recipes": [
+    {
+      "name": "Chicken and Dumplings",
+      "description": "Tender chicken and fluffy dumplings simmered in a savory, soul-warming broth.",
+      "ingredients": [
+        {"ingredientId": "2025-12-31T01:09:19.439Z", "quantity": 2},
+        {"ingredientId": "2025-12-31T01:15:04.213Z", "quantity": 1}
+      ],
+      "yieldQuantity": 35,
+      "yieldUnit": "cup",
+      "id": "2025-12-31T01:05:12.756Z"
+    },
+    {
+      "name": "Corn Chowder",
+      "description": "Creamy corn chowder bursting with sweet corn.",
+      "ingredients": [
+        {"ingredientId": "2025-12-31T01:09:19.439Z", "quantity": 2}
+      ],
+      "yieldQuantity": 32,
+      "yieldUnit": "cup",
+      "id": "2025-12-31T06:33:31.667Z"
+    }
+  ],
+  "menuItems": [
+    {
+      "name": "Chicken and Dumplings",
+      "recipeId": "2025-12-31T01:05:12.756Z",
+      "sellingPrice": 7,
+      "tags": "Soup",
+      "onMenuBoard": true,
+      "portionUnit": "fl oz",
+      "cupPrice": 7,
+      "cupPortion": 8,
+      "bowlPrice": 11,
+      "bowlPortion": 12,
+      "id": "2025-12-31T05:43:32.022Z"
+    },
+    {
+      "name": "Corn Chowder",
+      "recipeId": "2025-12-31T06:33:31.667Z",
+      "sellingPrice": 7,
+      "tags": "Soup",
+      "onMenuBoard": true,
+      "portionUnit": "fl oz",
+      "cupPrice": 7,
+      "cupPortion": 8,
+      "bowlPrice": 11,
+      "bowlPortion": 12,
+      "id": "2025-12-31T07:07:30.472Z"
+    }
+  ]
+}
