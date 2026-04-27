@@ -1858,6 +1858,24 @@
   </div>
 
   <style>
+    .blog-modal-content {
+        scrollbar-width: auto;
+        scrollbar-color: rgba(139,92,246,0.6) rgba(139,92,246,0.1);
+    }
+    .blog-modal-content::-webkit-scrollbar {
+        width: 8px;
+    }
+    .blog-modal-content::-webkit-scrollbar-track {
+        background: rgba(139,92,246,0.1);
+        border-radius: 4px;
+    }
+    .blog-modal-content::-webkit-scrollbar-thumb {
+        background: rgba(139,92,246,0.6);
+        border-radius: 4px;
+    }
+    .blog-modal-content::-webkit-scrollbar-thumb:hover {
+        background: rgba(139,92,246,0.8);
+    }
     .blog-modal-content p { margin-bottom: 20px; }
     .blog-modal-content h3 { color: white; margin: 30px 0 15px; font-size: 1.5rem; }
     @media (max-width: 768px) {
