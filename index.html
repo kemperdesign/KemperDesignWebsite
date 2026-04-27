@@ -1867,7 +1867,7 @@
                 <textarea id="edit-blog-body" style="width: 100%; height: 280px; padding: 20px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: white; resize: vertical; outline: none; line-height: 1.6; font-size: 1rem;"></textarea>
                 <button onclick="generateBlogBody()" class="aai-submit-btn" style="width: auto; padding: 10px 20px; margin-top: 15px; font-size: 0.85rem; background: rgba(168, 85, 247, 0.15); color: var(--accent-purple); border: 1px solid rgba(168, 85, 247, 0.2);">✨ Generate Full Article Content</button>
             </div>
-            <button onclick="saveBlog()" class="aai-submit-btn" style="margin-top: 10px; font-size: 1.1rem; padding: 18px;">Save & Publish to Site</button>
+            <button onclick="saveBlog.call(this, event)" class="aai-submit-btn" style="margin-top: 10px; font-size: 1.1rem; padding: 18px;">Save & Publish to Site</button>
         </div>
     </div>
   </div>
@@ -2269,14 +2269,48 @@
         }
     }
 
-    function saveBlog() {
+    let pendingFileUpload = null;
+
+    async function saveBlog() {
         const title = document.getElementById('edit-blog-title').value;
-        const image = document.getElementById('edit-blog-image').value;
+        let image = document.getElementById('edit-blog-image').value;
         let body = document.getElementById('edit-blog-body').value.trim();
+        const saveBtn = event?.target;
 
         if (!title || !image || !body) {
             alert("Please fill in all fields.");
             return;
+        }
+
+        // Upload file to GitHub if there's a pending upload
+        if (pendingFileUpload) {
+            if (saveBtn) saveBtn.disabled = true;
+            if (saveBtn) saveBtn.textContent = '⏳ Uploading...';
+
+            try {
+                const uploadRes = await fetch('/api/upload-blog', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(pendingFileUpload)
+                });
+
+                if (!uploadRes.ok) {
+                    const error = await uploadRes.json();
+                    alert(`Upload failed: ${error.error}`);
+                    if (saveBtn) saveBtn.disabled = false;
+                    if (saveBtn) saveBtn.textContent = 'Save & Publish to Site';
+                    return;
+                }
+
+                const uploadData = await uploadRes.json();
+                image = uploadData.path;
+                pendingFileUpload = null;
+            } catch (err) {
+                alert(`Upload error: ${err.message}`);
+                if (saveBtn) saveBtn.disabled = false;
+                if (saveBtn) saveBtn.textContent = 'Save & Publish to Site';
+                return;
+            }
         }
 
         // Auto-convert plain text to HTML if no tags are detected
@@ -2301,6 +2335,8 @@
         }
 
         saveToStorage();
+        if (saveBtn) saveBtn.disabled = false;
+        if (saveBtn) saveBtn.textContent = 'Save & Publish to Site';
         hideBlogForm();
     }
 
@@ -2340,24 +2376,33 @@
         const file = event.target.files[0];
         if (!file) return;
 
-        const filename = file.name.toLowerCase().replace(/[^a-z0-9.-]/g, '-');
-        const filepath = `/assets/images/blog/${filename}`;
-        document.getElementById('edit-blog-image').value = filepath;
+        const filename = file.name.toLowerCase().replace(/[^a-z0-9.-]/g, '-').replace(/--+/g, '-');
+        const reader = new FileReader();
 
-        const isVideo = file.type.startsWith('video/');
-        const blobUrl = URL.createObjectURL(file);
+        reader.onload = function(e) {
+            const base64Data = e.target.result.split(',')[1];
+            pendingFileUpload = {
+                file: base64Data,
+                filename: filename,
+                fileType: file.type
+            };
 
-        if (isVideo) {
-            document.getElementById('edit-blog-preview').style.display = 'none';
-            document.getElementById('edit-blog-preview-video').style.display = 'block';
-            document.getElementById('edit-blog-preview-video').src = blobUrl;
+            document.getElementById('edit-blog-image').value = `${filename} (ready to upload)`;
             document.getElementById('image-preview-container').style.display = 'block';
-        } else {
-            document.getElementById('edit-blog-preview').src = blobUrl;
-            document.getElementById('edit-blog-preview').style.display = 'block';
-            document.getElementById('edit-blog-preview-video').style.display = 'none';
-            document.getElementById('image-preview-container').style.display = 'block';
-        }
+
+            const isVideo = file.type.startsWith('video/');
+            if (isVideo) {
+                document.getElementById('edit-blog-preview').style.display = 'none';
+                document.getElementById('edit-blog-preview-video').style.display = 'block';
+                document.getElementById('edit-blog-preview-video').src = URL.createObjectURL(file);
+            } else {
+                document.getElementById('edit-blog-preview').src = URL.createObjectURL(file);
+                document.getElementById('edit-blog-preview').style.display = 'block';
+                document.getElementById('edit-blog-preview-video').style.display = 'none';
+            }
+        };
+
+        reader.readAsDataURL(file);
     }
 
     // Initial Render
