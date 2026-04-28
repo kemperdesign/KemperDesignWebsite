@@ -2024,9 +2024,12 @@
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
                     <div>
                         <h2 style="margin: 0; color: white;">Blog Manager</h2>
-                        <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 5px;">Manage, edit, and reorder your articles.</p>
+                        <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 5px;">Create articles and export to commit to git.</p>
                     </div>
-                    <button onclick="showNewBlogForm()" class="aai-submit-btn" style="width: auto; padding: 10px 25px;">+ New Article</button>
+                    <div style="display: flex; gap: 10px;">
+                        <button onclick="showNewBlogForm()" class="aai-submit-btn" style="width: auto; padding: 10px 25px;">+ New Article</button>
+                        <button onclick="exportBlogsForGit()" class="aai-submit-btn" style="width: auto; padding: 10px 25px; background: rgba(34, 197, 94, 0.15); color: #22c55e; border: 1px solid rgba(34, 197, 94, 0.3);">📤 Export for Git</button>
+                    </div>
                 </div>
                 
                 <div id="admin-blog-list" style="display: flex; flex-direction: column; gap: 12px;">
@@ -2113,6 +2116,38 @@
         .blog-modal-content { padding: 25px !important; }
     }
   </style>
+
+  <!-- Export Blogs Modal -->
+  <div class="aai-modal" id="export-blogs-modal" style="z-index: 100001; background: rgba(0,0,0,0.95);">
+    <div style="background: #0a0a0f; border: 1px solid rgba(255,255,255,0.1); border-radius: 28px; width: 90%; max-width: 900px; max-height: 90vh; overflow-y: auto; padding: 50px; position: relative;">
+      <button onclick="closeExportModal()" style="position: absolute; top: 25px; right: 25px; background: none; border: none; color: white; cursor: pointer; font-size: 1.5rem; opacity: 0.6;">✕</button>
+      <h2 style="color: white; margin: 0 0 10px 0;">Export Blog Posts for Git</h2>
+      <p style="color: var(--text-secondary); margin-bottom: 30px;">Copy the following JSON and add it to your repository:</p>
+
+      <div style="background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 20px; margin-bottom: 20px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+          <span style="color: var(--text-secondary); font-size: 0.85rem; font-weight: 600;">blogs.json</span>
+          <button onclick="copyToClipboard('blogs-json-content')" style="background: rgba(139, 92, 246, 0.15); border: 1px solid rgba(139, 92, 246, 0.3); color: var(--accent-purple); padding: 6px 12px; border-radius: 6px; cursor: pointer; font-size: 0.8rem; font-weight: 600;">Copy</button>
+        </div>
+        <pre id="blogs-json-content" style="color: #22c55e; font-size: 0.8rem; overflow-x: auto; margin: 0; max-height: 300px; overflow-y: auto;"></pre>
+      </div>
+
+      <div style="background: rgba(255, 193, 7, 0.05); border: 1px solid rgba(255, 193, 7, 0.2); border-radius: 12px; padding: 20px; margin-bottom: 20px;">
+        <h4 style="color: #ffc107; margin: 0 0 10px 0;">📋 Instructions:</h4>
+        <ol style="color: var(--text-secondary); margin: 0; padding-left: 20px; font-size: 0.9rem;">
+          <li>Copy the JSON above</li>
+          <li>Go to your project root and open/create <code style="background: rgba(0,0,0,0.3); padding: 2px 6px; border-radius: 3px;">blogs.json</code></li>
+          <li>Replace the contents with the copied JSON</li>
+          <li>Commit and push: <code style="background: rgba(0,0,0,0.3); padding: 2px 6px; border-radius: 3px;">git add blogs.json && git commit -m "Update blogs" && git push</code></li>
+        </ol>
+      </div>
+
+      <div style="background: rgba(34, 197, 94, 0.05); border: 1px solid rgba(34, 197, 94, 0.2); border-radius: 12px; padding: 20px;">
+        <h4 style="color: #22c55e; margin: 0 0 10px 0;">✅ Blog Posts to Export:</h4>
+        <div id="export-blogs-list" style="color: var(--text-secondary); font-size: 0.9rem;"></div>
+      </div>
+    </div>
+  </div>
 
   <!-- About Modal -->
   <div class="aai-modal" id="about-modal">
@@ -2564,6 +2599,76 @@
         saveToStorage();
         hideBlogForm();
     }
+
+    function exportBlogsForGit() {
+        if (currentBlogs.length === 0) {
+            alert("No blog posts to export. Create some blog posts first!");
+            return;
+        }
+
+        const exportData = currentBlogs.map(blog => {
+            const slug = slugifyBlog(blog.title);
+            return {
+                title: blog.title,
+                slug: slug,
+                author: blog.author,
+                date: blog.date,
+                readTime: blog.readTime,
+                image: blog.image,
+                filename: slug + ".html"
+            };
+        });
+
+        const jsonContent = JSON.stringify(exportData, null, 2);
+        document.getElementById('blogs-json-content').textContent = jsonContent;
+
+        const blogsList = currentBlogs.map((blog, idx) =>
+            `<div style="padding: 10px; background: rgba(255,255,255,0.02); border-radius: 6px; margin-bottom: 8px;">
+                <div style="font-weight: 600; color: white;">${idx + 1}. ${blog.title}</div>
+                <div style="font-size: 0.8rem; margin-top: 4px;">Slug: <code style="background: rgba(0,0,0,0.3); padding: 2px 6px; border-radius: 3px;">${slugifyBlog(blog.title)}</code></div>
+            </div>`
+        ).join('');
+
+        document.getElementById('export-blogs-list').innerHTML = blogsList;
+        document.getElementById('export-blogs-modal').classList.add('open');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeExportModal() {
+        document.getElementById('export-blogs-modal').classList.remove('open');
+        document.body.style.overflow = '';
+    }
+
+    function copyToClipboard(elementId) {
+        const element = document.getElementById(elementId);
+        const text = element.textContent;
+
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(text).then(() => {
+                alert("✅ Copied to clipboard!");
+            }).catch(() => {
+                fallbackCopy(text);
+            });
+        } else {
+            fallbackCopy(text);
+        }
+    }
+
+    function fallbackCopy(text) {
+        const textarea = document.createElement('textarea');
+        textarea.value = text;
+        textarea.style.position = 'fixed';
+        textarea.style.opacity = '0';
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+        alert("✅ Copied to clipboard!");
+    }
+
+    document.getElementById('export-blogs-modal').addEventListener('click', function(e) {
+        if(e.target === this) closeExportModal();
+    });
 
     function saveToStorage() {
         localStorage.setItem('kds_blogs', JSON.stringify(currentBlogs));
