@@ -273,14 +273,14 @@ h1 .text-gradient {
     display: flex;
     justify-content: center;
     margin-top: 80px;
-    margin-bottom: 80px;
+    margin-bottom: 20px;
     padding: 20px 0;
     z-index: 50;
     opacity: 0.9;
 }
 
 .hero-logo-img {
-    height: 150px;
+    height: 300px;
     width: auto;
     filter: drop-shadow(0 0 10px rgba(255,255,255,0.1));
 }
