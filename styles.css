@@ -311,8 +311,10 @@ h1 .text-gradient {
 
 @media (max-width: 768px) {
     .hamburger {
-        display: flex;
+        display: flex !important;
         z-index: 10001;
+        pointer-events: auto;
+        padding: 15px;
     }
     .nav-links {
         position: fixed;

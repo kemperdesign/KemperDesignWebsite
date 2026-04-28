@@ -455,21 +455,26 @@
       function toggleMobileMenu() {
         const navLinks = document.getElementById('nav-links');
         const hamburger = document.getElementById('hamburger');
-        if (navLinks) {
-          navLinks.classList.toggle('active');
-        }
-        if (hamburger) {
-          hamburger.classList.toggle('active');
+        if (navLinks && hamburger) {
+          const isActive = navLinks.classList.contains('active');
+          if (isActive) {
+            navLinks.classList.remove('active');
+            navLinks.style.left = '-100%';
+            hamburger.classList.remove('active');
+          } else {
+            navLinks.classList.add('active');
+            navLinks.style.left = '0';
+            hamburger.classList.add('active');
+          }
         }
       }
 
       function closeMobileMenu() {
         const navLinks = document.getElementById('nav-links');
         const hamburger = document.getElementById('hamburger');
-        if (navLinks) {
+        if (navLinks && hamburger) {
           navLinks.classList.remove('active');
-        }
-        if (hamburger) {
+          navLinks.style.left = '-100%';
           hamburger.classList.remove('active');
         }
       }
