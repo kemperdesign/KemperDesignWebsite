@@ -1399,24 +1399,24 @@
             video.style.opacity = "1";
             video.style.pointerEvents = "auto";
 
+            // Reset video element before loading new source
+            video.pause();
+            video.currentTime = 0;
+
             var source = document.getElementById('sm-video-source');
             source.src = data.video;
             video.load();
 
-            // Start muted to ensure autoplay works, then allow unmute on first click
+            // Start muted to ensure autoplay works, then allow unmute on click
             video.muted = true;
-            var playPromise = video.play();
-            if (playPromise !== undefined) {
-                playPromise.catch(function(err) {
-                    // If even muted autoplay fails, just load the video without playing
-                });
-            }
+            video.play().catch(function(err) {
+                // If autoplay fails, just load the video without playing
+            });
 
-            // Click to unmute - unmute on first click, mute on second click
-            var unmuteHandler = function() {
+            // Click to toggle mute
+            video.onclick = function() {
                 video.muted = !video.muted;
             };
-            video.onclick = unmuteHandler;
 
             // When video ends, pause and show last frame
             video.onended = function() {
