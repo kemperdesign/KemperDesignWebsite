@@ -568,12 +568,29 @@
 
     <script>
         function toggleMobileMenu() {
-            document.getElementById('nav-links').classList.toggle('mobile-open');
-            document.getElementById('hamburger').classList.toggle('active');
+            const navLinks = document.getElementById('nav-links');
+            const hamburger = document.getElementById('hamburger');
+            if (navLinks && hamburger) {
+                const isActive = navLinks.classList.contains('active');
+                if (isActive) {
+                    navLinks.classList.remove('active');
+                    navLinks.style.left = '-100%';
+                    hamburger.classList.remove('active');
+                } else {
+                    navLinks.classList.add('active');
+                    navLinks.style.left = '0';
+                    hamburger.classList.add('active');
+                }
+            }
         }
         function closeMobileMenu() {
-            document.getElementById('nav-links').classList.remove('mobile-open');
-            document.getElementById('hamburger').classList.remove('active');
+            const navLinks = document.getElementById('nav-links');
+            const hamburger = document.getElementById('hamburger');
+            if (navLinks && hamburger) {
+                navLinks.classList.remove('active');
+                navLinks.style.left = '-100%';
+                hamburger.classList.remove('active');
+            }
         }
     </script>
 </body>
