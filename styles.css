@@ -273,7 +273,7 @@ h1 .text-gradient {
     display: flex;
     justify-content: center;
     margin-top: 80px;
-    margin-bottom: 20px;
+    margin-bottom: -20px;
     padding: 20px 0;
     z-index: 50;
     opacity: 0.9;
