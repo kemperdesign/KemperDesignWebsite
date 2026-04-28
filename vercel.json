@@ -1,4 +1,10 @@
 {
+  "rewrites": [
+    {
+      "source": "/blog/:slug*",
+      "destination": "/blog/index.html"
+    }
+  ],
   "functions": {
     "api/upload-blog.js": {
       "memory": 1024,
