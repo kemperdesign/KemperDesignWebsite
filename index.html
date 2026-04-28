@@ -1398,6 +1398,7 @@
             img.style.backgroundImage = "none";
             video.style.opacity = "1";
             video.style.pointerEvents = "auto";
+            video.muted = false; // Reset mute state for new video
 
             var source = document.getElementById('sm-video-source');
             source.src = data.video;
