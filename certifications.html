@@ -313,68 +313,9 @@
     </footer>
 
     <script>
-        // Badge organization
-        const badgeData = {
-            ai: [
-                // Add any specific AI-related badges
-            ],
+        // Comprehensive badge list with automatic categorization
+        const badgeFiles = {
             cloud: [
-                'AWS Cloud Practitioner',
-                'AWS Solutions Architect',
-                'AWS Foundation Practitioner',
-                'Cloud Computing Fundamentals'
-            ],
-            id: [
-                'Agile Instructional Design',
-                'Become an Instructional Designer',
-                'Instructional Design',
-                'How to Design and Deliver Training Programs',
-                'Training the Trainer',
-                'Teaching Techniques',
-                'The Neuroscience of Learning',
-                'Developing a Learning Mindset',
-                'Creating a Leadership Development Program',
-                'Developing Managers in Organizations',
-                'Organizational Learning and Development',
-                'Advancing Your Skills As an L&D Professional',
-                'Gaining Internal Buy-In for Elearning Training',
-                'How to Increase Learner Engagement',
-                'Measuring Learning Effectiveness'
-            ],
-            elearning: [
-                'Adobe Captivate',
-                'Adobe Illustrator',
-                'Adobe InDesign',
-                'Adobe Dreamweaver',
-                'Introduction to Screencasting',
-                'Moodle',
-                'Introduction to Moodle',
-                'Moodle Teaching Basics',
-                'Moodle Course Activities',
-                'Moodle Course Content',
-                'Moodle Course Management',
-                'Start Teaching with Moodle',
-                'Accessible Teaching Basics',
-                'Introduction to Accessibility'
-            ]
-        };
-
-        function normalizeBadgeName(name) {
-            return name.toLowerCase().replace(/\.png$/i, '');
-        }
-
-        function loadBadges() {
-            fetch('assets/images/badges/').then(r => r.text()).then(html => {
-                // Since we can't directly list files from frontend, we'll use a hardcoded approach
-                // or you can generate this list from the server
-                populateBadgeGrids();
-            });
-        }
-
-        function populateBadgeGrids() {
-            const badgeDir = 'assets/images/badges/';
-            const badgeFiles = [
-                // AWS & Cloud badges
                 'AWS Cloud Practitioner 2020 Cloud Economics.png',
                 'AWS Cloud Practitioner 2020 Cloud and the Value Proposition.png',
                 'AWS Cloud Practitioner 2020 Security Support Resources.png',
@@ -391,8 +332,9 @@
                 'AWS Solutions Architect Associate 2022 Architecture and Tools.png',
                 'Cloud Computing Fundamentals Cloud Virtualization and Data Centers.png',
                 'Cloud Computing Fundamentals Considerations.png',
-                'Cloud Computing Fundamentals Introduction.png',
-                // Instructional Design badges
+                'Cloud Computing Fundamentals Introduction.png'
+            ],
+            id: [
                 'Agile Instructional Design.png',
                 'Become an Instructional Designer.png',
                 'Instructional Design Adult Learners.png',
@@ -412,8 +354,9 @@
                 'Advancing Your Skills As an L&D Professional.png',
                 'Gaining Internal Buy-In for Elearning Training.png',
                 'Learning How to Increase Learner Engagement.png',
-                'Measuring Learning Effectiveness.png',
-                // eLearning Tools
+                'Measuring Learning Effectiveness.png'
+            ],
+            elearning: [
                 'Adobe Dreamweaver CC 2015 Fundamentals.png',
                 'Adobe Illustrator CC 2015 Fundamentals.png',
                 'Advanced Tools & Effects in Adobe Illustrator CC 2015.png',
@@ -437,33 +380,51 @@
                 'Accessible_Teaching_Basics.png',
                 'Introduction_to_Accessibility.png',
                 'Introduction_to_Moodle.png'
-            ];
+            ]
+        };
 
-            const cloudBadgesContainer = document.getElementById('cloud-badges');
-            const idBadgesContainer = document.getElementById('id-badges');
-            const elearningBadgesContainer = document.getElementById('elearning-badges');
+        function populateBadges() {
+            const badgeDir = 'assets/images/badges/';
 
-            badgeFiles.forEach(file => {
-                const normalizedName = file.toLowerCase();
-                const badgeHTML = `
+            // Populate Cloud badges
+            const cloudContainer = document.getElementById('cloud-badges');
+            badgeFiles.cloud.forEach(file => {
+                const label = file.replace(/\.png$/i, '').substring(0, 35);
+                cloudContainer.innerHTML += `
                     <div class="badge-item">
-                        <img src="${badgeDir}${file}" alt="${file}" class="badge-image" onerror="this.style.display='none'">
-                        <span class="badge-label">${file.replace(/\.png$/i, '').substring(0, 30)}${file.length > 30 ? '...' : ''}</span>
+                        <img src="${badgeDir}${file}" alt="${file}" class="badge-image">
+                        <span class="badge-label">${label}</span>
                     </div>
                 `;
+            });
 
-                if (normalizedName.includes('aws') || normalizedName.includes('cloud computing') || normalizedName.includes('solutions architect')) {
-                    cloudBadgesContainer.innerHTML += badgeHTML;
-                } else if (normalizedName.includes('instructional') || normalizedName.includes('design') || normalizedName.includes('learning') || normalizedName.includes('train')) {
-                    idBadgesContainer.innerHTML += badgeHTML;
-                } else if (normalizedName.includes('adobe') || normalizedName.includes('moodle') || normalizedName.includes('accessible') || normalizedName.includes('screencasting') || normalizedName.includes('accessible')) {
-                    elearningBadgesContainer.innerHTML += badgeHTML;
-                }
+            // Populate ID badges
+            const idContainer = document.getElementById('id-badges');
+            badgeFiles.id.forEach(file => {
+                const label = file.replace(/\.png$/i, '').substring(0, 35);
+                idContainer.innerHTML += `
+                    <div class="badge-item">
+                        <img src="${badgeDir}${file}" alt="${file}" class="badge-image">
+                        <span class="badge-label">${label}</span>
+                    </div>
+                `;
+            });
+
+            // Populate eLearning badges
+            const elearningContainer = document.getElementById('elearning-badges');
+            badgeFiles.elearning.forEach(file => {
+                const label = file.replace(/\.png$/i, '').substring(0, 35);
+                elearningContainer.innerHTML += `
+                    <div class="badge-item">
+                        <img src="${badgeDir}${file}" alt="${file}" class="badge-image">
+                        <span class="badge-label">${label}</span>
+                    </div>
+                `;
             });
         }
 
-        // Load badges on page load
-        document.addEventListener('DOMContentLoaded', populateBadgeGrids);
+        // Load badges when DOM is ready
+        document.addEventListener('DOMContentLoaded', populateBadges);
 
         // Mobile menu toggle
         function toggleMobileMenu() {
