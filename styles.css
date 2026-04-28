@@ -1021,7 +1021,6 @@ h1 .text-gradient {
     }
 }
 @media (max-width: 768px) {
-    .nav-links { display: none; }
     .hero { padding-top: 120px; }
     .hero h1 { font-size: 2rem; }
     .bento-grid, .services-grid { grid-template-columns: 1fr; }
