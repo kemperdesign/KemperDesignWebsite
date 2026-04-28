@@ -453,28 +453,26 @@
     <!-- Mobile Menu Handler -->
     <script>
       function toggleMobileMenu() {
-        var navLinks = document.getElementById('nav-links');
-        var hamburger = document.getElementById('hamburger');
-        if (navLinks && hamburger) {
+        const navLinks = document.getElementById('nav-links');
+        const hamburger = document.getElementById('hamburger');
+        if (navLinks) {
           navLinks.classList.toggle('active');
+        }
+        if (hamburger) {
           hamburger.classList.toggle('active');
         }
       }
+
       function closeMobileMenu() {
-        var navLinks = document.getElementById('nav-links');
-        var hamburger = document.getElementById('hamburger');
-        if (navLinks && hamburger) {
+        const navLinks = document.getElementById('nav-links');
+        const hamburger = document.getElementById('hamburger');
+        if (navLinks) {
           navLinks.classList.remove('active');
+        }
+        if (hamburger) {
           hamburger.classList.remove('active');
         }
       }
-
-      document.addEventListener('DOMContentLoaded', function() {
-        var hamburger = document.getElementById('hamburger');
-        if (hamburger) {
-          hamburger.addEventListener('click', toggleMobileMenu);
-        }
-      });
     </script>
 
     <!-- Chat Input Demo Interface -->

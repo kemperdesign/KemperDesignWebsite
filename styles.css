@@ -318,11 +318,12 @@ h1 .text-gradient {
         position: fixed;
         left: -100%;
         top: 100px;
+        display: flex;
         flex-direction: column;
         background: rgba(10, 10, 15, 0.98);
         width: 100%;
         text-align: center;
-        transition: 0.3s;
+        transition: left 0.3s ease;
         gap: 0;
         padding: 20px 0;
         border-top: 1px solid var(--surface-border);
