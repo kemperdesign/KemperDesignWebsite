@@ -439,6 +439,24 @@
         var btn = dropdown.querySelector('.dropbtn');
         var content = dropdown.querySelector('.dropdown-content');
 
+        // Click handler for mobile/touch
+        btn.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          const isMobile = window.innerWidth <= 768;
+          if (isMobile) {
+            const isVisible = content.style.display === 'flex' || content.classList.contains('active');
+            if (isVisible) {
+              content.style.display = 'none';
+              content.classList.remove('active');
+            } else {
+              content.style.display = 'flex';
+              content.classList.add('active');
+            }
+          }
+        });
+
+        // Keyboard handler
         btn.addEventListener('keydown', function(e) {
           if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();
