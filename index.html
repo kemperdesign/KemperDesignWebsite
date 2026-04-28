@@ -2549,9 +2549,12 @@
     }
 
     function deleteBlog(index) {
-        if (confirm("Are you sure you want to delete this blog?")) {
+        const postTitle = currentBlogs[index].title;
+        const confirmed = confirm(`⚠️ DELETE: "${postTitle}"\n\nThis will remove the post from your site. You'll need to click "Export for Git" and commit the changes to finalize the deletion.\n\nContinue?`);
+        if (confirmed) {
             currentBlogs.splice(index, 1);
             saveToStorage();
+            alert("✓ Post deleted from admin panel.\n\nDon't forget: Click 'Export for Git' and commit when ready!");
         }
     }
 
