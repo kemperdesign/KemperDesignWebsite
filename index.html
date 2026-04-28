@@ -1259,7 +1259,7 @@
       <button class="aai-close" onclick="closeServiceModal()" style="z-index: 10; background: rgba(0,0,0,0.5); width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; top: 20px; right: 20px; color: white;">✕</button>
       
       <div id="sm-image" style="flex: 1 1 400px; position: relative; min-height: 450px; overflow: hidden; background-size: cover; background-position: center;">
-        <video id="sm-video" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; background: #000;" playsinline preload="auto" muted autoplay>
+        <video id="sm-video" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; background: #000;" playsinline preload="auto" autoplay>
           <source id="sm-video-source" src="" type="video/mp4">
         </video>
       </div>
@@ -1398,19 +1398,22 @@
             img.style.backgroundImage = "none";
             video.style.opacity = "1";
             video.style.pointerEvents = "auto";
-            video.style.cursor = "pointer";
 
             var source = document.getElementById('sm-video-source');
             source.src = data.video;
             video.load();
-            video.play();
 
-            // Allow users to click video to unmute and hear sound
-            video.onclick = function() {
-                video.muted = !video.muted;
-            };
+            // Try to play with sound, fallback to muted if blocked
+            var playPromise = video.play();
+            if (playPromise !== undefined) {
+                playPromise.catch(function(err) {
+                    // Autoplay with sound was blocked, try muted
+                    video.muted = true;
+                    video.play();
+                });
+            }
 
-            // When video ends, pause it and keep showing the last frame
+            // When video ends, pause and show last frame
             video.onended = function() {
                 video.pause();
                 video.currentTime = video.duration;
