@@ -491,9 +491,12 @@
         const navLinks = document.getElementById('nav-links');
         const hamburger = document.getElementById('hamburger');
         if (navLinks && hamburger) {
-          navLinks.classList.remove('active');
-          navLinks.style.left = '-100%';
-          hamburger.classList.remove('active');
+          // Use requestAnimationFrame to avoid blocking navigation
+          requestAnimationFrame(() => {
+            navLinks.classList.remove('active');
+            navLinks.style.left = '-100%';
+            hamburger.classList.remove('active');
+          });
         }
       }
     </script>
