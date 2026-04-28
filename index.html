@@ -439,24 +439,6 @@
         var btn = dropdown.querySelector('.dropbtn');
         var content = dropdown.querySelector('.dropdown-content');
 
-        // Click handler for mobile/touch
-        btn.addEventListener('click', function(e) {
-          e.preventDefault();
-          e.stopPropagation();
-          const isMobile = window.innerWidth <= 768;
-          if (isMobile) {
-            const isVisible = content.style.display === 'flex' || content.classList.contains('active');
-            if (isVisible) {
-              content.style.display = 'none';
-              content.classList.remove('active');
-            } else {
-              content.style.display = 'flex';
-              content.classList.add('active');
-            }
-          }
-        });
-
-        // Keyboard handler
         btn.addEventListener('keydown', function(e) {
           if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();
@@ -1375,7 +1357,7 @@
         "System Integration": { desc: "Expert integration of enterprise systems and software platforms. We ensure all your tools work together seamlessly.", video: "assets/video/system integration.mp4" },
         "Cloud Solutions": { desc: "Cloud infrastructure design and migration services that improve scalability and reduce costs. We move your operations to the cloud strategically.", video: "assets/video/cloud solutions.mp4" },
         "In Home Media Servers": { desc: "Design, setup, and installation of personal media servers that let you store and stream all your entertainment — movies, music, photos, and more — throughout your home on any device.", img: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=600&q=80" },
-        "Video Editing": { desc: "Professional video editing and production services that bring your vision to life. We create compelling video content that engages your audience.", video: "assets/video/video editing_00001_.mp4" },
+        "Video Editing": { desc: "Professional video editing and production services that bring your vision to life. We create compelling video content that engages your audience.", video: "assets/video/Services - Graphic Design.mp4" },
         "Video Digitization": { desc: "Convert your analog video tapes, film reels, and old recordings into high-quality digital formats. We preserve your important video memories and make them accessible for modern use.", img: "https://images.unsplash.com/photo-1495997859356-c3fda949f350?auto=format&fit=crop&w=600&q=80" },
         "Custom Music Production": { desc: "Original music composition and production for your brand, projects, and media. We create custom audio that perfectly fits your needs.", video: "assets/video/music production_00001_.mp4" },
         "3D Printing": { desc: "3D design and printing services for prototypes, products, and creative projects. We bring your ideas into physical reality.", video: "assets/video/3D Print Services_00001_.mp4" },
@@ -2020,8 +2002,8 @@
         <div class="aai-cat" style="color: var(--accent-purple);">ADMIN ACCESS</div>
         <h2 class="aai-q">Login</h2>
         <div style="display: flex; flex-direction: column; gap: 15px; margin-top: 20px;">
-            <input type="text" id="admin-user" placeholder="Username" onkeypress="if(event.key==='Enter') handleAdminLogin()" style="padding: 14px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: white; outline: none;">
-            <input type="password" id="admin-pass" placeholder="Password" onkeypress="if(event.key==='Enter') handleAdminLogin()" style="padding: 14px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: white; outline: none;">
+            <input type="text" id="admin-user" placeholder="Username" style="padding: 14px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: white; outline: none;">
+            <input type="password" id="admin-pass" placeholder="Password" style="padding: 14px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: white; outline: none;">
             <button onclick="handleAdminLogin()" class="aai-submit-btn" style="margin-top: 10px;">Login</button>
             <div id="admin-login-error" style="color: #ff4d4d; font-size: 0.85rem; display: none; text-align: center;">Invalid username or password.</div>
         </div>
