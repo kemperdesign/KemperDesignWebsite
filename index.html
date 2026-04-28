@@ -455,15 +455,26 @@
       function toggleMobileMenu() {
         var navLinks = document.getElementById('nav-links');
         var hamburger = document.getElementById('hamburger');
-        navLinks.classList.toggle('active');
-        hamburger.classList.toggle('active');
+        if (navLinks && hamburger) {
+          navLinks.classList.toggle('active');
+          hamburger.classList.toggle('active');
+        }
       }
       function closeMobileMenu() {
         var navLinks = document.getElementById('nav-links');
         var hamburger = document.getElementById('hamburger');
-        navLinks.classList.remove('active');
-        hamburger.classList.remove('active');
+        if (navLinks && hamburger) {
+          navLinks.classList.remove('active');
+          hamburger.classList.remove('active');
+        }
       }
+
+      document.addEventListener('DOMContentLoaded', function() {
+        var hamburger = document.getElementById('hamburger');
+        if (hamburger) {
+          hamburger.addEventListener('click', toggleMobileMenu);
+        }
+      });
     </script>
 
     <!-- Chat Input Demo Interface -->
@@ -2328,11 +2339,38 @@
         if(e.target === this) closeBlogModal();
     });
 
-    // ADMIN SYSTEM
-    let currentBlogs = JSON.parse(localStorage.getItem('kds_blogs')) || Object.keys(blogData).map(title => ({
-        title: title,
-        ...blogData[title]
-    }));
+    // ADMIN SYSTEM - Load from blogs.json
+    let currentBlogs = [];
+
+    async function loadBlogs() {
+        try {
+            const response = await fetch('/blogs.json');
+            if (response.ok) {
+                const blogsFromFile = await response.json();
+                currentBlogs = blogsFromFile;
+            } else {
+                currentBlogs = Object.keys(blogData).map(title => ({
+                    title: title,
+                    ...blogData[title]
+                }));
+            }
+        } catch (e) {
+            currentBlogs = Object.keys(blogData).map(title => ({
+                title: title,
+                ...blogData[title]
+            }));
+        }
+
+        const adminBlogs = JSON.parse(localStorage.getItem('kds_blogs'));
+        if (adminBlogs && adminBlogs.length > 0) {
+            currentBlogs = [...currentBlogs, ...adminBlogs.filter(b => !currentBlogs.find(cb => cb.title === b.title))];
+        }
+
+        renderSiteBlogs();
+        renderAdminBlogList();
+    }
+
+    loadBlogs();
 
     let editingBlogIndex = -1;
 
@@ -2583,9 +2621,6 @@
             imageInput.addEventListener('blur', loadImagePreview);
         }
     });
-
-    // Initial Render
-    renderSiteBlogs();
 
     function openAboutModal() {
         document.getElementById('about-modal').classList.add('open');
