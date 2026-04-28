@@ -1842,23 +1842,22 @@
                     </div>
                 </div>
                 <div>
-                    <label style="display: block; margin-bottom: 10px; color: var(--text-secondary); font-size: 0.85rem; font-weight: 600;">BLOG MEDIA (IMAGE OR VIDEO)</label>
+                    <label style="display: block; margin-bottom: 10px; color: var(--text-secondary); font-size: 0.85rem; font-weight: 600;">BLOG MEDIA (IMAGE OR VIDEO URL)</label>
                     <div style="display: flex; flex-direction: column; gap: 10px;">
                         <div style="display: flex; gap: 10px;">
-                            <input type="text" id="edit-blog-image" placeholder="/assets/images/blog/filename.jpg" style="flex-grow: 1; padding: 14px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: white; outline: none;">
+                            <input type="text" id="edit-blog-image" placeholder="https://example.com/image.jpg" style="flex-grow: 1; padding: 14px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: white; outline: none;">
                             <button onclick="generateBlogImage()" title="Pick Random Image" style="background: rgba(255,255,255,0.05); border: none; color: white; padding: 0 15px; border-radius: 12px; cursor: pointer;">🖼️</button>
                         </div>
                         <div style="display: flex; align-items: center; gap: 15px;">
                             <label class="admin-btn" style="flex-grow: 1; text-align: center; padding: 12px; display: block;">
-                                📤 Preview File
-                                <input type="file" id="upload-blog-image" accept="image/*,video/*" style="display: none;" onchange="handleMediaUpload(event)">
+                                📸 Load Image Preview
+                                <input type="text" id="preview-url-input" placeholder="Paste image URL" style="display: none;">
                             </label>
                             <div id="image-preview-container" style="width: 50px; height: 50px; border-radius: 8px; overflow: hidden; background: rgba(255,255,255,0.05); display: none;">
                                 <img id="edit-blog-preview" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-                                <video id="edit-blog-preview-video" style="width: 100%; height: 100%; object-fit: cover; display: none;"></video>
                             </div>
                         </div>
-                        <p style="margin: 0; color: var(--text-secondary); font-size: 0.7rem;">Images auto-compress to 1200px. Videos max 5MB. Uploads commit directly to GitHub.</p>
+                        <p style="margin: 0; color: var(--text-secondary); font-size: 0.7rem;">Paste image or video URL. Use Unsplash, Pexels, or host on your own server.</p>
                     </div>
                 </div>
             </div>
@@ -1867,7 +1866,7 @@
                 <textarea id="edit-blog-body" style="width: 100%; height: 280px; padding: 20px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: white; resize: vertical; outline: none; line-height: 1.6; font-size: 1rem;"></textarea>
                 <button onclick="generateBlogBody()" class="aai-submit-btn" style="width: auto; padding: 10px 20px; margin-top: 15px; font-size: 0.85rem; background: rgba(168, 85, 247, 0.15); color: var(--accent-purple); border: 1px solid rgba(168, 85, 247, 0.2);">✨ Generate Full Article Content</button>
             </div>
-            <button onclick="saveBlog.call(this, event)" class="aai-submit-btn" style="margin-top: 10px; font-size: 1.1rem; padding: 18px;">Save & Publish to Site</button>
+            <button onclick="saveBlog()" class="aai-submit-btn" style="margin-top: 10px; font-size: 1.1rem; padding: 18px;">Save & Publish to Site</button>
         </div>
     </div>
   </div>
@@ -2125,17 +2124,29 @@
 
     let editingBlogIndex = -1;
 
+    function slugifyBlog(title) {
+        return title
+            .toLowerCase()
+            .trim()
+            .replace(/[^\w\s-]/g, '')
+            .replace(/\s+/g, '-')
+            .replace(/-+/g, '-');
+    }
+
     function renderSiteBlogs() {
         const grid = document.getElementById('blog-grid');
         if (!grid) return;
-        
+
         grid.innerHTML = currentBlogs.map((blog, index) => {
             const isVid = blog.image.includes('data:video/') || blog.image.match(/\.(mp4|webm|ogg)$/i);
+            const blogSlug = slugifyBlog(blog.title);
+            const blogUrl = `/blog/${blogSlug}/`;
+
             return `
-            <div onclick="openBlogModalByIndex(${index})" class="blog-card" style="cursor: pointer;">
+            <a href="${blogUrl}" class="blog-card" style="cursor: pointer; text-decoration: none; color: inherit;">
                 <div class="blog-image-wrapper">
-                    ${isVid ? 
-                        `<video src="${blog.image}" class="blog-image" style="object-fit: cover;"></video><div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.2); font-size: 2rem;">▶️</div>` : 
+                    ${isVid ?
+                        `<video src="${blog.image}" class="blog-image" style="object-fit: cover;"></video><div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.2); font-size: 2rem;">▶️</div>` :
                         `<img src="${blog.image}" alt="${blog.title}" class="blog-image" loading="lazy">`
                     }
                 </div>
@@ -2150,7 +2161,7 @@
                     <h3>${blog.title}</h3>
                     <p>${blog.description || blog.content.replace(/<[^>]*>/g, '').substring(0, 120)}...</p>
                 </div>
-            </div>
+            </a>
             `;
         }).join('');
     }
@@ -2269,48 +2280,14 @@
         }
     }
 
-    let pendingFileUpload = null;
-
-    async function saveBlog() {
+    function saveBlog() {
         const title = document.getElementById('edit-blog-title').value;
-        let image = document.getElementById('edit-blog-image').value;
+        const image = document.getElementById('edit-blog-image').value;
         let body = document.getElementById('edit-blog-body').value.trim();
-        const saveBtn = event?.target;
 
         if (!title || !image || !body) {
             alert("Please fill in all fields.");
             return;
-        }
-
-        // Upload file to GitHub if there's a pending upload
-        if (pendingFileUpload) {
-            if (saveBtn) saveBtn.disabled = true;
-            if (saveBtn) saveBtn.textContent = '⏳ Uploading...';
-
-            try {
-                const uploadRes = await fetch('/api/upload-blog', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(pendingFileUpload)
-                });
-
-                if (!uploadRes.ok) {
-                    const error = await uploadRes.json();
-                    alert(`Upload failed: ${error.error}`);
-                    if (saveBtn) saveBtn.disabled = false;
-                    if (saveBtn) saveBtn.textContent = 'Save & Publish to Site';
-                    return;
-                }
-
-                const uploadData = await uploadRes.json();
-                image = uploadData.path;
-                pendingFileUpload = null;
-            } catch (err) {
-                alert(`Upload error: ${err.message}`);
-                if (saveBtn) saveBtn.disabled = false;
-                if (saveBtn) saveBtn.textContent = 'Save & Publish to Site';
-                return;
-            }
         }
 
         // Auto-convert plain text to HTML if no tags are detected
@@ -2335,8 +2312,6 @@
         }
 
         saveToStorage();
-        if (saveBtn) saveBtn.disabled = false;
-        if (saveBtn) saveBtn.textContent = 'Save & Publish to Site';
         hideBlogForm();
     }
 
@@ -2372,98 +2347,30 @@
         `;
     }
 
-    function compressImage(file, callback) {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-            const img = new Image();
-            img.onload = function() {
-                const canvas = document.createElement('canvas');
-                const MAX_WIDTH = 1200;
-                let width = img.width;
-                let height = img.height;
+    function loadImagePreview() {
+        const url = document.getElementById('edit-blog-image').value;
+        if (!url) return;
 
-                if (width > MAX_WIDTH) {
-                    height = (height * MAX_WIDTH) / width;
-                    width = MAX_WIDTH;
-                }
-
-                canvas.width = width;
-                canvas.height = height;
-                const ctx = canvas.getContext('2d');
-                ctx.drawImage(img, 0, 0, width, height);
-
-                canvas.toBlob(function(blob) {
-                    callback(blob);
-                }, 'image/jpeg', 0.8);
-            };
-            img.src = e.target.result;
+        const img = new Image();
+        img.onload = function() {
+            document.getElementById('edit-blog-preview').src = url;
+            document.getElementById('edit-blog-preview').style.display = 'block';
+            document.getElementById('image-preview-container').style.display = 'block';
         };
-        reader.readAsDataURL(file);
+        img.onerror = function() {
+            alert('Could not load image. Check the URL is correct.');
+        };
+        img.src = url;
     }
 
-    function handleMediaUpload(event) {
-        const file = event.target.files[0];
-        if (!file) return;
-
-        const filename = file.name.toLowerCase().replace(/[^a-z0-9.-]/g, '-').replace(/--+/g, '-');
-        const isVideo = file.type.startsWith('video/');
-
-        if (isVideo) {
-            // For videos, check file size directly
-            const MAX_VIDEO_SIZE = 5 * 1024 * 1024;
-            if (file.size > MAX_VIDEO_SIZE) {
-                alert(`Video too large (${(file.size / 1024 / 1024).toFixed(1)}MB). Max 5MB allowed.`);
-                event.target.value = '';
-                return;
-            }
-
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                const base64Data = e.target.result.split(',')[1];
-                pendingFileUpload = {
-                    file: base64Data,
-                    filename: filename,
-                    fileType: file.type
-                };
-                document.getElementById('edit-blog-image').value = `${filename} (ready to upload)`;
-                document.getElementById('edit-blog-preview').style.display = 'none';
-                document.getElementById('edit-blog-preview-video').style.display = 'block';
-                document.getElementById('edit-blog-preview-video').src = URL.createObjectURL(file);
-                document.getElementById('image-preview-container').style.display = 'block';
-            };
-            reader.readAsDataURL(file);
-        } else {
-            // For images, compress first
-            compressImage(file, function(compressedBlob) {
-                const MAX_SIZE = 3 * 1024 * 1024;
-                if (compressedBlob.size > MAX_SIZE) {
-                    alert(`Compressed file still too large (${(compressedBlob.size / 1024 / 1024).toFixed(1)}MB). Try a smaller image.`);
-                    event.target.value = '';
-                    return;
-                }
-
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    const base64Data = e.target.result.split(',')[1];
-                    const originalSize = (file.size / 1024 / 1024).toFixed(1);
-                    const compressedSize = (compressedBlob.size / 1024 / 1024).toFixed(2);
-
-                    pendingFileUpload = {
-                        file: base64Data,
-                        filename: filename,
-                        fileType: 'image/jpeg'
-                    };
-
-                    document.getElementById('edit-blog-image').value = `${filename} (${compressedSize}MB, ready to upload)`;
-                    document.getElementById('edit-blog-preview').src = e.target.result;
-                    document.getElementById('edit-blog-preview').style.display = 'block';
-                    document.getElementById('edit-blog-preview-video').style.display = 'none';
-                    document.getElementById('image-preview-container').style.display = 'block';
-                };
-                reader.readAsDataURL(compressedBlob);
-            });
+    // Add event listener to image input to preview when user pastes URL
+    document.addEventListener('DOMContentLoaded', function() {
+        const imageInput = document.getElementById('edit-blog-image');
+        if (imageInput) {
+            imageInput.addEventListener('change', loadImagePreview);
+            imageInput.addEventListener('blur', loadImagePreview);
         }
-    }
+    });
 
     // Initial Render
     renderSiteBlogs();

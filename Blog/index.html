@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Post | Kemper Design Services</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+        .blog-post-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 24px;
+        }
+        .blog-post-header {
+            margin-bottom: 50px;
+        }
+        .blog-post-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: white;
+        }
+        .blog-post-meta {
+            display: flex;
+            gap: 20px;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 30px;
+        }
+        .blog-post-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 16px;
+            margin-bottom: 50px;
+        }
+        .blog-post-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+        }
+        .blog-post-content p {
+            margin-bottom: 20px;
+        }
+        .blog-post-content h3 {
+            font-size: 1.5rem;
+            margin: 40px 0 20px 0;
+            color: var(--accent-1);
+        }
+        .back-button {
+            display: inline-block;
+            margin-bottom: 40px;
+            color: var(--accent-1);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        .back-button:hover {
+            color: var(--accent-2);
+            transform: translateX(-5px);
+        }
+        .loading {
+            text-align: center;
+            padding: 100px 20px;
+            color: var(--text-secondary);
+        }
+        .not-found {
+            text-align: center;
+            padding: 100px 20px;
+        }
+        .not-found h2 {
+            color: white;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body style="background: var(--bg-primary);">
+    <div class="blog-post-container">
+        <a href="/" class="back-button">← Back to Home</a>
+        <div id="blog-content">
+            <div class="loading">Loading blog post...</div>
+        </div>
+    </div>
+
+    <script>
+        // Get blog slug from URL
+        function getBlogSlug() {
+            const path = window.location.pathname;
+            const match = path.match(/\/blog\/([^/]+)/);
+            return match ? decodeURIComponent(match[1]) : null;
+        }
+
+        // Load blog data from localStorage
+        function loadBlogData() {
+            const blogsJson = localStorage.getItem('kds_blogs');
+            return blogsJson ? JSON.parse(blogsJson) : [];
+        }
+
+        // Slugify text
+        function slugify(text) {
+            return text
+                .toLowerCase()
+                .trim()
+                .replace(/[^\w\s-]/g, '')
+                .replace(/\s+/g, '-')
+                .replace(/-+/g, '-');
+        }
+
+        // Render blog post
+        function renderBlogPost() {
+            const slug = getBlogSlug();
+            if (!slug) {
+                renderNotFound();
+                return;
+            }
+
+            const blogs = loadBlogData();
+            const blog = blogs.find(b => slugify(b.title) === slug);
+
+            if (!blog) {
+                renderNotFound();
+                return;
+            }
+
+            // Update page title and meta
+            document.title = `${blog.title} | Kemper Design Services`;
+
+            // Update Open Graph meta tags
+            const ogMeta = {
+                'og:title': blog.title,
+                'og:description': blog.description,
+                'og:image': blog.image
+            };
+
+            for (const [property, content] of Object.entries(ogMeta)) {
+                let meta = document.querySelector(`meta[property="${property}"]`);
+                if (!meta) {
+                    meta = document.createElement('meta');
+                    meta.setAttribute('property', property);
+                    document.head.appendChild(meta);
+                }
+                meta.setAttribute('content', content);
+            }
+
+            // Render HTML
+            const contentDiv = document.getElementById('blog-content');
+            contentDiv.innerHTML = `
+                <div class="blog-post-header">
+                    <h1 class="blog-post-title">${blog.title}</h1>
+                    <div class="blog-post-meta">
+                        <span>By ${blog.author}</span>
+                        <span>${blog.date}</span>
+                        <span>${blog.readTime}</span>
+                    </div>
+                </div>
+                ${blog.image ? `<img src="${blog.image}" alt="${blog.title}" class="blog-post-image">` : ''}
+                <div class="blog-post-content">
+                    ${blog.content}
+                </div>
+            `;
+        }
+
+        function renderNotFound() {
+            const contentDiv = document.getElementById('blog-content');
+            contentDiv.innerHTML = `
+                <div class="not-found">
+                    <h2>Blog Post Not Found</h2>
+                    <p>The blog post you're looking for doesn't exist.</p>
+                    <a href="/" style="color: var(--accent-1); text-decoration: none;">← Back to Home</a>
+                </div>
+            `;
+        }
+
+        // Render on page load
+        renderBlogPost();
+    </script>
+</body>
+</html>
