@@ -372,7 +372,7 @@
                     </div>
                 </div>
                 <a href="apps.html" onclick="closeMobileMenu()" style="font-weight:600; color:#f59e0b;">Our Apps</a>
-                <a href="certifications.html" onclick="closeMobileMenu()" style="font-weight:600; color:#8b5cf6;">Certifications</a>
+                <a href="javascript:void(0)" onclick="openCertificationsModal(); closeMobileMenu();" style="font-weight:600; color:#8b5cf6;">Certifications</a>
                 <a href="#consulting" onclick="closeMobileMenu()">Consulting</a>
             </div>
             <div class="nav-cta">
@@ -1254,6 +1254,43 @@
     </div>
   </div>
 
+  <!-- Certifications Modal -->
+  <div class="aai-modal" id="certifications-modal">
+    <div class="aai-inner glass" style="padding: 60px; overflow-y: auto; max-width: 1100px; max-height: 85vh; border-radius: 28px;">
+      <button class="aai-close" onclick="closeCertificationsModal()" style="z-index: 10; background: rgba(0,0,0,0.5); width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; top: 20px; right: 20px; color: white; position: absolute;">✕</button>
+
+      <h2 style="font-size: 2.4rem; font-weight: 700; margin-bottom: 16px; color: white;">Certifications & Digital Credentials</h2>
+      <p style="color: var(--text-secondary); margin-bottom: 48px; line-height: 1.7;">Demonstrated expertise across AI systems, cloud platforms, instructional design, and technical content development, validated through industry-recognized certifications and hands-on implementation.</p>
+
+      <!-- AI & Automation Section -->
+      <h3 style="font-size: 1.6rem; color: var(--accent-1); margin-bottom: 12px; margin-top: 40px;">AI, Automation & Systems</h3>
+      <p style="color: var(--text-secondary); margin-bottom: 24px; font-size: 0.95rem;"><strong>AI Application & Automation Developer (Certified)</strong> — Hands-on development of AI-powered systems including LLM workflows, automation pipelines, and intelligent agents.</p>
+      <div class="badges-grid" id="ai-badges" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 20px; margin-bottom: 40px;"></div>
+
+      <!-- Cloud & Infrastructure Section -->
+      <h3 style="font-size: 1.6rem; color: var(--accent-1); margin-bottom: 12px; margin-top: 40px;">Cloud & Infrastructure</h3>
+      <p style="color: var(--text-secondary); margin-bottom: 24px; font-size: 0.95rem;"><strong>AWS Cloud Practitioner</strong> — Architecture, Security, Deployment, Economics</p>
+      <div class="badges-grid" id="cloud-badges" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 20px; margin-bottom: 40px;"></div>
+
+      <!-- Instructional Design Section -->
+      <h3 style="font-size: 1.6rem; color: var(--accent-1); margin-bottom: 12px; margin-top: 40px;">Instructional Design</h3>
+      <p style="color: var(--text-secondary); margin-bottom: 24px; font-size: 0.95rem;">Agile Instructional Design, Accessible Learning, L&D Professional Development, and learning platform expertise.</p>
+      <div class="badges-grid" id="id-badges" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 20px; margin-bottom: 40px;"></div>
+
+      <!-- eLearning Tools Section -->
+      <h3 style="font-size: 1.6rem; color: var(--accent-1); margin-bottom: 12px; margin-top: 40px;">eLearning Tools & Platforms</h3>
+      <p style="color: var(--text-secondary); margin-bottom: 24px; font-size: 0.95rem;">Adobe Captivate (Certified), Articulate Storyline, Adobe Creative Suite, Microsoft Office, and Moodle platform expertise.</p>
+      <div class="badges-grid" id="elearning-badges" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 20px; margin-bottom: 40px;"></div>
+
+      <!-- CTA -->
+      <div style="text-align: center; margin-top: 60px; padding-top: 40px; border-top: 1px solid rgba(139, 92, 246, 0.2);">
+        <h3 style="font-size: 1.5rem; color: white; margin-bottom: 16px;">Ready to Build Your Next Project?</h3>
+        <p style="color: var(--text-secondary); margin-bottom: 24px;">Let's discuss how our expertise can help you achieve your goals.</p>
+        <a href="javascript:void(0)" onclick="closeCertificationsModal(); openContactModal();" class="aai-submit-btn" style="text-align: center; text-decoration: none; display: inline-block; cursor: pointer; padding: 18px 32px; border-radius: 12px; font-weight: 600;">Schedule a Consultation</a>
+      </div>
+    </div>
+  </div>
+
   <script>
     var currentServiceName = null;
 
@@ -1380,6 +1417,120 @@
     
     document.getElementById('service-modal').addEventListener('click', function(e) {
         if(e.target === this) closeServiceModal();
+    });
+
+    // Certifications Modal Functions
+    const badgeFiles = {
+        cloud: [
+            'AWS Cloud Practitioner 2020 Cloud Economics.png',
+            'AWS Cloud Practitioner 2020 Cloud and the Value Proposition.png',
+            'AWS Cloud Practitioner 2020 Security Support Resources.png',
+            'AWS Cloud Practitioner 2022 Access Management.png',
+            'AWS Cloud Practitioner 2022 Cloud Architecture Design Principles.png',
+            'AWS Cloud Practitioner 2022 Cloud Deployment and Operation.png',
+            'AWS Cloud Practitioner 2022 Cloud Economics.png',
+            'AWS Cloud Practitioner 2022 Cloud Security and Compliance.png',
+            'AWS Cloud Practitioner 2022 Cloud and the Value Proposition.png',
+            'AWS Cloud Practitioner 2022 Core AWS Services.png',
+            'AWS Cloud Practitioner 2022 Technical Essentials Part 1.png',
+            'AWS Cloud Practitioner 2022 Technical Essentials Part 2.png',
+            'AWS Foundation Practitioner Hands-on Labs.png',
+            'AWS Solutions Architect Associate 2022 Architecture and Tools.png',
+            'Cloud Computing Fundamentals Cloud Virtualization and Data Centers.png',
+            'Cloud Computing Fundamentals Considerations.png',
+            'Cloud Computing Fundamentals Introduction.png'
+        ],
+        id: [
+            'Agile Instructional Design.png',
+            'Become an Instructional Designer.png',
+            'Become an Instructional Designer - Learning and Development.png',
+            'Behavior Change.png',
+            'Business Acumen for L&D Professionals.png',
+            'Creating an Inclusive Learning Environment.png',
+            'Designing a Course-Facilitated Experience.png',
+            'Designing for Accessibility.png',
+            'Designing Microlearning.png',
+            'Designing, Developing, and Delivering Interactive Learning.png',
+            'Developing Your Coaching Skills.png',
+            'Essentials of Instructional Design.png',
+            'Facilitation Best Practices.png',
+            'Front-End Analysis and Needs Assessment.png',
+            'Gamification in Learning.png',
+            'Instructional Design Foundations.png',
+            'Instructional Design for eLearning.png',
+            'Mobile Learning Design.png',
+            'Multimedia Learning.png',
+            'Project Management for Learning and Development.png'
+        ],
+        elearning: [
+            'Adobe Captivate - Advanced Interactions.png',
+            'Adobe Captivate - Advanced Responsive Projects.png',
+            'Adobe Captivate - Advanced Videos.png',
+            'Adobe Captivate - Animations.png',
+            'Adobe Captivate - Audio.png',
+            'Adobe Captivate - Branching and Conditional Navigation.png',
+            'Adobe Captivate - Buttons.png',
+            'Adobe Captivate - Using Captions and Closed Captions.png',
+            'Adobe Captivate - Drag and Drop.png',
+            'Adobe Captivate - Drawing Objects.png',
+            'Adobe Captivate - Interactions.png',
+            'Adobe Captivate - Keyboard Shortcuts.png',
+            'Adobe Captivate - Main User Interface.png',
+            'Adobe Captivate - Multistate Objects.png',
+            'Adobe Captivate - Quiz Slides.png',
+            'Adobe Captivate - Responsive Projects.png',
+            'Adobe Captivate - Smart Shapes.png',
+            'Adobe Captivate - Video Demo.png',
+            'Adobe Captivate Certified Associate.png',
+            'Articulate Storyline - Essentials.png',
+            'Advanced Google Workspace.png',
+            'Microsoft Office - Advanced Word.png',
+            'Moodle Essentials.png'
+        ]
+    };
+
+    function openCertificationsModal() {
+        const modal = document.getElementById('certifications-modal');
+        modal.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        populateBadges();
+    }
+
+    function closeCertificationsModal() {
+        const modal = document.getElementById('certifications-modal');
+        modal.classList.remove('open');
+        document.body.style.overflow = '';
+    }
+
+    function populateBadges() {
+        const badgeDir = 'assets/images/badges/';
+        const containers = {
+            'ai-badges': [],
+            'cloud-badges': badgeFiles.cloud,
+            'id-badges': badgeFiles.id,
+            'elearning-badges': badgeFiles.elearning
+        };
+
+        for (const [containerId, files] of Object.entries(containers)) {
+            const container = document.getElementById(containerId);
+            if (!container) continue;
+            container.innerHTML = '';
+
+            files.forEach(file => {
+                const label = file.replace(/\.png$/i, '').substring(0, 35);
+                const badgeHTML = `
+                    <div style="display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center; padding: 10px; border-radius: 12px; transition: all 0.3s ease; background: rgba(139, 92, 246, 0.05); border: 1px solid rgba(139, 92, 246, 0.1);">
+                        <img src="${badgeDir}${file}" alt="${file}" style="width: 100%; height: 100px; object-fit: contain; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));">
+                        <span style="font-size: 0.75rem; color: var(--text-secondary); line-height: 1.3;">${label}</span>
+                    </div>
+                `;
+                container.innerHTML += badgeHTML;
+            });
+        }
+    }
+
+    document.getElementById('certifications-modal').addEventListener('click', function(e) {
+        if(e.target === this) closeCertificationsModal();
     });
   </script>
 
@@ -2508,6 +2659,20 @@
                 blogGrid.style.flexWrap = 'nowrap';
                 blogGrid.style.overflowX = 'auto';
             }
+        });
+    }
+
+    // Handle certifications modal from URL fragment
+    window.addEventListener('hashchange', function() {
+        if (window.location.hash === '#certifications') {
+            openCertificationsModal();
+        }
+    });
+
+    // Check on page load
+    if (window.location.hash === '#certifications') {
+        document.addEventListener('DOMContentLoaded', function() {
+            openCertificationsModal();
         });
     }
   </script>
