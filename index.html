@@ -1858,7 +1858,7 @@
                                 <video id="edit-blog-preview-video" style="width: 100%; height: 100%; object-fit: cover; display: none;"></video>
                             </div>
                         </div>
-                        <p style="margin: 0; color: var(--text-secondary); font-size: 0.7rem;">Images auto-compress and resize to 1200px. Videos max 3MB. Uploads commit directly to GitHub.</p>
+                        <p style="margin: 0; color: var(--text-secondary); font-size: 0.7rem;">Images auto-compress to 1200px. Videos max 5MB. Uploads commit directly to GitHub.</p>
                     </div>
                 </div>
             </div>
@@ -2410,9 +2410,9 @@
 
         if (isVideo) {
             // For videos, check file size directly
-            const MAX_VIDEO_SIZE = 3 * 1024 * 1024;
+            const MAX_VIDEO_SIZE = 5 * 1024 * 1024;
             if (file.size > MAX_VIDEO_SIZE) {
-                alert(`Video too large (${(file.size / 1024 / 1024).toFixed(1)}MB). Max 3MB allowed.`);
+                alert(`Video too large (${(file.size / 1024 / 1024).toFixed(1)}MB). Max 5MB allowed.`);
                 event.target.value = '';
                 return;
             }

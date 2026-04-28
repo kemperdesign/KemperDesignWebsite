@@ -1,0 +1,8 @@
+{
+  "functions": {
+    "api/upload-blog.js": {
+      "memory": 1024,
+      "maxDuration": 60
+    }
+  }
+}
