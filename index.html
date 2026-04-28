@@ -1398,23 +1398,11 @@
             img.style.backgroundImage = "none";
             video.style.opacity = "1";
             video.style.pointerEvents = "auto";
-            video.muted = true;
-            video.volume = 0;
 
             var source = document.getElementById('sm-video-source');
             source.src = data.video;
             video.load();
-
-            // Remove any existing ended event listeners to prevent duplicates
-            video.onended = null;
-
-            // Play the video once and stop
-            video.play().catch(function(err) {
-                console.log("Video play failed:", err);
-                // Show fallback image if video fails
-                img.style.backgroundImage = "url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=600&q=80')";
-                video.style.opacity = "0";
-            });
+            video.play();
 
             // When video ends, pause it and keep showing the last frame
             video.onended = function() {
