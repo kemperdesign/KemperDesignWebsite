@@ -203,7 +203,13 @@
             </button>
             <div class="nav-links" id="nav-links">
                 <a href="index.html" onclick="closeMobileMenu()">Home</a>
-                <a href="index.html#about-us" onclick="closeMobileMenu()">About</a>
+                <div class="dropdown">
+                    <button class="dropbtn">About <span class="arrow-down">▼</span></button>
+                    <div class="dropdown-content glass">
+                        <a href="index.html#about-us" onclick="closeMobileMenu()">About Us</a>
+                        <a href="index.html#certifications" onclick="closeMobileMenu()" style="color:#8b5cf6;">Certifications</a>
+                    </div>
+                </div>
                 <div class="dropdown">
                     <button class="dropbtn">Services <span class="arrow-down">▼</span></button>
                     <div class="dropdown-content glass">
@@ -258,7 +264,6 @@
                     </div>
                 </div>
                 <a href="apps.html" style="font-weight:600; color:#f59e0b;" onclick="closeMobileMenu()">Our Apps</a>
-                <a href="index.html#certifications" style="font-weight:600; color:#8b5cf6;" onclick="closeMobileMenu()">Certifications</a>
                 <a href="index.html#consulting" onclick="closeMobileMenu()">Consulting</a>
             </div>
             <div class="nav-cta">

@@ -317,8 +317,13 @@
             </button>
             <div class="nav-links" id="nav-links">
                 <a href="#home" onclick="closeMobileMenu()">Home</a>
-                <a href="#about-us" onclick="closeMobileMenu()">About</a>
-                <a href="javascript:void(0)" onclick="openCertificationsModal(); closeMobileMenu();" style="font-weight:600; color:#8b5cf6;">Certifications</a>
+                <div class="dropdown">
+                    <button class="dropbtn">About <span class="arrow-down">▼</span></button>
+                    <div class="dropdown-content glass">
+                        <a href="#about-us" onclick="closeMobileMenu()">About Us</a>
+                        <a href="javascript:void(0)" onclick="openCertificationsModal(); closeMobileMenu();" style="color:#8b5cf6;">Certifications</a>
+                    </div>
+                </div>
                 <div class="dropdown">
                     <button class="dropbtn">Services <span class="arrow-down">▼</span></button>
                     <div class="dropdown-content glass">
