@@ -269,12 +269,13 @@ h1 .text-gradient {
 
 /* Floating Logo under Menu */
 .hero-logo-container {
-    position: absolute;
-    top: 90px;
-    left: 50%;
-    transform: translateX(-50%);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-top: 120px;
+    margin-bottom: 40px;
     z-index: 50;
-    opacity: 0.8;
+    opacity: 0.9;
 }
 
 .hero-logo-img {
