@@ -320,7 +320,7 @@
                 <div class="dropdown">
                     <button class="dropbtn">About <span class="arrow-down">▼</span></button>
                     <div class="dropdown-content glass">
-                        <a href="#about-us" onclick="closeMobileMenu()">About Us</a>
+                        <a href="javascript:void(0)" onclick="openAboutModal(); closeMobileMenu()">About Damian</a>
                         <a href="javascript:void(0)" onclick="openCertificationsModal(); closeMobileMenu();" style="color:#8b5cf6;">Certifications</a>
                     </div>
                 </div>
@@ -409,23 +409,71 @@
                     <div class="mockup-title">We Build Custom Applications</div>
                 </div>
                 <div class="mockup-body mockup-carousel">
-                    <img src="assets/images/food truck app.png" alt="AI AutoScheduler Workflow" class="mockup-image mockup-image-1">
+                    <img src="assets/images/food truck app.png" alt="Food Truck Dashboard" class="mockup-image mockup-image-1">
                     <img src="assets/images/KDS Lab Studio.png" alt="KDS Lab Studio" class="mockup-image mockup-image-2">
-                    <img src="assets/images/DriveMirror.png" alt="DriveMirror" class="mockup-image mockup-image-3">
+                    <img src="assets/images/drivemirror-mockup.png" alt="DriveMirror Backup" class="mockup-image mockup-image-3">
+                    <img src="assets/images/KDS Free Memory.png" alt="KDS Memory Free" class="mockup-image mockup-image-4">
+                    <img src="assets/images/kiosk-mockup.png" alt="KDS Kiosk Policy Center" class="mockup-image mockup-image-5">
+                    <img src="assets/images/KDS MSP Portal.png" alt="KDS MSP Portal" class="mockup-image mockup-image-6">
                 </div>
-                <!-- Floating elements -->
+                <!-- Floating elements (Dynamic Text Overlays) -->
                 <div class="float-card float-1 glass">
-                    <div class="fc-icon">📉</div>
-                    <div>
-                        <div class="fc-title">15h Saved</div>
-                        <div class="fc-desc">Every Week</div>
+                    <div class="fc-icon">📱</div>
+                    <div class="fc-text-group">
+                        <div class="mockup-text-1">
+                            <div class="fc-title">Food Truck App</div>
+                            <div class="fc-desc">Live Order Logistics</div>
+                        </div>
+                        <div class="mockup-text-2">
+                            <div class="fc-title">KDS Lab Studio</div>
+                            <div class="fc-desc">AI Creative Suite</div>
+                        </div>
+                        <div class="mockup-text-3">
+                            <div class="fc-title">DriveMirror</div>
+                            <div class="fc-desc">Encrypted Cloud Backup</div>
+                        </div>
+                        <div class="mockup-text-4">
+                            <div class="fc-title">KDS Memory Free</div>
+                            <div class="fc-desc">Smart RAM Recovery</div>
+                        </div>
+                        <div class="mockup-text-5">
+                            <div class="fc-title">Kiosk App</div>
+                            <div class="fc-desc">Secure Terminal Hub</div>
+                        </div>
+                        <div class="mockup-text-6">
+                            <div class="fc-title">MSP Portal</div>
+                            <div class="fc-desc">Infrastructure Control</div>
+                        </div>
                     </div>
                 </div>
+
                 <div class="float-card float-2 glass">
                     <div class="fc-icon">⚡</div>
-                    <div>
-                        <div class="fc-title">24/7 Running</div>
-                        <div class="fc-desc">AI Agents active</div>
+                    <div class="fc-text-group">
+                        <div class="mockup-text-1">
+                            <div class="fc-title">Food Truck App</div>
+                            <div class="fc-desc">Live Order Logistics</div>
+                        </div>
+                        <div class="mockup-text-2">
+                            <div class="fc-title">KDS Lab Studio</div>
+                            <div class="fc-desc">AI Creative Suite</div>
+                        </div>
+                        <div class="mockup-text-3">
+                            <div class="fc-title">DriveMirror</div>
+                            <div class="fc-desc">Encrypted Cloud Backup</div>
+                        </div>
+                        <div class="mockup-text-4">
+                            <div class="fc-title">KDS Memory Free</div>
+                            <div class="fc-desc">Smart RAM Recovery</div>
+                        </div>
+                        <div class="mockup-text-5">
+                            <div class="fc-title">Kiosk App</div>
+                            <div class="fc-desc">Secure Terminal Hub</div>
+                        </div>
+                        <div class="mockup-text-6">
+                            <div class="fc-title">MSP Portal</div>
+                            <div class="fc-desc">Infrastructure Control</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -893,7 +941,7 @@
                 <h4 class="footer-title">QUICK LINKS</h4>
                 <div class="footer-links">
                     <a href="/">Home</a>
-                    <a href="#about-us">About Us</a>
+                    <a href="javascript:void(0)" onclick="openAboutModal()">About Us</a>
                     <a href="javascript:void(0)" onclick="openFaqModal()">FAQ</a>
                     <a href="javascript:void(0)" onclick="openTermsModal()">Terms &amp; Conditions</a>
                     <a href="javascript:void(0)" onclick="openPrivacyModal()">Privacy Policy</a>
@@ -985,7 +1033,7 @@
       <div class="aai-body" id="aai-body">
         <!-- Step 1 -->
         <div class="aai-step" data-key="industry">
-          <div class="aai-cat">YOUR BUSINESS</div>
+          <div class="aai-cat">1 of 5 — YOUR BUSINESS</div>
           <h2 class="aai-q">Tell us about your business to tailor results</h2>
           <div class="aai-grid">
             <button class="aai-chip" data-val="Healthcare">🏥 Healthcare</button>
@@ -1002,7 +1050,7 @@
         </div>
         <!-- Step 2 -->
         <div class="aai-step" data-key="bottleneck">
-          <div class="aai-cat">OPERATIONS</div>
+          <div class="aai-cat">2 of 5 — OPERATIONS</div>
           <h2 class="aai-q">Biggest operational headache right now?</h2>
           <div class="aai-list">
             <button class="aai-opt" data-val="Manual data entry">Manual data entry and copy-paste work</button>
@@ -1014,7 +1062,7 @@
         </div>
         <!-- Step 3 -->
         <div class="aai-step" data-key="team_size">
-          <div class="aai-cat">YOUR TEAM</div>
+          <div class="aai-cat">3 of 5 — YOUR TEAM</div>
           <h2 class="aai-q">How many people are on your team?</h2>
           <div class="aai-list">
             <button class="aai-opt" data-val="Solo">Just me (solo operator)</button>
@@ -1025,7 +1073,7 @@
         </div>
         <!-- Step 4 -->
         <div class="aai-step" data-key="ai_readiness">
-          <div class="aai-cat">AI READINESS</div>
+          <div class="aai-cat">4 of 5 — AI READINESS</div>
           <h2 class="aai-q">Current relationship with AI tools?</h2>
           <div class="aai-list">
             <button class="aai-opt" data-val="Daily use">Using AI tools daily</button>
@@ -1036,7 +1084,7 @@
         </div>
         <!-- Step 5 -->
         <div class="aai-step aai-step--contact" data-key="contact">
-          <div class="aai-cat">YOUR RESULTS</div>
+          <div class="aai-cat">5 of 5 — YOUR RESULTS</div>
           <h2 class="aai-q">Where should we send your AI roadmap?</h2>
           <p class="aai-sub">Sent directly to your inbox based on your precise answers.</p>
           <form class="aai-form" id="aai-form" onsubmit="submitAssessment(event)">
@@ -1316,7 +1364,7 @@
   </div>
 
   <!-- Badge Lightbox Modal -->
-  <div class="aai-modal" id="badge-lightbox-modal" style="background: rgba(0, 0, 0, 0.85); z-index: 1001;">
+  <div class="aai-modal" id="badge-lightbox-modal" style="background: rgba(0, 0, 0, 0.85); z-index: 100005;">
     <div style="display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; padding: 20px;">
       <button class="aai-close" onclick="closeBadgeLightbox()" style="z-index: 10; background: rgba(255,255,255,0.1); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; top: 20px; right: 20px; color: white; position: absolute; border: 1px solid rgba(255,255,255,0.2); backdrop-filter: blur(10px);">✕</button>
       <img id="lightbox-image" src="" alt="Certificate" style="max-width: 90vw; max-height: 90vh; object-fit: contain; border-radius: 12px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);">
@@ -1329,14 +1377,14 @@
     const serviceData = {
         "AI Workflow Integration": { desc: "We map out your manual processes and build automated workflows that tie your existing software stack together, saving teams an average of 15 hours a week.", video: "assets/video/Services - AI Integrations.mp4" },
         "AI Workflow Automation": { desc: "Custom triggers and workflows that eliminate manual admin and sync your tools. We automate the repetitive tasks that drain your team's time so they can focus on what matters.", img: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80" },
-        "AI Chatbots & Assistants": { desc: "Custom-trained AI agents that know your business operations inside and out. They can answer employee FAQs, guide customers, and operate 24/7.", img: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=600&q=80" },
-        "Custom Websites": { desc: "High-performance, beautifully designed websites that convert visitors into leads. Built for speed and flexibility, starting at just $999.", img: "https://images.unsplash.com/photo-1522542550221-31fd19575a2d?auto=format&fit=crop&w=600&q=80" },
+        "AI Chatbots & Assistants": { desc: "Custom-trained AI agents that know your business operations inside and out. They can answer employee FAQs, guide customers, and operate 24/7.", video: "assets/video/chatbots_00001_.mp4" },
+        "Custom Websites": { desc: "High-performance, beautifully designed websites that convert visitors into leads. Built for speed and flexibility, starting at just $999.", video: "assets/video/web design_00001_.mp4" },
         "AI Auto-Scheduler": { desc: "An intelligent scheduling agent that coordinates meetings automatically, freeing up your time and saving up to $38k annually compared to a human scheduler.", video: "assets/video/ai autoscheduler.mp4" },
         "Document Processing": { desc: "Turn unstructured documents like messy invoices, handwritten notes, and contracts into clean, usable data automatically.", video: "assets/video/Services - Document Processing.mp4" },
-        "AI Voice Autoschedulers": { desc: "Voice-activated scheduling agents that understand natural language and intelligently manage your calendar. Just tell it your availability and let it handle meeting coordination 24/7.", img: "https://images.unsplash.com/photo-1506784951206-b91c0626a5a8?auto=format&fit=crop&w=600&q=80" },
+        "AI Voice Autoschedulers": { desc: "Voice-activated scheduling agents that understand natural language and intelligently manage your calendar. Just tell it your availability and let it handle meeting coordination 24/7.", video: "assets/video/ai autoscheduler.mp4" },
         "Local AI Deployment": { desc: "Run powerful AI models on your own servers for maximum privacy, security, and zero data leakage to public clouds. Perfect for sensitive business operations.", video: "assets/video/Services - Local AI Deployment.mp4" },
-        "Custom Integrations": { desc: "We build the bridges between your disconnected software tools so your data flows seamlessly across your entire stack. No manual data transfer, no syncing headaches.", img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" },
-        "AI Consulting": { desc: "Strategic guidance on how to leverage AI in your business. We assess your operations, identify opportunities, and create a roadmap for implementation that drives real ROI.", img: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=600&q=80" },
+        "Custom Integrations": { desc: "We build the bridges between your disconnected software tools so your data flows seamlessly across your entire stack. No manual data transfer, no syncing headaches.", video: "assets/video/system integration.mp4" },
+        "AI Consulting": { desc: "Strategic guidance on how to leverage AI in your business. We assess your operations, identify opportunities, and create a roadmap for implementation that drives real ROI.", video: "assets/video/AI_Powered_Corporate_Video_Generation.mp4" },
         "AI Enablement": { desc: "Workshops and training to help your team leverage AI tools effectively and safely in their daily work. We empower your people to maximize the value of AI.", img: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=600&q=80" },
         "AI Implementation": { desc: "End-to-end implementation of AI solutions tailored to your business needs. From strategy through deployment and beyond, we handle every step of bringing AI to your organization.", img: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=600&q=80" },
         "Notary Services": { desc: "Professional digital notarization services for your important documents. We provide legally recognized notarization to ensure your documents are authentic and valid.", img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80" },
@@ -1346,25 +1394,25 @@
         "Custom Internal AI Tools": { desc: "Purpose-built AI tools designed specifically for your internal operations. From data analysis to process automation, we create tools that give your team superpowers.", video: "assets/video/Custom Internal AI Tools_00002_.mp4" },
         "System Integrations": { desc: "Seamlessly connect all your business systems so data flows automatically without manual intervention. We handle the technical complexity so you don't have to.", video: "assets/video/system integration.mp4" },
         "UI/UX Design": { desc: "User-centered design that creates intuitive, beautiful interfaces people love to use. We design for both aesthetics and functionality.", video: "assets/video/Services - UI UX.mp4" },
-        "Frontend Development": { desc: "Expert front-end development that brings designs to life with clean, efficient code. We build responsive interfaces that work flawlessly across all devices.", img: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=600&q=80" },
+        "Frontend Development": { desc: "Expert front-end development that brings designs to life with clean, efficient code. We build responsive interfaces that work flawlessly across all devices.", video: "assets/video/frontend development_00001_.mp4" },
         "Employee Onboarding": { desc: "Streamlined onboarding systems that get new team members up to speed faster. We create clear processes and training materials that reduce ramp-up time.", video: "assets/video/employee onboarding.mp4" },
-        "Custom Training Apps": { desc: "Interactive training applications that make learning engaging and effective. We build apps that deliver consistent, measurable training outcomes.", img: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=600&q=80" },
-        "Technical Writing": { desc: "Clear, accurate technical documentation that communicates complex information effectively. From user manuals to API documentation to process guides, we create content that your audience can understand and act on.", img: "https://images.unsplash.com/photo-1455849318169-8701bd3de994?auto=format&fit=crop&w=600&q=80" },
-        "Process Optimization": { desc: "Analysis and improvement of your business processes to eliminate waste and increase efficiency. We identify bottlenecks and implement solutions that drive results.", img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80" },
+        "Custom Training Apps": { desc: "Interactive training applications that make learning engaging and effective. We build apps that deliver consistent, measurable training outcomes.", video: "assets/video/custom training app_00001_.mp4" },
+        "Technical Writing": { desc: "Clear, accurate technical documentation that communicates complex information effectively. From user manuals to API documentation to process guides, we create content that your audience can understand and act on.", video: "assets/video/technical writing_00001_.mp4" },
+        "Process Optimization": { desc: "Analysis and improvement of your business processes to eliminate waste and increase efficiency. We identify bottlenecks and implement solutions that drive results.", video: "assets/video/optimization efficiency_00001_.mp4" },
         "Cybersecurity Solutions": { desc: "Comprehensive security strategy and implementation to protect your business from threats. We secure your systems, data, and reputation.", video: "assets/video/CyberSecurity.mp4" },
         "IT Infrastructure": { desc: "Robust IT infrastructure design and implementation that scales with your business. We build systems that are secure, reliable, and future-proof.", video: "assets/video/it infrastructure.mp4" },
         "Data Protection": { desc: "Strategic data protection and compliance solutions to keep your information secure. We implement best practices and ensure regulatory compliance.", video: "assets/video/data protection.mp4" },
         "System Integration": { desc: "Expert integration of enterprise systems and software platforms. We ensure all your tools work together seamlessly.", video: "assets/video/system integration.mp4" },
         "Cloud Solutions": { desc: "Cloud infrastructure design and migration services that improve scalability and reduce costs. We move your operations to the cloud strategically.", video: "assets/video/cloud solutions.mp4" },
-        "In Home Media Servers": { desc: "Design, setup, and installation of personal media servers that let you store and stream all your entertainment — movies, music, photos, and more — throughout your home on any device.", img: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=600&q=80" },
+        "In Home Media Servers": { desc: "Design, setup, and installation of personal media servers that let you store and stream all your entertainment — movies, music, photos, and more — throughout your home on any device.", video: "assets/video/media server_00001_.mp4" },
         "Video Editing": { desc: "Professional video editing and production services that bring your vision to life. We create compelling video content that engages your audience.", video: "assets/video/Services - Graphic Design.mp4" },
-        "Video Digitization": { desc: "Convert your analog video tapes, film reels, and old recordings into high-quality digital formats. We preserve your important video memories and make them accessible for modern use.", img: "https://images.unsplash.com/photo-1495997859356-c3fda949f350?auto=format&fit=crop&w=600&q=80" },
+        "Video Digitization": { desc: "Convert your analog video tapes, film reels, and old recordings into high-quality digital formats. We preserve your important video memories and make them accessible for modern use.", video: "assets/video/video digitization_00001_.mp4" },
         "Custom Music Production": { desc: "Original music composition and production for your brand, projects, and media. We create custom audio that perfectly fits your needs.", video: "assets/video/music production.mp4" },
         "3D Printing": { desc: "3D design and printing services for prototypes, products, and creative projects. We bring your ideas into physical reality.", video: "assets/video/3D Print Services_00001_.mp4" },
         "Digital Notary": { desc: "Professional digital notarization services for legally binding documents. We provide secure, recognized notarial services online.", video: "assets/video/notary_00001_.mp4" },
         "Data/Format Conversion": { desc: "Professional data conversion and format migration services. We handle complex data transformations accurately and securely.", video: "assets/video/format conversions_00001_.mp4" },
-        "Content Creation": { desc: "Professional content creation including writing, design, and multimedia. We produce compelling content that drives engagement and results.", img: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=600&q=80" },
-        "AI Audits": { desc: "Comprehensive analysis of your current business workflows to identify high-impact AI opportunities. We evaluate your data, tools, and processes to create a prioritized AI implementation roadmap.", img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" },
+        "Content Creation": { desc: "Professional content creation including writing, design, and multimedia. We produce compelling content that drives engagement and results.", video: "assets/video/content creation_00001_.mp4" },
+        "AI Audits": { desc: "Comprehensive analysis of your current business workflows to identify high-impact AI opportunities. We evaluate your data, tools, and processes to create a prioritized AI implementation roadmap.", video: "assets/video/ai audit_00001_.mp4" },
         "AI Training & Education": { desc: "Comprehensive training programs and educational workshops designed to empower your team with practical AI skills. We help you stay ahead of the curve by mastering the latest AI tools and techniques.", video: "assets/video/ai education.mp4" }
     };
 
@@ -1402,26 +1450,30 @@
             // Reset video element before loading new source
             video.pause();
             video.currentTime = 0;
+            video.loop = false; // Ensure it plays only once
 
             var source = document.getElementById('sm-video-source');
             source.src = data.video;
             video.load();
 
-            // Start muted to ensure autoplay works, then allow unmute on click
-            video.muted = true;
+            // Always attempt to play unmuted. 
+            // Since this is triggered by a user click, sound is typically allowed.
+            video.muted = false;
+            
             video.play().catch(function(err) {
-                // If autoplay fails, just load the video without playing
+                console.log("Unmuted playback blocked by browser, falling back to muted autoplay:", err);
+                video.muted = true;
+                video.play();
             });
 
-            // Click to toggle mute
+            // Click to toggle mute manually if needed
             video.onclick = function() {
                 video.muted = !video.muted;
             };
 
-            // When video ends, pause and show last frame
+            // When video ends, ensure it stops
             video.onended = function() {
                 video.pause();
-                video.currentTime = video.duration;
             };
         } else {
             video.style.opacity = "0";
@@ -1577,8 +1629,11 @@
             files.forEach(file => {
                 const label = file.replace(/\.png$/i, '').substring(0, 35);
                 const badgeHTML = `
-                    <div style="display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center; padding: 10px; border-radius: 12px; transition: all 0.3s ease; background: rgba(139, 92, 246, 0.05); border: 1px solid rgba(139, 92, 246, 0.1); cursor: pointer;" onmouseover="this.style.background='rgba(139, 92, 246, 0.15)'; this.style.borderColor='rgba(139, 92, 246, 0.3)'; this.style.transform='scale(1.05)';" onmouseout="this.style.background='rgba(139, 92, 246, 0.05)'; this.style.borderColor='rgba(139, 92, 246, 0.1)'; this.style.transform='scale(1)';">
-                        <img src="${badgeDir}${file}" alt="${file}" style="width: 100%; height: 100px; object-fit: contain; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3)); cursor: pointer;" onclick="openBadgeLightbox('${badgeDir}${file}')">
+                    <div style="display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center; padding: 10px; border-radius: 12px; transition: all 0.3s ease; background: rgba(139, 92, 246, 0.05); border: 1px solid rgba(139, 92, 246, 0.1); cursor: pointer;" 
+                         onmouseover="this.style.background='rgba(139, 92, 246, 0.15)'; this.style.borderColor='rgba(139, 92, 246, 0.3)'; this.style.transform='scale(1.05)';" 
+                         onmouseout="this.style.background='rgba(139, 92, 246, 0.05)'; this.style.borderColor='rgba(139, 92, 246, 0.1)'; this.style.transform='scale(1)';"
+                         onclick="openBadgeLightbox('${badgeDir}${file}')">
+                        <img src="${badgeDir}${file}" alt="${file}" style="width: 100%; height: 100px; object-fit: contain; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3)); pointer-events: none;">
                         <span style="font-size: 0.75rem; color: var(--text-secondary); line-height: 1.3;">${label}</span>
                     </div>
                 `;
@@ -2156,20 +2211,107 @@
 
   <!-- About Modal -->
   <div class="aai-modal" id="about-modal">
-    <div class="aai-inner" style="padding: 50px 40px; max-width: 700px;">
+    <div class="aai-inner" style="padding: 60px 40px; max-width: 950px; border: 1px solid rgba(139, 92, 246, 0.2); max-height: 90vh; overflow-y: auto;">
       <button class="aai-close" onclick="closeAboutModal()">✕</button>
-      <div class="aai-cat" style="color: var(--accent-purple);">ABOUT KEMPER DESIGN SERVICES</div>
-      <h2 class="aai-q">Who We Are</h2>
-      <p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 20px; font-size: 1rem;">
-        Kemper Design Services is a team of AI experts, developers, and strategists dedicated to helping small businesses and teams modernize their operations without the enterprise price tag.
-      </p>
-      <p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 20px; font-size: 1rem;">
-        We believe AI should be practical, accessible, and designed to enhance human potential—not replace it. Whether it's automating workflows, building custom applications, or deploying intelligent systems, we create solutions that solve real business problems.
-      </p>
-      <p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 30px; font-size: 1rem;">
-        Our mission is to help you recover the hours you've been losing to manual work, inefficient processes, and disconnected tools. We're here to be your partner in growth.
-      </p>
-      <a href="javascript:void(0)" onclick="closeAboutModal(); openContactModal();" class="aai-submit-btn" style="text-align: center; text-decoration: none; display: inline-block; cursor: pointer;">Book a Free Discovery Call</a>
+      
+      <div style="display: flex; gap: 40px; align-items: flex-start; margin-bottom: 40px; flex-wrap: wrap;">
+          <div style="flex: 1; min-width: 300px;">
+              <div class="aai-cat" style="color: var(--accent-1); letter-spacing: 2px;">FOUNDER & PRINCIPAL DESIGNER</div>
+              <h2 class="aai-q" style="font-size: 2.8rem; margin-bottom: 10px; font-family: 'Outfit';">Damian Kemper</h2>
+              <p style="color: var(--text-secondary); line-height: 1.8; font-size: 1.1rem; max-width: 650px;">
+                  Accomplished **Instructional Designer** and **Technical Writer/Editor** with deep expertise in creating high-fidelity AI, cloud, and IT training experiences for enterprise clients. A lifelong native and local of **St. Augustine, Florida**, Damian combines world-class technical skills with a deep commitment to his community.
+              </p>
+              <div style="display: flex; gap: 15px; margin-top: 20px; flex-wrap: wrap;">
+                            <span style="background: rgba(139, 92, 246, 0.1); color: var(--accent-1); padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; border: 1px solid rgba(139, 92, 246, 0.2);">✓ AI Certified</span>
+                            <span style="background: rgba(139, 92, 246, 0.1); color: var(--accent-1); padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; border: 1px solid rgba(139, 92, 246, 0.2);">✓ Instructional Designer</span>
+                            <span style="background: rgba(139, 92, 246, 0.1); color: var(--accent-1); padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; border: 1px solid rgba(139, 92, 246, 0.2);">✓ Graphic Designer</span>
+                            <span style="background: rgba(139, 92, 246, 0.1); color: var(--accent-1); padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; border: 1px solid rgba(139, 92, 246, 0.2);">✓ App Designer</span>
+                            <span style="background: rgba(139, 92, 246, 0.1); color: var(--accent-1); padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; border: 1px solid rgba(139, 92, 246, 0.2);">✓ Former Teacher</span>
+                            <span style="background: rgba(139, 92, 246, 0.1); color: var(--accent-1); padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; border: 1px solid rgba(139, 92, 246, 0.2);">✓ Web Designer</span>
+              </div>
+          </div>
+          <div style="width: 200px; height: 200px; background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(59, 130, 246, 0.1)); border: 1px solid rgba(255,255,255,0.1); border-radius: 30px; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(10px); flex-shrink: 0;">
+              <img src="assets/logos/logo-white.png" alt="KDS Logo" style="width: 110px; opacity: 0.8; filter: drop-shadow(0 0 15px rgba(139, 92, 246, 0.3));">
+          </div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 50px;">
+          <div>
+              <h3 style="color: white; margin-bottom: 25px; font-family: 'Outfit'; font-size: 1.3rem; display: flex; align-items: center; gap: 10px;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-1)" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                Professional Experience
+              </h3>
+              <div style="display: flex; flex-direction: column; gap: 24px; position: relative; padding-left: 10px;">
+                  <div style="position: absolute; left: 17px; top: 10px; bottom: 10px; width: 1px; background: rgba(255,255,255,0.1);"></div>
+                  
+                  <div style="position: relative; padding-left: 35px;">
+                      <div style="position: absolute; left: 0; top: 5px; width: 15px; height: 15px; background: var(--accent-1); border-radius: 50%; border: 3px solid #0a0a0f;"></div>
+                      <div style="color: var(--accent-1); font-weight: 700; font-size: 0.8rem; margin-bottom: 4px;">2021 – PRESENT</div>
+                      <div style="color: white; font-weight: 600; font-size: 1.05rem; margin-bottom: 6px;">Technical Learning Specialist | Skillable</div>
+                      <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6;">Producing enterprise-grade AI, cloud, and IT training labs for **Google, Microsoft, AWS, and CompTIA**. Applying deep technical writing and debugging skills to validate complex AI-related lab environments.</p>
+                  </div>
+
+                  <div style="position: relative; padding-left: 35px;">
+                      <div style="position: absolute; left: 0; top: 5px; width: 15px; height: 15px; background: rgba(255,255,255,0.3); border-radius: 50%; border: 3px solid #0a0a0f;"></div>
+                      <div style="color: rgba(255,255,255,0.5); font-weight: 700; font-size: 0.8rem; margin-bottom: 4px;">2019 – 2021</div>
+                      <div style="color: white; font-weight: 600; font-size: 1.05rem; margin-bottom: 6px;">Instructional Systems Designer II | A. Harold & Associates</div>
+                      <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6;">Led Subject Matter Expert (SME) coordination for the **Navy Sailor 2025 initiative**. Developed detailed course outlines and multi-platform instructional strategies.</p>
+                  </div>
+
+                  <div style="position: relative; padding-left: 35px;">
+                      <div style="position: absolute; left: 0; top: 5px; width: 15px; height: 15px; background: rgba(255,255,255,0.3); border-radius: 50%; border: 3px solid #0a0a0f;"></div>
+                      <div style="color: rgba(255,255,255,0.5); font-weight: 700; font-size: 0.8rem; margin-bottom: 4px;">2017 – 2018</div>
+                      <div style="color: white; font-weight: 600; font-size: 1.05rem; margin-bottom: 6px;">Instructional Designer | Education Corp of America</div>
+                      <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6;">Designed comprehensive educational materials and assessments, utilizing adult learning principles to deliver effective training programs.</p>
+                  </div>
+
+                  <div style="position: relative; padding-left: 35px;">
+                      <div style="position: absolute; left: 0; top: 5px; width: 15px; height: 15px; background: rgba(255,255,255,0.3); border-radius: 50%; border: 3px solid #0a0a0f;"></div>
+                      <div style="color: rgba(255,255,255,0.5); font-weight: 700; font-size: 0.8rem; margin-bottom: 4px;">2005 – 2008</div>
+                      <div style="color: white; font-weight: 600; font-size: 1.05rem; margin-bottom: 6px;">Graphic Design & Printing Instructor | First Coast Tech</div>
+                      <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6;">**Former Teacher** and advanced Graphic Design instructor. Coached students in professional Adobe Creative Suite workflows and industry standards.</p>
+                  </div>
+              </div>
+          </div>
+          <div>
+              <h3 style="color: white; margin-bottom: 25px; font-family: 'Outfit'; font-size: 1.3rem; display: flex; align-items: center; gap: 10px;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-2)" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                Academic Foundation
+              </h3>
+              <div style="display: flex; flex-direction: column; gap: 15px;">
+                  <div style="padding: 18px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 20px;">
+                      <div style="color: white; font-weight: 600; font-size: 0.95rem; margin-bottom: 4px;">M.A. Instructional Design & Tech</div>
+                      <div style="color: var(--accent-2); font-size: 0.85rem; font-weight: 600; margin-bottom: 4px;">Specialization in Online Education</div>
+                      <div style="color: rgba(255,255,255,0.5); font-size: 0.75rem;">Ashford University</div>
+                  </div>
+                  <div style="padding: 18px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 20px;">
+                      <div style="color: white; font-weight: 600; font-size: 0.95rem; margin-bottom: 4px;">B.A. Communications</div>
+                      <div style="color: var(--accent-2); font-size: 0.85rem; font-weight: 600; margin-bottom: 4px;">Journalism, Public Relations & Broadcasting</div>
+                      <div style="color: rgba(255,255,255,0.5); font-size: 0.75rem;">Flagler College</div>
+                  </div>
+              </div>
+
+              <h3 style="color: white; margin: 40px 0 25px; font-family: 'Outfit'; font-size: 1.3rem; display: flex; align-items: center; gap: 10px;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+                Foundations & Ventures
+              </h3>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                  <div style="padding: 15px; background: rgba(245, 158, 11, 0.05); border: 1px solid rgba(245, 158, 11, 0.1); border-radius: 15px; text-align: center;">
+                      <div style="color: #f59e0b; font-weight: 700; font-size: 0.8rem; margin-bottom: 4px;">FOUNDER</div>
+                      <div style="color: white; font-weight: 600; font-size: 0.9rem;">Old City Computer</div>
+                  </div>
+                  <div style="padding: 15px; background: rgba(245, 158, 11, 0.05); border: 1px solid rgba(245, 158, 11, 0.1); border-radius: 15px; text-align: center;">
+                      <div style="color: #f59e0b; font-weight: 700; font-size: 0.8rem; margin-bottom: 4px;">FOUNDER</div>
+                      <div style="color: white; font-weight: 600; font-size: 0.9rem;">Fiction Donuts</div>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <div style="margin-top: 50px; display: flex; gap: 20px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 30px; flex-wrap: wrap;">
+          <a href="javascript:void(0)" onclick="closeAboutModal(); openContactModal('Project Discussion with Damian');" class="aai-submit-btn" style="text-align: center; text-decoration: none; display: inline-block; cursor: pointer; padding: 16px 35px; border-radius: 15px; flex: 1; min-width: 250px;">Book a Strategy Session →</a>
+          <a href="javascript:void(0)" onclick="closeAboutModal()" class="aai-submit-btn" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: white; padding: 16px 35px; border-radius: 15px; flex: 0.5; min-width: 150px; text-align: center; text-decoration: none;">Close Profile</a>
+      </div>
     </div>
   </div>
 
@@ -2520,14 +2662,21 @@
     }
 
     function showNewBlogForm() {
+        console.log("Opening New Blog form...");
         editingBlogIndex = -1;
         document.getElementById('blog-form-title').textContent = "Create New Blog";
         document.getElementById('edit-blog-title').value = "";
         document.getElementById('edit-blog-image').value = "";
         document.getElementById('edit-blog-body').value = "";
         document.getElementById('image-preview-container').style.display = 'none';
-        document.getElementById('upload-blog-image').value = "";
-        document.getElementById('blog-edit-modal').classList.add('open');
+        
+        const modal = document.getElementById('blog-edit-modal');
+        if (modal) {
+            modal.classList.add('open');
+            console.log("Modal opened successfully.");
+        } else {
+            console.error("Could not find blog-edit-modal");
+        }
     }
 
     function hideBlogForm() {
@@ -2549,7 +2698,6 @@
             document.getElementById('image-preview-container').style.display = 'none';
         }
         
-        document.getElementById('upload-blog-image').value = "";
         document.getElementById('blog-edit-modal').classList.add('open');
     }
 

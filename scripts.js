@@ -32,6 +32,14 @@ document.addEventListener('DOMContentLoaded', () => {
         card.style.transition = `all 0.6s ease ${index * 0.1}s`;
         observer.observe(card);
     });
+
+    const appCards = document.querySelectorAll('.app-card');
+    appCards.forEach((card, index) => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(24px)';
+        card.style.transition = `all 0.6s ease ${index * 0.1}s`;
+        observer.observe(card);
+    });
 });
 
 // Simple logo scroller logic to duplicate content for seamless effect

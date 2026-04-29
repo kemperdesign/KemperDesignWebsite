@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KDS Memory Free — Advanced System Optimization | Kemper Design Services</title>
+    <meta name="description" content="Optimize your system's performance with KDS Memory Free. Real-time RAM monitoring, smart cache clearing, and automated memory recovery.">
+    
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="styles.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --accent: #3b82f6;
+            --accent-glow: rgba(59, 130, 246, 0.5);
+            --surface: rgba(255, 255, 255, 0.03);
+            --border: rgba(255, 255, 255, 0.08);
+        }
+
+        .sp-hero {
+            padding: 160px 5% 80px;
+            text-align: center;
+            background: radial-gradient(circle at 50% 0%, rgba(59, 130, 246, 0.1) 0%, transparent 50%);
+        }
+
+        .sp-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 50px;
+            color: #60a5fa;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+
+        .sp-hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 24px;
+            line-height: 1.1;
+        }
+
+        .sp-hero p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+        }
+
+        .btn-accent {
+            background: var(--accent);
+            color: white;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px var(--accent-glow);
+        }
+
+        .btn-accent:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px var(--accent-glow);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: white;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline:hover {
+            background: rgba(255,255,255,0.05);
+            border-color: rgba(255,255,255,0.2);
+        }
+
+        /* Stats Strip */
+        .stats-strip {
+            padding: 60px 5%;
+            background: rgba(0,0,0,0.3);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .stats-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+        }
+
+        .stat-card {
+            text-align: center;
+        }
+
+        .stat-val {
+            font-size: 2.5rem;
+            font-weight: 700;
+            font-family: var(--font-heading);
+            color: #fff;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Features Section */
+        .features-section {
+            padding: 100px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+        }
+
+        .feat-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .feat-card {
+            padding: 40px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            transition: all 0.3s ease;
+        }
+
+        .feat-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-5px);
+        }
+
+        .feat-icon-box {
+            width: 50px;
+            height: 50px;
+            background: rgba(59, 130, 246, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+        }
+
+        .feat-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+        }
+
+        .feat-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Detail Rows */
+        .detail-row {
+            padding: 80px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 80px;
+        }
+
+        .detail-row:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .detail-content {
+            flex: 1;
+        }
+
+        .detail-image {
+            flex: 1;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .detail-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .detail-content p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+            line-height: 1.7;
+        }
+
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-list li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            color: #fff;
+            font-weight: 500;
+        }
+
+        .check-icon {
+            color: var(--accent);
+        }
+
+        /* Footer */
+        .footer {
+            padding: 80px 5% 40px;
+            border-top: 1px solid var(--border);
+            background: rgba(0,0,0,0.5);
+        }
+
+        .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .footer-logo {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            display: block;
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .footer-desc {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            max-width: 400px;
+        }
+
+        .footer-title {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 24px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        @media (max-width: 968px) {
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .feat-grid { grid-template-columns: 1fr; }
+            .detail-row { flex-direction: column !important; text-align: center; gap: 40px; }
+            .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar (simplified) -->
+    <nav class="navbar glass">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-text">Kemper Design Services</span>
+            </a>
+            <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-links" id="nav-links">
+                <a href="index.html#home" onclick="closeMobileMenu()">Home</a>
+                <div class="dropdown">
+                    <button class="dropbtn">About <span class="arrow-down">▼</span></button>
+                    <div class="dropdown-content glass">
+                        <a href="javascript:void(0)" onclick="openAboutModal(); closeMobileMenu()">About Damian</a>
+                        <a href="javascript:void(0)" onclick="openCertificationsModal(); closeMobileMenu();" style="color:#8b5cf6;">Certifications</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="dropbtn">Services <span class="arrow-down">▼</span></button>
+                    <div class="dropdown-content glass">
+                        <div class="drop-col">
+                            <span class="mega-heading">AI & Automation</span>
+                            <a href="javascript:void(0)" onclick="openServiceModal('AI Workflow Integration')">AI Workflow Integration</a>
+                            <a href="javascript:void(0)" onclick="openServiceModal('AI Chatbots & Assistants')">AI Chatbots & Assistants</a>
+                            <a href="javascript:void(0)" onclick="openServiceModal('Custom Internal AI Tools')">Custom Internal AI Tools</a>
+                            <a href="javascript:void(0)" onclick="openServiceModal('System Integrations')">System Integrations</a>
+                            <a href="javascript:void(0)" onclick="openServiceModal('Local AI Deployment')">Local AI Deployment</a>
+                            <a href="javascript:void(0)" onclick="openServiceModal('Document Processing')">Document Processing</a>
+                            <a href="javascript:void(0)" onclick="openServiceModal('AI Audits')">AI Audits</a>
+                        </div>
+                        <div class="drop-col">
+                            <span class="mega-heading">Design & Development</span>
+                            <a href="javascript:void(0)" onclick="openServiceModal('Custom Websites')">Custom Websites</a>
+                            <a href="javascript:void(0)" onclick="openServiceModal('Custom Applications')">Custom Applications</a>
+                            <a href="javascript:void(0)" onclick="openServiceModal('Graphic Design')">Graphic Design</a>
+                            <a href="javascript:void(0)" onclick="openServiceModal('UI/UX Design')">UI/UX Design</a>
+                            <a href="javascript:void(0)" onclick="openServiceModal('Frontend Development')">Frontend Development</a>
+                            <a href="apps.html" style="color:#f59e0b; font-weight:600;">Our Applications ↗</a>
+                        </div>
+                        <div class="drop-col">
+                            <span class="mega-heading">Operations & Training</span>
+                            <a href="javascript:void(0)" onclick="openServiceModal('AI Auto-Scheduler')">AI Auto-Scheduler</a>
+                            <a href="javascript:void(0)" onclick="openServiceModal('Instructional Design')">Instructional Design</a>
+                            <a href="javascript:void(0)" onclick="openServiceModal('AI Training & Education')">AI Training & Education</a>
+                            <a href="javascript:void(0)" onclick="openServiceModal('Employee Onboarding')">Employee Onboarding</a>
+                            <a href="javascript:void(0)" onclick="openServiceModal('Custom Training Apps')">Custom Training Apps</a>
+                            <a href="javascript:void(0)" onclick="openServiceModal('Technical Writing')">Technical Writing</a>
+                            <a href="javascript:void(0)" onclick="openServiceModal('Process Optimization')">Process Optimization</a>
+                        </div>
+                        <div class="drop-col">
+                            <span class="mega-heading">IT & Security</span>
+                            <a href="javascript:void(0)" onclick="openServiceModal('Cybersecurity Solutions')">Cybersecurity Solutions</a>
+                            <a href="javascript:void(0)" onclick="openServiceModal('IT Infrastructure')">IT Infrastructure</a>
+                            <a href="javascript:void(0)" onclick="openServiceModal('Data Protection')">Data Protection</a>
+                            <a href="javascript:void(0)" onclick="openServiceModal('System Integration')">System Integration</a>
+                            <a href="javascript:void(0)" onclick="openServiceModal('Cloud Solutions')">Cloud Solutions</a>
+                        </div>
+                        <div class="drop-col">
+                            <span class="mega-heading">Creative & Specialty</span>
+                            <a href="javascript:void(0)" onclick="openServiceModal('Video Editing')">Video Editing</a>
+                            <a href="javascript:void(0)" onclick="openServiceModal('Video Digitization')">Video Digitization</a>
+                            <a href="javascript:void(0)" onclick="openServiceModal('In Home Media Servers')">In Home Media Servers</a>
+                            <a href="javascript:void(0)" onclick="openServiceModal('Custom Music Production')">Custom Music Production</a>
+                            <a href="javascript:void(0)" onclick="openServiceModal('3D Printing')">3D Printing</a>
+                            <a href="javascript:void(0)" onclick="openServiceModal('Digital Notary')">Digital Notary</a>
+                            <a href="javascript:void(0)" onclick="openServiceModal('Data/Format Conversion')">Data/Format Conversion</a>
+                            <a href="javascript:void(0)" onclick="openServiceModal('Content Creation')">Content Creation</a>
+                        </div>
+                    </div>
+                </div>
+                <a href="apps.html" onclick="closeMobileMenu()" style="font-weight:600; color:#f59e0b;">Our Apps</a>
+                <a href="index.html#consulting" onclick="closeMobileMenu()">Consulting</a>
+            </div>
+            <div class="nav-cta">
+                <a href="javascript:void(0)" onclick="openContactModal()" class="btn btn-primary">Learn AI Today <span class="arrow">→</span></a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="sp-hero">
+        <div class="sp-badge">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            System Optimizer
+        </div>
+        <h1>Unleash Your System's<br><em>Full Potential</em></h1>
+        <p>KDS Memory Free is a smart system utility that monitors RAM usage in real-time and intelligently reclaims memory from background processes, ensuring your workflow stays smooth and responsive.</p>
+        <div class="hero-btns">
+            <a href="memory-free-demo.html" class="btn-accent">Try the Demo →</a>
+            <a href="https://github.com/kemperdesign/Free-Memory" target="_blank" class="btn-outline">View Source Code</a>
+        </div>
+    </section>
+
+    <!-- Stats Strip -->
+    <section class="stats-strip">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-val">Up to 40%</div>
+                <div class="stat-label">RAM Recovery</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-val">< 1%</div>
+                <div class="stat-label">CPU Overhead</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-val">Real-time</div>
+                <div class="stat-label">Optimization</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-val">Zero</div>
+                <div class="stat-label">Config Required</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detail Row 1 -->
+    <section class="detail-row">
+        <div class="detail-content">
+            <span class="sp-badge" style="background: rgba(16, 185, 129, 0.1); color: #10b981; border-color: rgba(16, 185, 129, 0.2);">Monitoring</span>
+            <h2>Intelligent Memory<br>Awareness</h2>
+            <p>Most system cleaners just kill processes indiscriminately. KDS Memory Free uses a proprietary algorithm to identify "dormant" memory blocks that are held by background apps but not actually being used.</p>
+            <ul class="feature-list">
+                <li><svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Real-time usage heatmaps</li>
+                <li><svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Automated cache clearing</li>
+                <li><svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Priority process protection</li>
+            </ul>
+        </div>
+        <div class="detail-image">
+            <img src="assets/images/KDS Free Memory.png" alt="PC Pulse Pro Interface" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-col brand-col">
+                <div class="footer-logo-container">
+                    <img src="assets/logos/logo-white.png" alt="KDS Logo" class="footer-logo">
+                    <span class="logo-text">Kemper Design Services</span>
+                </div>
+                <p class="footer-tagline">Enhancing human potential with intelligent automation and world-class design.</p>
+                <div class="footer-contact-info">
+                    <div class="contact-item">
+                        <span class="contact-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.26h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.81a16 16 0 0 0 6 6l.86-.86a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16z"/></svg></span>
+                        <a href="tel:+16313536377">(631) 3-KEMPER</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4 class="footer-title">QUICK LINKS</h4>
+                <div class="footer-links">
+                    <a href="index.html#home">Home</a>
+                    <a href="javascript:void(0)" onclick="openAboutModal()">About Damian</a>
+                    <a href="apps.html">Our Applications</a>
+                    <a href="javascript:void(0)" onclick="openFaqModal()">FAQ</a>
+                    <a href="javascript:void(0)" onclick="openTermsModal()">Terms</a>
+                    <a href="javascript:void(0)" onclick="openPrivacyModal()">Privacy</a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4 class="footer-title">AI SERVICES</h4>
+                <div class="footer-links">
+                    <a href="javascript:void(0)" onclick="openServiceModal('AI Workflow Integration')">Workflow Integration</a>
+                    <a href="javascript:void(0)" onclick="openServiceModal('AI Chatbots & Assistants')">Intelligent Chatbots</a>
+                    <a href="javascript:void(0)" onclick="openServiceModal('AI Auto-Scheduler')">Auto-Scheduling</a>
+                    <a href="javascript:void(0)" onclick="openServiceModal('Local AI Deployment')">Local AI Setup</a>
+                    <a href="javascript:void(0)" onclick="openServiceModal('AI Audits')">AI Readiness Audit</a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4 class="footer-title">ADDITIONAL SERVICES</h4>
+                <div class="footer-links">
+                    <a href="javascript:void(0)" onclick="openServiceModal('Custom Websites')">Web Design</a>
+                    <a href="javascript:void(0)" onclick="openServiceModal('Custom Applications')">App Development</a>
+                    <a href="javascript:void(0)" onclick="openServiceModal('Instructional Design')">Training & SOPs</a>
+                    <a href="javascript:void(0)" onclick="openServiceModal('Cybersecurity Solutions')">Cybersecurity</a>
+                    <a href="javascript:void(0)" onclick="openServiceModal('Graphic Design')">Graphic Design</a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4 class="footer-title">CONTACT US</h4>
+                <div class="footer-links contact-links">
+                    <div class="contact-item">
+                        <span class="contact-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></span>
+                        <a href="mailto:damian@kemperdesignservices.com">Email Damian</a>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
+                        <span>Mon–Fri, 9am–5pm EST</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 Kemper Design Services. All rights reserved.</p>
+            <div class="social-links">
+                <a href="https://www.facebook.com/profile.php?id=61558862320236" target="_blank" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a6 6 0 0 0-6 6v3H7v4h2v8h4v-8h3l1-4h-4V8a1 1 0 0 1 1-1h3z"/></svg></a>
+                <a href="https://www.youtube.com/@KemperDesignServices" target="_blank" aria-label="YouTube"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/></svg></a>
+                <a href="https://www.linkedin.com/in/damiankemper/" target="_blank" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+                <a href="https://github.com/kemperdesign" target="_blank" aria-label="GitHub"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v 3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

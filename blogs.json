@@ -1,11 +1,29 @@
 [
   {
-    "title": "Design Systems That Scale",
-    "slug": "design-systems-that-scale",
-    "author": "Ava Mitchell",
-    "date": "2025-08-25",
-    "readTime": "7 min read",
-    "image": "https://picsum.photos/seed/1/640/360",
-    "filename": "design-systems-that-scale.html"
+    "title": "From Novelty to Revenue: What Small Businesses Can Learn from Google Antigravity",
+    "slug": "from-novelty-to-revenue-what-small-businesses-can-learn-from-google-antigravity",
+    "author": "Damian Kemper",
+    "date": "2025-03-09",
+    "readTime": "4 min read",
+    "image": "https://picsum.photos/seed/51/640/360",
+    "filename": "from-novelty-to-revenue-what-small-businesses-can-learn-from-google-antigravity.html"
+  },
+  {
+    "title": "Why Google Firebase is the Secret Weapon for Modern Small Businesses",
+    "slug": "why-google-firebase-is-the-secret-weapon-for-modern-small-businesses",
+    "author": "Damian Kemper",
+    "date": "2025-02-28",
+    "readTime": "4 min read",
+    "image": "https://picsum.photos/seed/87/640/360",
+    "filename": "why-google-firebase-is-the-secret-weapon-for-modern-small-businesses.html"
+  },
+  {
+    "title": "Mastering Google Flow: The New Standard for Small Business Content and Automation",
+    "slug": "mastering-google-flow-the-new-standard-for-small-business-content-and-automation",
+    "author": "Damian Kemper",
+    "date": "2025-02-14",
+    "readTime": "4 min read",
+    "image": "https://picsum.photos/seed/13/640/360",
+    "filename": "mastering-google-flow-the-new-standard-for-small-business-content-and-automation.html"
   }
 ]

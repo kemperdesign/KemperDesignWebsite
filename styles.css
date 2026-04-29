@@ -501,39 +501,49 @@ h1 .text-gradient {
 }
 .mockup-image-1 {
     position: relative;
-    animation: imageTransition1 9s ease-in-out infinite;
+    animation: imageTransition1 18s ease-in-out infinite;
 }
-.mockup-image-2 {
+.mockup-image-2, .mockup-image-3, .mockup-image-4, .mockup-image-5, .mockup-image-6 {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    animation: imageTransition2 9s ease-in-out infinite;
 }
-.mockup-image-3 {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    animation: imageTransition3 9s ease-in-out infinite;
-}
+.mockup-image-2 { animation: imageTransition2 18s ease-in-out infinite; }
+.mockup-image-3 { animation: imageTransition3 18s ease-in-out infinite; }
+.mockup-image-4 { animation: imageTransition4 18s ease-in-out infinite; }
+.mockup-image-5 { animation: imageTransition5 18s ease-in-out infinite; }
+.mockup-image-6 { animation: imageTransition6 18s ease-in-out infinite; }
+
 @keyframes imageTransition1 {
-    0% { opacity: 0.8; }
-    33% { opacity: 0.8; }
-    67% { opacity: 0; }
-    100% { opacity: 0; }
+    0%, 13% { opacity: 0.8; }
+    16%, 97% { opacity: 0; }
+    100% { opacity: 0.8; }
 }
 @keyframes imageTransition2 {
-    0% { opacity: 0; }
-    33% { opacity: 0; }
-    67% { opacity: 0.8; }
-    100% { opacity: 0; }
+    0%, 13% { opacity: 0; }
+    16%, 29% { opacity: 0.8; }
+    32%, 100% { opacity: 0; }
 }
 @keyframes imageTransition3 {
-    0% { opacity: 0; }
-    66% { opacity: 0; }
-    67% { opacity: 0.8; }
-    100% { opacity: 0.8; }
+    0%, 29% { opacity: 0; }
+    32%, 45% { opacity: 0.8; }
+    48%, 100% { opacity: 0; }
+}
+@keyframes imageTransition4 {
+    0%, 45% { opacity: 0; }
+    48%, 61% { opacity: 0.8; }
+    64%, 100% { opacity: 0; }
+}
+@keyframes imageTransition5 {
+    0%, 61% { opacity: 0; }
+    64%, 77% { opacity: 0.8; }
+    80%, 100% { opacity: 0; }
+}
+@keyframes imageTransition6 {
+    0%, 77% { opacity: 0; }
+    80%, 93% { opacity: 0.8; }
+    96%, 100% { opacity: 0; }
 }
 
 /* Floating Elements */
@@ -569,6 +579,28 @@ h1 .text-gradient {
     font-size: 0.75rem;
     color: var(--text-secondary);
 }
+
+.fc-text-group {
+    position: relative;
+    min-width: 150px;
+    height: 38px;
+}
+
+.mockup-text-1, .mockup-text-2, .mockup-text-3, .mockup-text-4, .mockup-text-5, .mockup-text-6 {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    transform: translateY(-50%);
+    opacity: 0;
+}
+
+.mockup-text-1 { animation: imageTransition1 18s ease-in-out infinite; }
+.mockup-text-2 { animation: imageTransition2 18s ease-in-out infinite; }
+.mockup-text-3 { animation: imageTransition3 18s ease-in-out infinite; }
+.mockup-text-4 { animation: imageTransition4 18s ease-in-out infinite; }
+.mockup-text-5 { animation: imageTransition5 18s ease-in-out infinite; }
+.mockup-text-6 { animation: imageTransition6 18s ease-in-out infinite; }
 
 @keyframes float {
     0% { transform: translateY(0px); }

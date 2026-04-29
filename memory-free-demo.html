@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KDS Memory Free — Advanced System Optimization</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #0a0b14;
+            --bg-card: #151826;
+            --bg-card-hover: #1c2135;
+            --accent-blue: #00e5ff;
+            --accent-purple: #7000ff;
+            --text-primary: #ffffff;
+            --text-secondary: #8e92a2;
+            --border: rgba(255, 255, 255, 0.05);
+            --success: #00ff9d;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-deep);
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header */
+        .header {
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--border);
+            background: #0d0f1a;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .app-logo {
+            width: 32px;
+            height: 32px;
+            background: var(--accent-blue);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 15px rgba(0, 229, 255, 0.4);
+        }
+
+        .app-logo svg {
+            width: 20px;
+            height: 20px;
+            color: #000;
+        }
+
+        .app-name-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .app-name {
+            font-weight: 800;
+            font-size: 1.1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .app-name span {
+            color: var(--accent-blue);
+        }
+
+        .connection-status {
+            font-size: 0.65rem;
+            color: var(--text-secondary);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .header-center {
+            display: flex;
+            gap: 12px;
+        }
+
+        .status-chip {
+            padding: 6px 14px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-secondary);
+        }
+
+        .chip-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--success);
+            box-shadow: 0 0 8px var(--success);
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .header-icons {
+            display: flex;
+            gap: 12px;
+            color: var(--text-secondary);
+        }
+
+        .boost-btn {
+            background: var(--accent-blue);
+            color: #000;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .boost-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 15px rgba(0, 229, 255, 0.3);
+        }
+
+        /* Dashboard Grid */
+        .dashboard {
+            flex: 1;
+            padding: 24px;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 24px;
+            overflow-y: auto;
+        }
+
+        .stats-row {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-bottom: 8px;
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .stat-value {
+            font-size: 1.8rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+        }
+
+        .stat-label {
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Main Content Areas */
+        .content-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 24px;
+        }
+
+        .card-title {
+            font-size: 0.85rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card-title svg {
+            color: var(--accent-blue);
+            width: 18px;
+            height: 18px;
+        }
+
+        /* Telemetry Graph Placeholder */
+        .telemetry-container {
+            flex: 1;
+            position: relative;
+            min-height: 200px;
+            margin-bottom: 24px;
+        }
+
+        .graph-bg {
+            position: absolute;
+            inset: 0;
+            background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 8px;
+        }
+
+        .graph-line {
+            position: absolute;
+            bottom: 30%;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--accent-blue);
+            box-shadow: 0 0 10px var(--accent-blue);
+        }
+
+        /* Process Table */
+        .process-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+        }
+
+        .process-table th {
+            text-align: left;
+            padding: 12px;
+            color: var(--text-secondary);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.7rem;
+            letter-spacing: 1px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .process-table td {
+            padding: 14px 12px;
+            border-bottom: 1px solid rgba(255,255,255,0.02);
+        }
+
+        .process-name {
+            font-weight: 600;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .process-pid {
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .status-badge {
+            padding: 4px 10px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            font-size: 0.65rem;
+            font-weight: 700;
+            color: var(--text-secondary);
+        }
+
+        /* Right Panel */
+        .right-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .cleanup-alert {
+            background: linear-gradient(135deg, rgba(112, 0, 255, 0.1) 0%, rgba(10, 11, 20, 0.1) 100%);
+            border: 1px solid rgba(112, 0, 255, 0.3);
+            border-radius: 16px;
+            padding: 24px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .alert-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 800;
+            margin-bottom: 12px;
+            font-size: 0.9rem;
+        }
+
+        .alert-text {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+            line-height: 1.5;
+        }
+
+        .alert-text b {
+            color: #fff;
+            text-decoration: underline;
+            text-decoration-color: var(--accent-purple);
+        }
+
+        .wipe-btn {
+            width: 100%;
+            background: var(--accent-purple);
+            color: #fff;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .wipe-btn:hover {
+            background: #8119ff;
+            transform: translateY(-1px);
+        }
+
+        .detail-placeholder {
+            flex: 1;
+            background: rgba(255,255,255,0.01);
+            border: 1px dashed var(--border);
+            border-radius: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px;
+            color: var(--text-secondary);
+        }
+
+        .detail-placeholder svg {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 16px;
+            opacity: 0.3;
+        }
+
+        /* Footer Bar */
+        .footer-bar {
+            padding: 10px 24px;
+            background: #0d0f1a;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.65rem;
+            color: var(--text-secondary);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Animations */
+        @keyframes pulse {
+            0% { opacity: 0.8; }
+            50% { opacity: 1; }
+            100% { opacity: 0.8; }
+        }
+
+        .scanning {
+            animation: pulse 1.5s infinite ease-in-out;
+        }
+
+        /* Optimization State */
+        .optimizing-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(10, 11, 20, 0.9);
+            z-index: 100;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(8px);
+        }
+
+        .opt-content {
+            text-align: center;
+        }
+
+        .opt-spinner {
+            width: 60px;
+            height: 60px;
+            border: 4px solid rgba(0, 229, 255, 0.1);
+            border-top: 4px solid var(--accent-blue);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 24px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Responsive */
+        @media (max-width: 1000px) {
+            .dashboard { grid-template-columns: 1fr; }
+            .stats-row { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <div class="header-left">
+            <div class="app-logo">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                    <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                </svg>
+            </div>
+            <div class="app-name-group">
+                <div class="app-name">KDS <span>Memory Free</span></div>
+                <div class="connection-status">Connected: Windows/Machine</div>
+            </div>
+        </div>
+        <div class="header-center">
+            <div class="status-chip">
+                <div class="chip-dot"></div>
+                OPENAI - GPT-4O MINI
+            </div>
+            <div class="status-chip">
+                <div class="chip-dot" style="background: #00e5ff; box-shadow: 0 0 8px #00e5ff;"></div>
+                LIVE SYNC ACTIVE
+            </div>
+        </div>
+        <div class="header-right">
+            <div class="header-icons">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15a3 3 0 100-6 3 3 0 000 6z"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            </div>
+            <button class="boost-btn" onclick="startOptimization()">Boost Memory</button>
+        </div>
+    </div>
+
+    <div class="dashboard">
+        <div class="stats-row">
+            <div class="stat-card">
+                <div class="stat-value" id="demand-val">3.1%</div>
+                <div class="stat-label">Real-Time Demand</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="ram-val">89.7%</div>
+                <div class="stat-label">7.0GB / 7.7GB</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">50</div>
+                <div class="stat-label">Active Threads</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" style="color: var(--success);">STABLE</div>
+                <div class="stat-label">Integrity Verified</div>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <div class="card-header">
+                <div class="card-title">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                    System Telemetry
+                </div>
+                <div style="font-size: 0.65rem; color: var(--text-secondary); display: flex; gap: 12px;">
+                    <span>● CPU</span>
+                    <span style="color: var(--accent-blue);">● RAM</span>
+                </div>
+            </div>
+            <div class="telemetry-container">
+                <div class="graph-bg"></div>
+                <div class="graph-line" id="telemetry-line"></div>
+                <div style="position: absolute; bottom: -20px; left: 0; right: 0; display: flex; justify-content: space-between; font-size: 0.6rem; color: var(--text-secondary);">
+                    <span>10:36:01 AM</span>
+                    <span>10:36:10 AM</span>
+                </div>
+            </div>
+
+            <div class="card-header" style="margin-top: 20px;">
+                <div class="card-title">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
+                    Active Processes
+                </div>
+                <div class="status-chip" style="padding: 4px 10px; cursor: pointer;">
+                    AUDIT FLEET
+                </div>
+            </div>
+            <table class="process-table">
+                <thead>
+                    <tr>
+                        <th>Process Name</th>
+                        <th>CPU</th>
+                        <th>Memory</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="process-list">
+                    <tr>
+                        <td class="process-name">msedge.exe<span class="process-pid">PID: 13820</span></td>
+                        <td>4.7%</td>
+                        <td>0.3 GB</td>
+                        <td><span class="status-badge">UNKNOWN</span></td>
+                    </tr>
+                    <tr>
+                        <td class="process-name">Antigravity.exe<span class="process-pid">PID: 31752</span></td>
+                        <td>0.2%</td>
+                        <td>0.3 GB</td>
+                        <td><span class="status-badge">UNKNOWN</span></td>
+                    </tr>
+                    <tr>
+                        <td class="process-name">explorer.exe<span class="process-pid">PID: 28268</span></td>
+                        <td>0.9%</td>
+                        <td>0.3 GB</td>
+                        <td><span class="status-badge">UNKNOWN</span></td>
+                    </tr>
+                    <tr>
+                        <td class="process-name">msedge.exe<span class="process-pid">PID: 19068</span></td>
+                        <td>14.8%</td>
+                        <td>0.2 GB</td>
+                        <td><span class="status-badge">UNKNOWN</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="right-panel">
+            <div class="cleanup-alert">
+                <div class="alert-header">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2.5"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                    CLEANUP ALERT
+                </div>
+                <div class="alert-text">
+                    AI identified <b>4.2 GB</b> of stale temporary cache data from uninstalled packages.
+                </div>
+                <button class="wipe-btn" onclick="startOptimization()">Wipe Stale Data</button>
+            </div>
+
+            <div class="detail-placeholder">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                    <line x1="8" y1="21" x2="16" y2="21"/>
+                    <line x1="12" y1="17" x2="12" y2="21"/>
+                </svg>
+                <div style="font-size: 0.8rem;">Select a process from the explorer to view deep-dive AI metrics</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bar">
+        <div>PULSE V4.2.1-STABLE</div>
+        <div>OPTIMIZED: 12.8GB (WK) &nbsp;&nbsp;&nbsp; UPTIME: 04:22:16</div>
+    </div>
+
+    <div class="optimizing-overlay" id="overlay">
+        <div class="opt-content">
+            <div class="opt-spinner"></div>
+            <h2 id="opt-status" style="font-size: 1.5rem; margin-bottom: 10px;">Analyzing System...</h2>
+            <p id="opt-desc" style="color: var(--text-secondary);">Identifying reclaimable memory blocks</p>
+        </div>
+    </div>
+
+    <script>
+        function startOptimization() {
+            const overlay = document.getElementById('overlay');
+            const status = document.getElementById('opt-status');
+            const desc = document.getElementById('opt-desc');
+            const ramVal = document.getElementById('ram-val');
+            
+            overlay.style.display = 'flex';
+            
+            setTimeout(() => {
+                status.innerText = "Reclaiming Memory...";
+                desc.innerText = "Wiping 4.2GB of stale cache data";
+            }, 1500);
+
+            setTimeout(() => {
+                status.innerText = "Optimization Complete";
+                status.style.color = "var(--success)";
+                desc.innerText = "System performance has been restored";
+                ramVal.innerText = "32.4%";
+                ramVal.style.color = "var(--success)";
+                document.querySelector('.wipe-btn').innerText = "System Clean";
+                document.querySelector('.wipe-btn').disabled = true;
+                document.querySelector('.wipe-btn').style.background = "rgba(255,255,255,0.05)";
+            }, 3500);
+
+            setTimeout(() => {
+                overlay.style.display = 'none';
+            }, 5000);
+        }
+
+        // Simulating Telemetry
+        setInterval(() => {
+            const line = document.getElementById('telemetry-line');
+            const randomHeight = Math.floor(Math.random() * 40) + 20;
+            line.style.bottom = randomHeight + '%';
+            
+            const demand = document.getElementById('demand-val');
+            const newVal = (Math.random() * 5 + 2).toFixed(1);
+            demand.innerText = newVal + '%';
+        }, 2000);
+    </script>
+</body>
+</html>

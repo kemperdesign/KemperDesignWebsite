@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KDS Drive Mirror — Interactive Demo | Kemper Design Services</title>
+    <meta name="robots" content="noindex">
+
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --bg: #1e1e1e;
+            --header-bg: #2d2d2d;
+            --surface: #252526;
+            --border: #3c3c3c;
+            --accent: #3b82f6;
+            --text: #e1e1e1;
+            --muted: #858585;
+            --success: #4ec9b0;
+            --error: #f48771;
+            --btn-blue: #2a72b5;
+            --btn-red: #d14d41;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        /* ── Demo Banner ── */
+        .demo-banner {
+            background: rgba(59, 130, 246, 0.1);
+            border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+            padding: 8px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 100;
+        }
+
+        .demo-banner-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--accent);
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .demo-pill {
+            background: rgba(59, 130, 246, 0.2);
+            border: 1px solid var(--accent);
+            border-radius: 4px;
+            padding: 1px 6px;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+        }
+
+        .demo-banner-right a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 0.8rem;
+            margin-left: 15px;
+        }
+        .demo-banner-right a:hover { color: #fff; }
+
+        /* ── App UI ── */
+        .app-window {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            background: #1a1a1a;
+        }
+
+        /* Navigation Bar */
+        .app-nav {
+            background: #252526;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            padding: 0 16px;
+            gap: 8px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-brand {
+            font-weight: 700;
+            font-size: 0.95rem;
+            margin-right: 24px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-item {
+            padding: 6px 16px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            color: #ccc;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .nav-item:hover { background: #3c3c3c; }
+        .nav-item.active { background: #37373d; color: #fff; }
+
+        .nav-settings {
+            margin-left: auto;
+            color: var(--muted);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.85rem;
+        }
+
+        /* Dashboard Header */
+        .dashboard-header {
+            padding: 24px 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .header-left h1 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            color: var(--success);
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--success);
+        }
+
+        /* Main Grid */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1fr 280px;
+            gap: 24px;
+            padding: 0 32px;
+            flex: 1;
+        }
+
+        /* Left Side: Source Folders */
+        .source-section {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .section-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--muted);
+        }
+
+        .folder-list-container {
+            display: flex;
+            gap: 12px;
+        }
+
+        .folder-textarea {
+            flex: 1;
+            background: #1e1e1e;
+            border: 1px solid var(--border);
+            border-radius: 2px;
+            height: 300px;
+            padding: 12px;
+            color: #d4d4d4;
+            font-family: 'Consolas', monospace;
+            font-size: 0.9rem;
+            resize: none;
+        }
+
+        .folder-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .btn-side {
+            background: var(--btn-blue);
+            color: #fff;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            width: 80px;
+        }
+
+        .btn-side.remove { background: #3c3c3c; color: #aaa; }
+
+        /* Middle Buttons */
+        .action-row {
+            display: flex;
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        .btn-action {
+            padding: 8px 32px;
+            border-radius: 4px;
+            border: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #fff;
+            cursor: pointer;
+            background: var(--btn-blue);
+            min-width: 100px;
+        }
+
+        .btn-action.cancel { background: var(--btn-red); }
+
+        /* Right Side: Panels */
+        .panels-column {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .panel {
+            background: #252526;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 16px;
+        }
+
+        .panel-title {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 12px;
+        }
+
+        .panel-info {
+            font-size: 0.85rem;
+            margin-bottom: 8px;
+        }
+
+        .progress-container {
+            height: 8px;
+            background: #3c3c3c;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-top: 8px;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: var(--success);
+            width: 35%;
+        }
+
+        .panel-options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .option-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.85rem;
+            cursor: pointer;
+        }
+
+        .radio-circle {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            border: 2px solid var(--muted);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .radio-circle.active {
+            border-color: var(--btn-blue);
+        }
+
+        .radio-inner {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--btn-blue);
+        }
+
+        .checkbox-square {
+            width: 16px;
+            height: 16px;
+            border: 2px solid var(--muted);
+            border-radius: 2px;
+        }
+
+        /* Bottom Progress */
+        .bottom-progress-area {
+            padding: 32px;
+            margin-top: auto;
+        }
+
+        .full-progress-bg {
+            height: 4px;
+            background: #333;
+            width: 100%;
+            position: relative;
+        }
+
+        .full-progress-fill {
+            height: 100%;
+            background: var(--btn-blue);
+            width: 0%;
+            transition: width 0.3s;
+        }
+
+        .scan-status-text {
+            font-size: 0.75rem;
+            color: var(--muted);
+            margin-top: 24px;
+            font-family: 'Consolas', monospace;
+        }
+
+        /* Footer Stats */
+        .app-footer {
+            background: #1a1a1a;
+            border-top: 1px solid var(--border);
+            padding: 8px 32px;
+            display: flex;
+            gap: 20px;
+            font-size: 0.8rem;
+        }
+
+        .stat-item span:first-child { color: var(--muted); }
+        .stat-item .val-success { color: #a6e22e; }
+        .stat-item .val-error { color: #f92672; }
+
+    </style>
+</head>
+<body>
+
+    <div class="demo-banner">
+        <div class="demo-banner-left">
+            <span class="demo-pill">Interactive Demo</span>
+            <span>KDS Drive Mirror Backup</span>
+        </div>
+        <div class="demo-banner-right">
+            <a href="apps.html">← Back to Apps</a>
+            <a href="drivemirror.html">View Details</a>
+        </div>
+    </div>
+
+    <div class="app-window">
+        <!-- Nav -->
+        <div class="app-nav">
+            <div class="nav-brand">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
+                KDS Drive Mirror
+            </div>
+            <div class="nav-item active">Dashboard</div>
+            <div class="nav-item">Logs</div>
+            <div class="nav-item">Restore</div>
+            <div class="nav-settings">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                Settings
+            </div>
+        </div>
+
+        <!-- Dashboard Header -->
+        <div class="dashboard-header">
+            <div class="header-left">
+                <h1>KDS Drive Mirror Backup</h1>
+            </div>
+            <div class="header-right">
+                E: <div class="status-dot"></div> 40.7 GB free
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-grid">
+            <div class="source-section">
+                <span class="section-label">Source Folders</span>
+                <div class="folder-list-container">
+                    <textarea class="folder-textarea" readonly>C:\</textarea>
+                    <div class="folder-actions">
+                        <button class="btn-side">+ Add</button>
+                        <button class="btn-side remove">Remove</button>
+                    </div>
+                </div>
+
+                <div class="action-row">
+                    <button class="btn-action" onclick="simulateAction('Scanning')">Scan</button>
+                    <button class="btn-action" onclick="simulateAction('Backing up')">Backup</button>
+                    <button class="btn-action" onclick="simulateAction('Syncing')">Sync</button>
+                    <button class="btn-action cancel" onclick="stopSimulation()">Cancel</button>
+                </div>
+            </div>
+
+            <div class="panels-column">
+                <div class="panel">
+                    <div class="panel-title">Destination</div>
+                    <div class="panel-info" style="color:#ccc;">E:\DriveMirrorBackup</div>
+                    <div class="panel-info" style="color:var(--success); font-size: 0.75rem;">40.7 GB free / 114.6 GB</div>
+                    <div class="progress-container">
+                        <div class="progress-bar"></div>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <div class="panel-title">Mode</div>
+                    <div class="panel-options">
+                        <div class="option-item">
+                            <div class="radio-circle active"><div class="radio-inner"></div></div>
+                            Backup
+                        </div>
+                        <div class="option-item">
+                            <div class="radio-circle"></div>
+                            Sync
+                        </div>
+                        <div class="option-item" style="margin-top: 8px;">
+                            <div class="checkbox-square"></div>
+                            Mirror <span style="color:var(--muted); font-size:0.7rem;">(delete orphans)</span>
+                        </div>
+                        <div class="option-item">
+                            <div class="checkbox-square"></div>
+                            Dry run / preview
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Progress Area -->
+        <div class="bottom-progress-area">
+            <div class="full-progress-bg">
+                <div class="full-progress-fill" id="main-progress"></div>
+            </div>
+            <div class="scan-status-text" id="status-text">
+                Ready
+            </div>
+        </div>
+
+        <!-- Footer Stats -->
+        <div class="app-footer">
+            <div class="stat-item"><span>Scanned:</span> <span id="stat-scanned">0</span></div>
+            <div class="stat-item"><span>Copied:</span> <span id="stat-copied" class="val-success">0</span></div>
+            <div class="stat-item"><span>Updated:</span> <span id="stat-updated" class="val-success">0</span></div>
+            <div class="stat-item"><span>Skipped:</span> 0</div>
+            <div class="stat-item"><span>Deleted:</span> 0</div>
+            <div class="stat-item"><span>Failed:</span> <span class="val-error">0</span></div>
+            <div class="stat-item"><span>Size:</span> 0</div>
+        </div>
+    </div>
+
+    <script>
+        let simInterval = null;
+
+        function simulateAction(action) {
+            if (simInterval) clearInterval(simInterval);
+            
+            const progress = document.getElementById('main-progress');
+            const status = document.getElementById('status-text');
+            const scanned = document.getElementById('stat-scanned');
+            const copied = document.getElementById('stat-copied');
+            
+            let p = 0;
+            let s = 0;
+            let c = 0;
+            
+            status.innerText = `${action} [${Math.floor(Math.random()*9000+1000)}]: C:\\Users\\Damian\\Documents\\...`;
+            
+            simInterval = setInterval(() => {
+                p += Math.random() * 5;
+                s += Math.floor(Math.random() * 100 + 50);
+                if (p > 30) c += Math.floor(Math.random() * 2);
+
+                if (p >= 100) {
+                    p = 100;
+                    status.innerText = "Operation completed successfully.";
+                    clearInterval(simInterval);
+                    simInterval = null;
+                } else {
+                    status.innerText = `${action} [${Math.floor(Math.random()*9000+1000)}]: C:\\Data\\file_${Math.floor(p*12)}.dat`;
+                }
+
+                progress.style.width = p + '%';
+                scanned.innerText = s;
+                copied.innerText = c;
+
+            }, 200);
+        }
+
+        function stopSimulation() {
+            if (simInterval) clearInterval(simInterval);
+            simInterval = null;
+            document.getElementById('main-progress').style.width = '0%';
+            document.getElementById('status-text').innerText = "Operation cancelled.";
+        }
+    </script>
+</body>
+</html>
