@@ -932,6 +932,18 @@
     <!-- FAQ Spiral Component -->
     <div id="faq-spiral-container"></div>
 
+    <!-- Blog Section -->
+    <section class="blog-section" id="blog-section">
+        <div class="section-header" style="text-align: center; margin-bottom: 60px;">
+            <div class="aai-cat" style="color: var(--text-secondary); opacity: 0.6; font-size: 0.75rem; letter-spacing: 2px;">INSIGHTS</div>
+            <h2 class="aai-q" style="margin-bottom: 16px; font-size: 2.8rem; font-weight: 700;">Latest from the Blog</h2>
+            <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto; font-size: 1.05rem;">Practical insights on AI automation, business optimization, and digital transformation.</p>
+        </div>
+        <div class="blog-grid" id="blog-grid">
+            <!-- Blogs will be loaded here -->
+        </div>
+    </section>
+
     <!-- CTA Section -->
     <section style="padding: 80px 24px; text-align: center; background: linear-gradient(135deg, rgba(139,92,246,0.08) 0%, rgba(139,92,246,0.04) 100%); border-top: 1px solid rgba(139,92,246,0.1); border-bottom: 1px solid rgba(139,92,246,0.1); margin: 60px 0;">
         <button onclick="openContactModal()" style="padding: 11px 40px; background: var(--accent-1); color: #fff; border: none; border-radius: 12px; font-weight: 500; cursor: pointer; font-size: 1.1rem; transition: all 0.3s; box-shadow: 0 8px 32px rgba(139,92,246,0.5); letter-spacing: 0.3px; text-shadow: 0 0 6px rgba(255,255,255,0.3), 0 0 12px rgba(139,92,246,0.4);" onmouseover="this.style.boxShadow='0 12px 48px rgba(139,92,246,0.7)'; this.style.textShadow='0 0 10px rgba(255,255,255,0.5), 0 0 20px rgba(139,92,246,0.6)'; this.style.transform='translateY(-2px)';" onmouseout="this.style.boxShadow='0 8px 32px rgba(139,92,246,0.5)'; this.style.textShadow='0 0 6px rgba(255,255,255,0.3), 0 0 12px rgba(139,92,246,0.4)'; this.style.transform='translateY(0)';">Schedule a Consultation →</button>
@@ -2586,8 +2598,8 @@
 
         grid.innerHTML = currentBlogs.map((blog, index) => {
             const isVid = blog.image.includes('data:video/') || blog.image.match(/\.(mp4|webm|ogg)$/i);
-            const blogSlug = slugifyBlog(blog.title);
-            const blogUrl = `/blog/${blogSlug}/`;
+            const blogId = blog.id || slugifyBlog(blog.title);
+            const blogUrl = `blog.html?id=${blogId}`;
 
             return `
             <a href="${blogUrl}" class="blog-card" style="cursor: pointer; text-decoration: none; color: inherit;">
@@ -2603,7 +2615,7 @@
                         <span class="blog-meta-dot"></span>
                         <span>${blog.date}</span>
                         <span class="blog-meta-dot"></span>
-                        <span>${blog.readTime}</span>
+                        <span>${blog.readTime || '5 min read'}</span>
                     </div>
                     <h3>${blog.title}</h3>
                     <p>${blog.description || blog.content.replace(/<[^>]*>/g, '').substring(0, 120)}...</p>

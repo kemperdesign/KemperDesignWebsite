@@ -1,29 +1,12 @@
 [
   {
-    "title": "From Novelty to Revenue: What Small Businesses Can Learn from Google Antigravity",
-    "slug": "from-novelty-to-revenue-what-small-businesses-can-learn-from-google-antigravity",
+    "id": "getting-started-ai-automation",
+    "title": "Getting Started with AI Automation: A Practical Guide",
     "author": "Damian Kemper",
-    "date": "2025-03-09",
-    "readTime": "4 min read",
-    "image": "https://picsum.photos/seed/51/640/360",
-    "filename": "from-novelty-to-revenue-what-small-businesses-can-learn-from-google-antigravity.html"
-  },
-  {
-    "title": "Why Google Firebase is the Secret Weapon for Modern Small Businesses",
-    "slug": "why-google-firebase-is-the-secret-weapon-for-modern-small-businesses",
-    "author": "Damian Kemper",
-    "date": "2025-02-28",
-    "readTime": "4 min read",
-    "image": "https://picsum.photos/seed/87/640/360",
-    "filename": "why-google-firebase-is-the-secret-weapon-for-modern-small-businesses.html"
-  },
-  {
-    "title": "Mastering Google Flow: The New Standard for Small Business Content and Automation",
-    "slug": "mastering-google-flow-the-new-standard-for-small-business-content-and-automation",
-    "author": "Damian Kemper",
-    "date": "2025-02-14",
-    "readTime": "4 min read",
-    "image": "https://picsum.photos/seed/13/640/360",
-    "filename": "mastering-google-flow-the-new-standard-for-small-business-content-and-automation.html"
+    "date": "April 15, 2026",
+    "readTime": "5 min read",
+    "image": "https://images.unsplash.com/photo-1677442d019cecf8871d1a97b5f5aaf1?w=1200&h=400&fit=crop",
+    "description": "Learn how to implement AI automation in your business without technical complexity.",
+    "content": "<h2>Understanding AI Automation</h2><p>AI automation has become increasingly important for small businesses looking to scale without proportionally increasing their workforce. In this guide, we'll explore practical approaches to implementing AI automation in your operations.</p><h3>Getting Started</h3><p>The first step is understanding your current workflows and identifying areas where automation can provide the most value. This typically involves:</p><ul><li>Mapping out your current processes</li><li>Identifying bottlenecks and repetitive tasks</li><li>Measuring time spent on manual operations</li><li>Prioritizing quick wins</li></ul><h3>Implementation Strategy</h3><p>A successful AI automation strategy focuses on:</p><ul><li><strong>Clear Goals:</strong> Define what you want to achieve</li><li><strong>Proper Tools:</strong> Select the right AI tools for your needs</li><li><strong>Team Buy-in:</strong> Ensure your team understands the benefits</li><li><strong>Iterative Approach:</strong> Start small and scale what works</li></ul><p>The key to successful automation is starting with high-impact, low-complexity processes. This builds confidence and demonstrates value to your team.</p>"
   }
 ]
