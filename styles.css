@@ -400,6 +400,31 @@ h1 .text-gradient {
     .hero-logo-container {
         display: none;
     }
+    /* Service Modal on Mobile */
+    #service-modal .aai-inner {
+        max-width: 95vw !important;
+        max-height: 90vh !important;
+        flex-direction: column !important;
+        padding: 0 !important;
+        border-radius: 20px !important;
+    }
+    #sm-image {
+        flex: 1 1 auto !important;
+        min-height: 280px !important;
+    }
+    #service-modal .aai-close {
+        z-index: 100 !important;
+        top: 15px !important;
+        right: 15px !important;
+        width: 36px !important;
+        height: 36px !important;
+        font-size: 20px !important;
+    }
+    #service-modal > div > div:last-child {
+        padding: 40px 25px !important;
+        overflow-y: auto !important;
+        max-height: 50vh !important;
+    }
 }
 
 /* Hero Section */
