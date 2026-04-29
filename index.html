@@ -2472,6 +2472,9 @@
                     </div>
                     <h3>${blog.title}</h3>
                     <p>${blog.description || blog.content.replace(/<[^>]*>/g, '').substring(0, 120)}...</p>
+                    <div style="margin-top: 20px; color: var(--accent-1); font-weight: 600; display: flex; align-items: center; gap: 8px;">
+                        Read Full Guide <span style="transition: transform 0.3s;">→</span>
+                    </div>
                 </div>
             </a>
             `;
