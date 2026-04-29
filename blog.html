@@ -190,31 +190,102 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-col">
-                <h4 class="footer-title">Kemper Design Services</h4>
-                <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6;">
-                    Building AI workflows, custom tools, and automation for small businesses. Based in St. Augustine, FL.
-                </p>
+        <div class="footer-grid">
+            <div class="footer-col brand-col">
+                <div class="brand-header">
+                    <img src="assets/logos/logo-white.png" alt="KDS Logo" class="footer-logo">
+                    <div class="brand-title">
+                        <span>Kemper</span>
+                        <span>Design</span>
+                        <span>Services</span>
+                    </div>
+                </div>
+                <p class="brand-desc">We modernize business operations with practical AI — automating workflows, building custom tools, and helping teams do more without burning out.</p>
             </div>
+
             <div class="footer-col">
-                <h4 class="footer-title">CONTACT</h4>
+                <h4 class="footer-title">QUICK LINKS</h4>
                 <div class="footer-links">
-                    <a href="mailto:damian@kemperdesignservices.com">damian@kemperdesignservices.com</a>
-                    <a href="tel:+16313536377">(631) 353-6377</a>
+                    <a href="/">Home</a>
+                    <a href="javascript:void(0)" onclick="openAboutModal()">About Us</a>
+                    <a href="javascript:void(0)" onclick="openFaqModal()">FAQ</a>
+                    <a href="javascript:void(0)" onclick="openTermsModal()">Terms &amp; Conditions</a>
+                    <a href="javascript:void(0)" onclick="openPrivacyModal()">Privacy Policy</a>
+                    <a href="javascript:void(0)" onclick="openAdminLoginModal()" style="opacity: 0.5; font-size: 0.8rem; margin-top: 10px;">Admin</a>
                 </div>
             </div>
+
             <div class="footer-col">
-                <h4 class="footer-title">FOLLOW</h4>
+                <h4 class="footer-title">AI SERVICES</h4>
                 <div class="footer-links">
-                    <a href="https://www.linkedin.com/in/damiankemper/" target="_blank">LinkedIn</a>
-                    <a href="https://github.com/kemperdesign" target="_blank">GitHub</a>
-                    <a href="https://www.facebook.com/profile.php?id=61558862320236" target="_blank">Facebook</a>
+                    <a href="javascript:void(0)" onclick="openServiceModal('AI Workflow Automation')">AI Automations</a>
+                    <a href="javascript:void(0)" onclick="openServiceModal('AI Consulting')">AI Consulting</a>
+                    <a href="javascript:void(0)" onclick="openServiceModal('Custom Integrations')">AI Integrations</a>
+                    <a href="javascript:void(0)" onclick="openServiceModal('AI Enablement')">AI Enablement</a>
+                    <a href="javascript:void(0)" onclick="openServiceModal('AI Training & Education')">AI Education</a>
+                    <a href="javascript:void(0)" onclick="openServiceModal('AI Implementation')">AI Implementations</a>
+                    <a href="javascript:void(0)" onclick="openServiceModal('AI Audits')">AI Audits</a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4 class="footer-title">ADDITIONAL SERVICES</h4>
+                <div class="footer-links">
+                    <a href="javascript:void(0)" onclick="openServiceModal('Custom Applications')">Custom Applications</a>
+                    <a href="javascript:void(0)" onclick="openServiceModal('Custom Websites')">Web Engineering</a>
+                    <a href="javascript:void(0)" onclick="openServiceModal('Graphic Design')">Graphic Design</a>
+                    <a href="javascript:void(0)" onclick="openServiceModal('Instructional Design')">Instructional Design</a>
+                    <a href="javascript:void(0)" onclick="openServiceModal('Notary Services')">Notary Services</a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4 class="footer-title">CONTACT US</h4>
+                <div class="contact-list">
+                    <div class="contact-item">
+                        <span class="contact-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        </span>
+                        <span>St Augustine, FL</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                        </span>
+                        <a href="mailto:damian@kemperdesignservices.com">damian@kemperdesignservices.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        </span>
+                        <a href="tel:+16313536377">(631) 3-KEMPER</a>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        </span>
+                        <span>Mon–Fri, 9am–5pm EST</span>
+                    </div>
                 </div>
             </div>
         </div>
+
         <div class="footer-bottom">
-            <p>&copy; 2024 Kemper Design Services. All rights reserved.</p>
+            <p>© 2026 Kemper Design Services. All rights reserved.</p>
+            <div class="social-links">
+                <a href="https://www.facebook.com/profile.php?id=61558862320236" target="_blank" aria-label="Facebook">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a6 6 0 0 0-6 6v3H7v4h2v8h4v-8h3l1-4h-4V8a1 1 0 0 1 1-1h3z"/></svg>
+                </a>
+                <a href="https://www.youtube.com/@KemperDesignServices" target="_blank" aria-label="YouTube">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/></svg>
+                </a>
+                <a href="https://www.linkedin.com/in/damiankemper/" target="_blank" aria-label="LinkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                </a>
+                <a href="https://github.com/kemperdesign" target="_blank" aria-label="GitHub">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v 3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                </a>
+            </div>
         </div>
     </footer>
 
