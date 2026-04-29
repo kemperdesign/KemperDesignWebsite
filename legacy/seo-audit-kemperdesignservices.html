@@ -1,0 +1,1885 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SEO Strategy Report — Kemper Design Services</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #0a0a0f;
+    --bg-card: rgba(255,255,255,0.03);
+    --bg-card-hover: rgba(255,255,255,0.06);
+    --border: rgba(255,255,255,0.08);
+    --border-hover: rgba(255,255,255,0.15);
+    --text: #e8e8ed;
+    --text-secondary: #8b8b9e;
+    --text-muted: #5a5a6e;
+    --accent: #6366f1;
+    --accent-glow: rgba(99,102,241,0.3);
+    --green: #22c55e;
+    --green-bg: rgba(34,197,94,0.12);
+    --green-border: rgba(34,197,94,0.25);
+    --yellow: #eab308;
+    --yellow-bg: rgba(234,179,8,0.12);
+    --yellow-border: rgba(234,179,8,0.25);
+    --red: #ef4444;
+    --red-bg: rgba(239,68,68,0.12);
+    --red-border: rgba(239,68,68,0.25);
+    --blue: #3b82f6;
+    --blue-bg: rgba(59,130,246,0.12);
+    --orange: #f97316;
+    --orange-bg: rgba(249,115,22,0.12);
+    --orange-border: rgba(249,115,22,0.25);
+    --purple: #a78bfa;
+    --purple-bg: rgba(167,139,250,0.08);
+    --purple-border: rgba(167,139,250,0.15);
+    --radius: 16px;
+    --radius-sm: 10px;
+    --radius-xs: 6px;
+  }
+
+  ::selection { background: var(--accent); color: white; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(ellipse at 20% 50%, rgba(99,102,241,0.06) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 20%, rgba(139,92,246,0.04) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 80%, rgba(59,130,246,0.03) 0%, transparent 50%);
+    z-index: -1;
+    animation: ambientDrift 20s ease-in-out infinite;
+  }
+  @keyframes ambientDrift {
+    0%, 100% { transform: translate(0, 0); }
+    33% { transform: translate(-2%, 1%); }
+    66% { transform: translate(1%, -1%); }
+  }
+
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.2); }
+
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+  .header {
+    padding: 40px 0 0;
+    text-align: center;
+  }
+  .header-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 16px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 20px;
+  }
+  .header-badge .dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--green);
+    box-shadow: 0 0 8px var(--green);
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+  .header h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 12px;
+    background: linear-gradient(135deg, #fff 0%, #a5a5c0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .header .subtitle {
+    font-size: 16px;
+    color: var(--text-secondary);
+    margin-bottom: 32px;
+  }
+
+  .score-section {
+    display: flex;
+    align-items: center;
+    gap: 48px;
+    margin-bottom: 40px;
+    padding: 40px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    backdrop-filter: blur(20px);
+  }
+  .score-circle-wrap { position: relative; flex-shrink: 0; }
+  .score-circle {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+  }
+  .score-circle svg {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+  }
+  .score-circle svg circle {
+    fill: none;
+    stroke-width: 6;
+    stroke-linecap: round;
+  }
+  .score-circle svg .bg-ring { stroke: rgba(255,255,255,0.06); }
+  .score-circle svg .progress-ring {
+    stroke: var(--accent);
+    stroke-dasharray: 465;
+    stroke-dashoffset: 186;
+    filter: drop-shadow(0 0 6px var(--accent-glow));
+    transition: stroke-dashoffset 1.5s ease-out;
+  }
+  .score-number {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 1;
+    color: white;
+    position: relative;
+    z-index: 1;
+  }
+  .score-label {
+    font-size: 13px;
+    color: var(--text-secondary);
+    font-weight: 500;
+    position: relative;
+    z-index: 1;
+    margin-top: 4px;
+  }
+  .score-grade {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    z-index: 1;
+    margin-top: 2px;
+  }
+  .score-details { flex: 1; }
+  .score-details h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .score-details p {
+    color: var(--text-secondary);
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 20px;
+  }
+
+  .sub-scores {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 12px;
+  }
+  .sub-score {
+    padding: 14px 16px;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+  }
+  .sub-score-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+  }
+  .sub-score-value {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+  }
+  .sub-score-bar {
+    height: 3px;
+    border-radius: 2px;
+    background: rgba(255,255,255,0.06);
+    margin-top: 8px;
+    overflow: hidden;
+  }
+  .sub-score-bar-fill {
+    height: 100%;
+    border-radius: 2px;
+    transition: width 1s ease-out;
+  }
+
+  .tabs {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(10,10,15,0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+  }
+  .tabs-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .tabs-inner::-webkit-scrollbar { display: none; }
+  .tab-btn {
+    padding: 16px 24px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-muted);
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s;
+  }
+  .tab-btn:hover { color: var(--text-secondary); }
+  .tab-btn.active {
+    color: var(--text);
+    border-bottom-color: var(--accent);
+  }
+  .tab-btn .tab-count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 20px;
+    height: 20px;
+    padding: 0 6px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    font-size: 11px;
+    font-weight: 600;
+    margin-left: 8px;
+    color: var(--text-secondary);
+  }
+  .tab-btn.active .tab-count {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: white;
+  }
+
+  .tab-content { display: none; padding: 40px 0 80px; }
+  .tab-content.active { display: block; }
+
+  .section-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .section-subtitle {
+    color: var(--text-secondary);
+    font-size: 15px;
+    margin-bottom: 24px;
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+  .stat-card {
+    padding: 24px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    text-align: center;
+    transition: border-color 0.2s;
+  }
+  .stat-card:hover { border-color: var(--border-hover); }
+  .stat-value {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 4px;
+  }
+  .stat-label {
+    font-size: 13px;
+    color: var(--text-secondary);
+  }
+
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px;
+    margin-bottom: 16px;
+    transition: border-color 0.2s;
+  }
+  .card:hover { border-color: var(--border-hover); }
+  .card-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 12px;
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+  }
+  .badge-critical { background: var(--red-bg); color: var(--red); border: 1px solid var(--red-border); }
+  .badge-high { background: var(--orange-bg); color: var(--orange); border: 1px solid var(--orange-border); }
+  .badge-medium { background: var(--yellow-bg); color: var(--yellow); border: 1px solid var(--yellow-border); }
+  .badge-low { background: var(--green-bg); color: var(--green); border: 1px solid var(--green-border); }
+  .badge-pass { background: var(--green-bg); color: var(--green); border: 1px solid var(--green-border); }
+  .badge-warning { background: var(--yellow-bg); color: var(--yellow); border: 1px solid var(--yellow-border); }
+  .badge-fail { background: var(--red-bg); color: var(--red); border: 1px solid var(--red-border); }
+
+  .finding {
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 16px;
+    align-items: start;
+  }
+  .finding:last-child { border-bottom: none; }
+  .finding-status {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-top: 8px;
+    flex-shrink: 0;
+  }
+  .finding-status.pass { background: var(--green); box-shadow: 0 0 6px rgba(34,197,94,0.4); }
+  .finding-status.warning { background: var(--yellow); box-shadow: 0 0 6px rgba(234,179,8,0.4); }
+  .finding-status.fail { background: var(--red); box-shadow: 0 0 6px rgba(239,68,68,0.4); }
+  .finding-content h4 {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .finding-content p {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+  .finding-rec {
+    margin-top: 8px;
+    padding: 10px 14px;
+    background: rgba(99,102,241,0.06);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 var(--radius-xs) var(--radius-xs) 0;
+    font-size: 13px;
+    color: var(--text);
+    line-height: 1.5;
+  }
+
+  .collapsible {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    margin-bottom: 12px;
+    overflow: hidden;
+    transition: border-color 0.2s;
+  }
+  .collapsible:hover { border-color: var(--border-hover); }
+  .collapsible-header {
+    padding: 20px 24px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+  }
+  .collapsible-header:hover { background: rgba(255,255,255,0.02); }
+  .collapsible-title {
+    font-weight: 600;
+    color: var(--text);
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .collapsible-body {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.35s ease;
+  }
+  .collapsible.open .collapsible-body { max-height: 5000px; }
+  .collapsible-body-inner { padding: 0 24px 24px; }
+  .collapse-icon {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.05);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; color: var(--text-muted);
+    transition: transform 0.3s, background 0.2s;
+    flex-shrink: 0;
+  }
+  .collapsible.open .collapse-icon { transform: rotate(180deg); }
+
+  .page-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 16px;
+  }
+  .page-table th {
+    text-align: left;
+    padding: 12px 16px;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+    border-bottom: 1px solid var(--border);
+    font-weight: 600;
+  }
+  .page-table td {
+    padding: 12px 16px;
+    font-size: 14px;
+    border-bottom: 1px solid rgba(255,255,255,0.03);
+    vertical-align: top;
+  }
+  .page-table tr:hover td { background: rgba(255,255,255,0.02); }
+  .page-url {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--accent);
+    word-break: break-all;
+  }
+
+  .checklist-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+  .checklist-item:last-child { border-bottom: none; }
+  .check-icon {
+    width: 22px; height: 22px;
+    border-radius: 6px;
+    flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px;
+    margin-top: 1px;
+  }
+  .check-icon.pass { background: var(--green-bg); color: var(--green); border: 1px solid var(--green-border); }
+  .check-icon.fail { background: var(--red-bg); color: var(--red); border: 1px solid var(--red-border); }
+  .check-icon.warn { background: var(--yellow-bg); color: var(--yellow); border: 1px solid var(--yellow-border); }
+  .check-text { font-size: 14px; color: var(--text); }
+  .check-text.muted { color: var(--text-secondary); }
+
+  .action-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 24px;
+    margin-bottom: 12px;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    transition: border-color 0.2s;
+  }
+  .action-item:hover { border-color: var(--border-hover); }
+  .action-number {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--accent);
+    flex-shrink: 0;
+    width: 36px;
+    text-align: center;
+    opacity: 0.5;
+  }
+  .action-content { flex: 1; }
+  .action-title { font-weight: 600; color: var(--text); font-size: 15px; margin-bottom: 6px; }
+  .action-desc { font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
+  .action-impact { margin-top: 8px; font-size: 13px; color: var(--green); font-weight: 500; }
+
+  .cluster {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    margin-bottom: 16px;
+  }
+  .cluster-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    color: var(--purple);
+    font-size: 16px;
+    margin-bottom: 12px;
+  }
+  .cluster-pages { display: flex; flex-wrap: wrap; gap: 8px; }
+  .cluster-page {
+    padding: 6px 14px;
+    border-radius: 100px;
+    background: var(--purple-bg);
+    border: 1px solid var(--purple-border);
+    font-size: 13px;
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--text-secondary);
+  }
+  .cluster-page.pillar {
+    background: rgba(167,139,250,0.15);
+    border-color: rgba(167,139,250,0.3);
+    color: var(--purple);
+    font-weight: 600;
+  }
+
+  .kw-tag {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-family: 'JetBrains Mono', monospace;
+    margin: 3px;
+    background: rgba(99,102,241,0.1);
+    border: 1px solid rgba(99,102,241,0.2);
+    color: #a5b4fc;
+  }
+
+  @media (max-width: 768px) {
+    .header h1 { font-size: 28px; }
+    .score-section { flex-direction: column; text-align: center; padding: 24px; gap: 24px; }
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .sub-scores { grid-template-columns: repeat(2, 1fr); }
+    .action-item { flex-direction: column; gap: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="container">
+    <div class="header-badge"><span class="dot"></span> Site-Wide SEO Audit</div>
+    <h1>Kemper Design Services</h1>
+    <p class="subtitle">Comprehensive analysis of 1 page (single-page site) — Generated April 21, 2026</p>
+  </div>
+</div>
+
+<!-- Score Overview -->
+<div class="container" style="padding-top: 32px; padding-bottom: 32px;">
+  <div class="score-section">
+    <div class="score-circle-wrap">
+      <div class="score-circle">
+        <svg viewBox="0 0 160 160">
+          <circle class="bg-ring" cx="80" cy="80" r="74"/>
+          <circle class="progress-ring" cx="80" cy="80" r="74"/>
+        </svg>
+        <span class="score-number">40</span>
+        <span class="score-grade">Grade D</span>
+        <span class="score-label">Overall Health</span>
+      </div>
+    </div>
+    <div class="score-details">
+      <h2>Strong Design, Invisible to Search Engines</h2>
+      <p>Kemper Design Services has a visually impressive, conversion-focused single-page website, but it is fundamentally invisible to search engines. The site has no meta description, no schema markup, no Open Graph tags, no sitemap, no robots.txt, no canonical tag, and almost no indexable text content — because the vast majority of copy is embedded in JavaScript modals that crawlers cannot read. The design communicates high quality; the SEO infrastructure communicates nothing at all. Fixing these issues is a high-leverage opportunity: the content, services, and value props are excellent — they just need to be surfaced for search.</p>
+      <div class="sub-scores">
+        <div class="sub-score">
+          <div class="sub-score-label">Technical</div>
+          <div class="sub-score-value" style="color: var(--red)">32</div>
+          <div class="sub-score-bar"><div class="sub-score-bar-fill" style="width:32%; background: var(--red)"></div></div>
+        </div>
+        <div class="sub-score">
+          <div class="sub-score-label">Content</div>
+          <div class="sub-score-value" style="color: var(--red)">30</div>
+          <div class="sub-score-bar"><div class="sub-score-bar-fill" style="width:30%; background: var(--red)"></div></div>
+        </div>
+        <div class="sub-score">
+          <div class="sub-score-label">Architecture</div>
+          <div class="sub-score-value" style="color: var(--yellow)">62</div>
+          <div class="sub-score-bar"><div class="sub-score-bar-fill" style="width:62%; background: var(--yellow)"></div></div>
+        </div>
+        <div class="sub-score">
+          <div class="sub-score-label">Cross-Page</div>
+          <div class="sub-score-value" style="color: var(--yellow)">65</div>
+          <div class="sub-score-bar"><div class="sub-score-bar-fill" style="width:65%; background: var(--yellow)"></div></div>
+        </div>
+        <div class="sub-score">
+          <div class="sub-score-label">Social &amp; Schema</div>
+          <div class="sub-score-value" style="color: var(--red)">10</div>
+          <div class="sub-score-bar"><div class="sub-score-bar-fill" style="width:10%; background: var(--red)"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TAB NAVIGATION -->
+<div class="tabs">
+  <div class="tabs-inner">
+    <button class="tab-btn active" onclick="switchTab('executive', this)">Executive Summary</button>
+    <button class="tab-btn" onclick="switchTab('pages', this)">Page Breakdown <span class="tab-count">1</span></button>
+    <button class="tab-btn" onclick="switchTab('sitewide', this)">Site-Wide Issues <span class="tab-count">11</span></button>
+    <button class="tab-btn" onclick="switchTab('technical', this)">Technical</button>
+    <button class="tab-btn" onclick="switchTab('content', this)">Content Strategy</button>
+    <button class="tab-btn" onclick="switchTab('linking', this)">Internal Linking</button>
+    <button class="tab-btn" onclick="switchTab('actions', this)">Action Plan</button>
+  </div>
+</div>
+
+<!-- ==================== TAB 1: EXECUTIVE SUMMARY ==================== -->
+<div id="tab-executive" class="tab-content active">
+<div class="container">
+
+  <div class="section-title">Executive Summary</div>
+  <div class="section-subtitle">High-level overview of kemperdesignservices.com's SEO health and top priorities</div>
+
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-value">1</div>
+      <div class="stat-label">Pages Audited</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value" style="color: var(--red)">7</div>
+      <div class="stat-label">Critical Issues</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value" style="color: var(--orange)">4</div>
+      <div class="stat-label">High Priority</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value" style="color: var(--yellow)">5</div>
+      <div class="stat-label">Warnings</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">~420</div>
+      <div class="stat-label">Crawlable Words</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">0%</div>
+      <div class="stat-label">Schema Coverage</div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-bottom: 24px;">
+    <div class="card-title" style="margin-bottom: 16px;">Key Findings</div>
+    <div style="color: var(--text-secondary); font-size: 15px; line-height: 1.8;">
+      The site has a well-crafted title tag ("Kemper Design Services — AI Tools for Small Businesses") and a single, properly structured H1 ("AI That Works With Your Team"), but every other SEO signal is either missing or severely underdeveloped. The meta description is absent entirely, meaning Google will generate its own snippet — usually a poor one. There is no schema markup of any kind: no LocalBusiness, no Organization, no Service, no FAQ, and no WebSite schema, despite the site having a physical address (St Augustine, FL), a phone number, and a detailed FAQ section in a modal — all of which are prime candidates for structured data. The site has no Open Graph or Twitter Card tags, so any social sharing will produce unbranded, low-quality previews. Critically, approximately 80–85% of the site's content — including all service descriptions, the full FAQ, the About text, and the Terms & Privacy copy — lives exclusively inside JavaScript-rendered modals, which most search engine crawlers cannot read. This means the crawlable word count is roughly 420 words, far below the 1,000+ words that competitive AI services pages typically feature. The site also lacks a sitemap.xml, robots.txt, canonical tag, favicon, and any preload or compression hints. The favicon is missing entirely. On the positive side: the viewport meta tag is present, the HTML language attribute is set correctly, font preconnects are in place, social profile links (Facebook, YouTube, LinkedIn, GitHub) are included in the footer, and the page structure (one H1, logical H2 use) is sound.
+    </div>
+  </div>
+
+  <div class="section-title" style="font-size: 18px; margin-top: 32px;">Top 3 Priorities</div>
+  <div class="section-subtitle">The highest-impact actions to take right now</div>
+
+  <div class="action-item">
+    <div class="action-number">1</div>
+    <div class="action-content">
+      <div class="action-title">Surface modal content as crawlable HTML — or create dedicated service pages</div>
+      <div class="action-desc">All service descriptions, FAQ answers, About text, Terms & Privacy content currently exist only inside JavaScript modals. Google's crawler likely cannot read any of it. This is the single biggest SEO issue: you have excellent, keyword-rich content that is completely invisible. Either (a) render the modal content as server-side HTML on dedicated pages (e.g., /services/ai-workflow-automation, /faq, /about), or (b) duplicate the content into an SEO-only section of index.html that is visible in the DOM without JavaScript interaction.</div>
+      <div class="action-impact">Expected impact: Potentially 3–5× increase in crawlable word count; unlocks ability to rank for 20+ specific service keywords</div>
+    </div>
+    <span class="badge badge-critical">Critical</span>
+  </div>
+
+  <div class="action-item">
+    <div class="action-number">2</div>
+    <div class="action-content">
+      <div class="action-title">Add LocalBusiness + Organization + FAQPage schema markup</div>
+      <div class="action-desc">The site has a street address (St Augustine, FL), phone number (904.236.3706), email, and business hours — all ideal for LocalBusiness schema. The FAQ modal contains 20+ Q&A pairs that are perfect for FAQPage schema, which can generate rich SERP results. Add JSON-LD blocks to the &lt;head&gt; covering: Organization, LocalBusiness, FAQPage, and WebSite (with SearchAction). This costs less than 2 hours to implement and can produce immediate SERP improvements.</div>
+      <div class="action-impact">Expected impact: Rich result eligibility in Google Search; improved local visibility for "AI automation St Augustine FL" searches</div>
+    </div>
+    <span class="badge badge-critical">Critical</span>
+  </div>
+
+  <div class="action-item">
+    <div class="action-number">3</div>
+    <div class="action-content">
+      <div class="action-title">Add meta description, Open Graph tags, and Twitter Card tags</div>
+      <div class="action-desc">The site is missing its meta description entirely. Every time the page is shared on LinkedIn, Facebook, or Twitter, it produces a blank or auto-generated preview — a missed branding opportunity. Write a 150-160 character meta description targeting "AI automation for small businesses" + location. Add og:title, og:description, og:image, og:url, og:type and twitter:card, twitter:title, twitter:description, twitter:image tags. This is a 30-minute fix with outsized impact on click-through rates and social sharing.</div>
+      <div class="action-impact">Expected impact: Improved CTR in search results; professional social sharing previews; signals credibility to Google</div>
+    </div>
+    <span class="badge badge-critical">Critical</span>
+  </div>
+
+</div>
+</div>
+
+<!-- ==================== TAB 2: PAGE BREAKDOWN ==================== -->
+<div id="tab-pages" class="tab-content">
+<div class="container">
+
+  <div class="section-title">Page-by-Page Breakdown</div>
+  <div class="section-subtitle">Individual audit results — 1 page audited (single-page site)</div>
+
+  <div class="card" style="overflow-x: auto; padding: 0;">
+    <table class="page-table">
+      <thead>
+        <tr>
+          <th>Page</th>
+          <th>Title</th>
+          <th>Words</th>
+          <th>H1</th>
+          <th>Meta Desc</th>
+          <th>Schema</th>
+          <th>OG Tags</th>
+          <th>Issues</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="page-url">/index.html</span></td>
+          <td style="max-width: 240px; font-size: 13px;">Kemper Design Services — AI Tools for Small Businesses</td>
+          <td>~420</td>
+          <td><span class="badge badge-pass">Pass</span></td>
+          <td><span class="badge badge-fail">Missing</span></td>
+          <td><span class="badge badge-fail">None</span></td>
+          <td><span class="badge badge-fail">None</span></td>
+          <td style="color: var(--red); font-weight: 600;">16</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Detailed Collapsible -->
+  <div class="collapsible open" style="margin-top: 24px;">
+    <div class="collapsible-header" onclick="this.parentElement.classList.toggle('open')">
+      <span class="collapsible-title">
+        <span class="page-url">/index.html</span>
+        <span class="badge badge-critical">16 issues</span>
+      </span>
+      <span class="collapse-icon">&#9660;</span>
+    </div>
+    <div class="collapsible-body">
+      <div class="collapsible-body-inner">
+
+        <div class="finding">
+          <div class="finding-status pass"></div>
+          <div class="finding-content">
+            <h4>Title tag — PASS</h4>
+            <p>Title: "Kemper Design Services — AI Tools for Small Businesses" (53 characters). Includes the brand name and a strong keyword phrase. Within the 30–60 character sweet spot.</p>
+            <div class="finding-rec">Minor improvement: consider leading with the keyword rather than brand name for non-branded searches — e.g., "AI Tools for Small Businesses | Kemper Design Services". Test both approaches.</div>
+          </div>
+          <span class="badge badge-low">Low</span>
+        </div>
+
+        <div class="finding">
+          <div class="finding-status pass"></div>
+          <div class="finding-content">
+            <h4>H1 tag — PASS</h4>
+            <p>Exactly one H1: "AI That Works With Your Team — Not Instead of It." Descriptive, brand-aligned, and keyword-adjacent. The subtext below it ("Enhance Human Potential with Intelligent Automation") is strong LSI content.</p>
+            <div class="finding-rec">H1 could be slightly more keyword-explicit. Consider: "AI Automation Services for Small Businesses — Built for Your Team, Not Instead of It." This preserves the voice while adding search intent alignment.</div>
+          </div>
+          <span class="badge badge-low">Low</span>
+        </div>
+
+        <div class="finding">
+          <div class="finding-status fail"></div>
+          <div class="finding-content">
+            <h4>Meta description — FAIL (Missing)</h4>
+            <p>No &lt;meta name="description"&gt; tag found anywhere in the document. Google will auto-generate a snippet, usually from the first visible text on the page — which in this case may be navigation text, not compelling copy.</p>
+            <div class="finding-rec">Add: &lt;meta name="description" content="Kemper Design Services builds custom AI workflows, chatbots, and automation tools for small businesses in St. Augustine, FL. Save 15+ hours a week. Free discovery call."&gt; (156 chars)</div>
+          </div>
+          <span class="badge badge-critical">Critical</span>
+        </div>
+
+        <div class="finding">
+          <div class="finding-status fail"></div>
+          <div class="finding-content">
+            <h4>Schema markup — FAIL (None)</h4>
+            <p>Zero JSON-LD or microdata schema found. The site has a business address, phone number, email, business hours, and a rich FAQ — all missing from structured data.</p>
+            <div class="finding-rec">Add at minimum: LocalBusiness schema (with address, phone, email, hours, geo coordinates), Organization schema, FAQPage schema (from the FAQ modal content), and WebSite schema with SearchAction.</div>
+          </div>
+          <span class="badge badge-critical">Critical</span>
+        </div>
+
+        <div class="finding">
+          <div class="finding-status fail"></div>
+          <div class="finding-content">
+            <h4>Open Graph tags — FAIL (None)</h4>
+            <p>No og:title, og:description, og:image, og:url, og:type, or og:site_name tags present. LinkedIn and Facebook shares will produce blank or auto-generated previews.</p>
+            <div class="finding-rec">Add all five core OG tags. Use a custom og:image (1200×630px) featuring the logo and tagline. Set og:type to "website".</div>
+          </div>
+          <span class="badge badge-critical">Critical</span>
+        </div>
+
+        <div class="finding">
+          <div class="finding-status fail"></div>
+          <div class="finding-content">
+            <h4>Twitter Card tags — FAIL (None)</h4>
+            <p>No twitter:card, twitter:title, twitter:description, or twitter:image tags present.</p>
+            <div class="finding-rec">Add &lt;meta name="twitter:card" content="summary_large_image"&gt; plus title, description, and image. Can reuse OG values.</div>
+          </div>
+          <span class="badge badge-high">High</span>
+        </div>
+
+        <div class="finding">
+          <div class="finding-status fail"></div>
+          <div class="finding-content">
+            <h4>Canonical tag — FAIL (Missing)</h4>
+            <p>No &lt;link rel="canonical"&gt; tag. Without this, if the page is accessible at multiple URLs (e.g., with/without trailing slash, with/without www), Google may split ranking signals across duplicates.</p>
+            <div class="finding-rec">Add: &lt;link rel="canonical" href="https://www.kemperdesignservices.com/"&gt; (update to match your actual domain).</div>
+          </div>
+          <span class="badge badge-high">High</span>
+        </div>
+
+        <div class="finding">
+          <div class="finding-status fail"></div>
+          <div class="finding-content">
+            <h4>Favicon — FAIL (Missing)</h4>
+            <p>No &lt;link rel="icon"&gt; or &lt;link rel="apple-touch-icon"&gt; tags in the &lt;head&gt;. Browsers show a default blank icon; the site appears unfinished in browser tabs and bookmarks.</p>
+            <div class="finding-rec">Add &lt;link rel="icon" href="/assets/logos/favicon.ico"&gt; and an apple-touch-icon. Export a 32×32 .ico and a 180×180 PNG from your existing logo.</div>
+          </div>
+          <span class="badge badge-high">High</span>
+        </div>
+
+        <div class="finding">
+          <div class="finding-status fail"></div>
+          <div class="finding-content">
+            <h4>Thin crawlable content — FAIL</h4>
+            <p>Only ~420 words are visible in the static HTML. The hero, bento grid stats, services grid, and CTA section are the only crawlable text. All service descriptions, FAQ content (20+ Q&As), About text, Terms, and Privacy exist exclusively inside JavaScript modals — invisible to most crawlers.</p>
+            <div class="finding-rec">Create dedicated HTML pages for /faq, /about, /services, and /privacy — or add a hidden-from-users but crawler-accessible version of this content in the DOM. Top-ranking competitors for "AI automation small business" average 1,200–1,800 crawlable words per page.</div>
+          </div>
+          <span class="badge badge-critical">Critical</span>
+        </div>
+
+        <div class="finding">
+          <div class="finding-status fail"></div>
+          <div class="finding-content">
+            <h4>No robots.txt — FAIL</h4>
+            <p>robots.txt is not present. While a missing robots.txt defaults to "allow all," its absence is a technical signal of an incomplete setup and means no sitemap is referenced there.</p>
+            <div class="finding-rec">Create /robots.txt with: User-agent: * / Allow: / / Sitemap: https://www.kemperdesignservices.com/sitemap.xml</div>
+          </div>
+          <span class="badge badge-critical">Critical</span>
+        </div>
+
+        <div class="finding">
+          <div class="finding-status fail"></div>
+          <div class="finding-content">
+            <h4>No sitemap.xml — FAIL</h4>
+            <p>No sitemap found. While the site currently has only one page, a sitemap is still best practice and will be essential as new pages are added.</p>
+            <div class="finding-rec">Generate and submit a sitemap.xml. For a single page: &lt;?xml version="1.0"?&gt;&lt;urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"&gt;&lt;url&gt;&lt;loc&gt;https://www.kemperdesignservices.com/&lt;/loc&gt;&lt;/url&gt;&lt;/urlset&gt;. Submit via Google Search Console.</p>
+          </div>
+          <span class="badge badge-critical">Critical</span>
+        </div>
+
+        <div class="finding">
+          <div class="finding-status warning"></div>
+          <div class="finding-content">
+            <h4>Image alt text — PARTIAL</h4>
+            <p>Logo images have alt text ("Kemper Design Services Logo", "KDS Logo"). Hero mockup images have descriptive alt text ("AI AutoScheduler Workflow", "KDS Lab Studio", "DriveMirror"). However, the alt on "KDS Lab Studio" doesn't describe the image content for accessibility — it names a product without context.</p>
+            <div class="finding-rec">Improve alt text on mockup images to describe what's shown: e.g., "Screenshot of KDS Lab Studio AI workflow dashboard" — useful for both accessibility and image search.</div>
+          </div>
+          <span class="badge badge-medium">Medium</span>
+        </div>
+
+        <div class="finding">
+          <div class="finding-status warning"></div>
+          <div class="finding-content">
+            <h4>Heading hierarchy — WARNING</h4>
+            <p>H1 is used correctly (once). H2s appear in the features, services, consulting, and CTA sections. H3s are used for bento grid items and service cards. However, the About section H2 ("Built to cover your needs") and Services H2 ("The capabilities are endless") are vague and keyword-poor — a missed opportunity.</p>
+            <div class="finding-rec">Rewrite section H2s to include keywords: e.g., "AI Automation Solutions for Small Business Owners" instead of "The capabilities are endless." These headings carry significant SEO weight.</div>
+          </div>
+          <span class="badge badge-medium">Medium</span>
+        </div>
+
+        <div class="finding">
+          <div class="finding-status warning"></div>
+          <div class="finding-content">
+            <h4>Video files without text alternatives — WARNING</h4>
+            <p>Four background videos are loaded on page init (Index-BG.mp4, values-bg.mp4, Phishing_Risks_and_Video_Ready.mp4, Video_Ready_After_Data_Loss_Concern.mp4). These contain no captions or transcripts, and filename "Phishing_Risks_and_Video_Ready" appears in source — crawlers may read filenames.</p>
+            <div class="finding-rec">Rename video files to SEO-friendly slugs (e.g., ai-automation-background.mp4). Ensure no video content critical to the message is missing a text equivalent.</div>
+          </div>
+          <span class="badge badge-medium">Medium</span>
+        </div>
+
+        <div class="finding">
+          <div class="finding-status warning"></div>
+          <div class="finding-content">
+            <h4>No preload for LCP image — WARNING</h4>
+            <p>The hero logo image (assets/logos/logo-white.png) and background video are loaded without &lt;link rel="preload"&gt; hints. This can delay Largest Contentful Paint (LCP), a Core Web Vital.</p>
+            <div class="finding-rec">Add &lt;link rel="preload" as="image" href="assets/logos/logo-white.png"&gt; in the &lt;head&gt;. Consider using WebP format for the logo for better performance.</div>
+          </div>
+          <span class="badge badge-medium">Medium</span>
+        </div>
+
+        <div class="finding">
+          <div class="finding-status pass"></div>
+          <div class="finding-content">
+            <h4>Viewport meta — PASS</h4>
+            <p>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt; is correctly set. Mobile-friendly baseline is covered.</p>
+          </div>
+          <span class="badge badge-pass">Pass</span>
+        </div>
+
+        <div class="finding">
+          <div class="finding-status pass"></div>
+          <div class="finding-content">
+            <h4>HTML lang attribute — PASS</h4>
+            <p>&lt;html lang="en"&gt; is correctly set. Good for accessibility and language targeting.</p>
+          </div>
+          <span class="badge badge-pass">Pass</span>
+        </div>
+
+        <div class="finding">
+          <div class="finding-status pass"></div>
+          <div class="finding-content">
+            <h4>Font preconnect — PASS</h4>
+            <p>Google Fonts preconnect hints are correctly implemented for both fonts.googleapis.com and fonts.gstatic.com with crossorigin attribute.</p>
+          </div>
+          <span class="badge badge-pass">Pass</span>
+        </div>
+
+        <div class="finding">
+          <div class="finding-status pass"></div>
+          <div class="finding-content">
+            <h4>Social profile links — PASS</h4>
+            <p>Facebook, YouTube, LinkedIn, and GitHub profile links are present in the footer with proper target="_blank" and aria-label attributes. These can be leveraged in Organization schema's sameAs property.</p>
+          </div>
+          <span class="badge badge-pass">Pass</span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- ==================== TAB 3: SITE-WIDE ISSUES ==================== -->
+<div id="tab-sitewide" class="tab-content">
+<div class="container">
+
+  <div class="section-title">Site-Wide Issues</div>
+  <div class="section-subtitle">Infrastructure-level issues affecting discoverability and ranking potential</div>
+
+  <div class="card">
+    <div class="card-title" style="margin-bottom: 16px;">Duplicate Content &amp; Cannibalization</div>
+    <div class="finding">
+      <div class="finding-status pass"></div>
+      <div class="finding-content">
+        <h4>No keyword cannibalization risk</h4>
+        <p>As a single-page site, there are no competing pages targeting the same keyword. This is a structural advantage — once additional pages are created, a proper content silo strategy should be implemented to prevent future cannibalization.</p>
+      </div>
+      <span class="badge badge-pass">Pass</span>
+    </div>
+    <div class="finding">
+      <div class="finding-status warning"></div>
+      <div class="finding-content">
+        <h4>Modal content duplication risk</h4>
+        <p>Some service names appear in both the navigation mega-menu and the services grid section (e.g., "AI Workflow Integration" and "AI Workflow Automation" appear as separate entries with nearly identical descriptions). If these become separate pages, they risk cannibalizing each other.</p>
+        <div class="finding-rec">Consolidate service naming: pick one canonical term per service. "AI Workflow Integration" and "AI Workflow Automation" should be one page, not two.</div>
+      </div>
+      <span class="badge badge-medium">Medium</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title" style="margin-bottom: 16px;">Consistency Issues</div>
+    <div class="finding">
+      <div class="finding-status warning"></div>
+      <div class="finding-content">
+        <h4>Brand name inconsistency in navigation</h4>
+        <p>The nav logo reads "Kemper AI Design Services" but the footer, title tag, and page content all use "Kemper Design Services." This inconsistency may confuse Google's entity recognition and signals an unresolved branding decision.</p>
+        <div class="finding-rec">Decide on one canonical brand name and apply it consistently. "Kemper Design Services" appears to be the official name — update the nav logo text to match.</div>
+      </div>
+      <span class="badge badge-high">High</span>
+    </div>
+    <div class="finding">
+      <div class="finding-status warning"></div>
+      <div class="finding-content">
+        <h4>Footer link to "index.html" instead of "/"</h4>
+        <p>The footer Quick Links section links to "index.html" rather than "/" or the full URL. This is a minor inconsistency but can create duplicate URL issues if the site is live at both /index.html and /.</p>
+        <div class="finding-rec">Change the footer Home link from href="index.html" to href="/" for consistency with web standards.</div>
+      </div>
+      <span class="badge badge-medium">Medium</span>
+    </div>
+    <div class="finding">
+      <div class="finding-status warning"></div>
+      <div class="finding-content">
+        <h4>Blog and Admin links are dead</h4>
+        <p>Footer contains "Blog" and "Admin" links that are rendered as plain spans with no href — indicating planned but unbuilt pages. These create a poor user experience and signal an incomplete site to crawlers.</p>
+        <div class="finding-rec">Remove these placeholder links until the pages exist. A blog is a major SEO opportunity — prioritize building it with keyword-targeted content once the core issues above are resolved.</div>
+      </div>
+      <span class="badge badge-medium">Medium</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title" style="margin-bottom: 16px;">Robots.txt &amp; Sitemap</div>
+    <div class="finding">
+      <div class="finding-status fail"></div>
+      <div class="finding-content">
+        <h4>robots.txt — Missing</h4>
+        <p>No robots.txt file was found. This is a baseline technical requirement. Without it, there is no way to reference the sitemap, and some crawlers may behave differently.</p>
+        <div class="finding-rec">Create robots.txt at the root: <br><code style="font-family: monospace; font-size: 12px; color: var(--accent);">User-agent: *<br>Allow: /<br>Sitemap: https://kemperdesignservices.com/sitemap.xml</code></div>
+      </div>
+      <span class="badge badge-critical">Critical</span>
+    </div>
+    <div class="finding">
+      <div class="finding-status fail"></div>
+      <div class="finding-content">
+        <h4>sitemap.xml — Missing</h4>
+        <p>No XML sitemap found. While less critical for a 1-page site, it becomes essential as new pages are added and for telling Google what URLs should be indexed.</p>
+        <div class="finding-rec">Create sitemap.xml now, even for one URL. Submit it to Google Search Console and Bing Webmaster Tools. This also signals to Google that the site is actively maintained.</div>
+      </div>
+      <span class="badge badge-critical">Critical</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title" style="margin-bottom: 16px;">Security &amp; Server Headers</div>
+    <div class="finding">
+      <div class="finding-status warning"></div>
+      <div class="finding-content">
+        <h4>Security headers — Cannot assess from local files</h4>
+        <p>This audit is based on local HTML files, so HTTP response headers (HSTS, CSP, X-Frame-Options, X-Content-Type-Options, Referrer-Policy) cannot be evaluated. These are configured at the server/host level, not in the HTML.</p>
+        <div class="finding-rec">Once hosted, verify headers via securityheaders.com. Target at minimum: HSTS, X-Content-Type-Options: nosniff, X-Frame-Options: SAMEORIGIN, and Referrer-Policy: strict-origin-when-cross-origin.</div>
+      </div>
+      <span class="badge badge-warning">N/A (local)</span>
+    </div>
+    <div class="finding">
+      <div class="finding-status warning"></div>
+      <div class="finding-content">
+        <h4>HTTPS — Cannot confirm from local files</h4>
+        <p>HTTPS cannot be confirmed from a local file audit. When hosted, ensure the site is served exclusively over HTTPS with a valid SSL certificate, and that HTTP redirects to HTTPS.</p>
+        <div class="finding-rec">Use Let's Encrypt (free) or your hosting provider's SSL. Ensure 301 redirect from http:// to https:// and from non-www to www (or vice versa) — pick one and stick to it.</div>
+      </div>
+      <span class="badge badge-warning">Verify</span>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- ==================== TAB 4: TECHNICAL ==================== -->
+<div id="tab-technical" class="tab-content">
+<div class="container">
+
+  <div class="section-title">Technical SEO</div>
+  <div class="section-subtitle">Infrastructure, structured data, and technical implementation checklist</div>
+
+  <div class="card">
+    <div class="card-title" style="margin-bottom: 20px;">Implementation Checklist</div>
+
+    <div class="checklist-item">
+      <div class="check-icon pass">&#10003;</div>
+      <div class="check-text">Viewport meta tag present and correct</div>
+    </div>
+    <div class="checklist-item">
+      <div class="check-icon pass">&#10003;</div>
+      <div class="check-text">HTML lang="en" attribute set</div>
+    </div>
+    <div class="checklist-item">
+      <div class="check-icon pass">&#10003;</div>
+      <div class="check-text">Google Fonts preconnect hints configured correctly</div>
+    </div>
+    <div class="checklist-item">
+      <div class="check-icon pass">&#10003;</div>
+      <div class="check-text">External links have target="_blank" for social profiles</div>
+    </div>
+    <div class="checklist-item">
+      <div class="check-icon pass">&#10003;</div>
+      <div class="check-text">aria-label attributes on icon-only social links</div>
+    </div>
+    <div class="checklist-item">
+      <div class="check-icon fail">&#10007;</div>
+      <div class="check-text muted">Meta description missing — must be added</div>
+    </div>
+    <div class="checklist-item">
+      <div class="check-icon fail">&#10007;</div>
+      <div class="check-text muted">Canonical link tag missing</div>
+    </div>
+    <div class="checklist-item">
+      <div class="check-icon fail">&#10007;</div>
+      <div class="check-text muted">Schema markup (JSON-LD) — none present</div>
+    </div>
+    <div class="checklist-item">
+      <div class="check-icon fail">&#10007;</div>
+      <div class="check-text muted">Open Graph tags — none present</div>
+    </div>
+    <div class="checklist-item">
+      <div class="check-icon fail">&#10007;</div>
+      <div class="check-text muted">Twitter Card tags — none present</div>
+    </div>
+    <div class="checklist-item">
+      <div class="check-icon fail">&#10007;</div>
+      <div class="check-text muted">Favicon — not configured</div>
+    </div>
+    <div class="checklist-item">
+      <div class="check-icon fail">&#10007;</div>
+      <div class="check-text muted">robots.txt — not present</div>
+    </div>
+    <div class="checklist-item">
+      <div class="check-icon fail">&#10007;</div>
+      <div class="check-text muted">sitemap.xml — not present</div>
+    </div>
+    <div class="checklist-item">
+      <div class="check-icon warn">!</div>
+      <div class="check-text muted">LCP image (hero logo) has no preload hint</div>
+    </div>
+    <div class="checklist-item">
+      <div class="check-icon warn">!</div>
+      <div class="check-text muted">Images use PNG — consider WebP for better performance</div>
+    </div>
+    <div class="checklist-item">
+      <div class="check-icon warn">!</div>
+      <div class="check-text muted">4 background videos loaded on init — may impact page load on slow connections</div>
+    </div>
+    <div class="checklist-item">
+      <div class="check-icon warn">!</div>
+      <div class="check-text muted">Video filenames contain underscores and internal names — rename to SEO-friendly slugs</div>
+    </div>
+    <div class="checklist-item">
+      <div class="check-icon warn">!</div>
+      <div class="check-text muted">No apple-touch-icon for iOS home screen</div>
+    </div>
+  </div>
+
+  <div class="section-title" style="font-size: 18px; margin-top: 32px;">Schema Markup Strategy</div>
+  <div class="section-subtitle">Current state: 0% coverage. Recommended additions below.</div>
+  <div class="card" style="overflow-x: auto; padding: 0;">
+    <table class="page-table">
+      <thead>
+        <tr>
+          <th>Schema Type</th>
+          <th>Current Status</th>
+          <th>Priority</th>
+          <th>What to Include</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="font-weight: 600;">LocalBusiness</td>
+          <td><span class="badge badge-fail">Missing</span></td>
+          <td><span class="badge badge-critical">Critical</span></td>
+          <td style="font-size: 13px; color: var(--text-secondary);">name, address (St Augustine FL), phone (904.236.3706), email, url, openingHours (Mon-Fri 9am-5pm EST), geo, priceRange, sameAs (social links)</td>
+        </tr>
+        <tr>
+          <td style="font-weight: 600;">Organization</td>
+          <td><span class="badge badge-fail">Missing</span></td>
+          <td><span class="badge badge-critical">Critical</span></td>
+          <td style="font-size: 13px; color: var(--text-secondary);">name, url, logo, description, foundingDate, sameAs (Facebook, YouTube, LinkedIn, GitHub)</td>
+        </tr>
+        <tr>
+          <td style="font-weight: 600;">FAQPage</td>
+          <td><span class="badge badge-fail">Missing</span></td>
+          <td><span class="badge badge-critical">Critical</span></td>
+          <td style="font-size: 13px; color: var(--text-secondary);">All 20+ Q&A pairs from the FAQ modal — these are perfect FAQPage schema candidates that can generate rich SERP results</td>
+        </tr>
+        <tr>
+          <td style="font-weight: 600;">WebSite</td>
+          <td><span class="badge badge-fail">Missing</span></td>
+          <td><span class="badge badge-high">High</span></td>
+          <td style="font-size: 13px; color: var(--text-secondary);">name, url, SearchAction (enables Google Sitelinks Search Box)</td>
+        </tr>
+        <tr>
+          <td style="font-weight: 600;">Service</td>
+          <td><span class="badge badge-fail">Missing</span></td>
+          <td><span class="badge badge-medium">Medium</span></td>
+          <td style="font-size: 13px; color: var(--text-secondary);">One Service schema per major service category. Ideal on dedicated service pages once those are created.</td>
+        </tr>
+        <tr>
+          <td style="font-weight: 600;">BreadcrumbList</td>
+          <td><span class="badge badge-warning">N/A yet</span></td>
+          <td><span class="badge badge-low">Future</span></td>
+          <td style="font-size: 13px; color: var(--text-secondary);">Add when multi-page structure is built. Will help Google understand site hierarchy.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section-title" style="font-size: 18px; margin-top: 32px;">Performance Indicators</div>
+  <div class="section-subtitle">Resource loading patterns and optimization opportunities</div>
+  <div class="card">
+    <div class="finding">
+      <div class="finding-status warning"></div>
+      <div class="finding-content">
+        <h4>Four background videos loaded simultaneously</h4>
+        <p>All four background video elements are loaded in the DOM on page init (though only one is visible). On mobile or slow connections this is a significant page weight issue. The videos cycling through is a nice visual effect, but loading all four upfront is wasteful.</p>
+        <div class="finding-rec">Lazy-load videos 2, 3, and 4 — load their src only when needed (before the previous video ends). This can reduce initial page load by several MB.</div>
+      </div>
+      <span class="badge badge-medium">Medium</span>
+    </div>
+    <div class="finding">
+      <div class="finding-status warning"></div>
+      <div class="finding-content">
+        <h4>PNG images — WebP not used</h4>
+        <p>Logo and mockup images appear to be PNGs. WebP files are typically 25-35% smaller with no visible quality loss, improving load time and Core Web Vitals scores.</p>
+        <div class="finding-rec">Convert logo-white.png and all mockup screenshots to WebP. Use &lt;picture&gt; element with WebP source and PNG fallback for broad browser support.</div>
+      </div>
+      <span class="badge badge-medium">Medium</span>
+    </div>
+    <div class="finding">
+      <div class="finding-status pass"></div>
+      <div class="finding-content">
+        <h4>Minimal render-blocking resources</h4>
+        <p>Only one external CSS file (styles.css) and one external JS file (scripts.js) are loaded. No heavy third-party scripts detected. Google Tag Manager, Analytics, or chat widgets not yet added — this keeps load time lean.</p>
+        <div class="finding-rec">When adding analytics or other third-party scripts, use async or defer attributes and load them after the main content.</div>
+      </div>
+      <span class="badge badge-pass">Good</span>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- ==================== TAB 5: CONTENT STRATEGY ==================== -->
+<div id="tab-content" class="tab-content">
+<div class="container">
+
+  <div class="section-title">Content Strategy</div>
+  <div class="section-subtitle">Keyword map, content gaps, and a roadmap for organic growth</div>
+
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-value" style="color: var(--red)">1</div>
+      <div class="stat-label">Thin Content Pages</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value" style="color: var(--green)">0</div>
+      <div class="stat-label">Strong Content Pages</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">~420</div>
+      <div class="stat-label">Crawlable Words</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value" style="color: var(--red)">1</div>
+      <div class="stat-label">Missing Meta Desc</div>
+    </div>
+  </div>
+
+  <!-- Keyword Map -->
+  <div class="section-title" style="font-size: 18px;">Keyword Opportunity Map</div>
+  <div class="section-subtitle">Recommended target keywords based on site content + competitor research</div>
+  <div class="card" style="overflow-x: auto; padding: 0;">
+    <table class="page-table">
+      <thead>
+        <tr>
+          <th>Page / Section</th>
+          <th>Recommended Target Keyword</th>
+          <th>In Title</th>
+          <th>In H1</th>
+          <th>In First 100 Words</th>
+          <th>Current Gap</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="page-url">/ (Homepage)</span></td>
+          <td>AI automation services for small businesses</td>
+          <td><span class="badge badge-warning">Partial</span></td>
+          <td><span class="badge badge-warning">Partial</span></td>
+          <td><span class="badge badge-pass">Yes</span></td>
+          <td style="font-size:13px;color:var(--text-secondary);">Title says "AI Tools" — weaker than "AI automation services"</td>
+        </tr>
+        <tr>
+          <td><span class="page-url">/services/ai-workflow-automation</span></td>
+          <td>AI workflow automation small business</td>
+          <td><span class="badge badge-fail">Missing</span></td>
+          <td><span class="badge badge-fail">Missing</span></td>
+          <td><span class="badge badge-fail">No</span></td>
+          <td style="font-size:13px;color:var(--text-secondary);">Page doesn't exist yet — high opportunity</td>
+        </tr>
+        <tr>
+          <td><span class="page-url">/services/ai-chatbots</span></td>
+          <td>custom AI chatbot for business</td>
+          <td><span class="badge badge-fail">Missing</span></td>
+          <td><span class="badge badge-fail">Missing</span></td>
+          <td><span class="badge badge-fail">No</span></td>
+          <td style="font-size:13px;color:var(--text-secondary);">High search volume; page doesn't exist</td>
+        </tr>
+        <tr>
+          <td><span class="page-url">/services/ai-scheduling</span></td>
+          <td>AI appointment scheduling small business</td>
+          <td><span class="badge badge-fail">Missing</span></td>
+          <td><span class="badge badge-fail">Missing</span></td>
+          <td><span class="badge badge-fail">No</span></td>
+          <td style="font-size:13px;color:var(--text-secondary);">Unique product with strong local SEO potential</td>
+        </tr>
+        <tr>
+          <td><span class="page-url">/about</span></td>
+          <td>AI consulting services St Augustine Florida</td>
+          <td><span class="badge badge-fail">Missing</span></td>
+          <td><span class="badge badge-fail">Missing</span></td>
+          <td><span class="badge badge-fail">No</span></td>
+          <td style="font-size:13px;color:var(--text-secondary);">Local SEO signal — page doesn't exist</td>
+        </tr>
+        <tr>
+          <td><span class="page-url">/faq</span></td>
+          <td>AI tools for small business FAQ</td>
+          <td><span class="badge badge-fail">Missing</span></td>
+          <td><span class="badge badge-fail">Missing</span></td>
+          <td><span class="badge badge-fail">No</span></td>
+          <td style="font-size:13px;color:var(--text-secondary);">20+ FAQ answers trapped in modal — major missed opportunity</td>
+        </tr>
+        <tr>
+          <td><span class="page-url">/blog/*</span></td>
+          <td>various long-tail AI + small business keywords</td>
+          <td><span class="badge badge-fail">Missing</span></td>
+          <td><span class="badge badge-fail">Missing</span></td>
+          <td><span class="badge badge-fail">No</span></td>
+          <td style="font-size:13px;color:var(--text-secondary);">Blog placeholder exists in footer but no pages built</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- LSI Keyword Map -->
+  <div class="section-title" style="font-size: 18px; margin-top: 32px;">LSI &amp; Semantic Keyword Clusters</div>
+  <div class="section-subtitle">Terms to weave into content based on competitor research and search intent</div>
+
+  <div class="card">
+    <p style="color:var(--text-secondary);font-size:13px;margin-bottom:16px;">These are the keyword clusters your competitors use extensively that are currently absent or underrepresented on the Kemper Design Services site. Each cluster represents a content pillar or H2-level topic to prioritize.</p>
+
+    <div style="margin-bottom: 20px;">
+      <div style="font-size:12px;text-transform:uppercase;letter-spacing:1px;color:var(--purple);margin-bottom:8px;font-weight:600;">AI Automation Core</div>
+      <span class="kw-tag">AI workflow automation</span>
+      <span class="kw-tag">business process automation</span>
+      <span class="kw-tag">intelligent automation</span>
+      <span class="kw-tag">automated workflows</span>
+      <span class="kw-tag">no-code automation</span>
+      <span class="kw-tag">n8n integration</span>
+      <span class="kw-tag">Zapier alternative</span>
+      <span class="kw-tag">custom automation</span>
+    </div>
+
+    <div style="margin-bottom: 20px;">
+      <div style="font-size:12px;text-transform:uppercase;letter-spacing:1px;color:var(--purple);margin-bottom:8px;font-weight:600;">Small Business + ROI</div>
+      <span class="kw-tag">AI for small business</span>
+      <span class="kw-tag">small business AI tools</span>
+      <span class="kw-tag">save time with AI</span>
+      <span class="kw-tag">reduce operational costs</span>
+      <span class="kw-tag">AI ROI</span>
+      <span class="kw-tag">automate repetitive tasks</span>
+      <span class="kw-tag">eliminate manual work</span>
+      <span class="kw-tag">15 hours saved per week</span>
+    </div>
+
+    <div style="margin-bottom: 20px;">
+      <div style="font-size:12px;text-transform:uppercase;letter-spacing:1px;color:var(--purple);margin-bottom:8px;font-weight:600;">AI Chatbots &amp; Assistants</div>
+      <span class="kw-tag">custom AI chatbot</span>
+      <span class="kw-tag">AI customer service</span>
+      <span class="kw-tag">24/7 AI assistant</span>
+      <span class="kw-tag">AI for lead generation</span>
+      <span class="kw-tag">chat automation</span>
+      <span class="kw-tag">conversational AI</span>
+    </div>
+
+    <div style="margin-bottom: 20px;">
+      <div style="font-size:12px;text-transform:uppercase;letter-spacing:1px;color:var(--purple);margin-bottom:8px;font-weight:600;">Local / Geographic</div>
+      <span class="kw-tag">St Augustine FL</span>
+      <span class="kw-tag">Florida AI services</span>
+      <span class="kw-tag">Jacksonville AI consulting</span>
+      <span class="kw-tag">Northeast Florida tech</span>
+      <span class="kw-tag">remote AI consulting</span>
+    </div>
+
+    <div style="margin-bottom: 20px;">
+      <div style="font-size:12px;text-transform:uppercase;letter-spacing:1px;color:var(--purple);margin-bottom:8px;font-weight:600;">Trust &amp; Credibility</div>
+      <span class="kw-tag">AI implementation partner</span>
+      <span class="kw-tag">no lock-in</span>
+      <span class="kw-tag">fixed price</span>
+      <span class="kw-tag">data privacy</span>
+      <span class="kw-tag">on-premise AI</span>
+      <span class="kw-tag">local AI deployment</span>
+      <span class="kw-tag">AI consulting for non-technical</span>
+    </div>
+
+    <div>
+      <div style="font-size:12px;text-transform:uppercase;letter-spacing:1px;color:var(--purple);margin-bottom:8px;font-weight:600;">Services (currently in modals only)</div>
+      <span class="kw-tag">AI scheduling automation</span>
+      <span class="kw-tag">employee training app</span>
+      <span class="kw-tag">custom business website</span>
+      <span class="kw-tag">document processing AI</span>
+      <span class="kw-tag">system integration services</span>
+      <span class="kw-tag">AI readiness assessment</span>
+    </div>
+  </div>
+
+  <!-- Content Clusters -->
+  <div class="section-title" style="font-size: 18px; margin-top: 32px;">Recommended Content Architecture</div>
+  <div class="section-subtitle">Transform the single-page site into a multi-page content hub</div>
+
+  <div class="cluster">
+    <div class="cluster-title">🏠 Pillar: AI Automation for Small Businesses</div>
+    <div class="cluster-pages">
+      <span class="cluster-page pillar">/ (Pillar — Homepage)</span>
+      <span class="cluster-page">/services/ai-workflow-automation</span>
+      <span class="cluster-page">/services/ai-chatbots</span>
+      <span class="cluster-page">/services/ai-scheduling</span>
+      <span class="cluster-page">/services/local-ai-deployment</span>
+      <span class="cluster-page">/services/document-processing</span>
+    </div>
+  </div>
+
+  <div class="cluster">
+    <div class="cluster-title">🎨 Pillar: Design &amp; Development Services</div>
+    <div class="cluster-pages">
+      <span class="cluster-page pillar">/services/design-development (Pillar)</span>
+      <span class="cluster-page">/services/custom-websites</span>
+      <span class="cluster-page">/services/custom-applications</span>
+      <span class="cluster-page">/services/brand-identity</span>
+      <span class="cluster-page">/services/ui-ux-design</span>
+    </div>
+  </div>
+
+  <div class="cluster">
+    <div class="cluster-title">📚 Pillar: Training &amp; Operations</div>
+    <div class="cluster-pages">
+      <span class="cluster-page pillar">/services/training-operations (Pillar)</span>
+      <span class="cluster-page">/services/instructional-design</span>
+      <span class="cluster-page">/services/employee-onboarding</span>
+      <span class="cluster-page">/services/custom-training-apps</span>
+      <span class="cluster-page">/services/process-optimization</span>
+    </div>
+  </div>
+
+  <div class="cluster">
+    <div class="cluster-title">📝 Blog Content Cluster (High-Priority Topics)</div>
+    <div class="cluster-pages">
+      <span class="cluster-page pillar">/blog (Index)</span>
+      <span class="cluster-page">/blog/ai-automation-small-business-guide</span>
+      <span class="cluster-page">/blog/how-to-save-15-hours-a-week-with-ai</span>
+      <span class="cluster-page">/blog/ai-chatbot-vs-human-scheduler</span>
+      <span class="cluster-page">/blog/local-ai-deployment-vs-cloud</span>
+      <span class="cluster-page">/blog/ai-readiness-checklist</span>
+    </div>
+  </div>
+
+  <!-- Content Gaps -->
+  <div class="section-title" style="font-size: 18px; margin-top: 32px;">Top Content Gap Recommendations</div>
+  <div class="section-subtitle">Specific new pages to create for maximum search visibility</div>
+
+  <div class="action-item">
+    <div class="action-number">1</div>
+    <div class="action-content">
+      <div class="action-title">Create /faq page from existing modal content</div>
+      <div class="action-desc">The FAQ modal already contains 20+ high-quality Q&A pairs across General, Process, Pricing, Security, Services, and After Launch categories. Moving these to a dedicated /faq page requires minimal new writing and immediately adds 2,000+ crawlable words targeting long-tail "how does X work" queries. Add FAQPage schema to unlock Google's rich FAQ results.</div>
+      <div class="action-impact">Expected impact: Immediate indexable content; rich result eligibility; long-tail traffic from specific questions</div>
+    </div>
+    <span class="badge badge-critical">Critical</span>
+  </div>
+
+  <div class="action-item">
+    <div class="action-number">2</div>
+    <div class="action-content">
+      <div class="action-title">Create /about page targeting "AI consulting St Augustine FL"</div>
+      <div class="action-desc">The About modal content is strong but inaccessible to crawlers. A dedicated About page with expanded team bio, methodology, client industries served, and geographic focus (St Augustine, FL / Northeast Florida / remote US) creates a local SEO signal. Include LocalBusiness and Person schema. Target: "AI consulting Florida", "AI implementation partner small business."</div>
+      <div class="action-impact">Expected impact: Local search visibility; E-E-A-T signal for Google; trust-building page for conversion</div>
+    </div>
+    <span class="badge badge-high">High</span>
+  </div>
+
+  <div class="action-item">
+    <div class="action-number">3</div>
+    <div class="action-content">
+      <div class="action-title">Build top 3 service landing pages</div>
+      <div class="action-desc">Start with the three highest-demand services based on search volume: (1) /services/ai-workflow-automation, (2) /services/ai-chatbots-assistants, (3) /services/custom-websites. Each page should be 800–1,200 words, include a process section, case study or example, pricing starting point, FAQ section, and a clear CTA. Add Service schema to each.</div>
+      <div class="action-impact">Expected impact: Each service page can rank independently for its target keyword; dramatically increases indexed page count</div>
+    </div>
+    <span class="badge badge-high">High</span>
+  </div>
+
+  <div class="action-item">
+    <div class="action-number">4</div>
+    <div class="action-content">
+      <div class="action-title">Launch a blog with 4–6 cornerstone articles</div>
+      <div class="action-desc">The blog is already referenced in the footer but doesn't exist. Blog content is the primary organic growth lever for service businesses. Start with: "How to Save 15 Hours a Week Using AI Workflows", "AI Chatbot vs. Human: What's Right for Your Business", "The $38k Scheduling Problem Most Small Businesses Don't Know They Have", and "AI Readiness Checklist: Is Your Business Ready to Automate?" Each article should be 1,200–2,000 words with keyword research backing each title.</div>
+      <div class="action-impact">Expected impact: Long-tail keyword traffic; demonstrates E-E-A-T expertise; builds backlink potential</div>
+    </div>
+    <span class="badge badge-medium">Medium</span>
+  </div>
+
+</div>
+</div>
+
+<!-- ==================== TAB 6: INTERNAL LINKING ==================== -->
+<div id="tab-linking" class="tab-content">
+<div class="container">
+
+  <div class="section-title">Internal Linking Analysis</div>
+  <div class="section-subtitle">Current state and linking strategy for when multi-page site is built</div>
+
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-value">~25</div>
+      <div class="stat-label">Internal Nav Links</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value" style="color: var(--red)">0</div>
+      <div class="stat-label">True Internal Pages</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">4</div>
+      <div class="stat-label">External Social Links</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">2</div>
+      <div class="stat-label">Dead Footer Links</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title" style="margin-bottom: 16px;">Current Link Structure</div>
+
+    <div class="finding">
+      <div class="finding-status warning"></div>
+      <div class="finding-content">
+        <h4>All "links" are anchor scrolls or JavaScript calls — not true navigation</h4>
+        <p>Every item in the navigation mega-menu (30+ service links) calls openServiceModal() via JavaScript. These are not crawlable links to content — they are JavaScript function calls. From a search engine's perspective, this navigation provides zero link equity and zero crawlable structure. A crawler following this page would find only one destination: the page itself (via #home, #about, #services, #consulting anchor links).</p>
+        <div class="finding-rec">Replace JavaScript modal triggers with real anchor tags (href="/services/ai-workflow-automation") as service pages are built. The mega-menu is a valuable asset — it just needs to point to real pages.</div>
+      </div>
+      <span class="badge badge-critical">Critical</span>
+    </div>
+
+    <div class="finding">
+      <div class="finding-status warning"></div>
+      <div class="finding-content">
+        <h4>Dead links in footer: Blog and Admin</h4>
+        <p>Footer contains "Blog" and "Admin" labels rendered as &lt;span&gt; elements with no href. These are non-links and may confuse crawlers or users who try to click them.</p>
+        <div class="finding-rec">Remove or comment out these elements until the pages exist. "Blog" in particular should be activated as soon as any blog posts are published.</div>
+      </div>
+      <span class="badge badge-medium">Medium</span>
+    </div>
+
+    <div class="finding">
+      <div class="finding-status pass"></div>
+      <div class="finding-content">
+        <h4>Social links are properly external with aria-labels</h4>
+        <p>Facebook, YouTube, LinkedIn, and GitHub links in the footer correctly use target="_blank" and have aria-label attributes for accessibility. These signal to Google that the business has active social presence and can be used in Organization schema's sameAs property.</p>
+      </div>
+      <span class="badge badge-pass">Pass</span>
+    </div>
+  </div>
+
+  <div class="section-title" style="font-size: 18px; margin-top: 32px;">Linking Strategy for Multi-Page Build</div>
+  <div class="section-subtitle">Recommended internal link structure as new pages are created</div>
+
+  <div class="action-item">
+    <div class="action-number">1</div>
+    <div class="action-content">
+      <div class="action-title">Convert mega-menu to real page links as service pages are built</div>
+      <div class="action-desc">The navigation mega-menu already has a perfect 5-column, 30-link structure for a future multi-page site. As each service page is created, convert the corresponding openServiceModal() call to a real href. This instantly distributes link equity from the homepage to every service page.</div>
+    </div>
+    <span class="badge badge-critical">Critical</span>
+  </div>
+
+  <div class="action-item">
+    <div class="action-number">2</div>
+    <div class="action-content">
+      <div class="action-title">Link bento grid stats to corresponding service pages</div>
+      <div class="action-desc">The four bento grid items (AI AutoScheduler $38K, $999 Website, Training App 60%, Workflow 15h) are highly clickable social proof blocks. Each should link to its corresponding service page. Currently they have no links at all.</div>
+    </div>
+    <span class="badge badge-high">High</span>
+  </div>
+
+  <div class="action-item">
+    <div class="action-number">3</div>
+    <div class="action-content">
+      <div class="action-title">Cross-link blog posts to service pages</div>
+      <div class="action-desc">When blog posts are written, each post should include 2–3 in-content links to relevant service pages. For example, "How to Save 15 Hours with AI Workflows" should link to /services/ai-workflow-automation and /services/system-integrations.</div>
+    </div>
+    <span class="badge badge-medium">Medium</span>
+  </div>
+
+  <div class="action-item">
+    <div class="action-number">4</div>
+    <div class="action-content">
+      <div class="action-title">Add breadcrumb navigation to all inner pages</div>
+      <div class="action-desc">When service and blog pages are built, add visible breadcrumb navigation (Home > Services > AI Workflow Automation). Pair with BreadcrumbList schema. This improves Google's understanding of site hierarchy and can show breadcrumbs in search results.</div>
+    </div>
+    <span class="badge badge-medium">Medium</span>
+  </div>
+
+</div>
+</div>
+
+<!-- ==================== TAB 7: ACTION PLAN ==================== -->
+<div id="tab-actions" class="tab-content">
+<div class="container">
+
+  <div class="section-title">Prioritized Action Plan</div>
+  <div class="section-subtitle">Every recommendation ranked by impact — tackle in order</div>
+
+  <div class="section-title" style="font-size: 18px; color: var(--green);">Quick Wins <span style="font-size: 14px; color: var(--text-muted); font-weight: 400;">&mdash; under 1 hour each</span></div>
+  <div style="margin-bottom: 32px;">
+
+    <div class="action-item">
+      <div class="action-number">1</div>
+      <div class="action-content">
+        <div class="action-title">Add meta description</div>
+        <div class="action-desc">Add one line to &lt;head&gt;: &lt;meta name="description" content="Kemper Design Services builds custom AI workflows, chatbots, and automation for small businesses in St. Augustine, FL. Save 15+ hours a week. Free discovery call."&gt;</div>
+        <div class="action-impact">Impact: Improved CTR from search results; replaces auto-generated snippet</div>
+      </div>
+      <span class="badge badge-critical">Critical</span>
+    </div>
+
+    <div class="action-item">
+      <div class="action-number">2</div>
+      <div class="action-content">
+        <div class="action-title">Add canonical tag</div>
+        <div class="action-desc">Add &lt;link rel="canonical" href="https://www.kemperdesignservices.com/"&gt; to &lt;head&gt;. Update URL to match your actual live domain once hosted.</div>
+        <div class="action-impact">Impact: Prevents duplicate URL splitting of ranking signals</div>
+      </div>
+      <span class="badge badge-high">High</span>
+    </div>
+
+    <div class="action-item">
+      <div class="action-number">3</div>
+      <div class="action-content">
+        <div class="action-title">Fix brand name inconsistency in nav</div>
+        <div class="action-desc">Change nav logo text from "Kemper AI Design Services" to "Kemper Design Services" to match all other instances on the page.</div>
+        <div class="action-impact">Impact: Brand entity consistency for Google's Knowledge Panel; cleaner user experience</div>
+      </div>
+      <span class="badge badge-high">High</span>
+    </div>
+
+    <div class="action-item">
+      <div class="action-number">4</div>
+      <div class="action-content">
+        <div class="action-title">Add favicon</div>
+        <div class="action-desc">Export logo-white.png as a 32×32 favicon.ico and 180×180 apple-touch-icon.png. Add to &lt;head&gt;: &lt;link rel="icon" href="/favicon.ico"&gt; and &lt;link rel="apple-touch-icon" href="/apple-touch-icon.png"&gt;</div>
+        <div class="action-impact">Impact: Professional appearance in browser tabs; Apple home screen support</div>
+      </div>
+      <span class="badge badge-high">High</span>
+    </div>
+
+    <div class="action-item">
+      <div class="action-number">5</div>
+      <div class="action-content">
+        <div class="action-title">Fix footer Home link from "index.html" to "/"</div>
+        <div class="action-desc">Change &lt;a href="index.html"&gt; to &lt;a href="/"&gt; in the Quick Links footer section.</div>
+        <div class="action-impact">Impact: Prevents potential duplicate URL indexing</div>
+      </div>
+      <span class="badge badge-medium">Medium</span>
+    </div>
+
+    <div class="action-item">
+      <div class="action-number">6</div>
+      <div class="action-content">
+        <div class="action-title">Remove dead Blog and Admin footer links</div>
+        <div class="action-desc">Comment out or remove the &lt;span&gt; elements for "Blog" and "Admin" in the footer until those pages exist.</div>
+        <div class="action-impact">Impact: Cleaner crawlable footer; avoids confusing crawlers with non-links</div>
+      </div>
+      <span class="badge badge-medium">Medium</span>
+    </div>
+
+    <div class="action-item">
+      <div class="action-number">7</div>
+      <div class="action-content">
+        <div class="action-title">Rename video files to SEO-friendly slugs</div>
+        <div class="action-desc">Rename: "Phishing_Risks_and_Video_Ready.mp4" → "ai-security-background.mp4", "Video_Ready_After_Data_Loss_Concern.mp4" → "data-protection-background.mp4", etc. Update references in HTML.</div>
+        <div class="action-impact">Impact: Clean file naming signals professionalism; prevents internal jargon appearing in source</div>
+      </div>
+      <span class="badge badge-low">Low</span>
+    </div>
+
+  </div>
+
+  <div class="section-title" style="font-size: 18px; color: var(--orange);">High Impact <span style="font-size: 14px; color: var(--text-muted); font-weight: 400;">&mdash; 1–4 hours each</span></div>
+  <div style="margin-bottom: 32px;">
+
+    <div class="action-item">
+      <div class="action-number">8</div>
+      <div class="action-content">
+        <div class="action-title">Add Open Graph + Twitter Card tags</div>
+        <div class="action-desc">Add all OG tags (og:title, og:description, og:image 1200×630px, og:url, og:type, og:site_name) and Twitter Card tags (twitter:card=summary_large_image, twitter:title, twitter:description, twitter:image). Create a branded social share image.</div>
+        <div class="action-impact">Impact: Professional social sharing; every LinkedIn/Facebook share becomes a branded ad for the business</div>
+      </div>
+      <span class="badge badge-critical">Critical</span>
+    </div>
+
+    <div class="action-item">
+      <div class="action-number">9</div>
+      <div class="action-content">
+        <div class="action-title">Create robots.txt and sitemap.xml</div>
+        <div class="action-desc">Create both files at the site root. Submit sitemap to Google Search Console and Bing Webmaster Tools after the site goes live. Set up Google Search Console property now to claim ownership and start monitoring.</div>
+        <div class="action-impact">Impact: Ensures full crawlability; Search Console gives you ranking data and indexing alerts</div>
+      </div>
+      <span class="badge badge-critical">Critical</span>
+    </div>
+
+    <div class="action-item">
+      <div class="action-number">10</div>
+      <div class="action-content">
+        <div class="action-title">Add JSON-LD schema: LocalBusiness + Organization + WebSite</div>
+        <div class="action-desc">Add three JSON-LD blocks to the &lt;head&gt;. LocalBusiness: name, address, phone, email, hours, geo, sameAs (social links). Organization: brand info, logo, social profiles. WebSite: name, url, SearchAction.</div>
+        <div class="action-impact">Impact: Knowledge Panel eligibility; local search visibility; Google entity recognition</div>
+      </div>
+      <span class="badge badge-critical">Critical</span>
+    </div>
+
+    <div class="action-item">
+      <div class="action-number">11</div>
+      <div class="action-content">
+        <div class="action-title">Add FAQPage JSON-LD schema</div>
+        <div class="action-desc">Transcribe all 20+ Q&As from the FAQ modal into a FAQPage JSON-LD block. This is a separate block from the other schema. Each question/answer must be an exact match of what appears (or will appear) on a crawlable FAQ page.</div>
+        <div class="action-impact">Impact: Rich results in Google Search (Q&As appearing directly in the SERP); can dramatically increase click-through rate</div>
+      </div>
+      <span class="badge badge-critical">Critical</span>
+    </div>
+
+    <div class="action-item">
+      <div class="action-number">12</div>
+      <div class="action-content">
+        <div class="action-title">Rewrite keyword-poor H2 section headings</div>
+        <div class="action-desc">Update: "Built to cover your needs" → "AI Automation Savings for Small Businesses"; "The capabilities are endless" → "AI &amp; Business Services Built for Your Needs"; CTA "Ready to find the hours you've been losing?" can stay as-is (strong copy).</div>
+        <div class="action-impact">Impact: Improved keyword coverage for on-page SEO; H2s are scanned by crawlers and users alike</div>
+      </div>
+      <span class="badge badge-high">High</span>
+    </div>
+
+    <div class="action-item">
+      <div class="action-number">13</div>
+      <div class="action-content">
+        <div class="action-title">Add LCP preload hint for hero logo</div>
+        <div class="action-desc">Add &lt;link rel="preload" as="image" href="assets/logos/logo-white.png"&gt; to the &lt;head&gt; to improve Largest Contentful Paint score. Also convert the logo to WebP for ~30% file size reduction.</div>
+        <div class="action-impact">Impact: Improved Core Web Vitals; faster perceived load time; Google uses LCP as a ranking signal</div>
+      </div>
+      <span class="badge badge-medium">Medium</span>
+    </div>
+
+  </div>
+
+  <div class="section-title" style="font-size: 18px; color: var(--purple);">Strategic Initiatives <span style="font-size: 14px; color: var(--text-muted); font-weight: 400;">&mdash; ongoing</span></div>
+  <div style="margin-bottom: 32px;">
+
+    <div class="action-item">
+      <div class="action-number">14</div>
+      <div class="action-content">
+        <div class="action-title">Build multi-page site structure: /faq, /about, /services/*, /blog/*</div>
+        <div class="action-desc">This is the single highest-leverage SEO investment. Move FAQ, About, service descriptions, Terms &amp; Privacy to dedicated crawlable pages. Each page can independently rank for its own target keywords. The mega-menu navigation structure already anticipates this — just needs real URLs behind it.</div>
+        <div class="action-impact">Impact: 10–20× increase in indexed content; each service page can rank for its own keyword; transforms a 1-page site into a content hub</div>
+      </div>
+      <span class="badge badge-critical">Critical</span>
+    </div>
+
+    <div class="action-item">
+      <div class="action-number">15</div>
+      <div class="action-content">
+        <div class="action-title">Launch Google Business Profile</div>
+        <div class="action-desc">Create or claim the Google Business Profile for Kemper Design Services (St Augustine, FL). Add business category "Technology Consulting" + "Business Technology", hours, phone, website, photos, and service list. Request reviews from past clients. This is separate from website SEO but directly drives local pack visibility.</div>
+        <div class="action-impact">Impact: Appears in Google Maps + local pack for "AI services near me" searches; major local SEO signal</div>
+      </div>
+      <span class="badge badge-critical">Critical</span>
+    </div>
+
+    <div class="action-item">
+      <div class="action-number">16</div>
+      <div class="action-content">
+        <div class="action-title">Build a blog with 4–6 cornerstone articles targeting long-tail AI keywords</div>
+        <div class="action-desc">Start with: (1) "How We Save Small Businesses 15 Hours a Week with AI" — targets "AI workflow automation ROI"; (2) "Custom AI Chatbot vs. Off-the-Shelf: What's Right for Your Business" — targets "custom AI chatbot comparison"; (3) "The $38,000 Problem Hidden in Your Scheduling Process" — targets "AI scheduling ROI". Publish 1–2 articles/month consistently.</div>
+        <div class="action-impact">Impact: Primary organic traffic driver long-term; builds topical authority; generates backlink opportunities</div>
+      </div>
+      <span class="badge badge-high">High</span>
+    </div>
+
+    <div class="action-item">
+      <div class="action-number">17</div>
+      <div class="action-content">
+        <div class="action-title">Submit to local and industry directories for backlinks</div>
+        <div class="action-desc">Target: Clutch.co (tech services directory), UpCity, G2 Crowd, St Augustine Chamber of Commerce website, Northeast Florida business directories, and Florida-based tech company lists. These provide both backlinks and local authority signals.</div>
+        <div class="action-impact">Impact: Domain authority building; local citation consistency; referral traffic</div>
+      </div>
+      <span class="badge badge-medium">Medium</span>
+    </div>
+
+  </div>
+
+  <div class="section-title" style="font-size: 18px; margin-top: 32px;">Full Implementation Checklist</div>
+  <div class="section-subtitle">Every action in one place — check off as you go</div>
+  <div class="card">
+    <div class="checklist-item"><div class="check-icon fail">&#10007;</div><div class="check-text">Add meta description (156 chars, includes "AI automation" + location)</div></div>
+    <div class="checklist-item"><div class="check-icon fail">&#10007;</div><div class="check-text">Add &lt;link rel="canonical"&gt; tag</div></div>
+    <div class="checklist-item"><div class="check-icon fail">&#10007;</div><div class="check-text">Fix nav brand name: "Kemper AI Design Services" → "Kemper Design Services"</div></div>
+    <div class="checklist-item"><div class="check-icon fail">&#10007;</div><div class="check-text">Create favicon.ico (32×32) and apple-touch-icon.png (180×180)</div></div>
+    <div class="checklist-item"><div class="check-icon fail">&#10007;</div><div class="check-text">Fix footer Home link from "index.html" to "/"</div></div>
+    <div class="checklist-item"><div class="check-icon fail">&#10007;</div><div class="check-text">Remove dead Blog and Admin footer spans</div></div>
+    <div class="checklist-item"><div class="check-icon fail">&#10007;</div><div class="check-text">Rename internal video files to SEO-friendly slugs</div></div>
+    <div class="checklist-item"><div class="check-icon fail">&#10007;</div><div class="check-text">Add Open Graph tags (og:title, og:description, og:image, og:url, og:type)</div></div>
+    <div class="checklist-item"><div class="check-icon fail">&#10007;</div><div class="check-text">Add Twitter Card tags (summary_large_image + title/description/image)</div></div>
+    <div class="checklist-item"><div class="check-icon fail">&#10007;</div><div class="check-text">Create branded 1200×630px social share image</div></div>
+    <div class="checklist-item"><div class="check-icon fail">&#10007;</div><div class="check-text">Create robots.txt at site root</div></div>
+    <div class="checklist-item"><div class="check-icon fail">&#10007;</div><div class="check-text">Create sitemap.xml at site root</div></div>
+    <div class="checklist-item"><div class="check-icon fail">&#10007;</div><div class="check-text">Submit sitemap to Google Search Console</div></div>
+    <div class="checklist-item"><div class="check-icon fail">&#10007;</div><div class="check-text">Add LocalBusiness JSON-LD schema to &lt;head&gt;</div></div>
+    <div class="checklist-item"><div class="check-icon fail">&#10007;</div><div class="check-text">Add Organization JSON-LD schema with sameAs social links</div></div>
+    <div class="checklist-item"><div class="check-icon fail">&#10007;</div><div class="check-text">Add WebSite JSON-LD schema with SearchAction</div></div>
+    <div class="checklist-item"><div class="check-icon fail">&#10007;</div><div class="check-text">Add FAQPage JSON-LD from FAQ modal content</div></div>
+    <div class="checklist-item"><div class="check-icon fail">&#10007;</div><div class="check-text">Rewrite H2 section headings to include target keywords</div></div>
+    <div class="checklist-item"><div class="check-icon fail">&#10007;</div><div class="check-text">Add &lt;link rel="preload"&gt; for hero logo image</div></div>
+    <div class="checklist-item"><div class="check-icon fail">&#10007;</div><div class="check-text">Convert PNG images to WebP format</div></div>
+    <div class="checklist-item"><div class="check-icon fail">&#10007;</div><div class="check-text">Lazy-load background videos 2, 3, and 4</div></div>
+    <div class="checklist-item"><div class="check-icon fail">&#10007;</div><div class="check-text">Build /faq page from modal FAQ content</div></div>
+    <div class="checklist-item"><div class="check-icon fail">&#10007;</div><div class="check-text">Build /about page targeting "AI consulting Florida"</div></div>
+    <div class="checklist-item"><div class="check-icon fail">&#10007;</div><div class="check-text">Build /services/ai-workflow-automation landing page</div></div>
+    <div class="checklist-item"><div class="check-icon fail">&#10007;</div><div class="check-text">Build /services/ai-chatbots-assistants landing page</div></div>
+    <div class="checklist-item"><div class="check-icon fail">&#10007;</div><div class="check-text">Build /services/custom-websites landing page</div></div>
+    <div class="checklist-item"><div class="check-icon fail">&#10007;</div><div class="check-text">Convert mega-menu links from openServiceModal() to real hrefs as pages are built</div></div>
+    <div class="checklist-item"><div class="check-icon fail">&#10007;</div><div class="check-text">Add internal links from bento grid to service pages</div></div>
+    <div class="checklist-item"><div class="check-icon fail">&#10007;</div><div class="check-text">Create and claim Google Business Profile (St Augustine, FL)</div></div>
+    <div class="checklist-item"><div class="check-icon fail">&#10007;</div><div class="check-text">Publish first blog post targeting "AI automation for small businesses"</div></div>
+    <div class="checklist-item"><div class="check-icon fail">&#10007;</div><div class="check-text">Submit to Clutch.co, UpCity, and local Florida business directories</div></div>
+    <div class="checklist-item"><div class="check-icon fail">&#10007;</div><div class="check-text">Verify HTTPS and security headers once site is live</div></div>
+  </div>
+
+</div>
+</div>
+
+<script>
+function switchTab(tabId, btn) {
+  document.querySelectorAll('.tab-content').forEach(function(t) { t.classList.remove('active'); });
+  document.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
+  document.getElementById('tab-' + tabId).classList.add('active');
+  if (btn) btn.classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+document.querySelectorAll('.collapsible-header').forEach(function(header) {
+  header.addEventListener('click', function() {
+    header.closest('.collapsible').classList.toggle('open');
+  });
+});
+</script>
+
+</body>
+</html>

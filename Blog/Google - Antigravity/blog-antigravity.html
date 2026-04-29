@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Antigravity & AI Automation | Kemper Design Services</title>
+
+    <!-- SEO Meta (Blog-specific) -->
+    <meta name="description" content="How Google Antigravity is transforming AI automation for small businesses. Learn 10 practical use cases for autonomous AI agents.">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Kemper Design Services">
+    <meta property="og:url" content="https://www.kemperdesignservices.com/blog.html?id=google-antigravity-ai-automation">
+    <meta property="og:title" content="Google Antigravity & AI Automation for Small Businesses">
+    <meta property="og:image" content="Hero-antigravity.jpg">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/logos/favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/logos/apple-touch-icon.png">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../../styles.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Skip to Main Content Link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Fixed Background Video -->
+    <div class="video-bg-container">
+        <video autoplay muted playsinline class="video-bg" id="bg-video-1">
+            <source src="../../assets/video/Index-BG.mp4" type="video/mp4">
+        </video>
+        <video autoplay muted playsinline class="video-bg" id="bg-video-2" style="opacity: 0;">
+            <source src="../../assets/video/values-bg.mp4" type="video/mp4">
+        </video>
+        <video autoplay muted playsinline class="video-bg" id="bg-video-3" style="opacity: 0;">
+            <source src="../../assets/video/Phishing_Risks_and_Video_Ready.mp4" type="video/mp4">
+        </video>
+        <video autoplay muted playsinline class="video-bg" id="bg-video-4" style="opacity: 0;">
+            <source src="../../assets/video/Video_Ready_After_Data_Loss_Concern.mp4" type="video/mp4">
+        </video>
+        <div class="video-overlay"></div>
+    </div>
+
+    <script>
+        // Video looping for background
+        const videos = ['bg-video-1', 'bg-video-2', 'bg-video-3', 'bg-video-4'];
+        let currentVideoIndex = 0;
+
+        function cycleVideos() {
+            const currentVideo = document.getElementById(videos[currentVideoIndex]);
+            const nextVideoIndex = (currentVideoIndex + 1) % videos.length;
+            const nextVideo = document.getElementById(videos[nextVideoIndex]);
+
+            currentVideo.addEventListener('ended', () => {
+                document.getElementById(videos[currentVideoIndex]).style.opacity = '0';
+                currentVideoIndex = nextVideoIndex;
+                nextVideo.style.opacity = '1';
+                nextVideo.play();
+                cycleVideos();
+            }, { once: true });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            cycleVideos();
+        });
+    </script>
+
+    <!-- Background Effects -->
+    <div class="bg-glow bg-glow-purple"></div>
+    <div class="bg-glow bg-glow-blue"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar glass">
+        <div class="nav-container">
+            <a href="../../index.html" class="logo">
+                <span class="logo-text">Kemper Design Services</span>
+            </a>
+            <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-links" id="nav-links">
+                <a href="../../index.html" onclick="closeMobileMenu()">Home</a>
+                <div class="dropdown">
+                    <button class="dropbtn">About <span class="arrow-down">▼</span></button>
+                    <div class="dropdown-content glass">
+                        <a href="javascript:void(0)" onclick="openAboutModal(); closeMobileMenu()">About Damian</a>
+                        <a href="javascript:void(0)" onclick="openCertificationsModal(); closeMobileMenu();" style="color:#8b5cf6;">Certifications</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="dropbtn">Services <span class="arrow-down">▼</span></button>
+                    <div class="dropdown-content glass">
+                        <div class="drop-col">
+                            <span class="mega-heading">AI & Automation</span>
+                            <a href="javascript:void(0)" onclick="openServiceModal('AI Workflow Integration')">AI Workflow Integration</a>
+                            <a href="javascript:void(0)" onclick="openServiceModal('AI Chatbots & Assistants')">AI Chatbots & Assistants</a>
+                            <a href="javascript:void(0)" onclick="openServiceModal('Custom Internal AI Tools')">Custom Internal AI Tools</a>
+                            <a href="javascript:void(0)" onclick="openServiceModal('System Integrations')">System Integrations</a>
+                            <a href="javascript:void(0)" onclick="openServiceModal('Local AI Deployment')">Local AI Deployment</a>
+                            <a href="javascript:void(0)" onclick="openServiceModal('Document Processing')">Document Processing</a>
+                            <a href="javascript:void(0)" onclick="openServiceModal('AI Audits')">AI Audits</a>
+                        </div>
+                        <div class="drop-col">
+                            <span class="mega-heading">Design & Development</span>
+                            <a href="javascript:void(0)" onclick="openServiceModal('Custom Websites')">Custom Websites</a>
+                            <a href="javascript:void(0)" onclick="openServiceModal('Custom Applications')">Custom Applications</a>
+                            <a href="javascript:void(0)" onclick="openServiceModal('Graphic Design')">Graphic Design</a>
+                            <a href="javascript:void(0)" onclick="openServiceModal('UI/UX Design')">UI/UX Design</a>
+                            <a href="javascript:void(0)" onclick="openServiceModal('Frontend Development')">Frontend Development</a>
+                            <a href="../../apps.html" style="color:#f59e0b; font-weight:600;">Our Applications ↗</a>
+                        </div>
+                        <div class="drop-col">
+                            <span class="mega-heading">Operations & Training</span>
+                            <a href="javascript:void(0)" onclick="openServiceModal('AI Auto-Scheduler')">AI Auto-Scheduler</a>
+                            <a href="javascript:void(0)" onclick="openServiceModal('Instructional Design')">Instructional Design</a>
+                            <a href="javascript:void(0)" onclick="openServiceModal('AI Training & Education')">AI Training & Education</a>
+                            <a href="javascript:void(0)" onclick="openServiceModal('Employee Onboarding')">Employee Onboarding</a>
+                            <a href="javascript:void(0)" onclick="openServiceModal('Custom Training Apps')">Custom Training Apps</a>
+                            <a href="javascript:void(0)" onclick="openServiceModal('Technical Writing')">Technical Writing</a>
+                            <a href="javascript:void(0)" onclick="openServiceModal('Process Optimization')">Process Optimization</a>
+                        </div>
+                        <div class="drop-col">
+                            <span class="mega-heading">IT & Security</span>
+                            <a href="javascript:void(0)" onclick="openServiceModal('Cybersecurity Solutions')">Cybersecurity Solutions</a>
+                            <a href="javascript:void(0)" onclick="openServiceModal('IT Infrastructure')">IT Infrastructure</a>
+                            <a href="javascript:void(0)" onclick="openServiceModal('Data Protection')">Data Protection</a>
+                            <a href="javascript:void(0)" onclick="openServiceModal('System Integration')">System Integration</a>
+                            <a href="javascript:void(0)" onclick="openServiceModal('Cloud Solutions')">Cloud Solutions</a>
+                        </div>
+                        <div class="drop-col">
+                            <span class="mega-heading">Creative & Specialty</span>
+                            <a href="javascript:void(0)" onclick="openServiceModal('Video Editing')">Video Editing</a>
+                            <a href="javascript:void(0)" onclick="openServiceModal('Video Digitization')">Video Digitization</a>
+                            <a href="javascript:void(0)" onclick="openServiceModal('In Home Media Servers')">In Home Media Servers</a>
+                            <a href="javascript:void(0)" onclick="openServiceModal('Custom Music Production')">Custom Music Production</a>
+                            <a href="javascript:void(0)" onclick="openServiceModal('3D Printing')">3D Printing</a>
+                            <a href="javascript:void(0)" onclick="openServiceModal('Digital Notary')">Digital Notary</a>
+                            <a href="javascript:void(0)" onclick="openServiceModal('Data/Format Conversion')">Data/Format Conversion</a>
+                            <a href="javascript:void(0)" onclick="openServiceModal('Content Creation')">Content Creation</a>
+                        </div>
+                    </div>
+                </div>
+                <a href="../../apps.html" onclick="closeMobileMenu()" style="font-weight:600; color:#f59e0b;">Our Apps</a>
+                <a href="../../index.html#consulting" onclick="closeMobileMenu()">Consulting</a>
+            </div>
+            <div class="nav-cta">
+                <a href="javascript:void(0)" onclick="openContactModal()" class="btn btn-primary">Learn AI Today <span class="arrow">→</span></a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Blog Content -->
+    <main id="main-content" class="blog-container">
+        <article class="blog-article">
+            <!-- Blog Image -->
+            <div class="blog-image-container">
+                <img id="blog-image" src="Hero-antigravity.jpg" alt="Google Antigravity & AI Automation" class="blog-image">
+            </div>
+
+            <!-- Blog Content -->
+            <div class="blog-content">
+                <div class="blog-meta">
+                    <span class="blog-date">April 29, 2026</span>
+                    <span class="blog-author">by Kemper Design Services</span>
+                </div>
+
+                <h1 class="blog-title">How Google Antigravity Is Transforming AI Automation for Small Businesses</h1>
+
+                <div class="blog-body">
+                    <h2>What is Google Antigravity?</h2>
+                    <p>Google Antigravity is a new AI-powered development platform designed around <strong>autonomous AI agents that can plan, execute, and validate tasks with minimal human input</strong>. (<a href="https://developers.googleblog.com/build-with-google-antigravity-our-new-agentic-development-platform/?utm_source=chatgpt.com" target="_blank">Google Developers Blog</a>)</p>
+
+                    <p>Instead of simply assisting with tasks (like traditional AI tools), Antigravity allows businesses to <strong>delegate entire workflows to AI</strong>, including:</p>
+
+                    <ul>
+                        <li>Planning processes</li>
+                        <li>Executing tasks across systems</li>
+                        <li>Testing and validating outcomes</li>
+                        <li>Iterating automatically</li>
+                    </ul>
+
+                    <p>This "agent-first" approach represents a major shift—AI is no longer just a helper; it becomes a <strong>digital operator working alongside your business</strong>. (<a href="https://www.scalablepath.com/ai/google-antigravity-review?utm_source=chatgpt.com" target="_blank">Scalable Path</a>)</p>
+
+                    <h2>Who This Is For (Small Business Use Cases)</h2>
+                    <p>Antigravity is especially powerful for small businesses that:</p>
+
+                    <ul>
+                        <li>Have <strong>limited staff but growing demand</strong></li>
+                        <li>Need to <strong>automate repetitive workflows</strong></li>
+                        <li>Want to <strong>scale operations without hiring</strong></li>
+                        <li>Manage <strong>appointments, leads, or customer communication</strong></li>
+                        <li>Are investing in <strong>AI-driven marketing and operations</strong></li>
+                    </ul>
+
+                    <p>At Kemper Design Services, this aligns directly with how we build AI systems: <strong>automating the work that normally requires multiple employees.</strong></p>
+
+                    <h2>How Kemper Design Services Uses This Technology</h2>
+                    <p>We use the same principles behind Antigravity to design:</p>
+
+                    <ul>
+                        <li>AI autoschedulers (answer calls, book appointments)</li>
+                        <li>CRM + marketing automation pipelines</li>
+                        <li>Lead capture and qualification systems</li>
+                        <li>AI-powered websites and chat interfaces</li>
+                        <li>Internal business workflow automation</li>
+                    </ul>
+
+                    <p>The goal is simple: <strong>replace manual processes with intelligent systems that run 24/7.</strong></p>
+
+                    <h2>10 Practical AI Automation Use Cases for Small Businesses</h2>
+
+                    <h3>1. AI Appointment Scheduling (Front Desk Replacement)</h3>
+                    <ul>
+                        <li>Answers calls or website inquiries</li>
+                        <li>Checks calendar availability</li>
+                        <li>Books appointments automatically</li>
+                        <li>Sends confirmations via SMS/email</li>
+                    </ul>
+
+                    <h3>2. Lead Qualification & Routing</h3>
+                    <ul>
+                        <li>AI asks questions before a human ever gets involved</li>
+                        <li>Filters high-quality leads</li>
+                        <li>Routes them to the correct team or system</li>
+                    </ul>
+
+                    <h3>3. Automated Customer Support</h3>
+                    <ul>
+                        <li>Handles FAQs instantly</li>
+                        <li>Escalates only when needed</li>
+                        <li>Reduces support workload by 60–80%</li>
+                    </ul>
+
+                    <h3>4. Website Chat → CRM → Follow-Up Automation</h3>
+                    <ul>
+                        <li>Captures visitor info</li>
+                        <li>Logs into Google Sheets or CRM</li>
+                        <li>Triggers automated follow-ups</li>
+                    </ul>
+
+                    <h3>5. AI Content & Blog Generation</h3>
+                    <ul>
+                        <li>Writes SEO-optimized blogs</li>
+                        <li>Publishes directly to your website</li>
+                        <li>Keeps your business ranking without manual effort</li>
+                    </ul>
+
+                    <h3>6. Call Handling & Voice AI Receptionist</h3>
+                    <ul>
+                        <li>Never miss a call</li>
+                        <li>Uses realistic voice AI</li>
+                        <li>Books, answers, or routes calls</li>
+                    </ul>
+
+                    <h3>7. Internal Workflow Automation</h3>
+                    <ul>
+                        <li>Automates repetitive admin tasks</li>
+                        <li>Generates reports</li>
+                        <li>Tracks operations without manual input</li>
+                    </ul>
+
+                    <h3>8. Marketing Automation Engine</h3>
+                    <ul>
+                        <li>Email campaigns</li>
+                        <li>SMS follow-ups</li>
+                        <li>Customer reactivation sequences</li>
+                    </ul>
+
+                    <h3>9. Document Processing & Analysis</h3>
+                    <ul>
+                        <li>Reads PDFs, forms, and spreadsheets</li>
+                        <li>Extracts insights</li>
+                        <li>Flags inconsistencies or issues</li>
+                    </ul>
+
+                    <h3>10. AI-Powered Business Dashboards</h3>
+                    <ul>
+                        <li>Real-time data tracking</li>
+                        <li>Automated insights and recommendations</li>
+                        <li>No manual reporting required</li>
+                    </ul>
+
+                    <h2>Why This Matters Now</h2>
+                    <p>Traditional software requires you to:</p>
+
+                    <ul>
+                        <li>Learn tools</li>
+                        <li>Manage systems</li>
+                        <li>Do the work</li>
+                    </ul>
+
+                    <p>AI platforms like Antigravity flip that model:</p>
+
+                    <ul>
+                        <li>You define the goal</li>
+                        <li>AI executes the process</li>
+                    </ul>
+
+                    <p>This is the beginning of <strong>true business automation</strong>, where:</p>
+
+                    <ul>
+                        <li>One person can run what used to require a team</li>
+                        <li>Operations scale without increasing overhead</li>
+                        <li>Businesses become faster, leaner, and more profitable</li>
+                    </ul>
+
+                    <h2>How Kemper Design Services Helps</h2>
+                    <p>At Kemper Design Services, we don't just install tools—we build <strong>complete AI systems tailored to your business</strong>.</p>
+
+                    <p>We take concepts like Antigravity and turn them into:</p>
+
+                    <ul>
+                        <li>Fully automated scheduling systems</li>
+                        <li>AI-powered websites</li>
+                        <li>CRM + marketing pipelines</li>
+                        <li>Custom business automation workflows</li>
+                    </ul>
+
+                    <h2>Final Thought</h2>
+                    <p>AI is no longer about "helping you work faster." <strong>It's about doing the work for you.</strong></p>
+
+                    <p>Small businesses that adopt this early will:</p>
+
+                    <ul>
+                        <li>Outperform competitors</li>
+                        <li>Reduce costs</li>
+                        <li>Scale faster than ever before</li>
+                    </ul>
+
+                    <h3>Ready to Automate Your Business?</h3>
+                    <p>Kemper Design Services specializes in building <strong>real-world AI automation systems</strong> that drive results immediately.</p>
+
+                    <p>If your business still relies on manual processes, you're already behind— but it's not too late to catch up.</p>
+                </div>
+
+                <div class="blog-footer">
+                    <a href="../../index.html" class="btn glass-btn">← Back to Home</a>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-col brand-col">
+                <div class="brand-header">
+                    <img src="../../assets/logos/logo-white.png" alt="KDS Logo" class="footer-logo">
+                    <div class="brand-title">
+                        <span>Kemper</span>
+                        <span>Design</span>
+                        <span>Services</span>
+                    </div>
+                </div>
+                <p class="brand-desc">We modernize business operations with practical AI — automating workflows, building custom tools, and helping teams do more without burning out.</p>
+            </div>
+
+            <div class="footer-col">
+                <h4 class="footer-title">QUICK LINKS</h4>
+                <div class="footer-links">
+                    <a href="../../index.html">Home</a>
+                    <a href="javascript:void(0)" onclick="openAboutModal()">About Us</a>
+                    <a href="javascript:void(0)" onclick="openFaqModal()">FAQ</a>
+                    <a href="javascript:void(0)" onclick="openTermsModal()">Terms &amp; Conditions</a>
+                    <a href="javascript:void(0)" onclick="openPrivacyModal()">Privacy Policy</a>
+                    <a href="javascript:void(0)" onclick="openAdminLoginModal()" style="opacity: 0.5; font-size: 0.8rem; margin-top: 10px;">Admin</a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4 class="footer-title">AI SERVICES</h4>
+                <div class="footer-links">
+                    <a href="javascript:void(0)" onclick="openServiceModal('AI Workflow Automation')">AI Automations</a>
+                    <a href="javascript:void(0)" onclick="openServiceModal('AI Consulting')">AI Consulting</a>
+                    <a href="javascript:void(0)" onclick="openServiceModal('Custom Integrations')">AI Integrations</a>
+                    <a href="javascript:void(0)" onclick="openServiceModal('AI Enablement')">AI Enablement</a>
+                    <a href="javascript:void(0)" onclick="openServiceModal('AI Training & Education')">AI Education</a>
+                    <a href="javascript:void(0)" onclick="openServiceModal('AI Implementation')">AI Implementations</a>
+                    <a href="javascript:void(0)" onclick="openServiceModal('AI Audits')">AI Audits</a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4 class="footer-title">ADDITIONAL SERVICES</h4>
+                <div class="footer-links">
+                    <a href="javascript:void(0)" onclick="openServiceModal('Custom Applications')">Custom Applications</a>
+                    <a href="javascript:void(0)" onclick="openServiceModal('Custom Websites')">Web Engineering</a>
+                    <a href="javascript:void(0)" onclick="openServiceModal('Graphic Design')">Graphic Design</a>
+                    <a href="javascript:void(0)" onclick="openServiceModal('Instructional Design')">Instructional Design</a>
+                    <a href="javascript:void(0)" onclick="openServiceModal('Notary Services')">Notary Services</a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4 class="footer-title">CONTACT US</h4>
+                <div class="contact-list">
+                    <div class="contact-item">
+                        <span class="contact-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        </span>
+                        <span>St Augustine, FL</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                        </span>
+                        <a href="mailto:damian@kemperdesignservices.com">damian@kemperdesignservices.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        </span>
+                        <a href="tel:+16313536377">(631) 3-KEMPER</a>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        </span>
+                        <span>Mon–Fri, 9am–5pm EST</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 Kemper Design Services. All rights reserved.</p>
+            <div class="social-links">
+                <a href="https://www.facebook.com/profile.php?id=61558862320236" target="_blank" aria-label="Facebook">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a6 6 0 0 0-6 6v3H7v4h2v8h4v-8h3l1-4h-4V8a1 1 0 0 1 1-1h3z"/></svg>
+                </a>
+                <a href="https://www.youtube.com/@KemperDesignServices" target="_blank" aria-label="YouTube">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/></svg>
+                </a>
+                <a href="https://www.linkedin.com/in/damiankemper/" target="_blank" aria-label="LinkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                </a>
+                <a href="https://github.com/kemperdesign" target="_blank" aria-label="GitHub">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v 3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Load Common UI (for modals and navigation) -->
+    <script src="../../js/common-ui.js"></script>
+
+    <!-- Blog Styles -->
+    <style>
+        .blog-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 120px 20px 80px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .blog-article {
+            background: rgba(10, 10, 15, 0.85);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 24px;
+            overflow: hidden;
+        }
+
+        .blog-image-container {
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .blog-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .blog-content {
+            padding: 60px 50px;
+        }
+
+        .blog-meta {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .blog-title {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: white;
+            font-family: var(--font-heading);
+            letter-spacing: -0.02em;
+        }
+
+        .blog-body {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 50px;
+        }
+
+        .blog-body p {
+            margin-bottom: 20px;
+        }
+
+        .blog-body h2 {
+            color: white;
+            margin: 40px 0 20px;
+            font-size: 1.8rem;
+        }
+
+        .blog-body h3 {
+            color: white;
+            margin: 30px 0 15px;
+            font-size: 1.4rem;
+        }
+
+        .blog-body ul, .blog-body ol {
+            margin: 20px 0 20px 30px;
+        }
+
+        .blog-body li {
+            margin-bottom: 10px;
+        }
+
+        .blog-body strong {
+            color: white;
+        }
+
+        .blog-body a {
+            color: #8b5cf6;
+            text-decoration: none;
+        }
+
+        .blog-body a:hover {
+            text-decoration: underline;
+        }
+
+        .blog-footer {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .blog-container {
+                padding: 100px 15px 60px;
+            }
+
+            .blog-content {
+                padding: 40px 25px;
+            }
+
+            .blog-image-container {
+                height: 250px;
+            }
+
+            .blog-title {
+                font-size: 2rem;
+            }
+
+            .blog-body {
+                font-size: 0.95rem;
+            }
+
+            .blog-meta {
+                flex-direction: column;
+                gap: 8px;
+            }
+        }
+    </style>
+</body>
+
+</html>

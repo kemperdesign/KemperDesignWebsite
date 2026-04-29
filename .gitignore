@@ -12,9 +12,21 @@ CRM ENV Data.txt
 .DS_Store
 Thumbs.db
 
-# Node modules (if used)
+# Node modules
 node_modules/
 
 # IDE
 .vscode/
 .idea/
+
+# Large backups and archives
+*.tar.gz
+*.zip
+*.7z
+*.rar
+
+# Project specific ignores
+CRM ENV Data.txt
+AI Auto Scheduler Script.txt
+KDS RETELL KNOWLEDGE BASE.txt
+kemper-design-website-backup.tar.gz
