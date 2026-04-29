@@ -1,0 +1,16 @@
+*.tar.gz
+*.zip
+*.7z
+*.rar
+node_modules/
+.git/
+.vercel/
+CRM ENV Data.txt
+AI Auto Scheduler Script.txt
+KDS RETELL KNOWLEDGE BASE.txt
+kemper-design-website-backup.tar.gz
+lynda.png
+ChatGPT Image*.png
+Software Images/
+legacy/
+ kemper-design-website-backup.tar.gz

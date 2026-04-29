@@ -378,6 +378,7 @@
                     </div>
                 </div>
                 <a href="apps.html" onclick="closeMobileMenu()" style="font-weight:600; color:#f59e0b;">Our Apps</a>
+                <a href="#blog" onclick="closeMobileMenu()">Blog</a>
                 <a href="#consulting" onclick="closeMobileMenu()">Consulting</a>
             </div>
             <div class="nav-cta">
@@ -892,57 +893,23 @@
     <!-- Blog Section -->
     <section class="blog-section" id="blog">
         <div class="blog-container">
-            <div class="section-heading">
-                <div class="badge">
+            <div class="section-heading" style="text-align: center; margin-bottom: 60px;">
+                <div class="badge" style="margin: 0 auto 20px;">
                     <span class="badge-dot"></span>
                     <span>LATEST INSIGHTS</span>
                 </div>
-                <h2 class="h2 text-gradient">Blog Section</h2>
-                <p>Discover the latest trends and insights in the world of design and technology.</p>
-            </div>
-
-            <div class="blog-search-container">
-                <span class="blog-search-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-                </span>
-                <input type="text" id="blog-search" class="blog-search-input" placeholder="Search articles...">
+                <h2 class="h2 text-gradient" style="margin-bottom: 16px; font-size: 2.8rem; font-weight: 700;">Latest from the Blog</h2>
+                <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto; font-size: 1.05rem;">Practical insights on AI automation, business optimization, and digital transformation.</p>
             </div>
 
             <div class="blog-grid" id="blog-grid">
-                <div onclick="openBlogModal('Design Systems That Scale')" class="blog-card" style="cursor: pointer;">
-                    <div class="blog-image-wrapper">
-                        <img src="https://picsum.photos/seed/1/640/360" alt="Design Systems That Scale" class="blog-image" loading="lazy">
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <span>by Ava Mitchell</span>
-                            <span class="blog-meta-dot"></span>
-                            <span>2025-08-25</span>
-                            <span class="blog-meta-dot"></span>
-                            <span>7 min read</span>
-                        </div>
-                        <h3>Design Systems That Scale</h3>
-                        <p>Learn how to build and maintain scalable design systems that empower teams to move faster while staying consistent.</p>
-                    </div>
-                </div>
+                <!-- Blogs will be loaded here dynamically -->
             </div>
         </div>
     </section>
 
     <!-- FAQ Spiral Component -->
     <div id="faq-spiral-container"></div>
-
-    <!-- Blog Section -->
-    <section class="blog-section" id="blog-section">
-        <div class="section-header" style="text-align: center; margin-bottom: 60px;">
-            <div class="aai-cat" style="color: var(--text-secondary); opacity: 0.6; font-size: 0.75rem; letter-spacing: 2px;">INSIGHTS</div>
-            <h2 class="aai-q" style="margin-bottom: 16px; font-size: 2.8rem; font-weight: 700;">Latest from the Blog</h2>
-            <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto; font-size: 1.05rem;">Practical insights on AI automation, business optimization, and digital transformation.</p>
-        </div>
-        <div class="blog-grid" id="blog-grid">
-            <!-- Blogs will be loaded here -->
-        </div>
-    </section>
 
     <!-- CTA Section -->
     <section style="padding: 80px 24px; text-align: center; background: linear-gradient(135deg, rgba(139,92,246,0.08) 0%, rgba(139,92,246,0.04) 100%); border-top: 1px solid rgba(139,92,246,0.1); border-bottom: 1px solid rgba(139,92,246,0.1); margin: 60px 0;">
@@ -2345,148 +2312,26 @@
   <script>
     // Blog Data
     const blogData = {
-        'Design Systems That Scale': {
-            author: 'Ava Mitchell',
-            date: '2025-08-25',
-            readTime: '7 min read',
-            image: 'https://picsum.photos/seed/1/640/360',
-            content: `
-                <p>Design systems are more than just a library of UI components. They are the language that teams use to communicate, build, and scale products. In this article, we explore the core principles of building a scalable design system.</p>
-                <p>From tokenization of colors and typography to the documentation of accessibility standards, a well-oiled design system empowers developers and designers to move at the speed of thought without sacrificing consistency.</p>
-                <h3>Why Scale Matters</h3>
-                <p>As organizations grow, the number of screens and edge cases multiplies. A manual approach to design quickly becomes unmanageable. We'll look at how industry leaders use automated pipelines to sync design tokens from Figma directly into codebases.</p>
-            `
-        },
-        'The Psychology of Color in UI': {
-            author: 'Liam Carter',
-            date: '2025-07-14',
+        'Google Flow Guide 2026: AI Video & Automation for Small Business': {
+            author: 'Damian Kemper',
+            date: 'April 29, 2026',
             readTime: '5 min read',
-            image: 'https://picsum.photos/seed/2/640/360',
+            image: 'Blog/google-flow-business-guide-2026/google-flow-hero.jpg',
+            description: 'What is Google Flow? Learn how to use Google’s new unified AI studio for cinematic video generation and automated business workflows.',
+            url: 'Blog/google-flow-business-guide-2026/index.html',
             content: `
-                <p>Color is one of the most powerful tools in a designer's arsenal. It can evoke emotion, establish hierarchy, and guide users toward conversion. But how do you choose the right palette for your product?</p>
-                <p>We dive into the science of color theory and how it applies specifically to user interfaces. Learn about contrast ratios, accessibility, and the cultural implications of different hues.</p>
-                <h3>The 60-30-10 Rule</h3>
-                <p>One of the most effective ways to balance color in UI is the 60-30-10 rule: 60% dominant color, 30% secondary, and 10% accent. This ensures your interface remains clean and accessible while still feeling vibrant.</p>
-            `
-        },
-        'Microinteractions That Delight': {
-            author: 'Sophia Kim',
-            date: '2025-06-30',
-            readTime: '6 min read',
-            image: 'https://picsum.photos/seed/3/640/360',
-            content: `
-                <p>Microinteractions are the small functional animations that provide feedback and enhance the user experience. Think of the "pull to refresh" animation or the subtle wiggle of a button when clicked.</p>
-                <p>These small moments can turn a mundane task into a delightful experience. We'll explore how to design microinteractions that feel natural and improve usability without being distracting.</p>
-                <h3>The Four Pillars</h3>
-                <p>Every microinteraction consists of four parts: the trigger, the rules, the feedback, and the loops/modes. Mastering these will help you build more intuitive products.</p>
-            `
-        },
-        'Accessibility Beyond Compliance': {
-            author: 'Ethan Rodriguez',
-            date: '2025-06-18',
-            readTime: '8 min read',
-            image: 'https://picsum.photos/seed/4/640/360',
-            content: `
-                <p>Accessibility is often treated as a legal requirement or a checkbox at the end of a project. However, true accessibility means designing for everyone from the very beginning.</p>
-                <p>In this guide, we go beyond WCAG compliance and look at how to build genuinely inclusive digital experiences. From screen reader optimization to cognitive load reduction, we cover it all.</p>
-                <h3>Designing for Diversity</h3>
-                <p>Inclusive design isn't just for people with permanent disabilities—it's for anyone in a limiting situation (like using a phone in bright sunlight). By designing for the margins, we make better products for the center.</p>
-            `
-        },
-        'Dark Mode Done Right': {
-            author: 'Maya Chen',
-            date: '2025-05-20',
-            readTime: '4 min read',
-            image: 'https://picsum.photos/seed/5/640/360',
-            content: `
-                <p>Dark mode is more than just swapping white for black. It requires a careful reassessment of contrast, depth, and color vibrancy to ensure the interface remains readable and aesthetically pleasing.</p>
-                <p>We discuss the "Pure Black" vs. "Deep Gray" debate and why elevation is critical for creating visual hierarchy in dark themes.</p>
-                <h3>Contrast and Legibility</h3>
-                <p>Text that looks great on light backgrounds often lacks contrast on dark ones. We'll show you how to adjust your typography and iconography for maximum legibility in low-light environments.</p>
-            `
-        },
-        'Typography That Speaks': {
-            author: 'Noah Patel',
-            date: '2025-05-02',
-            readTime: '9 min read',
-            image: 'https://picsum.photos/seed/6/640/360',
-            content: `
-                <p>Typography is the foundation of digital communication. The typefaces you choose speak volumes about your brand's personality and the importance of your content.</p>
-                <p>Learn the art of pairing fonts, managing line height, and establishing a vertical rhythm that keeps users engaged with your text.</p>
-                <h3>Readability vs. Aesthetics</h3>
-                <p>A beautiful font is useless if users can't read it. We explore the balance between artistic expression and functional clarity in web typography.</p>
-            `
-        },
-        'The Future of UI Animation': {
-            author: 'Chloe Ramirez',
-            date: '2025-04-15',
-            readTime: '10 min read',
-            image: 'https://picsum.photos/seed/7/640/360',
-            content: `
-                <p>As browsers and hardware become more capable, UI animation is moving from "nice to have" to a core part of the user journey. From motion guidelines to advanced prototyping tools like Lottie and Rive, the landscape is shifting.</p>
-                <p>We look at where animation is heading in 2025 and how to use it to tell stories within your app.</p>
-                <h3>Performance Matters</h3>
-                <p>Great animation shouldn't come at the cost of performance. We'll discuss techniques for 60FPS animations and how to use CSS transforms and GPU acceleration effectively.</p>
-            `
-        },
-        'Minimalism vs Maximalism in Design': {
-            author: 'Benjamin Scott',
-            date: '2025-04-01',
-            readTime: '6 min read',
-            image: 'https://picsum.photos/seed/8/640/360',
-            content: `
-                <p>For years, minimalism has dominated the tech world. But recently, a new trend of "Maximalism" or "Bento-style" density has emerged. Which one is right for your product?</p>
-                <p>We compare both philosophies and discuss how to decide based on user intent and brand positioning.</p>
-                <h3>Density as a Feature</h3>
-                <p>Sometimes, more is more. We'll look at how data-heavy applications benefit from higher information density while maintaining a sense of order and calm.</p>
-            `
-        },
-        'Designing for Mobile-First': {
-            author: 'Isabella White',
-            date: '2025-03-22',
-            readTime: '7 min read',
-            image: 'https://picsum.photos/seed/9/640/360',
-            content: `
-                <p>Mobile-first design is more than just responsive CSS. It's a mindset that prioritizes the most critical content and actions for the smallest screens first.</p>
-                <p>We cover touch targets, gesture-based navigation, and the unique constraints of mobile hardware like limited connectivity and battery life.</p>
-                <h3>The Thumb Zone</h3>
-                <p>Learn how to design layouts that are ergonomic for one-handed use, placing primary actions within easy reach of the user's thumb.</p>
-            `
-        },
-        'Figma Hacks for Power Users': {
-            author: 'James Walker',
-            date: '2025-03-09',
-            readTime: '5 min read',
-            image: 'https://picsum.photos/seed/10/640/360',
-            content: `
-                <p>Figma is the industry standard for UI design, but many designers only scratch the surface of its capabilities. Auto-layout, variants, and component properties can dramatically speed up your workflow.</p>
-                <p>We share our favorite plugins, shortcuts, and organizational tips that will turn you into a Figma power user.</p>
-                <h3>Advanced Auto-Layout</h3>
-                <p>Mastering nested auto-layout containers is the key to building truly responsive components that behave like real code.</p>
-            `
-        },
-        'Designing With AI Tools': {
-            author: 'Olivia Brooks',
-            date: '2025-02-28',
-            readTime: '8 min read',
-            image: 'https://picsum.photos/seed/11/640/360',
-            content: `
-                <p>AI is fundamentally changing how we design. From generating placeholders with Midjourney to automating repetitive tasks with AI-powered plugins, the workflow is evolving.</p>
-                <p>We explore the best AI tools currently available for UI/UX designers and how to integrate them into your existing process.</p>
-                <h3>Ideation at Scale</h3>
-                <p>How AI can help you explore hundreds of layout possibilities in minutes, allowing you to focus on high-level strategy and refinement.</p>
-            `
-        },
-        'The Art of Prototyping': {
-            author: 'Daniel Green',
-            date: '2025-02-14',
-            readTime: '6 min read',
-            image: 'https://picsum.photos/seed/12/640/360',
-            content: `
-                <p>A prototype is worth a thousand meetings. It's the best way to validate ideas with users and communicate complex interactions to stakeholders.</p>
-                <p>We discuss the spectrum of prototyping, from low-fidelity wireframes to high-fidelity interactive models that feel indistinguishable from the final product.</p>
-                <h3>Testing for Truth</h3>
-                <p>How to use prototypes for user testing and why seeing a user struggle with an interaction is the most valuable feedback you can get.</p>
+                <p>Google Flow is a new AI-powered development platform designed around <strong>autonomous AI agents that can plan, execute, and validate tasks with minimal human input</strong>.</p>
+                <p>Instead of simply assisting with tasks (like traditional AI tools), Flow allows businesses to <strong>delegate entire workflows to AI</strong>.</p>
+                <h3>10 Practical AI Automation Use Cases for Small Businesses</h3>
+                <ul>
+                    <li>AI Appointment Scheduling</li>
+                    <li>Lead Qualification & Routing</li>
+                    <li>Automated Customer Support</li>
+                    <li>Website Chat → CRM → Follow-Up Automation</li>
+                    <li>AI Content & Blog Generation</li>
+                </ul>
+                <p>Learn more about how Google Flow is transforming AI automation for small businesses in our full guide.</p>
+                <a href="Blog/google-flow-business-guide-2026/index.html" class="btn btn-primary" style="display:inline-block; margin-top:20px;">Read Full Guide</a>
             `
         }
     };
@@ -2553,10 +2398,17 @@
 
     async function loadBlogs() {
         try {
-            const response = await fetch('/blogs.json');
+            const response = await fetch('blogs.json');
             if (response.ok) {
                 const blogsFromFile = await response.json();
-                currentBlogs = blogsFromFile;
+                if (blogsFromFile && blogsFromFile.length > 0) {
+                    currentBlogs = blogsFromFile;
+                } else {
+                    currentBlogs = Object.keys(blogData).map(title => ({
+                        title: title,
+                        ...blogData[title]
+                    }));
+                }
             } else {
                 currentBlogs = Object.keys(blogData).map(title => ({
                     title: title,
@@ -2597,9 +2449,10 @@
         if (!grid) return;
 
         grid.innerHTML = currentBlogs.map((blog, index) => {
-            const isVid = blog.image.includes('data:video/') || blog.image.match(/\.(mp4|webm|ogg)$/i);
+            const hasImage = blog.image && typeof blog.image === 'string';
+            const isVid = hasImage && (blog.image.includes('data:video/') || blog.image.match(/\.(mp4|webm|ogg)$/i));
             const blogId = blog.id || slugifyBlog(blog.title);
-            const blogUrl = `blog.html?id=${blogId}`;
+            const blogUrl = blog.url || `blog.html?id=${blogId}`;
 
             return `
             <a href="${blogUrl}" class="blog-card" style="cursor: pointer; text-decoration: none; color: inherit;">

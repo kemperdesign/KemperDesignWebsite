@@ -1,12 +1,13 @@
 [
   {
-    "id": "getting-started-ai-automation",
-    "title": "Getting Started with AI Automation: A Practical Guide",
+    "id": "google-flow-business-guide-2026",
+    "title": "Google Flow Guide 2026: AI Video & Automation for Small Business",
     "author": "Damian Kemper",
-    "date": "April 15, 2026",
+    "date": "April 29, 2026",
     "readTime": "5 min read",
-    "image": "https://images.unsplash.com/photo-1677442d019cecf8871d1a97b5f5aaf1?w=1200&h=400&fit=crop",
-    "description": "Learn how to implement AI automation in your business without technical complexity.",
-    "content": "<h2>Understanding AI Automation</h2><p>AI automation has become increasingly important for small businesses looking to scale without proportionally increasing their workforce. In this guide, we'll explore practical approaches to implementing AI automation in your operations.</p><h3>Getting Started</h3><p>The first step is understanding your current workflows and identifying areas where automation can provide the most value. This typically involves:</p><ul><li>Mapping out your current processes</li><li>Identifying bottlenecks and repetitive tasks</li><li>Measuring time spent on manual operations</li><li>Prioritizing quick wins</li></ul><h3>Implementation Strategy</h3><p>A successful AI automation strategy focuses on:</p><ul><li><strong>Clear Goals:</strong> Define what you want to achieve</li><li><strong>Proper Tools:</strong> Select the right AI tools for your needs</li><li><strong>Team Buy-in:</strong> Ensure your team understands the benefits</li><li><strong>Iterative Approach:</strong> Start small and scale what works</li></ul><p>The key to successful automation is starting with high-impact, low-complexity processes. This builds confidence and demonstrates value to your team.</p>"
+    "image": "Blog/google-flow-business-guide-2026/google-flow-hero.jpg",
+    "description": "What is Google Flow? Learn how to use Google’s new unified AI studio for cinematic video generation and automated business workflows.",
+    "url": "Blog/google-flow-business-guide-2026/index.html",
+    "content": "<h2>What is Google Flow?</h2><p>Google Flow is a new AI-powered development platform designed around autonomous AI agents that can plan, execute, and validate tasks with minimal human input.</p><p>Instead of simply assisting with tasks (like traditional AI tools), Flow allows businesses to delegate entire workflows to AI.</p><h3>10 Practical AI Automation Use Cases for Small Businesses</h3><ul><li>AI Appointment Scheduling</li><li>Lead Qualification & Routing</li><li>Automated Customer Support</li><li>Website Chat → CRM → Follow-Up Automation</li><li>AI Content & Blog Generation</li></ul><p>Learn more about how Google Flow is transforming AI automation for small businesses in our full guide.</p>"
   }
 ]

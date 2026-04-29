@@ -20,6 +20,10 @@
 html {
     overflow-x: hidden;
     overflow-y: scroll;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    -webkit-text-size-adjust: 100%;
 }
 
 /* Skip to Main Content Link */
@@ -47,6 +51,7 @@ body {
     width: 100%;
     margin: 0;
     padding: 0;
+    position: relative;
 }
 
 /* Background Video */
@@ -402,8 +407,16 @@ h1 .text-gradient {
     .nav-cta {
         display: none;
     }
+    .float-card {
+        display: none !important;
+    }
     .hero-logo-container {
-        display: none;
+        display: none !important;
+    }
+    .hero-mockup {
+        width: 100%;
+        overflow: hidden; /* Clip anything that might leak */
+        padding: 10px;
     }
     /* Service Modal on Mobile */
     #service-modal .aai-inner {
