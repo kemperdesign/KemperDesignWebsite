@@ -526,6 +526,21 @@
           hamburger.classList.remove('active');
         }
       }
+
+      // Handle mobile dropdown toggle
+      if (window.innerWidth <= 768) {
+        document.querySelectorAll('.dropdown').forEach(function(dropdown) {
+          const btn = dropdown.querySelector('.dropbtn');
+          const content = dropdown.querySelector('.dropdown-content');
+
+          if (btn && content) {
+            btn.addEventListener('click', function(e) {
+              e.preventDefault();
+              content.classList.toggle('mobile-open');
+            });
+          }
+        });
+      }
     </script>
 
     <!-- Chat Input Demo Interface -->
