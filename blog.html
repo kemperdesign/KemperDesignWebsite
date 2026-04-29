@@ -38,8 +38,41 @@
         <video autoplay muted playsinline class="video-bg" id="bg-video-1">
             <source src="assets/video/Index-BG.mp4" type="video/mp4">
         </video>
+        <video autoplay muted playsinline class="video-bg" id="bg-video-2" style="opacity: 0;">
+            <source src="assets/video/values-bg.mp4" type="video/mp4">
+        </video>
+        <video autoplay muted playsinline class="video-bg" id="bg-video-3" style="opacity: 0;">
+            <source src="assets/video/Phishing_Risks_and_Video_Ready.mp4" type="video/mp4">
+        </video>
+        <video autoplay muted playsinline class="video-bg" id="bg-video-4" style="opacity: 0;">
+            <source src="assets/video/Video_Ready_After_Data_Loss_Concern.mp4" type="video/mp4">
+        </video>
         <div class="video-overlay"></div>
     </div>
+
+    <script>
+        // Video looping for background
+        const videos = ['bg-video-1', 'bg-video-2', 'bg-video-3', 'bg-video-4'];
+        let currentVideoIndex = 0;
+
+        function cycleVideos() {
+            const currentVideo = document.getElementById(videos[currentVideoIndex]);
+            const nextVideoIndex = (currentVideoIndex + 1) % videos.length;
+            const nextVideo = document.getElementById(videos[nextVideoIndex]);
+
+            currentVideo.addEventListener('ended', () => {
+                document.getElementById(videos[currentVideoIndex]).style.opacity = '0';
+                currentVideoIndex = nextVideoIndex;
+                nextVideo.style.opacity = '1';
+                nextVideo.play();
+                cycleVideos();
+            }, { once: true });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            cycleVideos();
+        });
+    </script>
 
     <!-- Background Effects -->
     <div class="bg-glow bg-glow-purple"></div>
