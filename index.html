@@ -2845,23 +2845,21 @@
             return `
             <a href="${blogUrl}" class="blog-card" style="cursor: pointer; text-decoration: none; color: inherit;">
                 <div class="blog-image-wrapper">
-                    ${isVid ?
-                        `<video src="${blog.image}" class="blog-image" style="object-fit: cover;"></video><div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.2); font-size: 2rem;">▶️</div>` :
+                    ${isVid ? 
+                        `<video src="${blog.image}" class="blog-image" muted loop onmouseover="this.play()" onmouseout="this.pause()"></video>` : 
                         `<img src="${blog.image}" alt="${blog.title}" class="blog-image" loading="lazy">`
                     }
                 </div>
                 <div class="blog-content">
                     <div class="blog-meta">
-                        <span>by ${blog.author}</span>
+                        <span>by ${blog.author || 'Damian Kemper'}</span>
                         <span class="blog-meta-dot"></span>
                         <span>${blog.date}</span>
-                        <span class="blog-meta-dot"></span>
-                        <span>${blog.readTime || '5 min read'}</span>
                     </div>
-                    <h3>${blog.title}</h3>
-                    <p>${blog.description || blog.content.replace(/<[^>]*>/g, '').substring(0, 120)}...</p>
+                    <h3 style="font-size: 1.25rem; margin: 12px 0; font-family: 'Outfit', sans-serif;">${blog.title}</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6;">${blog.description || ''}</p>
                     <div style="margin-top: 20px; color: var(--accent-1); font-weight: 600; display: flex; align-items: center; gap: 8px;">
-                        Read Full Guide <span style="transition: transform 0.3s;">→</span>
+                        Read Full Guide <span>→</span>
                     </div>
                 </div>
             </a>

@@ -172,35 +172,7 @@
     </nav>
 
     <!-- Blog Content -->
-    <main id="main-content" class="blog-container" style="max-width: 1000px; margin: 0 auto; padding: 120px 20px;">
-        <!-- Single Blog View -->
-        <article id="single-blog-view" class="blog-article glass" style="display: none; background: rgba(10, 10, 15, 0.9); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 32px; padding: 60px;">
-            <div class="blog-content">
-                <h1 class="blog-title" id="blog-title" style="font-family: 'Outfit', sans-serif; font-size: clamp(2rem, 5vw, 3.2rem); line-height: 1.1; margin-bottom: 15px; color: #ffffff; font-weight: 800;">Blog Post Title</h1>
-                
-                <div class="blog-meta" style="margin-bottom: 40px; font-size: 1rem; color: var(--accent-1); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; display: flex; align-items: center; gap: 15px;">
-                    <span id="blog-date">April 30, 2026</span>
-                    <span style="opacity: 0.3;">|</span>
-                    <span id="blog-author">by Damian Kemper</span>
-                </div>
-
-                <div class="blog-image-wrapper" style="width: 100%; margin-bottom: 40px; border-radius: 20px; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 20px 40px rgba(0,0,0,0.4);">
-                    <img id="blog-image" src="" alt="Blog post image" style="width: 100%; height: auto; display: block; object-fit: cover;">
-                </div>
-
-                <div class="blog-body" id="blog-body" style="font-size: 1.2rem; line-height: 1.8; color: #e2e8f0;">
-                    <!-- Content will be injected here -->
-                </div>
-
-                <div class="blog-footer" style="margin-top: 60px; padding-top: 40px; border-top: 1px solid rgba(255, 255, 255, 0.1);">
-                    <a href="blog.html" class="btn glass-btn" style="color: white; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 10px;">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
-                        Back to Knowledge Library
-                    </a>
-                </div>
-            </div>
-        </article>
-
+    <main id="main-content" class="blog-container">
         <!-- All Blogs View (Library) -->
         <div id="all-blogs-view" class="blog-library">
             <h1 class="library-title">Knowledge Library</h1>
@@ -318,76 +290,25 @@
 
     <!-- Blog Loader Script -->
     <script>
-        // Get blog ID from URL parameter (e.g., blog.html?id=my-blog-post)
-        const urlParams = new URLSearchParams(window.location.search);
-        const blogId = urlParams.get('id');
-
         async function initBlog() {
             try {
                 const response = await fetch('blogs.json');
                 const blogs = await response.json();
-
-                if (blogId) {
-                    showSingleBlog(blogs, blogId);
-                } else {
-                    showBlogLibrary(blogs);
-                }
+                showBlogLibrary(blogs);
             } catch (error) {
                 console.error('Error loading blogs:', error);
-                document.getElementById('blog-body').innerHTML = '<p>Error loading blogs.</p>';
-            }
-        }
-
-        function showSingleBlog(blogs, id) {
-            const blog = blogs.find(b => b.id === id);
-            const singleView = document.getElementById('single-blog-view');
-            const libraryView = document.getElementById('all-blogs-view');
-
-            if (blog) {
-                singleView.style.display = 'block';
-                libraryView.style.display = 'none';
-
-                document.title = `${blog.title} | Kemper Design Services`;
-                
-                // Safe meta updates
-                const setMeta = (property, content) => {
-                    const el = document.querySelector(`meta[property="${property}"]`) || document.querySelector(`meta[name="${property}"]`);
-                    if (el) el.setAttribute('content', content);
-                };
-
-                setMeta('og:title', blog.title);
-                setMeta('og:image', blog.image);
-                setMeta('twitter:title', blog.title);
-                setMeta('twitter:image', blog.image);
-
-                if (document.getElementById('blog-title')) document.getElementById('blog-title').textContent = blog.title;
-                if (document.getElementById('blog-image')) {
-                    document.getElementById('blog-image').src = blog.image;
-                    document.getElementById('blog-image').alt = blog.title;
-                }
-                if (document.getElementById('blog-date')) {
-                    document.getElementById('blog-date').textContent = blog.date;
-                }
-                if (document.getElementById('blog-author')) document.getElementById('blog-author').textContent = `by ${blog.author || 'Damian Kemper'}`;
-                if (document.getElementById('blog-body')) document.getElementById('blog-body').innerHTML = blog.content;
-            } else {
-                singleView.style.display = 'block';
-                libraryView.style.display = 'none';
-                if (document.getElementById('blog-body')) document.getElementById('blog-body').innerHTML = '<div style="padding: 40px; text-align: center;"><h2>Blog post not found</h2><p>The article you are looking for might have been moved or renamed.</p><a href="blog.html" class="btn glass-btn" style="margin-top: 20px;">Return to Library</a></div>';
+                const grid = document.getElementById('blogs-grid');
+                if (grid) grid.innerHTML = '<p>Error loading blogs.</p>';
             }
         }
 
         function showBlogLibrary(blogs) {
-            const singleView = document.getElementById('single-blog-view');
-            const libraryView = document.getElementById('all-blogs-view');
             const grid = document.getElementById('blogs-grid');
-
-            singleView.style.display = 'none';
-            libraryView.style.display = 'block';
+            if (!grid) return;
             document.title = 'Knowledge Library | Kemper Design Services';
 
             grid.innerHTML = blogs.map(blog => `
-                <div class="blog-card glass" onclick="window.location.href='blog.html?id=${blog.id}'">
+                <div class="blog-card glass" onclick="window.location.href='${blog.url}'">
                     <div class="card-image">
                         <img src="${blog.image}" alt="${blog.title}">
                     </div>
