@@ -346,21 +346,34 @@
     // 2. Data Objects
     window.currentServiceName = null;
     window.serviceData = {
-        "AI Workflow Integration": { desc: "We map out your manual processes and build automated workflows that tie your existing software stack together.", video: "assets/video/Services - AI Integrations.mp4" },
-        "AI Chatbots & Assistants": { desc: "Custom-trained AI agents that know your business operations inside and out.", video: "assets/video/chatbots_00001_.mp4" },
-        "Custom Websites": { desc: "High-performance, beautifully designed websites that convert visitors into leads.", video: "assets/video/web design_00001_.mp4" },
-        "AI Auto-Scheduler": { desc: "An intelligent scheduling agent that coordinates meetings automatically.", video: "assets/video/ai autoscheduler.mp4" },
-        "Document Processing": { desc: "Turn unstructured documents into clean, usable data automatically.", video: "assets/video/Services - Document Processing.mp4" },
-        "Local AI Deployment": { desc: "Run powerful AI models on your own servers for maximum privacy and security.", video: "assets/video/Services - Local AI Deployment.mp4" },
+        // AI Services
+        "AI Workflow Automation": { desc: "We map out your manual processes and build automated workflows that tie your existing software stack together.", video: "assets/video/Services - AI Integrations.mp4" },
+        "AI Consulting": { desc: "Expert guidance on adopting AI technologies, identifying high-impact use cases, and creating a roadmap for success.", video: "assets/video/ai audit_00001_.mp4" },
+        "Custom Integrations": { desc: "Seamlessly connect your CRM, email, and internal tools so data flows automatically across your business.", video: "assets/video/system integration.mp4" },
+        "AI Enablement": { desc: "Empowering your team with the tools and access needed to leverage AI in their daily workflows securely.", video: "assets/video/Services - Local AI Deployment.mp4" },
+        "AI Training & Education": { desc: "Comprehensive training programs designed to upskill your staff on the latest AI tools and best practices.", video: "assets/video/ai education.mp4" },
+        "AI Implementation": { desc: "End-to-end deployment of custom AI solutions, from initial setup to full-scale operations.", video: "assets/video/Custom Internal AI Tools_00002_.mp4" },
+        "AI Audits": { desc: "A thorough review of your current tech stack to identify inefficiencies and opportunities for AI-driven optimization.", video: "assets/video/ai audit_00001_.mp4" },
+        
+        // Additional Services
         "Custom Applications": { desc: "Custom-built applications designed specifically for your business workflows.", video: "assets/video/Services - Custom Applications.mp4" },
+        "Custom Websites": { desc: "High-performance, beautifully designed websites that convert visitors into leads.", video: "assets/video/web design_00001_.mp4" },
         "Graphic Design": { desc: "Professional graphic design services that communicate your brand's message.", video: "assets/video/Services - Graphic Design.mp4" },
         "Instructional Design": { desc: "Development of clear SOPs, training modules, and knowledge bases.", video: "assets/video/isd.mp4" },
+        "Notary Services": { desc: "Professional notary services for all your important legal and business documentation.", video: "assets/video/notary.mp4" },
+        
+        // Legacy/Other Keys
+        "AI Workflow Integration": { desc: "We map out your manual processes and build automated workflows.", video: "assets/video/Services - AI Integrations.mp4" },
+        "AI Chatbots & Assistants": { desc: "Custom-trained AI agents that know your business operations inside and out.", video: "assets/video/chatbots_00001_.mp4" },
+        "AI Auto-Scheduler": { desc: "An intelligent scheduling agent that coordinates meetings automatically.", video: "assets/video/ai autoscheduler.mp4" },
+        "Document Processing": { desc: "Turn unstructured documents into clean, usable data automatically.", video: "assets/video/Services - Document Processing.mp4" },
+        "Local AI Deployment": { desc: "Run powerful AI models on your own servers.", video: "assets/video/Services - Local AI Deployment.mp4" },
         "Custom Internal AI Tools": { desc: "Purpose-built AI tools designed specifically for your internal operations.", video: "assets/video/Custom Internal AI Tools_00002_.mp4" },
-        "System Integrations": { desc: "Seamlessly connect all your business systems so data flows automatically.", video: "assets/video/system integration.mp4" },
+        "System Integrations": { desc: "Seamlessly connect all your business systems.", video: "assets/video/system integration.mp4" },
         "UI/UX Design": { desc: "User-centered design that creates intuitive, beautiful interfaces.", video: "assets/video/Services - UI UX.mp4" },
-        "Frontend Development": { desc: "Expert front-end development that brings designs to life with clean code.", video: "assets/video/frontend development_00001_.mp4" },
-        "IT Infrastructure": { desc: "Robust IT infrastructure design and implementation that scales.", video: "assets/video/it infrastructure.mp4" },
-        "Cybersecurity Solutions": { desc: "Comprehensive security strategy and implementation to protect your business.", video: "assets/video/CyberSecurity.mp4" }
+        "Frontend Development": { desc: "Expert front-end development.", video: "assets/video/frontend development_00001_.mp4" },
+        "IT Infrastructure": { desc: "Robust IT infrastructure design and implementation.", video: "assets/video/it infrastructure.mp4" },
+        "Cybersecurity Solutions": { desc: "Comprehensive security strategy.", video: "assets/video/CyberSecurity.mp4" }
     };
 
     window.serviceToCheckbox = {
