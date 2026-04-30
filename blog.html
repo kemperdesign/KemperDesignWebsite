@@ -152,6 +152,13 @@
                     </div>
                 </div>
                 <a href="apps.html" onclick="closeMobileMenu()" style="font-weight:600; color:#f59e0b;">Our Apps</a>
+                <div class="dropdown">
+                    <button class="dropbtn">Blog <span class="arrow-down">▼</span></button>
+                    <div class="dropdown-content glass">
+                        <a href="index.html#blog" onclick="closeMobileMenu()">Latest Insights</a>
+                        <a href="blog.html" style="color:#8b5cf6; font-weight:600;">View all blogs ↗</a>
+                    </div>
+                </div>
                 <a href="index.html#consulting" onclick="closeMobileMenu()">Consulting</a>
             </div>
             <div class="nav-cta">
@@ -162,7 +169,8 @@
 
     <!-- Blog Content -->
     <main id="main-content" class="blog-container">
-        <article class="blog-article">
+        <!-- Single Blog View -->
+        <article id="single-blog-view" class="blog-article" style="display: none;">
             <!-- Blog Image -->
             <div class="blog-image-container">
                 <img id="blog-image" src="assets/images/placeholder.jpg" alt="Blog post image" class="blog-image">
@@ -182,10 +190,20 @@
                 </div>
 
                 <div class="blog-footer">
-                    <a href="index.html" class="btn glass-btn">← Back to Home</a>
+                    <a href="blog.html" class="btn glass-btn">← Back to Blog Library</a>
                 </div>
             </div>
         </article>
+
+        <!-- All Blogs View (Library) -->
+        <div id="all-blogs-view" class="blog-library">
+            <h1 class="library-title">Knowledge Library</h1>
+            <p class="library-subtitle">Deep dives into AI, automation, and the future of business operations.</p>
+            
+            <div id="blogs-grid" class="blogs-grid">
+                <!-- Blog cards injected here -->
+            </div>
+        </div>
     </main>
 
     <!-- Footer -->
@@ -298,47 +316,83 @@
         const urlParams = new URLSearchParams(window.location.search);
         const blogId = urlParams.get('id');
 
-        // Load blog data from blogs.json
-        async function loadBlog(id) {
+        async function initBlog() {
             try {
                 const response = await fetch('blogs.json');
                 const blogs = await response.json();
-                const blog = blogs.find(b => b.id === id);
 
-                if (blog) {
-                    document.title = `${blog.title} | Kemper Design Services`;
-                    document.querySelector('meta[property="og:title"]').setAttribute('content', blog.title);
-                    document.querySelector('meta[property="og:image"]').setAttribute('content', blog.image);
-
-                    document.getElementById('blog-title').textContent = blog.title;
-                    document.getElementById('blog-image').src = blog.image;
-                    document.getElementById('blog-image').alt = blog.title;
-                    document.getElementById('blog-date').textContent = new Date(blog.date).toLocaleDateString('en-US', {
-                        year: 'numeric',
-                        month: 'long',
-                        day: 'numeric'
-                    });
-                    document.getElementById('blog-author').textContent = `by ${blog.author || 'Damian Kemper'}`;
-                    document.getElementById('blog-body').innerHTML = blog.content;
+                if (blogId) {
+                    showSingleBlog(blogs, blogId);
                 } else {
-                    document.getElementById('blog-body').innerHTML = '<p>Blog post not found.</p>';
+                    showBlogLibrary(blogs);
                 }
             } catch (error) {
-                console.error('Error loading blog:', error);
-                document.getElementById('blog-body').innerHTML = '<p>Error loading blog post.</p>';
+                console.error('Error loading blogs:', error);
+                document.getElementById('blog-body').innerHTML = '<p>Error loading blogs.</p>';
             }
         }
 
-        // Load blog if ID provided
-        if (blogId) {
-            loadBlog(blogId);
+        function showSingleBlog(blogs, id) {
+            const blog = blogs.find(b => b.id === id);
+            const singleView = document.getElementById('single-blog-view');
+            const libraryView = document.getElementById('all-blogs-view');
+
+            if (blog) {
+                singleView.style.display = 'block';
+                libraryView.style.display = 'none';
+
+                document.title = `${blog.title} | Kemper Design Services`;
+                document.querySelector('meta[property="og:title"]').setAttribute('content', blog.title);
+                document.querySelector('meta[property="og:image"]').setAttribute('content', blog.image);
+
+                document.getElementById('blog-title').textContent = blog.title;
+                document.getElementById('blog-image').src = blog.image;
+                document.getElementById('blog-image').alt = blog.title;
+                document.getElementById('blog-date').textContent = new Date(blog.date).toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                });
+                document.getElementById('blog-author').textContent = `by ${blog.author || 'Damian Kemper'}`;
+                document.getElementById('blog-body').innerHTML = blog.content;
+            } else {
+                singleView.style.display = 'block';
+                libraryView.style.display = 'none';
+                document.getElementById('blog-body').innerHTML = '<p>Blog post not found.</p>';
+            }
         }
+
+        function showBlogLibrary(blogs) {
+            const singleView = document.getElementById('single-blog-view');
+            const libraryView = document.getElementById('all-blogs-view');
+            const grid = document.getElementById('blogs-grid');
+
+            singleView.style.display = 'none';
+            libraryView.style.display = 'block';
+            document.title = 'Knowledge Library | Kemper Design Services';
+
+            grid.innerHTML = blogs.map(blog => `
+                <div class="blog-card glass" onclick="window.location.href='blog.html?id=${blog.id}'">
+                    <div class="card-image">
+                        <img src="${blog.image}" alt="${blog.title}">
+                    </div>
+                    <div class="card-content">
+                        <div class="card-meta">${blog.date} • ${blog.readTime}</div>
+                        <h3 class="card-title">${blog.title}</h3>
+                        <p class="card-desc">${blog.description}</p>
+                        <span class="card-link">Read Article →</span>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        initBlog();
     </script>
 
     <!-- Blog Styles -->
     <style>
         .blog-container {
-            max-width: 900px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 120px 20px 80px;
             position: relative;
@@ -346,6 +400,8 @@
         }
 
         .blog-article {
+            max-width: 900px;
+            margin: 0 auto;
             background: rgba(10, 10, 15, 0.85);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.08);
@@ -353,9 +409,114 @@
             overflow: hidden;
         }
 
+        /* Library Styles */
+        .library-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 10px;
+            font-family: var(--font-heading);
+            background: linear-gradient(to bottom, #fff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .library-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            margin-bottom: 60px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .blogs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .blog-card {
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-1);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .card-image {
+            height: 220px;
+            overflow: hidden;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .blog-card:hover .card-image img {
+            transform: scale(1.05);
+        }
+
+        .card-content {
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .card-meta {
+            font-size: 0.8rem;
+            color: var(--accent-1);
+            font-weight: 600;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .card-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            line-height: 1.3;
+            color: white;
+        }
+
+        .card-desc {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: 25px;
+            line-height: 1.6;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .card-link {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: white;
+            margin-top: auto;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
         .blog-image-container {
             width: 100%;
-            height: 400px;
+            height: 450px;
             overflow: hidden;
             background: rgba(0, 0, 0, 0.3);
         }
@@ -388,56 +549,51 @@
         }
 
         .blog-body {
-            font-size: 1.05rem;
-            line-height: 1.8;
+            font-size: 1.1rem;
+            line-height: 1.9;
             color: var(--text-secondary);
             margin-bottom: 50px;
         }
 
         .blog-body p {
-            margin-bottom: 20px;
+            margin-bottom: 24px;
         }
 
         .blog-body h2 {
             color: white;
-            margin: 40px 0 20px;
-            font-size: 1.8rem;
+            margin: 50px 0 25px;
+            font-size: 2rem;
+            font-family: var(--font-heading);
         }
 
         .blog-body h3 {
             color: white;
-            margin: 30px 0 15px;
-            font-size: 1.4rem;
+            margin: 40px 0 20px;
+            font-size: 1.5rem;
         }
 
         .blog-body ul, .blog-body ol {
-            margin: 20px 0 20px 30px;
+            margin: 25px 0 25px 30px;
         }
 
         .blog-body li {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
 
         .blog-body strong {
             color: white;
         }
 
-        .blog-body a {
-            color: #8b5cf6;
-            text-decoration: none;
-        }
-
-        .blog-body a:hover {
-            text-decoration: underline;
-        }
-
         .blog-footer {
-            margin-top: 40px;
-            padding-top: 30px;
+            margin-top: 50px;
+            padding-top: 40px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         @media (max-width: 768px) {
+            .library-title { font-size: 2.5rem; }
+            .blogs-grid { grid-template-columns: 1fr; }
+            
             .blog-container {
                 padding: 100px 15px 60px;
             }
@@ -447,20 +603,15 @@
             }
 
             .blog-image-container {
-                height: 250px;
+                height: 300px;
             }
 
             .blog-title {
-                font-size: 2rem;
+                font-size: 2.2rem;
             }
 
             .blog-body {
-                font-size: 0.95rem;
-            }
-
-            .blog-meta {
-                flex-direction: column;
-                gap: 8px;
+                font-size: 1rem;
             }
         }
     </style>

@@ -378,7 +378,13 @@
                     </div>
                 </div>
                 <a href="apps.html" onclick="closeMobileMenu()" style="font-weight:600; color:#f59e0b;">Our Apps</a>
-                <a href="#blog" onclick="closeMobileMenu()">Blog</a>
+                <div class="dropdown">
+                    <button class="dropbtn">Blog <span class="arrow-down">▼</span></button>
+                    <div class="dropdown-content glass">
+                        <a href="#blog" onclick="closeMobileMenu()">Latest Insights</a>
+                        <a href="blog.html" style="color:#8b5cf6; font-weight:600;">View all blogs ↗</a>
+                    </div>
+                </div>
                 <a href="#consulting" onclick="closeMobileMenu()">Consulting</a>
             </div>
             <div class="nav-cta">
@@ -904,6 +910,10 @@
 
             <div class="blog-grid" id="blog-grid">
                 <!-- Blogs will be loaded here dynamically -->
+            </div>
+
+            <div style="text-align: center; margin-top: 60px;">
+                <a href="blog.html" class="btn glass-btn" style="padding: 16px 40px; font-size: 1.1rem; border: 1px solid rgba(139, 92, 246, 0.3); background: rgba(139, 92, 246, 0.05);">View all blogs</a>
             </div>
         </div>
     </section>
