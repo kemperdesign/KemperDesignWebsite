@@ -1,5 +1,16 @@
 [
   {
+    "id": "google-remote-desktop-for-business",
+    "title": "Access Your Office from Anywhere: Why Chrome Remote Desktop is the SMB Secret Weapon",
+    "author": "Damian Kemper",
+    "date": "April 30, 2026",
+    "readTime": "5 min read",
+    "image": "Blog/google-remote-desktop-for-business/google-remote-desktop-hero.jpg",
+    "description": "Is your business paying for expensive VPNs? Learn how Chrome Remote Desktop provides a secure, free, and ultra-fast way to access your office from anywhere.",
+    "url": "Blog/google-remote-desktop-for-business/index.html",
+    "content": "<p>Most remote work tools are 'assistance' tools. They help you share a screen or send a file. Chrome Remote Desktop is an automation foundation. It allows you to run your business from a $300 Chromebook while your $3,000 powerhouse workstation back at the office does the heavy lifting.</p><h3>Zero Cost, High Security</h3><p>Professional remote access tools can cost thousands a year. Chrome Remote Desktop costs $0 and is backed by Google's secure infrastructure.</p><h3>Trending Tasks</h3><ul><li>The 2 AM File Rescue</li><li>Remote Printing</li><li>Legacy App Access</li><li>Tablet Workstation conversion</li></ul>"
+  },
+  {
     "id": "google-antigravity",
     "title": "Google Antigravity: Just Fun, or a Masterclass in Frontend Development?",
     "author": "Damian Kemper",
