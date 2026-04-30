@@ -1,5 +1,27 @@
 [
   {
+    "id": "google-whisk",
+    "title": "Visual Velocity: Transforming Design Workflows with Google Whisk",
+    "author": "Damian Kemper",
+    "date": "April 30, 2026",
+    "readTime": "4 min read",
+    "image": "Blog/google-whisk/google-whisk-hero.jpg",
+    "description": "Discover Google Whisk, the experimental AI for rapid visual iteration. Learn how businesses are using it to whip up professional marketing content in seconds.",
+    "url": "Blog/google-whisk/index.html",
+    "content": "<p>In the fast-paced world of social media, 'done' is often better than 'perfect.' Google Whisk is an experimental tool from Google Labs designed to 'whip up' professional visuals in seconds.</p><h3>Trending Tasks</h3><ul><li>Instant Style Swapping</li><li>Background Re-Imagining</li><li>Compositional Control</li></ul>"
+  },
+  {
+    "id": "google-text-to-speech",
+    "title": "The Voice of Your Brand: Human-Scale Automation with Google Text-to-Speech",
+    "author": "Damian Kemper",
+    "date": "April 30, 2026",
+    "readTime": "5 min read",
+    "image": "Blog/google-text-to-speech/google-text-to-speech-hero.jpg",
+    "description": "Stop using robotic voices. Learn how Google Text-to-Speech helps small businesses create high-fidelity audio content and automated customer interactions.",
+    "url": "Blog/google-text-to-speech/index.html",
+    "content": "<p>We’ve all heard those robotic voices. Google Text-to-Speech (TTS) is the antidote. It offers over 220+ natural-sounding voices that can match your brand’s personality.</p><h3>The ROI</h3><p>Hiring a voice actor can cost hundreds. With Google TTS, you can generate hours of high-fidelity audio for pennies.</p><h3>Trending Tasks</h3><ul><li>Automated Podcast Versions</li><li>Personalized IVR</li><li>E-Learning narration</li></ul>"
+  },
+  {
     "id": "google-project-stitch",
     "title": "Seamless Integration: Why Project Stitch is the Secret to Unified Business Data",
     "author": "Damian Kemper",
