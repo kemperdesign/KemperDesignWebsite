@@ -1,5 +1,16 @@
 [
   {
+    "id": "google-gemini-for-business",
+    "title": "Beyond the Chatbot: How Google Gemini is Actually Running Your Business Operations",
+    "author": "Damian Kemper",
+    "date": "April 30, 2026",
+    "readTime": "5 min read",
+    "image": "Blog/google-gemini-for-business/google-gemini-hero.jpg",
+    "description": "Tired of copy-pasting into AI? Learn how Google Gemini integrates directly into Workspace to automate your emails, spreadsheets, and proposals.",
+    "url": "Blog/google-gemini-for-business/index.html",
+    "content": "<p>If you’re still copy-pasting your business data into a chatbot window, you’re doing it wrong. You’re adding a step to your workflow, not removing one. You need AI that lives where you work. That is the power of Google Gemini.</p><h3>The ROI: Reclaiming Your Time</h3><p>If Gemini saves you just 2 hours per day on drafting and data entry, that’s 10 hours a week. It pays for itself in the first 15 minutes of your Monday morning.</p><h3>Trending Tasks</h3><ul><li>Instant Proposal Drafting</li><li>Gmail Inbox Triage</li><li>Formula-Free Sheets</li><li>Meeting Synthesis</li></ul>"
+  },
+  {
     "id": "google-firebase",
     "title": "Scale Without the Server: Why Google Firebase is the Backbone of Modern SMB Apps",
     "author": "Damian Kemper",
