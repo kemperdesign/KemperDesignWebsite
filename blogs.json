@@ -1,5 +1,38 @@
 [
   {
+    "id": "google-mixboard",
+    "title": "Mixing the Future: Creative Brand Expression with Google Mixboard",
+    "author": "Damian Kemper",
+    "date": "April 30, 2026",
+    "readTime": "4 min read",
+    "image": "Blog/google-mixboard/google-mixboard-hero.jpg",
+    "description": "Discover Google Mixboard, the experimental AI for collaborative music creation. Learn how businesses are using it to build interactive brand experiences.",
+    "url": "Blog/google-mixboard/index.html",
+    "content": "<p>Business marketing used to be a one-way street. Mixboard is an AI-powered experimental tool that simplifies music mixing and collaborative creation.</p><h3>Trending Tasks</h3><ul><li>Real-Time Remixed Ads</li><li>Collaborative Playlists</li><li>AI-Assisted Leveling</li></ul>"
+  },
+  {
+    "id": "google-lyria",
+    "title": "The Deep Science of Sound: How DeepMind's Lyria Model is Powering the Next Generation of Audio",
+    "author": "Damian Kemper",
+    "date": "April 30, 2026",
+    "readTime": "5 min read",
+    "image": "Blog/google-lyria/google-lyria-hero.jpg",
+    "description": "Explore DeepMind Lyria, the world's most advanced AI music model. Learn how it's transforming audio branding and creative content for businesses.",
+    "url": "Blog/google-lyria/index.html",
+    "content": "<p>In the world of AI, audio has always been the 'hardest problem.' Lyria is DeepMind’s most advanced music generation model. It understands rhythm, melody, and timbre.</p><h3>Key Features</h3><ul><li>High-Fidelity Generation</li><li>SynthID Protection</li><li>Deep Contextual music</li></ul>"
+  },
+  {
+    "id": "google-project-jules",
+    "title": "Automating the Codebase: Why Project Jules is the Next Step in Agentic Business Logic",
+    "author": "Damian Kemper",
+    "date": "April 30, 2026",
+    "readTime": "5 min read",
+    "image": "Blog/google-project-jules/google-project-jules-hero.jpg",
+    "description": "Discover Google Project Jules, the Python-powered AI agent for codebase automation. Learn how businesses are using it to build complex workflows faster.",
+    "url": "Blog/google-project-jules/index.html",
+    "content": "<p>Project Jules is an experimental AI agent focused on Python-based codebase manipulation and automation. It cuts out the 'lost in translation' bugs in software dev.</p><h3>Trending Tasks</h3><ul><li>Automated Refactoring</li><li>Unit Test Generation</li><li>API Integration</li></ul>"
+  },
+  {
     "id": "google-music-ai-sandbox",
     "title": "The Soundtrack of Your Brand: Creative Marketing with Music AI Sandbox",
     "author": "Damian Kemper",
