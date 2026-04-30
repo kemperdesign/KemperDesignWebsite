@@ -1816,3 +1816,149 @@ h1 .text-gradient {
         padding: 80px 5%;
     }
 }
+
+/* Booking Modal Styles */
+.booking-modal .aai-inner {
+    max-width: 600px;
+    padding: 0;
+    overflow: hidden;
+    background: rgba(10, 10, 15, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.booking-header {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.booking-avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--accent-1);
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+}
+
+.booking-info h3 {
+    margin: 0;
+    font-size: 1.25rem;
+    color: white;
+    font-family: var(--font-heading);
+}
+
+.booking-info p {
+    margin: 4px 0 0;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.booking-body {
+    padding: 40px;
+}
+
+.booking-body h2 {
+    font-size: 1.8rem;
+    margin: 0 0 10px;
+    font-family: var(--font-heading);
+    color: white;
+}
+
+.booking-body p {
+    color: var(--text-secondary);
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.booking-urgency {
+    background: rgba(59, 130, 246, 0.1);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    padding: 15px 20px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+}
+
+.urgency-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--accent-1);
+}
+
+.urgency-track {
+    height: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.urgency-fill {
+    height: 100%;
+    width: 75%;
+    background: linear-gradient(to right, var(--accent-1), #60a5fa);
+    border-radius: 3px;
+    animation: pulseFill 3s infinite ease-in-out;
+}
+
+@keyframes pulseFill {
+    0%, 100% { opacity: 0.8; }
+    50% { opacity: 1; }
+}
+
+.booking-iframe-container {
+    border-radius: 16px;
+    overflow: hidden;
+    background: white;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    height: 600px;
+}
+
+/* Floating Booking Trigger */
+.booking-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 99;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--accent-1);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 100px;
+    text-decoration: none;
+    font-weight: 700;
+    box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+    border: none;
+    font-family: var(--font-body);
+}
+
+.booking-float:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 15px 35px rgba(59, 130, 246, 0.6);
+    background: #2563eb;
+}
+
+.booking-float svg {
+    width: 20px;
+    height: 20px;
+}
+
+@media (max-width: 768px) {
+    .booking-float {
+        bottom: 20px;
+        right: 20px;
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+}
+

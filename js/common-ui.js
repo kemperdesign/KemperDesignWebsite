@@ -99,6 +99,45 @@
             </div>
         </div>
 
+        <!-- Premium Booking Modal -->
+        <div id="booking-modal" class="aai-modal booking-modal" role="dialog" aria-modal="true">
+            <div class="aai-inner booking-inner">
+                <button class="aai-close" onclick="closeBookingModal()">✕</button>
+                <div class="booking-header">
+                    <img src="assets/images/damian-avatar.png" alt="Damian Kemper" class="booking-avatar">
+                    <div class="booking-info">
+                        <h3>Damian Kemper</h3>
+                        <p>CEO at Kemper Design Services</p>
+                    </div>
+                </div>
+                <div class="booking-body">
+                    <h2>Book your Free AI Strategy Session</h2>
+                    <p>Select a time below to learn how we can automate your business operations using Google-native AI.</p>
+                    
+                    <div class="booking-urgency">
+                        <div class="urgency-label">
+                            <span>Only few slots are left today</span>
+                            <span id="booking-timer">04:59</span>
+                        </div>
+                        <div class="urgency-track">
+                            <div class="urgency-fill"></div>
+                        </div>
+                    </div>
+
+                    <div class="booking-iframe-container">
+                        <iframe src="https://calendar.app.google/f3NHg55Fwh6jL2WE8" width="100%" height="600" frameborder="0"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Floating Booking Trigger -->
+        <button class="booking-float" onclick="openBookingModal()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+            Schedule Consultation
+        </button>
+    `;
+
         <!-- Contact Modal -->
         <div class="aai-modal" id="contact-modal">
             <div class="aai-inner contact-inner glass" style="max-width: 1000px; padding: 0; display: flex; overflow: hidden; flex-direction: row; flex-wrap: wrap; position: relative;">
@@ -455,6 +494,37 @@
 
     window.openPrivacyModal = function() { document.getElementById('privacy-modal').classList.add('open'); document.body.style.overflow = 'hidden'; };
     window.closePrivacyModal = function() { document.getElementById('privacy-modal').classList.remove('open'); document.body.style.overflow = ''; };
+
+    // Booking Modal Logic
+    let bookingInterval;
+    window.openBookingModal = function() {
+        const modal = document.getElementById('booking-modal');
+        if (!modal) return;
+        modal.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        startBookingTimer();
+    };
+
+    window.closeBookingModal = function() {
+        const modal = document.getElementById('booking-modal');
+        if (modal) {
+            modal.classList.remove('open');
+            document.body.style.overflow = '';
+            clearInterval(bookingInterval);
+        }
+    };
+
+    function startBookingTimer() {
+        let timer = 299; // 5 minutes
+        const display = document.getElementById('booking-timer');
+        clearInterval(bookingInterval);
+        bookingInterval = setInterval(() => {
+            let minutes = Math.floor(timer / 60);
+            let seconds = timer % 60;
+            display.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+            if (--timer < 0) clearInterval(bookingInterval);
+        }, 1000);
+    }
 
     // 4. Injection & Initialization
     document.addEventListener('DOMContentLoaded', function() {

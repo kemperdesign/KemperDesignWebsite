@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI Auto Scheduler — Kemper Design Services</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@700;900&family=Barlow:wght@400;600&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --accent: #FF4D00;
+    --accent2: #FFD000;
+    --white: #FFFFFF;
+    --dark: #0A0A0A;
+  }
+
+  body {
+    background: var(--dark);
+    font-family: 'Barlow', sans-serif;
+    color: var(--white);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* ── TOPBAR ── */
+  .topbar {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 28px;
+    border-bottom: 1px solid #1a1a1a;
+    background: #0d0d0d;
+    gap: 16px;
+  }
+  .brand {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.1rem;
+    letter-spacing: .12em;
+    color: var(--white);
+    white-space: nowrap;
+  }
+  .brand span { color: var(--accent); }
+
+  .controls-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .file-btn {
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    padding: 9px 20px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: .9rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%);
+    transition: background .2s;
+  }
+  .file-btn:hover { background: #e63d00; }
+
+  .toggle-btn {
+    background: transparent;
+    color: var(--white);
+    border: 1px solid #333;
+    padding: 8px 16px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: .85rem;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: border-color .2s, color .2s;
+  }
+  .toggle-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .toggle-btn.active { border-color: var(--accent2); color: var(--accent2); }
+
+  .status-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: #333;
+    flex-shrink: 0;
+  }
+  .status-dot.live { background: var(--accent); box-shadow: 0 0 8px var(--accent); animation: pulse 1s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.5} }
+
+  /* ── PLAYER WRAP ── */
+  .player-wrap {
+    position: relative;
+    width: 100%;
+    max-width: 1280px;
+    aspect-ratio: 16/9;
+    background: #000;
+    overflow: hidden;
+    margin-top: 0;
+  }
+
+  video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* ── DROP OVERLAY ── */
+  .drop-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #050505;
+    z-index: 20;
+    gap: 20px;
+    transition: opacity .3s;
+  }
+  .drop-overlay.hidden { display: none; }
+  .drop-icon {
+    width: 72px; height: 72px;
+    border: 2px solid var(--accent);
+    clip-path: polygon(12px 0%, 100% 0%, calc(100% - 12px) 100%, 0% 100%);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 2rem;
+  }
+  .drop-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.4rem;
+    letter-spacing: .15em;
+    color: var(--white);
+  }
+  .drop-sub {
+    font-size: .85rem;
+    color: #555;
+    letter-spacing: .05em;
+  }
+  .drop-overlay.dragover { border: 2px solid var(--accent); }
+
+  /* ── TEXT CANVAS ── */
+  #text-canvas {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 10;
+    overflow: hidden;
+  }
+
+  /* ── CAPTION CHIP ── */
+  .caption {
+    position: absolute;
+    left: 0; right: 0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    bottom: 72px;
+    padding: 0 40px;
+    pointer-events: none;
+    z-index: 11;
+  }
+  .caption-inner {
+    background: rgba(0,0,0,.72);
+    backdrop-filter: blur(6px);
+    padding: 6px 16px;
+    font-size: .9rem;
+    font-family: 'Barlow', sans-serif;
+    color: rgba(255,255,255,.75);
+    letter-spacing: .03em;
+    max-width: 820px;
+    text-align: center;
+    line-height: 1.5;
+    transition: opacity .3s;
+    border-radius: 4px;
+  }
+
+  /* ── KINETIC TEXT ELEMENT ── */
+  .ktext {
+    position: absolute;
+    font-family: 'Bebas Neue', sans-serif;
+    line-height: 1;
+    letter-spacing: .06em;
+    pointer-events: none;
+    will-change: transform, opacity;
+    transform-origin: center center;
+    /* animation applied via JS */
+  }
+
+  @keyframes flyInLeft {
+    from { transform: translateX(-80px) skewX(-4deg); opacity: 0; }
+    to   { transform: translateX(0) skewX(0deg); opacity: 1; }
+  }
+  @keyframes flyInRight {
+    from { transform: translateX(80px) skewX(4deg); opacity: 0; }
+    to   { transform: translateX(0) skewX(0deg); opacity: 1; }
+  }
+  @keyframes flyInUp {
+    from { transform: translateY(50px) scaleY(.8); opacity: 0; }
+    to   { transform: translateY(0) scaleY(1); opacity: 1; }
+  }
+  @keyframes flyInDown {
+    from { transform: translateY(-50px) scaleY(.8); opacity: 0; }
+    to   { transform: translateY(0) scaleY(1); opacity: 1; }
+  }
+  @keyframes popIn {
+    0%  { transform: scale(.5); opacity: 0; }
+    70% { transform: scale(1.08); opacity: 1; }
+    100%{ transform: scale(1); opacity: 1; }
+  }
+  @keyframes fadeOut {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+  }
+
+  /* ── PROGRESS BAR ── */
+  .progress-bar-wrap {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 4px;
+    background: rgba(255,255,255,.1);
+    z-index: 15;
+  }
+  .progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    width: 0%;
+    transition: width .1s linear;
+  }
+
+  /* ── BOTTOM BAR ── */
+  .bottom-bar {
+    width: 100%;
+    max-width: 1280px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 12px 20px;
+    background: #0d0d0d;
+    border-top: 1px solid #1a1a1a;
+  }
+  .play-btn {
+    background: var(--accent);
+    border: none;
+    width: 38px; height: 38px;
+    clip-path: polygon(4px 0%, 100% 0%, calc(100% - 4px) 100%, 0% 100%);
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem;
+    color: #fff;
+    flex-shrink: 0;
+    transition: background .2s;
+  }
+  .play-btn:hover { background: #e63d00; }
+
+  .time-display {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: .85rem;
+    letter-spacing: .08em;
+    color: #666;
+    white-space: nowrap;
+    min-width: 80px;
+  }
+
+  .seek {
+    flex: 1;
+    -webkit-appearance: none;
+    height: 3px;
+    background: #222;
+    border-radius: 2px;
+    outline: none;
+    cursor: pointer;
+  }
+  .seek::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    background: var(--accent);
+    cursor: pointer;
+  }
+
+  .vol-wrap {
+    display: flex; align-items: center; gap: 8px;
+  }
+  .vol-icon { font-size: .9rem; cursor: pointer; }
+  .vol-slider {
+    -webkit-appearance: none;
+    width: 70px; height: 3px;
+    background: #222;
+    border-radius: 2px;
+    outline: none;
+    cursor: pointer;
+  }
+  .vol-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: #fff;
+  }
+
+  .fs-btn {
+    background: transparent;
+    border: none;
+    color: #666;
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 4px;
+    transition: color .2s;
+  }
+  .fs-btn:hover { color: #fff; }
+
+  /* ── TIMING EDITOR (side panel) ── */
+  .editor-panel {
+    width: 100%;
+    max-width: 1280px;
+    background: #0d0d0d;
+    border: 1px solid #1a1a1a;
+    margin-top: 8px;
+    display: none;
+    flex-direction: column;
+    gap: 0;
+    max-height: 340px;
+    overflow-y: auto;
+  }
+  .editor-panel.open { display: flex; }
+  .editor-header {
+    padding: 12px 20px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1rem;
+    letter-spacing: .1em;
+    color: var(--accent);
+    border-bottom: 1px solid #1a1a1a;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .editor-hint { font-size: .7rem; font-family: 'Barlow', sans-serif; color: #555; letter-spacing: .04em; }
+  .cue-row {
+    display: grid;
+    grid-template-columns: 2fr 80px 80px 110px 1fr;
+    gap: 8px;
+    align-items: center;
+    padding: 8px 20px;
+    border-bottom: 1px solid #111;
+    font-size: .78rem;
+  }
+  .cue-row:hover { background: #111; }
+  .cue-row input[type=text] {
+    background: #0a0a0a;
+    border: 1px solid #222;
+    color: #fff;
+    padding: 4px 8px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: .8rem;
+    width: 100%;
+    outline: none;
+  }
+  .cue-row input[type=text]:focus { border-color: var(--accent); }
+  .cue-row input[type=number] {
+    background: #0a0a0a;
+    border: 1px solid #222;
+    color: #fff;
+    padding: 4px 6px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: .8rem;
+    width: 100%;
+    outline: none;
+    text-align: center;
+  }
+  .cue-row input[type=number]:focus { border-color: var(--accent); }
+  .cue-row select {
+    background: #0a0a0a;
+    border: 1px solid #222;
+    color: #fff;
+    padding: 4px 6px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: .8rem;
+    width: 100%;
+    outline: none;
+  }
+  .col-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: #444;
+    font-size: .68rem;
+  }
+
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="brand">KEMPER <span>DESIGN</span> SERVICES <span style="color:#555;font-size:.7em;margin-left:8px;">/ AI AUTO SCHEDULER</span></div>
+  <div class="controls-row">
+    <div class="status-dot" id="statusDot"></div>
+    <button class="toggle-btn" id="captionToggle" onclick="toggleCaptions()">Captions ON</button>
+    <button class="toggle-btn" id="editorToggle" onclick="toggleEditor()">Edit Timing</button>
+    <label class="file-btn" for="videoInput">▶ Load Video</label>
+    <input type="file" id="videoInput" accept="video/*" style="display:none" />
+  </div>
+</div>
+
+<!-- PLAYER -->
+<div class="player-wrap" id="playerWrap">
+
+  <!-- DROP OVERLAY -->
+  <div class="drop-overlay" id="dropOverlay">
+    <div class="drop-icon">🎬</div>
+    <div class="drop-title">Load Your Video</div>
+    <div class="drop-sub">Click "Load Video" above — or drag & drop here</div>
+  </div>
+
+  <!-- VIDEO -->
+  <video id="vid" preload="auto" playsinline></video>
+
+  <!-- TEXT CANVAS -->
+  <div id="text-canvas"></div>
+
+  <!-- CAPTION STRIP -->
+  <div class="caption" id="captionStrip">
+    <div class="caption-inner" id="captionText"></div>
+  </div>
+
+  <!-- PROGRESS -->
+  <div class="progress-bar-wrap">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+</div>
+
+<!-- BOTTOM CONTROLS -->
+<div class="bottom-bar">
+  <button class="play-btn" id="playBtn" onclick="togglePlay()">▶</button>
+  <span class="time-display" id="timeDisplay">0:00 / 0:00</span>
+  <input type="range" class="seek" id="seekBar" min="0" max="100" value="0" step="0.1" />
+  <div class="vol-wrap">
+    <span class="vol-icon" onclick="toggleMute()">🔊</span>
+    <input type="range" class="vol-slider" id="volSlider" min="0" max="1" step="0.02" value="1" />
+  </div>
+  <button class="fs-btn" onclick="fullscreen()" title="Fullscreen">⛶</button>
+</div>
+
+<!-- TIMING EDITOR PANEL -->
+<div class="editor-panel" id="editorPanel">
+  <div class="editor-header">
+    <span>TIMING EDITOR</span>
+    <span class="editor-hint">Adjust start/end times (seconds) to sync with your video</span>
+  </div>
+  <div class="cue-row" style="background:#0a0a0a;">
+    <span class="col-label">Text</span>
+    <span class="col-label">Start (s)</span>
+    <span class="col-label">End (s)</span>
+    <span class="col-label">Style</span>
+    <span class="col-label">Position</span>
+  </div>
+  <div id="cueTable"></div>
+</div>
+
+<script>
+// ── CUE DATA ──────────────────────────────────────────────
+// Each cue: { text, start, end, size, color, anim, pos, weight }
+// pos: top|center|bottom  |  anim: flyL|flyR|flyU|flyD|pop
+let CUES = [
+  { text: "LOSING LEADS",         start: 1.5,  end: 4.0,  size: "9vw",  color: "#FF4D00", anim: "flyL", pos: "top",    weight: "bold" },
+  { text: "EVERY SINGLE DAY",     start: 4.2,  end: 6.8,  size: "7vw",  color: "#FFD000", anim: "flyR", pos: "top",    weight: "bold" },
+  { text: "MISS CALLS",           start: 7.5,  end: 10.0, size: "8vw",  color: "#FFFFFF", anim: "flyU", pos: "center", weight: "bold" },
+  { text: "RESPOND TOO LATE",     start: 10.2, end: 13.0, size: "6vw",  color: "#FF4D00", anim: "flyR", pos: "center", weight: "bold" },
+  { text: "THEY MOVE ON.",        start: 13.5, end: 16.5, size: "10vw", color: "#FFFFFF", anim: "pop",  pos: "center", weight: "bold" },
+  { text: "AI AUTOSCHEDULER",     start: 17.0, end: 21.0, size: "8vw",  color: "#FFD000", anim: "flyD", pos: "top",    weight: "bold" },
+  { text: "ANSWERS EVERY CALL",   start: 21.5, end: 24.5, size: "6.5vw",color: "#FFFFFF", anim: "flyL", pos: "top",    weight: "bold" },
+  { text: "INSTANTLY",            start: 24.8, end: 27.0, size: "11vw", color: "#FF4D00", anim: "pop",  pos: "center", weight: "bold" },
+  { text: "24/7",                 start: 27.2, end: 29.5, size: "13vw", color: "#FFD000", anim: "pop",  pos: "top",    weight: "bold" },
+  { text: "BOOKS APPOINTMENTS",   start: 30.0, end: 33.5, size: "7vw",  color: "#FFFFFF", anim: "flyR", pos: "center", weight: "bold" },
+  { text: "REAL TIME",            start: 33.8, end: 36.5, size: "9vw",  color: "#FF4D00", anim: "flyU", pos: "center", weight: "bold" },
+  { text: "NAME · PHONE · SERVICE",start:37.0, end: 41.0, size: "5.5vw",color: "#FFD000", anim: "flyL", pos: "top",    weight: "bold" },
+  { text: "CONFIRMATION TEXTS",   start: 41.5, end: 44.5, size: "6.5vw",color: "#FFFFFF", anim: "flyR", pos: "top",    weight: "bold" },
+  { text: "NO MANUAL SCHEDULING", start: 45.0, end: 48.0, size: "6vw",  color: "#FF4D00", anim: "flyD", pos: "center", weight: "bold" },
+  { text: "NO FOLLOW-UP GAPS",    start: 48.2, end: 51.0, size: "6vw",  color: "#FFD000", anim: "flyL", pos: "center", weight: "bold" },
+  { text: "NOT JUST A CHATBOT",   start: 51.5, end: 55.0, size: "7.5vw",color: "#FFFFFF", anim: "pop",  pos: "top",    weight: "bold" },
+  { text: "COMPLETE INTAKE SYSTEM",start:55.5, end: 59.0, size: "6vw",  color: "#FF4D00", anim: "flyR", pos: "center", weight: "bold" },
+  { text: "ONE-TIME INVESTMENT",  start: 59.5, end: 63.0, size: "7vw",  color: "#FFD000", anim: "flyU", pos: "top",    weight: "bold" },
+  { text: "AUTOMATE IT.",         start: 63.5, end: 67.0, size: "9vw",  color: "#FFFFFF", anim: "pop",  pos: "center", weight: "bold" },
+  { text: "BOOK A DEMO TODAY",    start: 67.5, end: 72.0, size: "8vw",  color: "#FF4D00", anim: "flyD", pos: "bottom", weight: "bold" },
+];
+
+// ── CAPTION TEXT (by time range) ──────────────────────────
+const CAPTIONS = [
+  { start: 0,    end: 6.8,  text: "Most businesses are losing leads every single day… simply because they miss calls or respond too late." },
+  { start: 7.0,  end: 13.0, text: "When someone calls your business, they expect an answer immediately. If they don't get one… they move on." },
+  { start: 13.5, end: 21.0, text: "That's where our AI Autoscheduler comes in. It answers every call instantly… 24/7." },
+  { start: 21.5, end: 30.0, text: "It speaks with your customers, understands what they need, and books appointments directly into your calendar in real time." },
+  { start: 30.5, end: 37.0, text: "It captures their name, phone number, and service request automatically." },
+  { start: 37.5, end: 45.0, text: "After the call, it sends confirmation texts and emails, notifies your team, and logs every lead so nothing gets missed." },
+  { start: 45.5, end: 51.5, text: "No manual scheduling. No follow-up gaps." },
+  { start: 52.0, end: 59.0, text: "This isn't just a chatbot. It's a complete intake and scheduling system built for your business." },
+  { start: 59.5, end: 67.0, text: "For a one-time investment, we handle the full setup — AI voice agent, calendar integration, automatic booking, and lead tracking." },
+  { start: 67.5, end: 75.0, text: "If your phone is costing you opportunities… it's time to automate it. Book a demo today." },
+];
+
+// ── STATE ──────────────────────────────────────────────────
+const vid = document.getElementById('vid');
+const canvas = document.getElementById('text-canvas');
+const progressBar = document.getElementById('progressBar');
+const seekBar = document.getElementById('seekBar');
+const playBtn = document.getElementById('playBtn');
+const timeDisplay = document.getElementById('timeDisplay');
+const volSlider = document.getElementById('volSlider');
+const captionText = document.getElementById('captionText');
+const captionStrip = document.getElementById('captionStrip');
+const statusDot = document.getElementById('statusDot');
+const dropOverlay = document.getElementById('dropOverlay');
+
+let captionsOn = true;
+let activeElements = {};   // key: cueIndex → DOM el
+let scheduledFadeouts = {}; // cueIndex → timeoutId
+
+// ── VIDEO LOAD ─────────────────────────────────────────────
+document.getElementById('videoInput').addEventListener('change', function(e) {
+  const file = e.target.files[0];
+  if (!file) return;
+  vid.src = URL.createObjectURL(file);
+  dropOverlay.classList.add('hidden');
+  statusDot.classList.add('live');
+  vid.load();
+});
+
+// Drag & drop
+const playerWrap = document.getElementById('playerWrap');
+playerWrap.addEventListener('dragover', e => { e.preventDefault(); dropOverlay.classList.add('dragover'); });
+playerWrap.addEventListener('dragleave', () => dropOverlay.classList.remove('dragover'));
+playerWrap.addEventListener('drop', e => {
+  e.preventDefault();
+  const file = e.dataTransfer.files[0];
+  if (file && file.type.startsWith('video/')) {
+    vid.src = URL.createObjectURL(file);
+    dropOverlay.classList.add('hidden');
+    statusDot.classList.add('live');
+    vid.load();
+  }
+});
+
+// ── PLAYBACK ───────────────────────────────────────────────
+function togglePlay() {
+  if (vid.paused) { vid.play(); playBtn.textContent = '⏸'; }
+  else { vid.pause(); playBtn.textContent = '▶'; }
+}
+vid.addEventListener('ended', () => { playBtn.textContent = '▶'; });
+
+function toggleMute() { vid.muted = !vid.muted; }
+
+volSlider.addEventListener('input', () => { vid.volume = volSlider.value; });
+seekBar.addEventListener('input', () => {
+  if (vid.duration) vid.currentTime = (seekBar.value / 100) * vid.duration;
+});
+
+function fullscreen() {
+  const w = playerWrap;
+  if (w.requestFullscreen) w.requestFullscreen();
+  else if (w.webkitRequestFullscreen) w.webkitRequestFullscreen();
+}
+
+function fmt(t) {
+  const m = Math.floor(t/60), s = Math.floor(t%60);
+  return `${m}:${s.toString().padStart(2,'0')}`;
+}
+
+// ── MAIN TICK ──────────────────────────────────────────────
+vid.addEventListener('timeupdate', () => {
+  const t = vid.currentTime;
+  const dur = vid.duration || 1;
+
+  // progress
+  progressBar.style.width = (t/dur*100)+'%';
+  seekBar.value = (t/dur*100);
+  timeDisplay.textContent = `${fmt(t)} / ${fmt(dur)}`;
+
+  // ── KINETIC TEXT ──
+  CUES.forEach((cue, i) => {
+    const showing = activeElements[i];
+    if (t >= cue.start && t < cue.end) {
+      if (!showing) spawnCue(i, cue);
+    } else {
+      if (showing) killCue(i);
+    }
+  });
+
+  // ── CAPTIONS ──
+  if (captionsOn) {
+    const cap = CAPTIONS.find(c => t >= c.start && t < c.end);
+    captionText.textContent = cap ? cap.text : '';
+    captionStrip.style.opacity = cap ? '1' : '0';
+  }
+});
+
+// ── SPAWN / KILL ───────────────────────────────────────────
+function spawnCue(i, cue) {
+  const el = document.createElement('div');
+  el.className = 'ktext';
+  el.textContent = cue.text;
+  el.style.fontSize = cue.size;
+  el.style.color = cue.color;
+  el.style.fontFamily = "'Bebas Neue', sans-serif";
+  el.style.textShadow = `0 0 30px ${cue.color}88, 2px 2px 0 #000`;
+  el.style.lineHeight = '1';
+  el.style.letterSpacing = '.06em';
+  el.style.whiteSpace = 'nowrap';
+
+  // position
+  if (cue.pos === 'top') {
+    el.style.top = '12%';
+    el.style.left = '0'; el.style.right = '0';
+    el.style.textAlign = 'center';
+  } else if (cue.pos === 'center') {
+    el.style.top = '50%';
+    el.style.left = '0'; el.style.right = '0';
+    el.style.textAlign = 'center';
+    el.style.transform = 'translateY(-50%)';
+  } else {
+    el.style.bottom = '90px';
+    el.style.left = '0'; el.style.right = '0';
+    el.style.textAlign = 'center';
+  }
+
+  // animation
+  const animMap = {
+    flyL: 'flyInLeft',
+    flyR: 'flyInRight',
+    flyU: 'flyInUp',
+    flyD: 'flyInDown',
+    pop:  'popIn',
+  };
+  const animName = animMap[cue.anim] || 'flyInLeft';
+  el.style.animation = `${animName} 0.4s cubic-bezier(.22,.68,0,1.2) forwards`;
+  el.style.opacity = '0';
+
+  canvas.appendChild(el);
+  activeElements[i] = el;
+}
+
+function killCue(i) {
+  const el = activeElements[i];
+  if (!el) return;
+  el.style.animation = 'fadeOut 0.25s ease forwards';
+  setTimeout(() => { el.remove(); }, 280);
+  delete activeElements[i];
+}
+
+// Clean all on seek
+seekBar.addEventListener('input', () => {
+  Object.keys(activeElements).forEach(i => { activeElements[i].remove(); });
+  activeElements = {};
+});
+
+// ── CAPTIONS TOGGLE ────────────────────────────────────────
+function toggleCaptions() {
+  captionsOn = !captionsOn;
+  const btn = document.getElementById('captionToggle');
+  btn.textContent = captionsOn ? 'Captions ON' : 'Captions OFF';
+  btn.classList.toggle('active', captionsOn);
+  captionStrip.style.opacity = '0';
+}
+
+// ── TIMING EDITOR ──────────────────────────────────────────
+function buildEditor() {
+  const table = document.getElementById('cueTable');
+  table.innerHTML = '';
+  CUES.forEach((cue, i) => {
+    const row = document.createElement('div');
+    row.className = 'cue-row';
+    row.innerHTML = `
+      <input type="text" value="${cue.text}" onchange="CUES[${i}].text=this.value" />
+      <input type="number" step="0.1" value="${cue.start}" onchange="CUES[${i}].start=+this.value" />
+      <input type="number" step="0.1" value="${cue.end}" onchange="CUES[${i}].end=+this.value" />
+      <select onchange="CUES[${i}].anim=this.value">
+        ${['flyL','flyR','flyU','flyD','pop'].map(a=>`<option value="${a}"${a===cue.anim?' selected':''}>${a}</option>`).join('')}
+      </select>
+      <select onchange="CUES[${i}].pos=this.value">
+        ${['top','center','bottom'].map(p=>`<option value="${p}"${p===cue.pos?' selected':''}>${p}</option>`).join('')}
+      </select>
+    `;
+    table.appendChild(row);
+  });
+}
+
+function toggleEditor() {
+  const panel = document.getElementById('editorPanel');
+  const open = panel.classList.toggle('open');
+  document.getElementById('editorToggle').classList.toggle('active', open);
+  if (open) buildEditor();
+}
+
+// space bar
+document.addEventListener('keydown', e => {
+  if (e.code === 'Space' && e.target.tagName !== 'INPUT') { e.preventDefault(); togglePlay(); }
+});
+</script>
+</body>
+</html>
