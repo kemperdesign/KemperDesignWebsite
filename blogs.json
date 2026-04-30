@@ -1,5 +1,38 @@
 [
   {
+    "id": "google-pomelli",
+    "title": "Creative Collaboration at Scale: Storytelling for Brands with Google Pomelli",
+    "author": "Damian Kemper",
+    "date": "April 30, 2026",
+    "readTime": "5 min read",
+    "image": "Blog/google-pomelli/google-pomelli-hero.jpg",
+    "description": "Discover Google Pomelli, the AI storytelling assistant. Learn how businesses are using it to create engaging narratives and creative marketing content.",
+    "url": "Blog/google-pomelli/index.html",
+    "content": "<p>In a world of automated bots, human stories are the only thing that still cut through the noise. Pomelli is an experimental AI from Google Labs that focuses on storytelling and creative assistance.</p><h3>Trending Tasks</h3><ul><li>Narrative Hook Generation</li><li>Character Voice Refining</li><li>Emotional Mapping</li></ul>"
+  },
+  {
+    "id": "google-opal",
+    "title": "The Future of Visual Content: Why Project Opal is the New Standard for Brand Imagery",
+    "author": "Damian Kemper",
+    "date": "April 30, 2026",
+    "readTime": "4 min read",
+    "image": "Blog/google-opal/google-opal-hero.jpg",
+    "description": "Discover Google Project Opal, the AI for high-fidelity visual content generation. Learn how businesses are using it to create cinematic brand imagery.",
+    "url": "Blog/google-opal/index.html",
+    "content": "<p>Visual storytelling is no longer a luxury. Project Opal is a high-performance visual generation tool that focuses on cinematic quality and brand consistency.</p><h3>Key Features</h3><ul><li>Cinematic Brand Sequences</li><li>Consistent Character Generation</li><li>High-Resolution Upscaling</li></ul>"
+  },
+  {
+    "id": "google-notebooklm",
+    "title": "Your Business Intelligence, Supercharged: How NotebookLM is Revolutionizing Research",
+    "author": "Damian Kemper",
+    "date": "April 30, 2026",
+    "readTime": "6 min read",
+    "image": "Blog/google-notebooklm/google-notebooklm-hero.jpg",
+    "description": "Discover Google NotebookLM, the AI research assistant that understands your specific data. Learn how SMBs are using it to synthesize information faster.",
+    "url": "Blog/google-notebooklm/index.html",
+    "content": "<p>Information overload is the silent killer of small business productivity. NotebookLM is an AI-powered research assistant that 'grounds' its knowledge in your specific documents.</p><h3>The ROI</h3><p>By centralizing your research in NotebookLM, you reclaim hours of searching. Every answer comes with a direct link to the source document.</p>"
+  },
+  {
     "id": "google-mixboard",
     "title": "Mixing the Future: Creative Brand Expression with Google Mixboard",
     "author": "Damian Kemper",
