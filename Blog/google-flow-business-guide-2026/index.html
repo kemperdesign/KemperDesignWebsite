@@ -166,11 +166,6 @@
     <!-- Blog Content -->
     <main id="main-content" class="blog-container">
         <article class="blog-article">
-            <!-- Blog Image -->
-            <div class="blog-image-container">
-                <img id="blog-image" src="google-flow-hero.jpg" alt="Google Flow Guide 2026" class="blog-image">
-            </div>
-
             <!-- Blog Content -->
             <div class="blog-content">
                 <div class="blog-meta">
@@ -181,6 +176,9 @@
                 <h1 class="blog-title">Google Flow Guide 2026: AI Video & Automation for Small Business</h1>
 
                 <div class="blog-body">
+                    <div class="blog-inline-image-wrapper">
+                        <img id="blog-image" src="google-flow-hero.jpg" alt="Google Flow Guide 2026" class="blog-inline-image">
+                    </div>
                     <p>If you've been following the AI space for more than five minutes, you know the drill. Every week there's a "revolutionary" new tool that promises to save you time, but usually just ends up giving you more homework. You still have to prompt it, you still have to check its work, and you still have to manually move that data into your CRM or your email list. It's "assistance," not "automation."</p>
 
                     <p>That’s why I’m so excited about <strong>Google Flow</strong>. It’s a shift from AI as a chatbot to AI as an <em>operator</em>. We’re moving into the era of "Agentic AI," where the software doesn't just suggest the next step—it takes it for you.</p>
@@ -358,15 +356,17 @@
             overflow: hidden;
         }
 
-        .blog-image-container {
-            width: 100%;
-            height: auto;
+        .blog-inline-image-wrapper {
+            float: right;
+            width: 45%;
+            margin-left: 30px;
+            margin-bottom: 20px;
+            border-radius: 16px;
             overflow: hidden;
-            background: #0a0a0f;
-            display: block;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
-
-        .blog-image {
+        
+        .blog-inline-image {
             width: 100%;
             height: auto;
             display: block;
@@ -454,8 +454,11 @@
                 padding: 40px 25px;
             }
 
-            .blog-image-container {
-                height: 250px;
+            .blog-inline-image-wrapper {
+                float: none;
+                width: 100%;
+                margin-left: 0;
+                margin-bottom: 30px;
             }
 
             .blog-title {
