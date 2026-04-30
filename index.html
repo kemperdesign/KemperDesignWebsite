@@ -912,8 +912,26 @@
                 <!-- Blogs will be loaded here dynamically -->
             </div>
 
-            <div style="text-align: center; margin-top: 60px;">
-                <a href="blog.html" class="btn glass-btn" style="padding: 16px 40px; font-size: 1.1rem; border: 1px solid rgba(139, 92, 246, 0.3); background: rgba(139, 92, 246, 0.05);">View all blogs</a>
+            <div style="text-align: center; margin-top: 80px; margin-bottom: 20px;">
+                <a href="blog.html" class="btn" style="
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 12px;
+                    padding: 18px 48px;
+                    font-size: 1.15rem;
+                    font-weight: 600;
+                    color: white;
+                    background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%);
+                    border: 1px solid rgba(139, 92, 246, 0.4);
+                    border-radius: 16px;
+                    backdrop-filter: blur(10px);
+                    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+                    text-decoration: none;
+                " onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 15px 45px rgba(139, 92, 246, 0.3)'; this.style.borderColor='rgba(139, 92, 246, 0.8)'; this.style.background='linear-gradient(135deg, rgba(139, 92, 246, 0.2) 0%, rgba(59, 130, 246, 0.2) 100%)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 32px rgba(0, 0, 0, 0.2)'; this.style.borderColor='rgba(139, 92, 246, 0.4)'; this.style.background='linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%)';">
+                    Explore Knowledge Library
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
             </div>
         </div>
     </section>
@@ -946,6 +964,7 @@
                 <div class="footer-links">
                     <a href="/">Home</a>
                     <a href="javascript:void(0)" onclick="openAboutModal()">About Us</a>
+                    <a href="blog.html" style="color: var(--accent-1); font-weight: 600;">Knowledge Library</a>
                     <a href="javascript:void(0)" onclick="openFaqModal()">FAQ</a>
                     <a href="javascript:void(0)" onclick="openTermsModal()">Terms &amp; Conditions</a>
                     <a href="javascript:void(0)" onclick="openPrivacyModal()">Privacy Policy</a>
