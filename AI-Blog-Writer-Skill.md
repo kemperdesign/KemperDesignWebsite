@@ -1,6 +1,6 @@
 # AI Blog Writer Skill: Kemper Design Services Edition
 
-Use this skill whenever the USER asks to create a new blog post for the Kemper Design Services website.
+Use this skill whenever the USER types **/blog [Topic]** or asks for a new blog post.
 
 ## 1. Voice & Tone Guidelines (The "Damian" Voice)
 - **Direct & Practical**: Skip the flowery intros. Get straight to why the reader should care.
@@ -25,12 +25,16 @@ Use this skill whenever the USER asks to create a new blog post for the Kemper D
 - **Heading Hierarchy**: H1 for title, H2 for main sections, H3 for sub-points.
 
 ## 4. Technical Execution Steps (Automated)
-When this skill is triggered:
+When this skill is triggered by **/blog [Topic]**:
 1. **Generate Content**: Write the full article based on the guidelines above.
 2. **Generate Image**: Call `generate_image` for a high-tech, branded hero image (no text in image).
-3. **Create Directory**: `Blog/[slug]/`.
-4. **Build HTML**: Use the standardized editorial template (inline image with float: right wrapping, title on top).
-5. **Update JSON**: Add the entry to `blogs.json`.
+3. **Create Directory**: `Blog/google-[topic-slug]/`.
+4. **Build HTML**: Use the **Magazine/Editorial Layout**:
+    - **Header**: Meta (Date/Author) + H1 Title at the very top.
+    - **Body**: First paragraph starts with the image wrapper.
+    - **Image Wrapper**: `float: right; width: 50%; margin: 0 0 20px 30px;` (with 16px border-radius).
+    - **Responsive**: On mobile (max-width: 768px), set image wrapper to `float: none; width: 100%; margin: 0 0 30px 0;`.
+5. **Update JSON**: Add the entry to the beginning of `blogs.json`.
 6. **Update Fallback**: Add the entry to the `blogData` object in `index.html`.
 7. **Deploy**: Push to GitHub.
 
@@ -38,4 +42,4 @@ When this skill is triggered:
 Use the CSS and structure from `Blog/google-flow-business-guide-2026/index.html`.
 
 ---
-**To use this skill**: "Run the AI-Blog-Writer-Skill for [Topic]"
+**Trigger command**: `/blog [topic]`

@@ -1,5 +1,38 @@
 [
   {
+    "id": "google-music-ai-sandbox",
+    "title": "The Soundtrack of Your Brand: Creative Marketing with Music AI Sandbox",
+    "author": "Damian Kemper",
+    "date": "April 30, 2026",
+    "readTime": "5 min read",
+    "image": "Blog/google-music-ai-sandbox/google-music-ai-hero.jpg",
+    "description": "Discover Google Music AI Sandbox. Learn how small businesses are creating professional audio branding and video scores without expensive studio costs.",
+    "url": "Blog/google-music-ai-sandbox/index.html",
+    "content": "<p>When you’re a small brand, you have to fight for every bit of 'polish' you can get. Music AI Sandbox is a suite of creative tools that allow you to generate and refine music using AI.</p><h3>Trending Tasks</h3><ul><li>Text-to-Music generation</li><li>Style Transfer</li><li>Stem Separation</li></ul>"
+  },
+  {
+    "id": "google-labs",
+    "title": "First Look: Inside the Google Labs Kitchen Where the Future of Business is Cooked",
+    "author": "Damian Kemper",
+    "date": "April 30, 2026",
+    "readTime": "5 min read",
+    "image": "Blog/google-labs/google-labs-hero.jpg",
+    "description": "Explore Google Labs, the experimental playground for AI. Learn how small businesses can get early access to tools that will define the next decade.",
+    "url": "Blog/google-labs/index.html",
+    "content": "<p>In the tech world, there’s 'mainstream' and then there’s 'the frontier.' Google Labs is an experimental playground where Google’s engineers test bold and responsible AI ideas.</p><h3>The ROI</h3><p>By engaging with Google Labs, you’re not just testing software; you’re future-proofing your business model. You get to influence how these tools are built.</p>"
+  },
+  {
+    "id": "google-cloud",
+    "title": "The Infinite Engine: Why Google Cloud is the Only Backend Your SMB Will Ever Need",
+    "author": "Damian Kemper",
+    "date": "April 30, 2026",
+    "readTime": "5 min read",
+    "image": "Blog/google-cloud/google-cloud-hero.jpg",
+    "description": "Discover how Google Cloud empowers small businesses with enterprise-grade infrastructure. Scale your business without the headache of server management.",
+    "url": "Blog/google-cloud/index.html",
+    "content": "<p>When you start a business, you're focused on your product, not your 'uptime.' Google Cloud is the same infrastructure that runs Google Search and YouTube, made available for your business.</p><h3>Key Features</h3><ul><li>Automated Backup</li><li>Vertex AI integration</li><li>Cloud Run scalability</li></ul>"
+  },
+  {
     "id": "google-ai-studio",
     "title": "From Concept to Code in Minutes: Why Every Founder Needs Google AI Studio",
     "author": "Damian Kemper",
