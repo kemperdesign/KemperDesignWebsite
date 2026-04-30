@@ -13,9 +13,13 @@
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="Kemper Design Services">
     <meta property="og:url" content="https://www.kemperdesignservices.com/blog.html">
+    <meta property="og:title" content="Blog | Kemper Design Services">
+    <meta property="og:image" content="https://www.kemperdesignservices.com/assets/images/placeholder.jpg">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Blog | Kemper Design Services">
+    <meta name="twitter:image" content="https://www.kemperdesignservices.com/assets/images/placeholder.jpg">
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -342,23 +346,32 @@
                 libraryView.style.display = 'none';
 
                 document.title = `${blog.title} | Kemper Design Services`;
-                document.querySelector('meta[property="og:title"]').setAttribute('content', blog.title);
-                document.querySelector('meta[property="og:image"]').setAttribute('content', blog.image);
+                
+                // Safe meta updates
+                const setMeta = (property, content) => {
+                    const el = document.querySelector(`meta[property="${property}"]`) || document.querySelector(`meta[name="${property}"]`);
+                    if (el) el.setAttribute('content', content);
+                };
 
-                document.getElementById('blog-title').textContent = blog.title;
-                document.getElementById('blog-image').src = blog.image;
-                document.getElementById('blog-image').alt = blog.title;
-                document.getElementById('blog-date').textContent = new Date(blog.date).toLocaleDateString('en-US', {
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric'
-                });
-                document.getElementById('blog-author').textContent = `by ${blog.author || 'Damian Kemper'}`;
-                document.getElementById('blog-body').innerHTML = blog.content;
+                setMeta('og:title', blog.title);
+                setMeta('og:image', blog.image);
+                setMeta('twitter:title', blog.title);
+                setMeta('twitter:image', blog.image);
+
+                if (document.getElementById('blog-title')) document.getElementById('blog-title').textContent = blog.title;
+                if (document.getElementById('blog-image')) {
+                    document.getElementById('blog-image').src = blog.image;
+                    document.getElementById('blog-image').alt = blog.title;
+                }
+                if (document.getElementById('blog-date')) {
+                    document.getElementById('blog-date').textContent = blog.date;
+                }
+                if (document.getElementById('blog-author')) document.getElementById('blog-author').textContent = `by ${blog.author || 'Damian Kemper'}`;
+                if (document.getElementById('blog-body')) document.getElementById('blog-body').innerHTML = blog.content;
             } else {
                 singleView.style.display = 'block';
                 libraryView.style.display = 'none';
-                document.getElementById('blog-body').innerHTML = '<p>Blog post not found.</p>';
+                if (document.getElementById('blog-body')) document.getElementById('blog-body').innerHTML = '<div style="padding: 40px; text-align: center;"><h2>Blog post not found</h2><p>The article you are looking for might have been moved or renamed.</p><a href="blog.html" class="btn glass-btn" style="margin-top: 20px;">Return to Library</a></div>';
             }
         }
 
