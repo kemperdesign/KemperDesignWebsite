@@ -174,27 +174,26 @@
     <!-- Blog Content -->
     <main id="main-content" class="blog-container">
         <!-- Single Blog View -->
-        <article id="single-blog-view" class="blog-article" style="display: none;">
-            <!-- Blog Image -->
-            <div class="blog-image-container">
-                <img id="blog-image" src="assets/images/placeholder.jpg" alt="Blog post image" class="blog-image">
-            </div>
-
-            <!-- Blog Content -->
-            <div class="blog-content">
-                <div class="blog-meta">
-                    <span class="blog-date" id="blog-date">January 1, 2026</span>
-                    <span class="blog-author" id="blog-author">by Damian Kemper</span>
+        <article id="single-blog-view" class="blog-article glass" style="display: none; background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 32px;">
+            <div class="blog-content" style="padding: 60px;">
+                <div class="blog-meta" style="margin-bottom: 20px; font-size: 0.9rem; color: var(--accent-1); font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em;">
+                    <span id="blog-date">April 30, 2026</span>
+                    <span style="margin: 0 10px; opacity: 0.5;">|</span>
+                    <span id="blog-author">by Damian Kemper</span>
                 </div>
 
-                <h1 class="blog-title" id="blog-title">Blog Post Title</h1>
+                <h1 class="blog-title" id="blog-title" style="font-family: 'Outfit', sans-serif; font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.2; margin-bottom: 40px; background: linear-gradient(to right, #fff, #94a3b8); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Blog Post Title</h1>
 
-                <div class="blog-body" id="blog-body">
-                    <p>Blog content will be loaded here from the blogs folder.</p>
+                <div class="blog-image-wrapper" style="margin: 40px 0; border-radius: 24px; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.1);">
+                    <img id="blog-image" src="" alt="Blog post image" style="width: 100%; display: block; height: auto; max-height: 600px; object-fit: cover;">
                 </div>
 
-                <div class="blog-footer">
-                    <a href="blog.html" class="btn glass-btn">← Back to Blog Library</a>
+                <div class="blog-body" id="blog-body" style="font-size: 1.15rem; line-height: 1.8; color: #94a3b8;">
+                    <!-- Content will be injected here -->
+                </div>
+
+                <div class="blog-footer" style="margin-top: 60px; padding-top: 40px; border-top: 1px solid rgba(255, 255, 255, 0.1);">
+                    <a href="blog.html" class="btn glass-btn">← Back to Knowledge Library</a>
                 </div>
             </div>
         </article>
