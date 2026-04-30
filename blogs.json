@@ -1,5 +1,16 @@
 [
   {
+    "id": "google-project-stitch",
+    "title": "Seamless Integration: Why Project Stitch is the Secret to Unified Business Data",
+    "author": "Damian Kemper",
+    "date": "April 30, 2026",
+    "readTime": "4 min read",
+    "image": "Blog/google-project-stitch/google-project-stitch-hero.jpg",
+    "description": "Discover Google Project Stitch, the experimental tool for unified data integration. Learn how SMBs are connecting fragmented data streams into a cohesive brand story.",
+    "url": "Blog/google-project-stitch/index.html",
+    "content": "<p>The biggest headache for any growing business is 'fragmentation.' Project Stitch is an experimental integration tool from Google that focuses on stitching together disparate data sources.</p><h3>Trending Tasks</h3><ul><li>Cross-Platform Context</li><li>Automated Asset Stitching</li><li>Real-Time Synchronization</li></ul>"
+  },
+  {
     "id": "google-pomelli",
     "title": "Creative Collaboration at Scale: Storytelling for Brands with Google Pomelli",
     "author": "Damian Kemper",
