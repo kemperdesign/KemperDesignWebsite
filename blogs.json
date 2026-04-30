@@ -1,5 +1,49 @@
 [
   {
+    "id": "google-veo-3",
+    "title": "Cinematic Velocity: Why Veo 3 is the New Standard for Business Video",
+    "author": "Damian Kemper",
+    "date": "April 30, 2026",
+    "readTime": "5 min read",
+    "image": "Blog/google-veo-3/google-veo-3-hero.jpg",
+    "description": "Discover Google Veo 3, the next generation of AI video generation. Learn how small businesses are creating high-end video content without a production crew.",
+    "url": "Blog/google-veo-3/index.html",
+    "content": "<p>Attention is the new currency. Veo 3 is Google’s most advanced generative video model, capable of creating high-definition (1080p), consistent video clips.</p><h3>Trending Tasks</h3><ul><li>Cinematic Brand Loops</li><li>Dynamic Social Ads</li><li>Consistent Character Motion</li></ul>"
+  },
+  {
+    "id": "google-gemini-3-pro-image",
+    "title": "The Art of the Prompt: Visual Perfection with Gemini 3 Pro Image",
+    "author": "Damian Kemper",
+    "date": "April 30, 2026",
+    "readTime": "4 min read",
+    "image": "Blog/google-gemini-3-pro-image/google-gemini-3-pro-image-hero.jpg",
+    "description": "Discover Gemini 3 Pro Image, Google's most advanced image generation model. Learn how businesses are using it to create high-fidelity brand assets in seconds.",
+    "url": "Blog/google-gemini-3-pro-image/index.html",
+    "content": "<p>Looking professional is half the battle. Gemini 3 Pro Image is Google’s premier high-fidelity image generation model, designed for creative precision.</p><h3>Key Features</h3><ul><li>Photo-Realistic Product Shots</li><li>Advanced Style Adherence</li><li>High-Resolution Detail</li></ul>"
+  },
+  {
+    "id": "google-gemini-personal",
+    "title": "Your AI Shadow: Reclaiming Your Life with Gemini Personal Intelligence",
+    "author": "Damian Kemper",
+    "date": "April 30, 2026",
+    "readTime": "5 min read",
+    "image": "Blog/google-gemini-personal/google-gemini-personal-hero.jpg",
+    "description": "Discover Gemini Personal Intelligence. Learn how this next-generation AI assistant helps individuals manage their lives, schedules, and creativity more effectively.",
+    "url": "Blog/google-gemini-personal/index.html",
+    "content": "<p>Work-life balance is only possible through automation. Gemini Personal Intelligence is the next evolution of the digital assistant, understanding your specific context.</p><h3>Trending Tasks</h3><ul><li>Contextual Awareness</li><li>Proactive Scheduling</li><li>Instant Synthesis</li></ul>"
+  },
+  {
+    "id": "google-vertex-agent-builder",
+    "title": "Building the Brains of Your Business: Why Vertex AI Agent Builder is the Ultimate Scaling Tool",
+    "author": "Damian Kemper",
+    "date": "April 30, 2026",
+    "readTime": "5 min read",
+    "image": "Blog/google-vertex-agent-builder/google-vertex-agent-hero.jpg",
+    "description": "Discover Google Vertex AI Agent Builder. Learn how small businesses are creating custom AI agents that act as expert employees and automate complex workflows.",
+    "url": "Blog/google-vertex-agent-builder/index.html",
+    "content": "<p>The smartest businesses aren't just hiring; they're building. Vertex AI Agent Builder is a platform for building sophisticated AI agents grounded in your data.</p><h3>The ROI</h3><p>An agent never sleeps, never takes a sick day, and maintains 100% consistency. It’s the ultimate scaling factor for SMBs.</p>"
+  },
+  {
     "id": "google-whisk",
     "title": "Visual Velocity: Transforming Design Workflows with Google Whisk",
     "author": "Damian Kemper",
