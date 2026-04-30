@@ -29,13 +29,15 @@ When this skill is triggered by **/blog [Topic]**:
 1. **Generate Content**: Write the full article based on the guidelines above.
 2. **Generate Image**: Call `generate_image` for a high-tech, branded hero image (no text in image).
 3. **Create Directory**: `Blog/google-[topic-slug]/`.
-4. **Build HTML**: Use the **Magazine/Editorial Layout**:
-    - **Header**: Meta (Date/Author) + H1 Title at the very top.
-    - **Body**: First paragraph starts with the image wrapper.
-    - **Image Wrapper**: `float: right; width: 50%; margin: 0 0 20px 30px;` (with 16px border-radius).
-    - **Responsive**: On mobile (max-width: 768px), set image wrapper to `float: none; width: 100%; margin: 0 0 30px 0;`.
-5. **Update JSON**: Add the entry to the beginning of `blogs.json`.
-6. **Update Fallback**: Add the entry to the `blogData` object in `index.html`.
+4. **Build HTML**: Use the **Magazine/Editorial Layout**.
+5. **SEO Implementation**: 
+    - Include `<link rel="canonical">` and SEO meta tags.
+    - Include Open Graph (OG) and Twitter Card meta tags.
+    - Include **JSON-LD Schema** (`BlogPosting`) in the `<head>`.
+6. **Database & Sitemap**: 
+    - Add entry to the beginning of `blogs.json`.
+    - Add entry to the `blogData` object in `index.html`.
+    - Add new URL to `sitemap.xml`.
 7. **Deploy**: Push to GitHub.
 
 ## 5. Template Reference
