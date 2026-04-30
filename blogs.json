@@ -1,5 +1,38 @@
 [
   {
+    "id": "google-ai-studio",
+    "title": "From Concept to Code in Minutes: Why Every Founder Needs Google AI Studio",
+    "author": "Damian Kemper",
+    "date": "April 30, 2026",
+    "readTime": "4 min read",
+    "image": "Blog/google-ai-studio/google-ai-studio-hero.jpg",
+    "description": "Discover Google AI Studio, the fastest way to prototype with Gemini. Learn how founders are using it to build custom AI agents without complex setups.",
+    "url": "Blog/google-ai-studio/index.html",
+    "content": "<p>Speed is everything. AI Studio is a browser-based tool for rapid prototyping with Gemini. It allows you to test prompts and upload massive datasets without writing code.</p><h3>Trending Tasks</h3><ul><li>Massive Context Window analysis</li><li>System Instructions drafting</li><li>One-Click Code Export</li></ul>"
+  },
+  {
+    "id": "google-genkit",
+    "title": "AI Development Made Simple: Why Firebase Genkit is the New Standard for SMB Apps",
+    "author": "Damian Kemper",
+    "date": "April 30, 2026",
+    "readTime": "5 min read",
+    "image": "Blog/google-genkit/google-genkit-hero.jpg",
+    "description": "Learn how Firebase Genkit is simplifying AI integration for small business applications. Build production-ready AI features faster than ever.",
+    "url": "Blog/google-genkit/index.html",
+    "content": "<p>The biggest hurdle for small businesses wanting custom AI tools has always been the complexity of 'the plumbing.' Firebase Genkit is an open-source framework designed to help developers build stable business tools.</p><h3>Key Features</h3><ul><li>Retrieval-Augmented Generation (RAG)</li><li>Structured Output</li><li>Flow Monitoring</li></ul>"
+  },
+  {
+    "id": "google-project-genie",
+    "title": "Building New Worlds: How Project Genie is Reimagining Creative Storytelling for Brands",
+    "author": "Damian Kemper",
+    "date": "April 30, 2026",
+    "readTime": "4 min read",
+    "image": "Blog/google-project-genie/google-project-genie-hero.jpg",
+    "description": "Discover Google Project Genie, the AI that turns simple descriptions into interactive 3D worlds. Learn how businesses are using it for immersive marketing.",
+    "url": "Blog/google-project-genie/index.html",
+    "content": "<p>Project Genie is a foundation model that can generate playable, interactive worlds from a single prompt. It’s a shift from consuming media to inhabiting it.</p><h3>Possibilities</h3><ul><li>Instant Prototyping</li><li>Immersive Training</li><li>Interactive Ad Campaigns</li></ul>"
+  },
+  {
     "id": "google-gemini-for-business",
     "title": "Beyond the Chatbot: How Google Gemini is Actually Running Your Business Operations",
     "author": "Damian Kemper",
