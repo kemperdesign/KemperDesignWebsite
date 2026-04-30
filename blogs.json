@@ -1,5 +1,16 @@
 [
   {
+    "id": "google-antigravity",
+    "title": "Google Antigravity: Just Fun, or a Masterclass in Frontend Development?",
+    "author": "Damian Kemper",
+    "date": "April 30, 2026",
+    "readTime": "4 min read",
+    "image": "Blog/google-antigravity/google-antigravity-hero.jpg",
+    "description": "Here is a look at the technology and intent behind the Google Antigravity experiment.",
+    "url": "Blog/google-antigravity/index.html",
+    "content": "<p>Google Antigravity is a well-known Google 'Easter egg' that completely transforms the standard, organized search interface into a chaotic, interactive playground. While not an official product or a functional searching tool, it serves as a powerful demonstration of frontend development capabilities.</p><h3>The Core Technology: Client-Side Scripting</h3><p>The illusion of Antigravity is achieved entirely in the user’s web browser through the use of client-side scripting. There are three key technical components at play: DOM Manipulation, Physics Engine (JavaScript), and Real-Time Positioning.</p><h3>Real-World Applications</h3><p>While Antigravity itself is a creative novelty, the technologies and design principles underpinning it are highly applicable to practical web development, including gamification and data visualization.</p>"
+  },
+  {
     "id": "google-flow-business-guide-2026",
     "title": "Google Flow Guide 2026: AI Video & Automation for Small Business",
     "author": "Damian Kemper",
