@@ -179,6 +179,7 @@ h1 .text-gradient {
     display: flex;
     align-items: center;
     gap: 6px;
+    outline: none;
 }
 .nav-links a:hover, .dropbtn:hover { color: white; }
 
