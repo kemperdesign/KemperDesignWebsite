@@ -1,5 +1,49 @@
 [
   {
+    "id": "google-photos-wardrobe",
+    "title": "The AI Stylist: Transforming Retail with Google Photos Wardrobe",
+    "author": "Damian Kemper",
+    "date": "April 30, 2026",
+    "readTime": "5 min read",
+    "image": "Blog/google-photos-wardrobe/google-photos-wardrobe-hero.jpg",
+    "description": "Discover Google Photos Wardrobe, the AI assistant for fashion and retail. Learn how businesses are using it to create virtual try-on experiences and personalized styling.",
+    "url": "Blog/google-photos-wardrobe/index.html",
+    "content": "<p>The Fitting Room is moving to the smartphone. Photos Wardrobe is a new AI feature that allows for virtual try-ons and personal styling, reducing returns and increasing confidence.</p><h3>Trending Tasks</h3><ul><li>Virtual Try-On</li><li>Personalized Outfit Recommendations</li><li>Size Accuracy AI</li></ul>"
+  },
+  {
+    "id": "google-genie-3",
+    "title": "Playable Marketing: Why Genie 3 is the Future of Interactive Brand Worlds",
+    "author": "Damian Kemper",
+    "date": "April 30, 2026",
+    "readTime": "4 min read",
+    "image": "Blog/google-genie-3/google-genie-3-hero.jpg",
+    "description": "Discover Google Genie 3, the AI that turns images and text into playable interactive worlds. Learn how businesses are using it for immersive brand storytelling.",
+    "url": "Blog/google-genie-3/index.html",
+    "content": "<p>Marketing is shifting from 'watching' to 'inhabiting.' Genie 3 is a generative interactive model that can turn a single image or text into a playable interactive world.</p><h3>Key Features</h3><ul><li>Instant Prototyping</li><li>Interactive Storytelling</li><li>Sketch-to-World</li></ul>"
+  },
+  {
+    "id": "google-vids",
+    "title": "The Video-First Workplace: Reimagining Communication with Google Vids",
+    "author": "Damian Kemper",
+    "date": "April 30, 2026",
+    "readTime": "5 min read",
+    "image": "Blog/google-vids/google-vids-hero.jpg",
+    "description": "Discover Google Vids, the AI-powered video creation tool for work. Learn how businesses are replacing boring slide decks with engaging, automated video updates.",
+    "url": "Blog/google-vids/index.html",
+    "content": "<p>Engagement is the biggest hurdle for internal communication. Google Vids is an AI-powered video creation app for Workspace, designed for professional video stories.</p><h3>The ROI</h3><p>A 2-minute video can communicate more than a 20-minute meeting. Reclaim your team's most valuable asset: their attention.</p>"
+  },
+  {
+    "id": "google-lyria-branding",
+    "title": "Sonic Branding at Scale: How DeepMind's Lyria Model is Revolutionizing Audio Ads",
+    "author": "Damian Kemper",
+    "date": "April 30, 2026",
+    "readTime": "5 min read",
+    "image": "Blog/google-lyria-branding/google-lyria-branding-hero.jpg",
+    "description": "Explore the business side of DeepMind Lyria. Learn how small businesses are using advanced AI music models to create unique, secure audio branding for pennies.",
+    "url": "Blog/google-lyria-branding/index.html",
+    "content": "<p>Brands that 'sound' the best are the ones that stick. Lyria allows us to generate unique audio assets in seconds, ensuring your brand has a consistent 'voice.'</p><h3>Trending Tasks</h3><ul><li>AI-Generated Jingles</li><li>Dynamic Audio Ads</li><li>SynthID Watermarking</li></ul>"
+  },
+  {
     "id": "google-veo-3",
     "title": "Cinematic Velocity: Why Veo 3 is the New Standard for Business Video",
     "author": "Damian Kemper",
