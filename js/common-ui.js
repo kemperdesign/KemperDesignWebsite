@@ -124,7 +124,7 @@
                         </div>
                     </div>
 
-                    <div class="booking-iframe-container">
+                    <div class="booking-iframe-container" style="background: white; border-radius: 12px; overflow: hidden; height: 600px;">
                         <iframe src="https://calendar.app.google/f3NHg55Fwh6jL2WE8" width="100%" height="600" frameborder="0"></iframe>
                     </div>
                 </div>
@@ -136,7 +136,6 @@
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
             Schedule Consultation
         </button>
-    `;
 
         <!-- Contact Modal -->
         <div class="aai-modal" id="contact-modal">
@@ -210,7 +209,7 @@
                     <div class="aai-cat" style="color: var(--text-secondary); opacity: 0.6; font-size: 0.75rem; letter-spacing: 2px;">KEMPER DESIGN SERVICES</div>
                     <h2 id="sm-title" class="aai-q" style="margin-bottom: 24px; font-size: 2.2rem; font-weight: 700; letter-spacing: -0.02em;">Service Title</h2>
                     <p id="sm-desc" style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 40px; font-size: 1.05rem;">Service Description goes here.</p>
-                    <a href="javascript:void(0)" onclick="closeServiceModal(); openContactModal(currentServiceName);" class="aai-submit-btn" style="text-align: center; text-decoration: none; display: inline-block; cursor: pointer; padding: 18px 32px; border-radius: 12px; font-weight: 600;">Book a Free Discovery Call</a>
+                    <a href="javascript:void(0)" onclick="closeServiceModal(); openBookingModal();" class="aai-submit-btn" style="text-align: center; text-decoration: none; display: inline-block; cursor: pointer; padding: 18px 32px; border-radius: 12px; font-weight: 600;">Book a Free Discovery Call</a>
                 </div>
             </div>
         </div>
@@ -292,11 +291,74 @@
 
                             <div style="position: relative; padding-left: 35px;">
                                 <div style="position: absolute; left: 0; top: 5px; width: 15px; height: 15px; background: rgba(255,255,255,0.3); border-radius: 50%; border: 3px solid #0a0a0f;"></div>
+        <div class="aai-modal" id="certifications-modal">
+            <div class="aai-inner glass" style="padding: 60px; overflow-y: auto; max-width: 1100px; max-height: 85vh; border-radius: 28px;">
+                <button class="aai-close" onclick="closeCertificationsModal()" style="z-index: 10; background: rgba(0,0,0,0.5); width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; top: 20px; right: 20px; color: white; position: absolute;">✕</button>
+                <h2 style="font-size: 2.4rem; font-weight: 700; margin-bottom: 16px; color: white;">Certifications & Digital Credentials</h2>
+                <p style="color: var(--text-secondary); margin-bottom: 48px; line-height: 1.7;">Demonstrated expertise across AI systems, cloud platforms, instructional design, and technical content development.</p>
+                <h3 style="font-size: 1.6rem; color: var(--accent-1); margin-bottom: 12px; margin-top: 40px;">AI, Automation & Systems</h3>
+                <div class="badges-grid" id="ai-badges" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 20px; margin-bottom: 40px;"></div>
+                <h3 style="font-size: 1.6rem; color: var(--accent-1); margin-bottom: 12px; margin-top: 40px;">Cloud & Infrastructure</h3>
+                <div class="badges-grid" id="cloud-badges" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 20px; margin-bottom: 40px;"></div>
+                <h3 style="font-size: 1.6rem; color: var(--accent-1); margin-bottom: 12px; margin-top: 40px;">IT & Systems Management</h3>
+                <div class="badges-grid" id="it-badges" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 20px; margin-bottom: 40px;"></div>
+                <h3 style="font-size: 1.6rem; color: var(--accent-1); margin-bottom: 12px; margin-top: 40px;">Instructional Design</h3>
+                <div class="badges-grid" id="id-badges" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 20px; margin-bottom: 40px;"></div>
+                <h3 style="font-size: 1.6rem; color: var(--accent-1); margin-bottom: 12px; margin-top: 40px;">eLearning Tools & Platforms</h3>
+                <div class="badges-grid" id="elearning-badges" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 20px; margin-bottom: 40px;"></div>
+            </div>
+        </div>
+
+        <div class="aai-modal" id="badge-lightbox-modal" style="background: rgba(0, 0, 0, 0.85); z-index: 100005;">
+            <div style="display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; padding: 20px;">
+                <button class="aai-close" onclick="closeBadgeLightbox()" style="z-index: 10; background: rgba(255,255,255,0.1); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; top: 20px; right: 20px; color: white; position: absolute; border: 1px solid rgba(255,255,255,0.2); backdrop-filter: blur(10px);">✕</button>
+                <img id="lightbox-image" src="" alt="Certificate" style="max-width: 90vw; max-height: 90vh; object-fit: contain; border-radius: 12px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);">
+            </div>
+        </div>
+
+        <div class="aai-modal" id="about-modal">
+            <div class="aai-inner" style="padding: 60px 40px; max-width: 950px; border: 1px solid rgba(139, 92, 246, 0.2); max-height: 90vh; overflow-y: auto;">
+                <button class="aai-close" onclick="closeAboutModal()">✕</button>
+                <div style="display: flex; gap: 40px; align-items: flex-start; margin-bottom: 40px; flex-wrap: wrap;">
+                    <div style="flex: 1; min-width: 300px;">
+                        <div class="aai-cat" style="color: var(--accent-1); letter-spacing: 2px;">FOUNDER & PRINCIPAL DESIGNER</div>
+                        <h2 class="aai-q" style="font-size: 2.8rem; margin-bottom: 10px; font-family: 'Outfit';">Damian Kemper</h2>
+                        <p style="color: var(--text-secondary); line-height: 1.8; font-size: 1.1rem; max-width: 650px;">
+                            Accomplished **Instructional Designer** and **Technical Writer/Editor** with deep expertise in creating high-fidelity AI, cloud, and IT training experiences for enterprise clients. A lifelong native and local of **St. Augustine, Florida**, Damian combines world-class technical skills with a deep commitment to his community.
+                        </p>
+                        <div style="display: flex; gap: 15px; margin-top: 20px; flex-wrap: wrap;">
+                            <span style="background: rgba(139, 92, 246, 0.1); color: var(--accent-1); padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; border: 1px solid rgba(139, 92, 246, 0.2);">✓ AI Certified</span>
+                            <span style="background: rgba(139, 92, 246, 0.1); color: var(--accent-1); padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; border: 1px solid rgba(139, 92, 246, 0.2);">✓ Instructional Designer</span>
+                            <span style="background: rgba(139, 92, 246, 0.1); color: var(--accent-1); padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; border: 1px solid rgba(139, 92, 246, 0.2);">✓ Graphic Designer</span>
+                            <span style="background: rgba(139, 92, 246, 0.1); color: var(--accent-1); padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; border: 1px solid rgba(139, 92, 246, 0.2);">✓ App Designer</span>
+                            <span style="background: rgba(139, 92, 246, 0.1); color: var(--accent-1); padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; border: 1px solid rgba(139, 92, 246, 0.2);">✓ Former Teacher</span>
+                            <span style="background: rgba(139, 92, 246, 0.1); color: var(--accent-1); padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; border: 1px solid rgba(139, 92, 246, 0.2);">✓ Web Designer</span>
+                        </div>
+                    </div>
+                    <div style="width: 200px; height: 200px; background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(59, 130, 246, 0.1)); border: 1px solid rgba(255,255,255,0.1); border-radius: 30px; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(10px); flex-shrink: 0;">
+                        <img src="assets/logos/logo-white.png" alt="KDS Logo" style="width: 110px; opacity: 0.8; filter: drop-shadow(0 0 15px rgba(139, 92, 246, 0.3));">
+                    </div>
+                </div>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 50px;">
+                    <div>
+                        <h3 style="color: white; margin-bottom: 25px; font-family: 'Outfit'; font-size: 1.3rem; display: flex; align-items: center; gap: 10px;">
+                          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-1)" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                          Professional Experience
+                        </h3>
+                        <div style="display: flex; flex-direction: column; gap: 24px; position: relative; padding-left: 10px;">
+                            <div style="position: absolute; left: 17px; top: 10px; bottom: 10px; width: 1px; background: rgba(255,255,255,0.1);"></div>
+                            <div style="position: relative; padding-left: 35px;">
+                                <div style="position: absolute; left: 0; top: 5px; width: 15px; height: 15px; background: var(--accent-1); border-radius: 50%; border: 3px solid #0a0a0f;"></div>
+                                <div style="color: var(--accent-1); font-weight: 700; font-size: 0.8rem; margin-bottom: 4px;">2021 – PRESENT</div>
+                                <div style="color: white; font-weight: 600; font-size: 1.05rem; margin-bottom: 6px;">Technical Learning Specialist | Skillable</div>
+                                <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6;">Producing enterprise-grade AI, cloud, and IT training labs for **Google, Microsoft, AWS, and CompTIA**. Applying deep technical writing and debugging skills to validate complex AI-related lab environments.</p>
+                            </div>
+                            <div style="position: relative; padding-left: 35px;">
+                                <div style="position: absolute; left: 0; top: 5px; width: 15px; height: 15px; background: rgba(255,255,255,0.3); border-radius: 50%; border: 3px solid #0a0a0f;"></div>
                                 <div style="color: rgba(255,255,255,0.5); font-weight: 700; font-size: 0.8rem; margin-bottom: 4px;">2019 – 2021</div>
                                 <div style="color: white; font-weight: 600; font-size: 1.05rem; margin-bottom: 6px;">Instructional Systems Designer II | A. Harold & Associates</div>
                                 <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6;">Led Subject Matter Expert (SME) coordination for the **Navy Sailor 2025 initiative**. Developed detailed course outlines and multi-platform instructional strategies.</p>
                             </div>
-
                             <div style="position: relative; padding-left: 35px;">
                                 <div style="position: absolute; left: 0; top: 5px; width: 15px; height: 15px; background: rgba(255,255,255,0.3); border-radius: 50%; border: 3px solid #0a0a0f;"></div>
                                 <div style="color: rgba(255,255,255,0.5); font-weight: 700; font-size: 0.8rem; margin-bottom: 4px;">2017 – 2018</div>
@@ -388,7 +450,7 @@
         // AI Services
         "AI Workflow Automation": { desc: "We map out your manual processes and build automated workflows that tie your existing software stack together.", video: "assets/video/Services - AI Integrations.mp4" },
         "AI Consulting": { desc: "Expert guidance on adopting AI technologies, identifying high-impact use cases, and creating a roadmap for success.", video: "assets/video/ai audit_00001_.mp4" },
-        "Custom Integrations": { desc: "Seamlessly connect your CRM, email, and internal tools so data flows automatically across your business.", video: "assets/video/system integration.mp4" },
+        "Custom Integrations": { desc: "Seamlessly connect your CRM, email, and internal tools so data flows automatically across your business.", video: "assets/video/system integration_00001_.mp4" },
         "AI Enablement": { desc: "Empowering your team with the tools and access needed to leverage AI in their daily workflows securely.", video: "assets/video/Services - Local AI Deployment.mp4" },
         "AI Training & Education": { desc: "Comprehensive training programs designed to upskill your staff on the latest AI tools and best practices.", video: "assets/video/ai education.mp4" },
         "AI Implementation": { desc: "End-to-end deployment of custom AI solutions, from initial setup to full-scale operations.", video: "assets/video/Custom Internal AI Tools_00002_.mp4" },
@@ -399,16 +461,16 @@
         "Custom Websites": { desc: "High-performance, beautifully designed websites that convert visitors into leads.", video: "assets/video/web design_00001_.mp4" },
         "Graphic Design": { desc: "Professional graphic design services that communicate your brand's message.", video: "assets/video/Services - Graphic Design.mp4" },
         "Instructional Design": { desc: "Development of clear SOPs, training modules, and knowledge bases.", video: "assets/video/isd.mp4" },
-        "Notary Services": { desc: "Professional notary services for all your important legal and business documentation.", video: "assets/video/notary.mp4" },
+        "Notary Services": { desc: "Professional notary services for all your important legal and business documentation.", video: "assets/video/notary_00001_.mp4" },
         
         // Legacy/Other Keys
         "AI Workflow Integration": { desc: "We map out your manual processes and build automated workflows.", video: "assets/video/Services - AI Integrations.mp4" },
         "AI Chatbots & Assistants": { desc: "Custom-trained AI agents that know your business operations inside and out.", video: "assets/video/chatbots_00001_.mp4" },
-        "AI Auto-Scheduler": { desc: "An intelligent scheduling agent that coordinates meetings automatically.", video: "assets/video/ai autoscheduler.mp4" },
+        "AI Auto-Scheduler": { desc: "An intelligent scheduling agent that coordinates meetings automatically.", video: "assets/video/ai autoscheduler_00001_.mp4" },
         "Document Processing": { desc: "Turn unstructured documents into clean, usable data automatically.", video: "assets/video/Services - Document Processing.mp4" },
         "Local AI Deployment": { desc: "Run powerful AI models on your own servers.", video: "assets/video/Services - Local AI Deployment.mp4" },
         "Custom Internal AI Tools": { desc: "Purpose-built AI tools designed specifically for your internal operations.", video: "assets/video/Custom Internal AI Tools_00002_.mp4" },
-        "System Integrations": { desc: "Seamlessly connect all your business systems.", video: "assets/video/system integration.mp4" },
+        "System Integrations": { desc: "Seamlessly connect all your business systems.", video: "assets/video/system integration_00001_.mp4" },
         "UI/UX Design": { desc: "User-centered design that creates intuitive, beautiful interfaces.", video: "assets/video/Services - UI UX.mp4" },
         "Frontend Development": { desc: "Expert front-end development.", video: "assets/video/frontend development_00001_.mp4" },
         "IT Infrastructure": { desc: "Robust IT infrastructure design and implementation.", video: "assets/video/it infrastructure.mp4" },
